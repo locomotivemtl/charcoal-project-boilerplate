@@ -1,0 +1,9 @@
+{
+	"URL":"http://localhost/cb/",
+
+	"dev_mode":true,
+
+	"cache":{
+		"active":false
+	}
+}

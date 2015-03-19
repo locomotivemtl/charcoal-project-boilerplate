@@ -1,0 +1,2 @@
+Home template.
+{{test}}
