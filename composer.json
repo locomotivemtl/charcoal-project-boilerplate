@@ -1,12 +1,29 @@
 {
     "name": "locomotivemtl/charcoal-project-boilerplate",
     "require": {
-        "locomotivemtl/charcoal-core":"@dev"
+        "locomotivemtl/charcoal-core":"@dev",
+	"locomotivemtl/charcoal-base":"@dev",
+        "locomotivemtl/charcoal-admin":"@dev",
+        "locomotivemtl/charcoal-cms":"@dev",
+        "monolog/monolog": "~1.13",
+	"ircmaxell/password-compat": "dev-master"
     },
     "repositories":[
         {
             "type":"vcs",
             "url":"https://github.com/locomotivemtl/charcoal-core"
+        },
+	{
+		"type":"vcs",
+		"url":"https://github.com/locomotivemtl/charcoal-base"
+	},
+        {
+            "type":"vcs",
+            "url":"https://github.com/locomotivemtl/charcoal-admin"
+        },
+        {
+            "type":"vcs",
+            "url":"https://github.com/locomotivemtl/charcoal-cms"
         }
     ],
     "autoload":{
