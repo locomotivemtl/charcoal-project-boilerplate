@@ -1,0 +1,10 @@
+{
+	"properties":{
+		"x":{
+			"type":"string"
+		}
+	},
+	"data":{
+		"x":"Hello World!"
+	}
+}

@@ -2,10 +2,11 @@
 
 namespace Boilerplate\Template;
 
-use \Charcoal\Model\Model as Model;
+use Boilerplate\Template as Template;
 
-class Home extends Model
+class Home extends Template
 {
+
 	public function test()
 	{
 		return 'TEST '.rand(0,100);

@@ -1,2 +1,5 @@
 node_modules
 vendor
+www/mustache_cache
+.idea
+www/charcoal.debug.log
