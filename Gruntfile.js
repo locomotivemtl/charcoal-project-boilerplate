@@ -101,11 +101,18 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			php: {
-				files :[
+				files: [
 					'src/**/*.php',
 					'tests/**/*.php',
 				],
 				tasks: ['phplint']
+			},
+			json: {
+				files: [
+					'*.json',
+					'metadata/**/*.json'
+				],
+				tasks: ['jsonlint']
 			}
 		},
 		githooks: {
