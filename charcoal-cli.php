@@ -5,10 +5,11 @@ use \Slim\Environment as SlimEnvironment;
 
 // From `charcoal-core`
 use \Charcoal\Charcoal as Charcoal;
-// From `charcoal-base`
-use \Charcoal\Action\ActionFactory as ActionFactory;
+
 // From `charcoal-admin
-use \Charcoal\Admin\Module as AdminModule;
+use \Charcoal\Admin\AdminModule as AdminModule;
+
+use \Boilerplate\BoilerplateModule as BoilerplateModule;
 
 include 'vendor/autoload.php';
 
@@ -47,26 +48,21 @@ Charcoal::app()->error(function (Exception $e) {
     Charcoal::app()->stop();
 });
 
-// Handle admin CLI action
+// Handle admin CLI actions
 Charcoal::app()->group('/'.Charcoal::config('admin_path'), function()  {
-    //var_dump('...');
-    $admin_module = new AdminModule([
+    $admin_config = [
         'config' => [
             'base_path' => Charcoal::config('admin_path')
         ]
-    ]);
+    ];
+    $admin_module = new AdminModule($admin_config);
     $admin_module->setup_cli_routes();
 });
 
-Charcoal::app()->get('/:actions+', function ($actions) {
-    try {
-        $action_ident = implode('/', $actions);
-        $action = ActionFactory::instance()->get('boilerplate/action/cli/'.$action_ident);
-        $action->run();
-    }
-    catch(Exception $e) {
-        die($e->getMessage()."\n");
-    }
+// Handle boilerplate CLI actions
+Charcoal::app()->group('/boilerplate', function() {
+    $boilerplate_module = new BoilerplateModule();
+    $boilerplate_module->setup_cli_routes();
 });
 
 Charcoal::app()->run();
