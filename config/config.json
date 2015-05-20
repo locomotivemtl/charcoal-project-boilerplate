@@ -1,6 +1,8 @@
 {
 	"URL":"http://localhost/cb/",
 
+	"admin_path":"admin",
+	
 	"dev_mode":true,
 
 	"cache":{
