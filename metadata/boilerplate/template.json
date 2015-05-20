@@ -1,10 +1,10 @@
 {
 	"properties":{
-		"x":{
+		"ident":{
 			"type":"string"
 		}
 	},
 	"data":{
-		"x":"Héllö <strong>Ben!</strong>"
+		"ident":"template"
 	}
 }

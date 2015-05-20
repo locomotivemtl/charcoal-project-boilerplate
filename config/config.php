@@ -14,8 +14,7 @@ if(file_exists(__DIR__.'/config.'.$application_env.'.json')) {
 }
 
 Charcoal::config()->set_template_path([
-	realpath(__DIR__.'/../templates/'),
-    realpath(__DIR__.'/../templates/boilerplate/template/')
+	realpath(__DIR__.'/../templates/')
 ]);
 
 Charcoal::config()->set_metadata_path([
