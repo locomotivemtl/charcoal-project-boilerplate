@@ -6,7 +6,8 @@
         "locomotivemtl/charcoal-admin":"@dev",
         "locomotivemtl/charcoal-cms":"@dev",
         "monolog/monolog": "~1.13",
-        "ircmaxell/password-compat": "dev-master"
+        "ircmaxell/password-compat": "dev-master",
+        "league/climate": "~3.1"
     },
     "repositories":[
         {

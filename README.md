@@ -11,9 +11,9 @@ To start a Charcoal project with this Boilerplate, simply:
   - `git clone https://github.com/locomotivemtl/charcoal-project-boilerplate`
   - The project should be cloned in a web-accessible directory, but with the document root pointing directly to the [www](www/) folder.
 - **Rename the boilerplate to your project**
-  - `php rename_boilerplate.php`
-- **Set up a database storage**
-  - `php setup_db.php` 
+  - `php charcoal-cli.php boilerplate/rename`
+- **Set up a database storage** 
+  - `php charcoal-cli.php boilerplate/setup` 
 - **Install the various dependencies (composer, npm, bower)**
   - `composer install`
   - `npm install`
@@ -90,7 +90,6 @@ Like all Charcoal projects / modules, the main components are:
   - Scripts, in `src/scripts/` and compiled in `www/assets/scripts/`
   - Styles , with SASS in `src/styles/` and compiled CSS in `www/assets/styles/`
   - Images, in `www/assets/images/`
-
 
 ## About the Document Root
 

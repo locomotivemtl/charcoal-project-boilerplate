@@ -1,4 +1,6 @@
 {
+  "name":"locomotivemtl/charcoal-project-boilerplate",
+  
   "devDependencies": {
     "grunt-phplint": "0.0.5",
     "grunt-jsonlint": "^1.0.4",
