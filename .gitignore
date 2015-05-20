@@ -3,3 +3,4 @@ vendor
 www/mustache_cache
 .idea
 www/charcoal.debug.log
+tests/tmp
