@@ -10,7 +10,7 @@ use \Charcoal\Action\ActionFactory as ActionFactory;
 use \Charcoal\Module\AbstractModule as AbstractModule;
 use \Charcoal\Template\TemplateView as TemplateView;
 
-class BoilerplateModule extends AbstractModule 
+class BoilerplateModule extends AbstractModule
 {
     /**
     * @param array $data
@@ -26,16 +26,15 @@ class BoilerplateModule extends AbstractModule
     */
     public function setup_routes()
     {
-        Charcoal::app()->get('/:actions+?', function ($actions=['home']) {
+        Charcoal::app()->get('/:actions+?', function ($actions = ['home']) {
             $template = implode('/', $actions);
             $view = new TemplateView();
             $view->from_ident('boilerplate/template/'.$template);
             $content = $view->render();
 
-            if($content) {
+            if ($content) {
                 echo $content;
-            }
-            else {
+            } else {
                 Charcoal::app()->halt(404, 'Page not found');
             }
 
@@ -53,8 +52,7 @@ class BoilerplateModule extends AbstractModule
                 $action_ident = implode('/', $actions);
                 $action = ActionFactory::instance()->get('boilerplate/action/cli/'.$action_ident);
                 $action->run();
-            }
-            catch(Exception $e) {
+            } catch (Exception $e) {
                 die($e->getMessage()."\n");
             }
         });
