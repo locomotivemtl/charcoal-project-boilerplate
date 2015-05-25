@@ -14,7 +14,9 @@
  	<!--<rule ref="PSR2"/>-->
 
 <!-- Array Sniffs -->
-
+	
+	<!-- Ensures short-array notation. -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 	<!-- Ensures there are no spaces around rray brackets -->
 	<rule ref="Squiz.Arrays.ArrayBracketSpacing" />
 	<!-- Ensures array declaration is standard. Disabled because of weird spacing requirement. -->
