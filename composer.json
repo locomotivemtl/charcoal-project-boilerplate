@@ -1,5 +1,6 @@
 {
     "name": "locomotivemtl/charcoal-project-boilerplate",
+    "minimum-stability":"dev",
     "require": {
         "locomotivemtl/charcoal-core":"@dev",
         "locomotivemtl/charcoal-base":"@dev",
