@@ -1,13 +1,9 @@
 root = true
 
 [*]
-end_of_line = lf
-insert_final_newline = true
-
-[*.{js,py,php}]
 charset = utf-8
-
-[*.php]
 indent_style = space
 indent_size = 4
+end_of_line = lf
+insert_final_newline = true
 

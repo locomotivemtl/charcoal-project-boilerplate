@@ -16,6 +16,16 @@ module.exports = function(grunt) {
 			}
 		},
 
+		copy:{
+			// Assets from charcoal-admin module
+			admin:{
+				expand:true,
+				cwd: 'vendor/locomotivemtl/charcoal-admin/assets/dist/',
+				src: ['**', '*'],
+				dest: 'www/assets/admin/'
+			}
+		},
+
 		jsonlint:{
 			meta:{
 				src:['*.json']
@@ -100,12 +110,18 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
+			admin:{
+				files:[
+					'vendor/locomotivemtl/charcoal-admin/assets/dist/**'
+				],
+				tasks: ['copy']
+			},
 			php: {
 				files: [
 					'src/**/*.php',
 					'tests/**/*.php',
 				],
-				tasks: ['phplint']
+				tasks: ['phplint', 'phpcs', 'phpunit']
 			},
 			json: {
 				files: [
@@ -124,6 +140,7 @@ module.exports = function(grunt) {
 	});
 
 	// Load plugin(s)
+	grunt.loadNpmTasks('grunt-contrib-copy')
 	grunt.loadNpmTasks('grunt-yaml-validate');
 	grunt.loadNpmTasks('grunt-jsonlint');
 	grunt.loadNpmTasks("grunt-phplint");
@@ -143,6 +160,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('tests', [
 		'phpunit',
 		'phplint'
+	]);
+	grunt.registerTask('build', [
+		'copy'
 	]);
 	
 };

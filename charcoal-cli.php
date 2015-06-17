@@ -15,7 +15,7 @@ include 'vendor/autoload.php';
 
 // Ensure CLI mode
 if(php_sapi_name() !== 'cli') {
-    die('This program can only be executed from a terminal (CLI / Command Line Interface'."\n");
+    die('This program can only be executed from a terminal / Command Line Interface'."\n");
 }
 
 // Convert command line arguments into a URL (for Slim)

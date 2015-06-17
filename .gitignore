@@ -1,6 +1,8 @@
 node_modules
 vendor
 www/mustache_cache
+mustache_cache
 .idea
 www/charcoal.debug.log
 tests/tmp
+bower_components
