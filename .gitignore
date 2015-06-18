@@ -6,3 +6,4 @@ mustache_cache
 www/charcoal.debug.log
 tests/tmp
 bower_components
+www/assets/admin
