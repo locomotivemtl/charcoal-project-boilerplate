@@ -1,0 +1,102 @@
+{
+	"parent":"charcoal/object/content",
+
+	"properties":{
+		"id":{
+			"type":"id",
+			"mode":"auto-increment"
+		},
+		"name":{
+			"type":"string"
+		},
+		"num":{
+			"type":"integer"
+		},
+		"ok":{
+			"type":"boolean"
+		}
+	},
+	"sources":{
+		"default":{
+			"type":"database",
+			"table":"boilerplate_tests"
+		}
+	},
+	"default_source":"default",
+
+	"admin":{
+		"lists":{
+			"default":{
+				"properties":[
+					"id",
+					"name",
+					"num",
+					"ok"
+				],
+				"properties_options":{
+
+				},
+				"filters":[
+
+				],
+				"orders":[
+
+				],
+				"pagination":[
+
+				]
+
+			}
+		},
+		"default_list":"default",
+
+		"forms":{
+			"default":{
+				"groups":{
+					"all":{
+						"properties":[
+							"id",
+							"name",
+							"num",
+							"ok"
+						]
+					}
+				}
+			}
+		},
+		"default_form":"default",
+
+		"dashboards":{
+			"admin.edit":{
+				"layout":{
+					"structure":[{
+						"columns":[1]
+					}]
+				},
+				"widgets":{
+					"form":{
+						"type":"charcoal/admin/widget/objectForm",
+						"form_ident":"default",
+						"obj_type":"boilerplate/test"
+					}
+				}
+			},
+			"admin.table":{
+				"layout":{
+					"structure":[{
+						"columns":[1]
+					}]
+				},
+				"widgets":{
+					"list":{
+						"type":"charcoal/admin/widget/table",
+						"label":"Table label",
+						"obj_type":"boilerplate/test"
+					}
+				}
+			}
+		},
+		"default_edit_dashboard":"admin.edit",
+		"default_collection_dashboard":"admin.table"
+	}
+}

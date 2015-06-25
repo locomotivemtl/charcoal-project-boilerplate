@@ -38,7 +38,7 @@ Charcoal::app()->environment = SlimEnvironment::mock([
 // CLI-compatible not found error handler
 Charcoal::app()->notFound(function () {
     $url = Charcoal::app()->environment['PATH_INFO'];
-    echo "Error: Cannot route to $url";
+    echo "Error: Cannot route to $url"."\n";
     Charcoal::app()->stop();
 });
 
