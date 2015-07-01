@@ -1,168 +1,166 @@
 /**
-* Gruntfile.js
-* Charcoal-Core configuration for grunt. (The JavaScript Task Runner)
-*/
+ * @file Charcoal Task Runner for Grunt
+ */
 
 module.exports = function(grunt) {
-	"use strict";
+    "use strict";
 
-	// Project configuration.
-	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-		"yaml-validate": {
-			options: {
-				glob: ".travis.yml"
-			}
-		},
+        "yaml-validate": {
+            options: {
+                glob: ".travis.yml"
+            }
+        },
 
-		copy:{
-			// Assets from charcoal-admin module
-			admin:{
-				expand:true,
-				cwd: 'vendor/locomotivemtl/charcoal-admin/assets/dist/',
-				src: ['**', '*'],
-				dest: 'www/assets/admin/'
-			}
-		},
+        copy: {
+            // Assets from charcoal-admin module
+            admin: {
+                expand: true,
+                cwd: 'vendor/locomotivemtl/charcoal-admin/assets/dist/',
+                src: ['**', '*'],
+                dest: 'www/assets/admin/'
+            }
+        },
 
-		jsonlint:{
-			meta:{
-				src:['*.json']
-			},
-			config:{
-				src:['config/**/*.json']
-			},
-			metadata:{
-				src:['metadata/**/*.json']
-			}
-		},
+        jsonlint: {
+            meta: {
+                src: ['*.json']
+            },
+            config: {
+                src: ['config/**/*.json']
+            },
+            metadata: {
+                src: ['metadata/**/*.json']
+            }
+        },
 
-		phplint:{
-			options: {
-				swapPath: '/tmp',
-				phpArgs : {
-					// add -f for fatal errors
-					'-lf': null
-				}
-			},
+        phplint: {
+            options: {
+                swapPath: '/tmp',
+                phpArgs : {
+                    // add -f for fatal errors
+                    '-lf': null
+                }
+            },
+            src: [
+                'src/**/*.php'
+            ],
+            tests: [
+                'tests/**/*.php'
+            ]
+        },
 
-			src: [
-				'src/**/*.php'
-			],
-			tests: [
-				'tests/**/*.php'
-			]
-		},
+        phpunit: {
+            src: {
+                dir: 'tests/'
+            },
+            options: {
+                colors: true,
+                coverageHtml: 'tests/tmp/report/',
+                //coverageText: 'tests/tmp/report/',
+                testdoxHtml: 'tests/tmp/testdox.html',
+                testdoxText: 'tests/tmp/testdox.text',
+                verbose: true,
+                debug: false,
+                bootstrap: 'tests/bootstrap.php'
+            }
+        },
 
-		phpunit:{
+        phpcs: {
+            src: {
+                src: ['src/**/*.php']
+            },
+            tests: {
+                src: ['tests/**/*.php']
+            },
+            options: {
+                standard: 'phpcs.xml',
+                extensions: 'php',
+                showSniffCodes: true
+            }
+        },
 
-			src: {
-				dir: 'tests/'
-			},
+        phpcbf: {
+            src: {
+                src: ['src/**/*.php']
+            },
+            tests: {
+                src: ['tests/**/*.php']
+            },
+            options: {
+                standard: 'phpcs.xml',
+                noPatch: true
+            }
+        },
 
-			options: {
-				colors: true,
-				coverageHtml:'tests/tmp/report/',
-				//coverageText:'tests/tmp/report/',
-				testdoxHtml:'tests/tmp/testdox.html',
-				testdoxText:'tests/tmp/testdox.text',
-				verbose:true,
-				debug:false,
-				bootstrap:'tests/bootstrap.php'
-			}
-		},
+        phpdocumentor: {
+            dist: {
+                options: {
+                    config: 'phpdoc.dist.xml',
+                    directory : ['src/', 'tests/'],
+                    target : 'phpdoc/'
+                }
+            }
+        },
 
-		phpcs: {
-			src:{
-				src:['src/**/*.php']
-			},
-			tests: {
-				src:['tests/**/*.php']
-			},
-			options: {
-				standard: 'phpcs.xml',
-				extensions: 'php',
-				showSniffCodes: true
-			}
-		},
+        watch: {
+            admin: {
+                files: [
+                    'vendor/locomotivemtl/charcoal-admin/assets/dist/**'
+                ],
+                tasks: ['copy']
+            },
+            php: {
+                files: [
+                    'src/**/*.php',
+                    'tests/**/*.php',
+                ],
+                tasks: ['phplint', 'phpcs', 'phpunit']
+            },
+            json: {
+                files: [
+                    '*.json',
+                    'metadata/**/*.json'
+                ],
+                tasks: ['jsonlint']
+            }
+        },
 
-		phpcbf: {
-			src:{
-				src:['src/**/*.php']
-			},
-			tests: {
-				src:['tests/**/*.php']
-			},
-			options: {
-				standard: 'phpcs.xml',
-				noPatch: true
-			}
-		},
+        githooks: {
+            all: {
+                'pre-commit': 'jsonlint phplint phpunit phpcs',
+            }
+        }
 
-		phpdocumentor: {
-			dist: {
-				options: {
-					config: 'phpdoc.dist.xml',
-					directory : ['src/', 'tests/'],
-					target : 'phpdoc/'
-				}
-			}
-		},
-		watch: {
-			admin:{
-				files:[
-					'vendor/locomotivemtl/charcoal-admin/assets/dist/**'
-				],
-				tasks: ['copy']
-			},
-			php: {
-				files: [
-					'src/**/*.php',
-					'tests/**/*.php',
-				],
-				tasks: ['phplint', 'phpcs', 'phpunit']
-			},
-			json: {
-				files: [
-					'*.json',
-					'metadata/**/*.json'
-				],
-				tasks: ['jsonlint']
-			}
-		},
-		githooks: {
-			all: {
-				'pre-commit': 'jsonlint phplint phpunit phpcs',
-			}
-		}
-		
-	});
+    });
 
-	// Load plugin(s)
-	grunt.loadNpmTasks('grunt-contrib-copy')
-	grunt.loadNpmTasks('grunt-yaml-validate');
-	grunt.loadNpmTasks('grunt-jsonlint');
-	grunt.loadNpmTasks("grunt-phplint");
-	grunt.loadNpmTasks('grunt-phpunit');
-	grunt.loadNpmTasks('grunt-phpcs');
-	grunt.loadNpmTasks('grunt-phpcbf');
-	grunt.loadNpmTasks('grunt-phpdocumentor');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-githooks');
-	grunt.loadNpmTasks('grunt-composer');	
+    grunt.loadNpmTasks('grunt-contrib-copy')
+    grunt.loadNpmTasks('grunt-yaml-validate');
+    grunt.loadNpmTasks('grunt-jsonlint');
+    grunt.loadNpmTasks("grunt-phplint");
+    grunt.loadNpmTasks('grunt-phpunit');
+    grunt.loadNpmTasks('grunt-phpcs');
+    grunt.loadNpmTasks('grunt-phpcbf');
+    grunt.loadNpmTasks('grunt-phpdocumentor');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-githooks');
+    grunt.loadNpmTasks('grunt-composer');
 
-	// Register Task(s)
-	grunt.registerTask('default', [
-		'phpunit',
-		//'phplint' // To slow for default
-	]);
-	grunt.registerTask('tests', [
-		'phpunit',
-		'phplint'
-	]);
-	grunt.registerTask('build', [
-		'copy'
-	]);
-	
+    grunt.registerTask('default', [
+        'phpunit',
+        // 'phplint' /** To slow for "default" task */
+    ]);
+
+    grunt.registerTask('tests', [
+        'phpunit',
+        'phplint'
+    ]);
+
+    grunt.registerTask('build', [
+        'copy'
+    ]);
+
 };

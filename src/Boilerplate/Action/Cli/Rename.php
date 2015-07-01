@@ -14,25 +14,25 @@ if (!function_exists('glob_recursive')) {
             $files = array_merge($files, glob_recursive($dir.'/'.basename($pattern), $flags));
         }
         return $files;
-        
     }
 }
 
 /**
-*
-*/
+ *
+ */
 class Rename extends CliAction
 {
-
     protected $_project_name;
 
     public function __construct()
     {
         $arguments = $this->default_arguments();
         $this->set_arguments($arguments);
-
     }
 
+    /**
+     * @return array
+     */
     public function default_arguments()
     {
         $arguments = [
@@ -47,6 +47,10 @@ class Rename extends CliAction
         return $arguments;
     }
 
+    /**
+     * @param string $project_name
+     * @return Rename Chainable
+     */
     public function set_project_name($project_name)
     {
         if (!is_string($project_name)) {
@@ -62,12 +66,17 @@ class Rename extends CliAction
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function project_name()
     {
         return $this->_project_name;
     }
 
-
+    /**
+     * @return array
+     */
     public function response()
     {
         return [
@@ -85,7 +94,7 @@ class Rename extends CliAction
             $climate->usage();
             die();
         }
-        
+
         $climate->arguments->parse();
         $project_name = $climate->arguments->get('project_name');
         $verbose = !!$climate->arguments->get('quiet');
@@ -102,7 +111,7 @@ class Rename extends CliAction
         }
 
         $climate->bold()->out(sprintf('Using "%s" as project name...', $project_name));
-        
+
         // Replace file contents
         $this->replace_file_content();
 

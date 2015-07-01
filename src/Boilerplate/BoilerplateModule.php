@@ -13,17 +13,17 @@ use \Charcoal\Template\TemplateView as TemplateView;
 class BoilerplateModule extends AbstractModule
 {
     /**
-    * @param array $data
-    * @return BoilerplateModule Chainable
-    */
+     * @param array $data Optional
+     * @return BoilerplateModule Chainable
+     */
     public function init($data = null)
     {
         return $this;
     }
 
     /**
-    * @return BoilerplateModule Chainable
-    */
+     * @return BoilerplateModule Chainable
+     */
     public function setup_routes()
     {
         Charcoal::app()->get('/:actions+?', function ($actions = ['home']) {
@@ -43,8 +43,8 @@ class BoilerplateModule extends AbstractModule
     }
 
     /**
-    * @return BoilerplateModule Chainable
-    */
+     * @return BoilerplateModule Chainable
+     */
     public function setup_cli_routes()
     {
         Charcoal::app()->get('/:actions+', function ($actions) {

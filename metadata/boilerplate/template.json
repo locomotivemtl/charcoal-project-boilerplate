@@ -1,10 +1,10 @@
 {
-	"properties":{
-		"ident":{
-			"type":"string"
-		}
-	},
-	"data":{
-		"ident":"template"
-	}
+  "properties": {
+    "ident": {
+      "type": "string"
+    }
+  },
+  "data": {
+    "ident": "template"
+  }
 }

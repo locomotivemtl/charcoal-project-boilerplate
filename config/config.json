@@ -1,11 +1,11 @@
 {
-	"URL":"http://localhost/cb/",
+  "URL": "http://localhost/cb/",
 
-	"admin_path":"admin",
-	
-	"dev_mode":true,
+  "admin_path": "admin",
 
-	"cache":{
-		"active":false
-	}
+  "dev_mode": true,
+
+  "cache": {
+    "active": false
+  }
 }

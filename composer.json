@@ -1,36 +1,35 @@
 {
-    "name": "locomotivemtl/charcoal-project-boilerplate",
-    "minimum-stability":"dev",
-    "require": {
-        "locomotivemtl/charcoal-core":"@dev",
-        "locomotivemtl/charcoal-base":"@dev",
-        "locomotivemtl/charcoal-admin":"@dev",
-        "locomotivemtl/charcoal-cms":"@dev",
-        "monolog/monolog": "~1.13",
-        "ircmaxell/password-compat": "dev-master",
-        "league/climate": "~3.1"
+  "name": "locomotivemtl/charcoal-project-boilerplate",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.0",
+    "locomotivemtl/charcoal-core": "@dev",
+    "locomotivemtl/charcoal-base": "@dev",
+    "locomotivemtl/charcoal-admin": "@dev",
+    "locomotivemtl/charcoal-cms": "@dev",
+    "league/climate": "~3.1"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/locomotivemtl/charcoal-core"
     },
-    "repositories":[
-        {
-            "type":"vcs",
-            "url":"https://github.com/locomotivemtl/charcoal-core"
-        },
-	{
-		"type":"vcs",
-		"url":"https://github.com/locomotivemtl/charcoal-base"
-	},
-        {
-            "type":"vcs",
-            "url":"https://github.com/locomotivemtl/charcoal-admin"
-        },
-        {
-            "type":"vcs",
-            "url":"https://github.com/locomotivemtl/charcoal-cms"
-        }
-    ],
-    "autoload":{
-        "psr-4":{
-            "Boilerplate\\": "src/Boilerplate"
-        }
+    {
+      "type": "vcs",
+      "url": "https://github.com/locomotivemtl/charcoal-base"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/locomotivemtl/charcoal-admin"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/locomotivemtl/charcoal-cms"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Boilerplate\\": "src/Boilerplate"
+    }
+  }
 }
