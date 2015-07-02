@@ -1,9 +1,22 @@
-node_modules
-vendor
-www/mustache_cache
-mustache_cache
-.idea
-www/charcoal.debug.log
-tests/tmp
-bower_components
-www/assets/admin
+# Charcoal
+
+www/assets/admin/
+config/config.*.json
+!config/config.sample.json
+
+# Package Managers
+
+composer.phar
+vendor/
+node_modules/
+bower_components/
+
+# Logging
+
+*.log
+logs/
+
+# Caches
+
+mustache_cache/
+tmp/
