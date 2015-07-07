@@ -50,6 +50,7 @@ class Rename extends CliAction
     /**
      * @param string $project_name
      * @return Rename Chainable
+     * @throws InvalidArgumentException Invalid project name
      */
     public function set_project_name($project_name)
     {
@@ -60,7 +61,7 @@ class Rename extends CliAction
             throw new InvalidArgumentException('Invalid project name');
         }
         if (!preg_match('/^[a-z]+$/', $project_name)) {
-            throw new InvalidArgumentException('Invalid project name (must be lowercase)');
+            throw new InvalidArgumentException('Invalid project name. Only the characters from A-Z are allowed and must be all lowercase.');
         }
         $this->_project_name = $project_name;
         return $this;
