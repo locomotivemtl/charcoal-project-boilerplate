@@ -13,6 +13,8 @@ use \Charcoal\Template\TemplateView as TemplateView;
 class BoilerplateModule extends AbstractModule
 {
     /**
+     * Initialize the module
+     *
      * @param array $data Optional
      * @return BoilerplateModule Chainable
      */
@@ -22,6 +24,12 @@ class BoilerplateModule extends AbstractModule
     }
 
     /**
+     * Setup web routes for the module
+     *
+     * Register all of the routes for the module. Tell Charcoal the URIs
+     * it should respond to and give it the controller or template to call
+     * when that URI is requested.
+     *
      * @return BoilerplateModule Chainable
      */
     public function setup_routes()
@@ -37,12 +45,14 @@ class BoilerplateModule extends AbstractModule
             } else {
                 Charcoal::app()->halt(404, 'Page not found');
             }
-
         });
+
         return $this;
     }
 
     /**
+     * Setup CLI routes for the module
+     *
      * @return BoilerplateModule Chainable
      */
     public function setup_cli_routes()
@@ -56,6 +66,7 @@ class BoilerplateModule extends AbstractModule
                 die($e->getMessage()."\n");
             }
         });
+
         return $this;
     }
 }
