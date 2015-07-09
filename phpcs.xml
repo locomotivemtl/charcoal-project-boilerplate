@@ -1,23 +1,33 @@
 <?xml version="1.0"?>
 <ruleset name="Charcoal">
-    <!-- PHP CodeSniffer ruleset -->
-    <description>Charcoal coding standard</description>
-    <arg name="tab-width" value="4" />
+<!-- PHP CodeSniffer ruleset -->
 
-    <!-- Include the whole PSR-1 standard -->
+    <description>Charcoal coding standard</description>
+    <arg name="encoding" value="4" />
+    <arg name="tab-width" value="utf-8" />
+
+<!-- Include the whole PSR-1 standard -->
+
     <rule ref="PSR1"/>
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
         <severity>0</severity>
     </rule>
 
-    <!-- Include the whole PSR-2 standard -->
-    <!--<rule ref="PSR2"/>-->
+<!-- Include the whole PSR-2 standard -->
+
+    <rule ref="PSR2"/>
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
 
 <!-- Array Sniffs -->
 
     <!-- Ensures short-array notation. -->
     <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
-    <!-- Ensures there are no spaces around rray brackets -->
+    <!-- Ensures there are no spaces around array brackets -->
     <rule ref="Squiz.Arrays.ArrayBracketSpacing" />
     <!-- Ensures array declaration is standard. Disabled because of weird spacing requirement. -->
     <!--<rule ref="Squiz.Arrays.ArrayDeclaration" />-->
@@ -38,7 +48,6 @@
     <rule ref="Squiz.Classes.SelfMemberReference" />
     <!-- Test class names are camel-cased properly -->
     <rule ref="Squiz.Classes.ValidClassName" />
-
 
 <!-- Code Analysis Sniffs -->
 
@@ -78,17 +87,17 @@
     <!--<rule ref="Squiz.Commenting.BlockComment" />-->
     <!-- Class comment blocks -->
     <!--<rule ref="Squiz.Commenting.ClassComment" />-->
-    <!-- @todo doc me -->
-    <!--<rule ref="Squiz.Commenting.DocCommentAlignment" />-->
-    <!-- @todo doc me -->
+    <!-- Tests that the stars in a doc comment align correctly. -->
+    <rule ref="Squiz.Commenting.DocCommentAlignment" />
+    <!-- Ensures CATCH clause must at least have a comment -->
     <rule ref="Squiz.Commenting.EmptyCatchComment" />
-    <!-- @todo doc me -->
+    <!-- File comment blocks -->
     <!--<rule ref="Squiz.Commenting.FileComment" />-->
-    <!-- @todo doc me -->
+    <!-- Function comment blocks -->
     <!--<rule ref="Squiz.Commenting.FunctionComment" />-->
-    <!-- @todo doc me -->
+    <!-- Verifies that a @throws tag exists for a function that throws exceptions -->
     <rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
-    <!-- @todo doc me -->
+    <!-- Checks that there is adequate spacing between comments -->
     <!--<rule ref="Squiz.Commenting.InlineComment" />-->
     <!-- @todo doc me -->
     <!--<rule ref="Squiz.Commenting.LongConditionClosingComment" />-->
@@ -102,26 +111,26 @@
 
 <!-- Control Structures Sniffs -->
 
-    <!-- Inline controls (if, else, for, while) must have brackets -->
+    <!-- Inline controls (IF, ELSE, FOR, WHILE) must have brackets -->
     <rule ref="Generic.ControlStructures.InlineControlStructure" />
-    <!-- Controls signature, such as spacing. if (expr) {... -->
+    <!-- Controls signature, such as spacing. IF (expr) {... -->
     <rule ref="Squiz.ControlStructures.ControlSignature" />
-    <rule ref="Squiz.ControlStructures.ElseIfDeclaration" />
-    <!-- @todo Doc me -->
+    <!-- Usage of ELSEIF not allowed. The ELSE and the IF should be separated by a space -->
+    <!-- <rule ref="Squiz.ControlStructures.ElseIfDeclaration" /> -->
+    <!-- Verifies that there is a space between each condition of FOREACH loops -->
     <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
-    <!-- @todo Doc me -->
+    <!-- Verifies that there is a space between each condition of FOR loops -->
     <rule ref="Squiz.ControlStructures.ForLoopDeclaration" />
-    <!-- @todo Doc me -->
+    <!-- Tests the spacing of shorthand IF statements -->
     <rule ref="Squiz.ControlStructures.InlineIfDeclaration" />
-    <!-- @todo Doc me -->
+    <!-- Allow inline shorthand IF statements to be declared on multiple lines -->
     <rule ref="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine">
         <!-- This returns false-positive; hide them -->
         <severity>0</severity>
     </rule>
+    <!-- Ensures all control structure keywords are lowercase -->
     <rule ref="Squiz.ControlStructures.LowercaseDeclaration" />
     <!--<rule ref="Squiz.ControlStructures.SwitchDeclaration" />-->
-
-
 
 <!-- Files Sniffs -->
 
@@ -150,8 +159,6 @@
     <!-- Checks that all file names are lowercased -->
     <!--<rule ref="Generic.Files.LowercasedFilename" />-->
 
-
-
 <!-- Formatting Sniffs -->
 
     <!-- Do not allow multiple PHP statements (;) on a same line -->
@@ -167,15 +174,14 @@
     <!-- Tests that all arithmetic operations are bracketed. -->
     <rule ref="Squiz.Formatting.OperatorBracket" />
 
-
 <!-- Functions Sniffs -->
 
     <!-- Ensures that variables are not passed by reference when calling a function -->
     <rule ref="Generic.Functions.CallTimePassByReference" />
     <!-- Spaces are required after every commas in function calls -->
-    <rule ref="Generic.Functions.FunctionCallArgumentSpacing" />-->
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
     <!-- Opening braces should be on a new line for functions -->
-    <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
+    <!--<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>-->
     <!-- Opening braces should be on the same line for functions. Incompatible with previous rule -->
 
     <!--<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />-->
