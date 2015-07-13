@@ -18,7 +18,7 @@ class BoilerplateModule extends AbstractModule
      * @param array $data Optional
      * @return BoilerplateModule Chainable
      */
-    public function init($data = null)
+    public function init(array $data = null)
     {
         return $this;
     }
