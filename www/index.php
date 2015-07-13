@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Charcoal
- *
- * @package Charcoal\Boilerplate
- */
+* Charcoal
+*
+* @package Charcoal\Boilerplate
+*/
 
 use \Boilerplate\BoilerplateModule as BoilerplateModule;
 

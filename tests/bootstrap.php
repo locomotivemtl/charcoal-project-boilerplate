@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Test Charcoal
- *
- * @package Charcoal\Boilerplate
- */
+* Test Charcoal
+*
+* @package Charcoal\Boilerplate
+*/
 
 use \Charcoal\Charcoal as Charcoal;
 

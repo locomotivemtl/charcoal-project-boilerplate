@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Charcoal Configuration
- *
- * @package Charcoal\Boilerplate
- */
+* Charcoal Configuration
+*
+* @package Charcoal\Boilerplate
+*/
 
 error_reporting(E_ALL);
 ini_set('display_errors', true);
@@ -14,8 +14,8 @@ use Charcoal\Charcoal as Charcoal;
 Charcoal::config()['ROOT'] = realpath(__DIR__.'/../www/');
 
 /**
- * Import project configuration
- */
+* Import project configuration
+*/
 
 Charcoal::config()->add_file(__DIR__.'/config.json');
 
@@ -26,8 +26,8 @@ if(file_exists(__DIR__.'/config.'.$application_env.'.json')) {
 }
 
 /**
- * Define paths for templates and metadata
- */
+* Define paths for templates and metadata
+*/
 
 Charcoal::config()->set_template_path([
     realpath(__DIR__.'/../templates/')

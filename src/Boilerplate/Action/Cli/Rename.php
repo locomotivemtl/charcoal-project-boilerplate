@@ -8,15 +8,15 @@ use \Charcoal\Action\CliAction as CliAction;
 
 if (!function_exists('glob_recursive')) {
     /**
-     * Recursively find pathnames matching a pattern
-     *
-     * @see glob() for a description of the function and its parameters.
-     *
-     * @param string $pattern
-     * @param int $flags
-     * @return array Returns an array containing the matched files/directories,
-     *               an empty array if no file matched or FALSE on error.
-     */
+    * Recursively find pathnames matching a pattern
+    *
+    * @see glob() for a description of the function and its parameters.
+    *
+    * @param string $pattern
+    * @param int $flags
+    * @return array Returns an array containing the matched files/directories,
+    *               an empty array if no file matched or FALSE on error.
+    */
     function glob_recursive($pattern, $flags = 0)
     {
         $files = glob($pattern, $flags);
@@ -30,22 +30,22 @@ if (!function_exists('glob_recursive')) {
 }
 
 /**
- * Renames the current module's name
- *
- * The command-line action will alter the module's
- * file names and the contents of files to match
- * the provided name.
- */
+* Renames the current module's name
+*
+* The command-line action will alter the module's
+* file names and the contents of files to match
+* the provided name.
+*/
 class Rename extends CliAction
 {
     /**
-     * @var string $_project_name The user-provided name of the project.
-     */
+    * @var string $_project_name The user-provided name of the project.
+    */
     protected $_project_name;
 
     /**
-     * Constructor — Register the action's arguments.
-     */
+    * Constructor — Register the action's arguments.
+    */
     public function __construct()
     {
         $arguments = $this->default_arguments();
@@ -53,12 +53,12 @@ class Rename extends CliAction
     }
 
     /**
-     * Retrieve the available default arguments of this action.
-     *
-     * @link http://climate.thephpleague.com/arguments/ For descriptions of the options for CLImate.
-     *
-     * @return array
-     */
+    * Retrieve the available default arguments of this action.
+    *
+    * @link http://climate.thephpleague.com/arguments/ For descriptions of the options for CLImate.
+    *
+    * @return array
+    */
     public function default_arguments()
     {
         $arguments = [
@@ -75,12 +75,12 @@ class Rename extends CliAction
     }
 
     /**
-     * Set the current project name.
-     *
-     * @param string $project_name The name of the project
-     * @return Rename Chainable
-     * @throws InvalidArgumentException
-     */
+    * Set the current project name.
+    *
+    * @param string $project_name The name of the project
+    * @return Rename Chainable
+    * @throws InvalidArgumentException
+    */
     public function set_project_name($project_name)
     {
         $__invalid = 'Invalid project name.';
@@ -103,20 +103,20 @@ class Rename extends CliAction
     }
 
     /**
-     * Retrieve the current project name.
-     *
-     * @return string
-     */
+    * Retrieve the current project name.
+    *
+    * @return string
+    */
     public function project_name()
     {
         return $this->_project_name;
     }
 
     /**
-     * Retrieve the response to the action.
-     *
-     * @return array
-     */
+    * Retrieve the response to the action.
+    *
+    * @return array
+    */
     public function response()
     {
         return [
@@ -125,16 +125,16 @@ class Rename extends CliAction
     }
 
     /**
-     * Interactively setup a Charcoal module.
-     *
-     * The action will ask the user a series of questions,
-     * and then update the current module for them.
-     *
-     * It attempts to rename all occurrences of "Boilerplate"
-     * with the provided _project name_.
-     *
-     * @see \League\CLImate\CLImate Used by `CliActionTrait`
-     */
+    * Interactively setup a Charcoal module.
+    *
+    * The action will ask the user a series of questions,
+    * and then update the current module for them.
+    *
+    * It attempts to rename all occurrences of "Boilerplate"
+    * with the provided _project name_.
+    *
+    * @see \League\CLImate\CLImate Used by `CliActionTrait`
+    */
     public function run()
     {
         $climate = $this->climate();
@@ -174,11 +174,11 @@ class Rename extends CliAction
     }
 
     /**
-     * Replace "Boilerplate" in the contents of files.
-     *
-     * Renames all occurrences of "Boilerplate" with the provided _project name_
-     * in the contents of all module files.
-     */
+    * Replace "Boilerplate" in the contents of files.
+    *
+    * Renames all occurrences of "Boilerplate" with the provided _project name_
+    * in the contents of all module files.
+    */
     protected function replace_file_content()
     {
         $climate = $this->climate();
@@ -222,11 +222,11 @@ class Rename extends CliAction
     }
 
     /**
-     * Replace "Boilerplate" in the names of files.
-     *
-     * Renames all occurrences of "Boilerplate" with the
-     * provided _project name_ in all module file names.
-     */
+    * Replace "Boilerplate" in the names of files.
+    *
+    * Renames all occurrences of "Boilerplate" with the
+    * provided _project name_ in all module file names.
+    */
     protected function rename_files()
     {
         $climate = $this->climate();

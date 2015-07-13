@@ -8,8 +8,8 @@ use \Charcoal\Template\AbstractTemplate as AbstractTemplate;
 class Template extends AbstractTemplate
 {
     /**
-     * @param array $data Optional
-     */
+    * @param array $data Optional
+    */
     public function __construct(array $data = null)
     {
         // parent::__construct($data);
@@ -21,40 +21,40 @@ class Template extends AbstractTemplate
     }
 
     /**
-     * @return string
-     */
+    * @return string
+    */
     public function page_title()
     {
         return 'Page title';
     }
 
     /**
-     * @return string
-     */
+    * @return string
+    */
     public function page_header()
     {
         return '';
     }
 
     /**
-     * @return string
-     */
+    * @return string
+    */
     public function page_footer()
     {
         return '';
     }
 
     /**
-     * @return string[]
-     */
+    * @return string[]
+    */
     public function page_styles()
     {
         return [];
     }
 
     /**
-     * @return string[]
-     */
+    * @return string[]
+    */
     public function page_scripts()
     {
         return [];
