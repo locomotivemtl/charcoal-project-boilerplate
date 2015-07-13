@@ -66,4 +66,3 @@ Charcoal::app()->group('/boilerplate', function() {
 });
 
 Charcoal::app()->run();
-
