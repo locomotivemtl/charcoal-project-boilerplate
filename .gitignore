@@ -6,6 +6,7 @@ config/config.*.json
 
 # Package Managers
 
+composer.lock
 composer.phar
 vendor/
 node_modules/

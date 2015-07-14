@@ -1,10 +1,10 @@
 {
-  "databases":{
-    "default":{
-      "database":"charcoal_examples",
-      "username":"root",
-      "password":""
+  "databases": {
+    "default": {
+      "database": "charcoal_examples",
+      "username": "root",
+      "password": ""
     }
   },
-  "default_database":"default"
+  "default_database": "default"
 }

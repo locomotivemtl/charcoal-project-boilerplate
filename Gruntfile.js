@@ -1,17 +1,17 @@
 /**
- * @file Charcoal Task Runner for Grunt
- */
+* @file Charcoal Task Runner for Grunt
+*/
 
 module.exports = function(grunt) {
-    "use strict";
+    'use strict';
 
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        "yaml-validate": {
+        'yaml-validate': {
             options: {
-                glob: ".travis.yml"
+                glob: '.travis.yml'
             }
         },
 
@@ -137,26 +137,17 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.loadNpmTasks('grunt-contrib-copy')
-    grunt.loadNpmTasks('grunt-yaml-validate');
-    grunt.loadNpmTasks('grunt-jsonlint');
-    grunt.loadNpmTasks("grunt-phplint");
-    grunt.loadNpmTasks('grunt-phpunit');
-    grunt.loadNpmTasks('grunt-phpcs');
-    grunt.loadNpmTasks('grunt-phpcbf');
-    grunt.loadNpmTasks('grunt-phpdocumentor');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-githooks');
-    grunt.loadNpmTasks('grunt-composer');
+    // Load tasks
+    require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', [
         'phpunit',
-        // 'phplint' /** To slow for "default" task */
+        // 'phplint' /** To slow for 'default' task */
     ]);
 
     grunt.registerTask('tests', [
-        'phpunit',
-        'phplint'
+        'phplint',
+        'phpunit'
     ]);
 
     grunt.registerTask('build', [

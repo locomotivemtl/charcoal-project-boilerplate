@@ -2,7 +2,7 @@
 <ruleset name="Charcoal">
 <!-- PHP CodeSniffer ruleset -->
 
-    <description>Charcoal coding standard</description>
+    <description>Charcoal Coding Standard</description>
     <arg name="encoding" value="4" />
     <arg name="tab-width" value="utf-8" />
 
@@ -20,6 +20,9 @@
         <severity>0</severity>
     </rule>
     <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
         <severity>0</severity>
     </rule>
 
@@ -88,7 +91,7 @@
     <!-- Class comment blocks -->
     <!--<rule ref="Squiz.Commenting.ClassComment" />-->
     <!-- Tests that the stars in a doc comment align correctly. -->
-    <rule ref="Squiz.Commenting.DocCommentAlignment" />
+    <!-- <rule ref="Squiz.Commenting.DocCommentAlignment" /> -->
     <!-- Ensures CATCH clause must at least have a comment -->
     <rule ref="Squiz.Commenting.EmptyCatchComment" />
     <!-- File comment blocks -->
@@ -116,7 +119,7 @@
     <!-- Controls signature, such as spacing. IF (expr) {... -->
     <rule ref="Squiz.ControlStructures.ControlSignature" />
     <!-- Usage of ELSEIF not allowed. The ELSE and the IF should be separated by a space -->
-    <!-- <rule ref="Squiz.ControlStructures.ElseIfDeclaration" /> -->
+    <rule ref="Squiz.ControlStructures.ElseIfDeclaration" />
     <!-- Verifies that there is a space between each condition of FOREACH loops -->
     <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
     <!-- Verifies that there is a space between each condition of FOR loops -->

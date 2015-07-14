@@ -10,10 +10,10 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-[*.json]
+[*.{json,yml}]
 insert_final_newline = false
 indent_size = 2
 
-[.{bowerrc,editorconfig,gitignore,gitattributes,htaccess,npmrc}]
+[.{bowerrc,editorconfig,gitattributes,gitignore,htaccess,npmrc}]
 insert_final_newline = false
 indent_size = 2
