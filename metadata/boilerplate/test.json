@@ -1,28 +1,52 @@
 {
   "parent": "charcoal/object/content",
 
-  "properties": {
-    "id": {
-      "type": "id",
-      "mode": "auto-increment"
+	"properties":{
+		"id":{
+			"type":"id",
+			"mode":"auto-increment"
+		},
+		"name":{
+			"type":"string"
+		},
+    "content":{
+      "type":"html",
+      "input_type":"charcoal/admin/property/input/tinymce",
+      "editor_options":{
+        "test":"allo"
+      }
     },
-    "name": {
-      "type": "string"
+		"num":{
+			"type":"integer"
+		},
+    "sound":{
+        "type":"audio",
+        "upload_path":"uploads/sounds/"
     },
-    "num": {
-      "type": "integer"
+    "sound2":{
+        "type":"audio",
+        "upload_path":"uploads/sounds/",
+        "input_type":"charcoal/admin/property/input/file"
     },
-    "ok": {
-      "type": "boolean"
-    }
-  },
-  "sources": {
-    "default": {
-      "type": "database",
-      "table": "boilerplate_tests"
-    }
-  },
-  "default_source": "default",
+    "file":{
+        "type":"file",
+        "upload_path":"uploads/files/"
+    },
+    "img":{
+      "type":"image",
+      "upload_path":"uploads/images/"
+    },
+		"ok":{
+			"type":"boolean"
+		}
+	},
+	"sources":{
+		"default":{
+			"type":"database",
+			"table":"boilerplate_tests"
+		}
+	},
+	"default_source":"default",
 
   "admin": {
     "lists": {
@@ -50,21 +74,25 @@
     },
     "default_list": "default",
 
-    "forms": {
-      "default": {
-        "groups": {
-          "all": {
-            "properties": [
-              "id",
-              "name",
-              "num",
-              "ok"
-            ]
-          }
-        }
-      }
-    },
-    "default_form": "default",
+
+		"forms":{
+			"default":{
+				"groups":{
+					"all":{
+						"properties":[
+							"id",
+							"name",
+              "content",
+              "img",
+							"num",
+              "file",
+							"ok"
+						]
+					}
+				}
+			}
+		},
+		"default_form":"default",
 
     "dashboards": {
       "admin.edit": {
