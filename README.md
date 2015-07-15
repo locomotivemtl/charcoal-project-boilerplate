@@ -117,7 +117,6 @@ All Charcoal modules follow the same coding style and this boilerplate is no exc
 - [_PSR-2_](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md), except for
   - Property names MAY be prefixed with a single, or double, underscore to indicate protected or private visibility;
   - Method names MAY be prefixed with a single, or double, underscore to indicate protected or private visibility.
-  - The keyword `elseif` SHOULD NOT be used. The `else` and `if` control keywords should be separated by a space.
 - [_PSR-4_](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md), autoloading is therefore provided by _Composer_
 - [_phpDocumentor_](http://phpdoc.org/)
   - Add DocBlocks for all classes, methods, and functions;

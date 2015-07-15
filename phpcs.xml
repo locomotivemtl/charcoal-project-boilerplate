@@ -22,9 +22,6 @@
     <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
         <severity>0</severity>
     </rule>
-    <rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
-        <severity>0</severity>
-    </rule>
 
 <!-- Array Sniffs -->
 
@@ -119,7 +116,7 @@
     <!-- Controls signature, such as spacing. IF (expr) {... -->
     <rule ref="Squiz.ControlStructures.ControlSignature" />
     <!-- Usage of ELSEIF not allowed. The ELSE and the IF should be separated by a space -->
-    <rule ref="Squiz.ControlStructures.ElseIfDeclaration" />
+    <!--<rule ref="Squiz.ControlStructures.ElseIfDeclaration" />-->
     <!-- Verifies that there is a space between each condition of FOREACH loops -->
     <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
     <!-- Verifies that there is a space between each condition of FOR loops -->
