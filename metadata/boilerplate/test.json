@@ -79,6 +79,7 @@
 			"default":{
 				"groups":{
 					"all":{
+            "title": "Test object",
 						"properties":[
 							"id",
 							"name",
@@ -87,7 +88,20 @@
 							"num",
               "file",
 							"ok"
-						]
+						],
+            "layout":{
+              "structure":[
+                {
+                  "columns":[2,10]
+                },
+                {
+                  "columns":[12]
+                },
+                {
+                  "columns":[3,3,3,3]
+                }
+              ]
+            }
 					}
 				}
 			}
