@@ -35,5 +35,6 @@ Charcoal::config()->set_template_path([
 
 Charcoal::config()->set_metadata_path([
     realpath(__DIR__.'/../vendor/locomotivemtl/charcoal-base/metadata/'),
+    realpath(__DIR__.'/../vendor/locomotivemtl/charcoal-cms/metadata/'),
     realpath(__DIR__.'/../metadata/')
 ]);
