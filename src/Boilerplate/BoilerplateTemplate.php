@@ -5,7 +5,7 @@ namespace Boilerplate;
 // From `charcoal-base`
 use \Charcoal\Template\AbstractTemplate as AbstractTemplate;
 
-class Template extends AbstractTemplate
+abstract class BoilerplateTemplate extends AbstractTemplate
 {
     /**
     * @param array $data Optional

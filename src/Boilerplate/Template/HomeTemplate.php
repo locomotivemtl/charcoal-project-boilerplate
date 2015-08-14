@@ -2,9 +2,9 @@
 
 namespace Boilerplate\Template;
 
-use Boilerplate\Template as Template;
+use Boilerplate\BoilerplateTemplate;
 
-class Home extends Template
+class HomeTemplate extends BoilerplateTemplate
 {
     /**
     * @return string
