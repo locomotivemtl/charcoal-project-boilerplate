@@ -13,7 +13,7 @@ abstract class BoilerplateTemplate extends AbstractTemplate
     public function __construct(array $data = null)
     {
         // parent::__construct($data);
-        $this->metadata();
+        //$this->metadata();
 
         if (is_array($data)) {
             $this->set_data($data);

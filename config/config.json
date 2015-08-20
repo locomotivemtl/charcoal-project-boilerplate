@@ -5,6 +5,9 @@
 
   "dev_mode": true,
 
+  "admin":{
+
+  },
   "cache": {
     "active": false
   }

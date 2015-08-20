@@ -1,42 +1,44 @@
 <?php
 
-/**
-* Charcoal
-*
-* @package Charcoal\Boilerplate
-*/
-
-use \Boilerplate\BoilerplateModule as BoilerplateModule;
+// 3rd-party libraries dependencies. from Slim
+use \Slim\Container;
+use \Slim\App;
+//use \Slim\Flash\Messages;
 
 // From `charcoal-core`
-use \Charcoal\Charcoal as Charcoal;
+use \Charcoal\CharcoalModule;
+use \Charcoal\CharcoalConfig;
 
 // From `charcoal-admin
 use \Charcoal\Admin\AdminModule as AdminModule;
 
+use \Boilerplate\BoilerplateModule as BoilerplateModule;
+
 /** Require the Charcoal Framework */
 include '../vendor/autoload.php';
 
-/** Setup and initialize Charcoal */
-Charcoal::init([
-    'config'=>'../config/config.php'
-]);
+// create container and configure it
+$container = new Container();
 
-/** Setup, instantiate, and define the routes for the Admin module */
-Charcoal::app()->group('/'.Charcoal::config('admin_path'), function()  {
-    //var_dump('...');
-    $admin_config = [
-        'config' => [
-            'base_path' => Charcoal::config('admin_path')
-        ]
-    ];
-    $admin_module = new AdminModule($admin_config);
-    $admin_module->setup_routes();
-});
+$container['config'] = function($c) {
+    $config = new CharcoalConfig();
+    $config->add_file('../config/config.php');
+    return $config;
+};
 
-/** Instantiate and define the routes for the main module */
-$boilerplate_module = new BoilerplateModule();
-$boilerplate_module->setup_routes();
+/*
+$container['flash'] = function ($c) {
+    return new Messages;
+};
+*/
 
-/** Run the Charcoal application */
-Charcoal::app()->run();
+$app = new App($container);
+
+CharcoalModule::setup($app);
+AdminModule::setup($app);
+//MessagingModule::setup($app);
+BoilerplateModule::setup($app);
+
+$app->run();
+
+

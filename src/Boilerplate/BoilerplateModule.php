@@ -2,6 +2,12 @@
 
 namespace Boilerplate;
 
+use \Exception as Exception;
+
+// From PSR-7
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
 // From `charcoal-core`
 use \Charcoal\Charcoal as Charcoal;
 
@@ -10,18 +16,49 @@ use \Charcoal\Action\ActionFactory as ActionFactory;
 use \Charcoal\Module\AbstractModule as AbstractModule;
 use \Charcoal\Template\TemplateView as TemplateView;
 
-class BoilerplateModule extends AbstractModule
+class BoilerplateModule
 {
     /**
-    * Initialize the module
-    *
-    * @param array $data Optional
-    * @return BoilerplateModule Chainable
+    * @var AdminConfig $_config
     */
-    public function init(array $data = null)
+    private $_config;
+    /**
+    * @var \Slim\App $_app
+    */
+    private $_app;
+
+    static public function setup($app)
     {
-        return $this;
+        // A session is necessary for the admin module
+        if (session_id() === '') {
+            session_start();
+        }
+
+        $container = $app->getContainer();
+        $container['boilerplate/module'] = function($c) use ($app) {
+            return new BoilerplateModule([
+                //'config'=>$c['charcoal/admin/config'],
+                'app'=>$app
+            ]);
+        };
+
+        /*$container['boilerplate/config'] = function($c) {
+            $config = new BoilerplateConfig();
+            $config->set_data($c['config']->get('boilerplate'));
+            return $config;
+        };*/
+
+        // Admin module
+        $app->get('/', 'boilerplate/module:default_route');
+        $container['boilerplate/module']->setup_routes();
     }
+
+    public function __construct($data)
+    {
+        //$this->_config = $data['config'];
+        $this->_app = $data['app'];
+    }
+
 
     /**
     * Setup web routes for the module
@@ -34,7 +71,9 @@ class BoilerplateModule extends AbstractModule
     */
     public function setup_routes()
     {
-        Charcoal::app()->get('/:actions+?', function ($actions = ['home']) {
+
+        $this->_app->get('/:actions+?', function (ServerRequestInterface $request, ResponseInterface $response, $actions=['home']) {
+            var_dump($actions);
             $template = implode('/', $actions);
             $view = new TemplateView();
             $view->from_ident('boilerplate/template/'.$template);
@@ -45,9 +84,18 @@ class BoilerplateModule extends AbstractModule
             } else {
                 Charcoal::app()->halt(404, 'Page not found');
             }
+            return $response;
         });
 
         return $this;
+    }
+
+    public function default_route(ServerRequestInterface $request, ResponseInterface $response, $args = null)
+    {
+        $view = new TemplateView();
+        $content = $view->from_ident('boilerplate/template/home')->render();
+        $response->write($content);
+        return $response;
     }
 
     /**
@@ -57,7 +105,7 @@ class BoilerplateModule extends AbstractModule
     */
     public function setup_cli_routes()
     {
-        Charcoal::app()->get('/:actions+', function ($actions) {
+        $this->_app->get('/:actions+', function ($actions) {
             try {
                 $action_ident = implode('/', $actions);
                 $action = ActionFactory::instance()->get('boilerplate/action/cli/'.$action_ident);
@@ -68,5 +116,18 @@ class BoilerplateModule extends AbstractModule
         });
 
         return $this;
+    }
+
+    public function app()
+    {
+        return $this->_app;
+    }
+
+    /**
+    * @return Config
+    */
+    public function config()
+    {
+        return $this->_config;
     }
 }
