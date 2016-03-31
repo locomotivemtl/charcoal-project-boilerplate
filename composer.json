@@ -1,36 +1,38 @@
 {
   "name": "locomotivemtl/charcoal-project-boilerplate",
+  "type":"project",
+  "description":"A Charcoal Project Boilerplate",
+  "keywords": [ "charcoal", "project", "boilerplate" ],
+  "homepage": "https://locomotive.ca",
+  "license": "MIT",
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.5.0",
-    "locomotivemtl/charcoal-core": "@dev",
-    "locomotivemtl/charcoal-base": "@dev",
-    "locomotivemtl/charcoal-admin": "@dev",
-    "locomotivemtl/charcoal-cms": "@dev",
-    "league/climate": "~3.1"
+    "locomotivemtl/charcoal-admin": "dev-master",
+    "locomotivemtl/charcoal-app": "dev-master",
+    "locomotivemtl/charcoal-cms": "dev-master",
+    "locomotivemtl/charcoal-email": "dev-master",
+    "mustache/mustache": "^2.10"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/locomotivemtl/charcoal-core"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/locomotivemtl/charcoal-base"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/locomotivemtl/charcoal-admin"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/locomotivemtl/charcoal-cms"
-    }
-  ],
+  "require-dev": {
+    "phpunit/phpunit": "^4.8",
+    "squizlabs/php_codesniffer": "^2.4"
+  },
   "autoload": {
     "psr-4": {
       "Boilerplate\\": "src/Boilerplate",
       "Charcoal\\": "src/Charcoal"
     }
+  },
+  "scripts": {
+    "test": [
+      "@phplint",
+      "@phpunit",
+      "@phpcs"
+    ],
+    "phplint": "find {src,tests} -name '*.php' -print0 | xargs -0 -n1 -P8 php -l | grep -v '^No syntax errors detected'; test $? -eq 1",
+    "phpunit": "php vendor/bin/phpunit --configuration tests/phpunit.xml --coverage-text",
+    "phpcs": "php vendor/bin/phpcs -ps --colors --standard=phpcs.xml src/",
+    "phpcbf": "php vendor/bin/phpcbf -ps --colors --standard=phpcs.xml src/ tests/"
   }
 }

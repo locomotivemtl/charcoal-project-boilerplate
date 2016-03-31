@@ -1,10 +1,16 @@
 {
-  "databases": {
-    "default": {
-      "database": "charcoal_examples",
-      "username": "root",
-      "password": ""
+    "URL":"http://localhost:8080/",
+
+    "databases": {
+        "default": {
+            "database": "charcoal_examples",
+            "username": "root",
+            "password": ""
+        }
+    },
+    "default_database": "default",
+
+    "email": {
+
     }
-  },
-  "default_database": "default"
 }

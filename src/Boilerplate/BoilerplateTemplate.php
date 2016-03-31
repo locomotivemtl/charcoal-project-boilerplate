@@ -3,59 +3,49 @@
 namespace Boilerplate;
 
 // From `charcoal-base`
-use \Charcoal\Template\AbstractTemplate as AbstractTemplate;
+use \Charcoal\App\Template\AbstractTemplate;
 
+/**
+ * Base class for all "Boilerplate" templates.
+ */
 abstract class BoilerplateTemplate extends AbstractTemplate
 {
     /**
-    * @param array $data Optional
-    */
-    public function __construct(array $data = null)
-    {
-        // parent::__construct($data);
-        //$this->metadata();
-
-        if (is_array($data)) {
-            $this->set_data($data);
-        }
-    }
-
-    /**
-    * @return string
-    */
-    public function page_title()
+     * @return string
+     */
+    public function pageTitle()
     {
         return 'Page title';
     }
 
     /**
-    * @return string
-    */
-    public function page_header()
+     * @return string
+     */
+    public function pageHeader()
     {
         return '';
     }
 
     /**
-    * @return string
-    */
-    public function page_footer()
+     * @return string
+     */
+    public function pageFooter()
     {
         return '';
     }
 
     /**
-    * @return string[]
-    */
-    public function page_styles()
+     * @return string[]
+     */
+    public function pageStyles()
     {
         return [];
     }
 
     /**
-    * @return string[]
-    */
-    public function page_scripts()
+     * @return string[]
+     */
+    public function pageScripts()
     {
         return [];
     }

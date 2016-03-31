@@ -1,14 +1,65 @@
 {
-  "URL": "http://localhost/cb/",
+    "project_name": "Charcoal Boilerplate",
 
-  "admin_path": "admin",
+    "timezone": "America/Montreal",
 
-  "dev_mode": true,
+    "admin_path": "admin",
 
-  "admin":{
+    "dev_mode": true,
 
-  },
-  "cache": {
-    "active": false
-  }
+    "cache": {
+        "active": false,
+        "types": ["memcache", "redis", "apc"],
+        "prefix": "boilerplate"
+    },
+
+    "modules":{
+        "charcoal/admin/admin": {}
+    },
+
+    "logger": {
+        "active": true,
+        "levels": {
+            "debug": true
+        }
+    },
+
+    "locales": {
+        "languages:": {
+            "fr": {
+                "locale": "fr-CA"
+            },
+            "en": {
+                "locale": "en-CA"
+            }
+        },
+        "default_language": "fr"
+    },
+
+    "translator": {
+        "paths": [
+            "l10n/boilerplate/"
+        ]
+    },
+
+    "view": {
+        "paths": [
+            "templates/",
+            "vendor/locomotivemtl/charcoal-admin/templates/"
+        ],
+        "engines": {
+            "mustache": {}
+        },
+        "default_engine": "mustache",
+        "default_controller": "\\Boilerplate\\Template\\Generic"
+    },
+
+    "email": {
+        "default_from": "memo@locomotive.ca"
+    },
+
+    "service_providers": {
+        "charcoal/email/service-provider/email": {},
+        "charcoal/model/service-provider/model": {}
+    }
 }

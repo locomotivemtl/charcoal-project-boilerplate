@@ -1,0 +1,20 @@
+{
+    "routes": {
+        "templates": {
+            "/":{
+                "template":"boilerplate/template/home",
+                "controller":"boilerplate/template/home"
+            }
+        },
+
+        "actions": {
+
+        },
+
+        "scripts": {
+
+        }
+    },
+
+    "routables": {}
+}

@@ -1,44 +1,49 @@
 <?php
-
-// 3rd-party libraries dependencies. from Slim
-use \Slim\Container;
-use \Slim\App;
-//use \Slim\Flash\Messages;
-
-// From `charcoal-core`
-use \Charcoal\CharcoalModule;
-use \Charcoal\CharcoalConfig;
-
-// From `charcoal-admin
-use \Charcoal\Admin\AdminModule as AdminModule;
-
-use \Boilerplate\BoilerplateModule as BoilerplateModule;
-
-/** Require the Charcoal Framework */
-include '../vendor/autoload.php';
-
-// create container and configure it
-$container = new Container();
-
-$container['config'] = function($c) {
-    $config = new CharcoalConfig();
-    $config->add_file('../config/config.php');
-    return $config;
-};
-
-/*
-$container['flash'] = function ($c) {
-    return new Messages;
-};
+/**
+* Alertes Saint Constant Charcoal Front-Controller
+*
+* The basic "charcoal-app" dependencies are defined in the custom Charcoal App Container.
+*
+* @see \Charcoal\App\AppContainer
 */
 
-$app = new App($container);
+error_reporting(E_ALL);
+ini_set('display_errors', true);
 
-CharcoalModule::setup($app);
-AdminModule::setup($app);
-//MessagingModule::setup($app);
-BoilerplateModule::setup($app);
+use \Charcoal\App\App;
+use \Charcoal\App\AppConfig;
+use \Charcoal\App\AppContainer;
+
+// If using PHP's built-in server, return false for existing files on filesystem
+if (php_sapi_name() === 'cli-server') {
+    $filename = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
+    if (is_file($filename)) {
+        return false;
+    }
+}
+
+// This project requires composer.
+include '../vendor/autoload.php';
+
+$config = new AppConfig();
+$config->addFile(__DIR__.'/../config/config.php');
+$config->set('ROOT', dirname(__DIR__) . '/');
+
+// Create container and configure it (with charcoal-config)
+$container = new AppContainer([
+    'settings' => [
+        'displayErrorDetails' => true
+    ],
+    'config' => $config
+]);
+
+$container->register(new \Charcoal\Email\ServiceProvider\EmailServiceProvider());
+
+// Charcoal / Slim is the main app
+$app = App::instance($container);
+
+if (!session_id()) {
+    session_start();
+}
 
 $app->run();
-
-
