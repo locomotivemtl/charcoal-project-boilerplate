@@ -10,17 +10,13 @@ $this['ROOT'] = $base_dir.'www/';
 * Import project configuration
 */
 $this->addFile(__DIR__.'/config.json');
-$application_env = preg_replace('/!^[A-Za-z0-9_]+$/', '', getenv('APPLICATION_ENV'));if(file_exists(__DIR__.'/config.'.$application_env.'.json')) {
-    $this->addFile(__DIR__.'/config.'.$application_env.'.json');
+$applicationEnv = preg_replace('/!^[A-Za-z0-9_]+$/', '', getenv('APPLICATION_ENV'));
+if (!$applicationEnv) {
+    $applicationEnv = 'local';
+}
+if(file_exists(__DIR__.'/config.'.$applicationEnv.'.json')) {
+    $this->addFile(__DIR__.'/config.'.$applicationEnv.'.json');
 }
 
 // Load routes
 $this->addFile(__DIR__.'/routes.json');
-
-$this['metadata_path'] = [
-    $base_dir.'vendor/locomotivemtl/charcoal-admin/metadata/',
-    $base_dir.'vendor/locomotivemtl/charcoal-app/metadata/',
-    $base_dir.'vendor/locomotivemtl/charcoal-property/metadata/',
-    $base_dir.'vendor/locomotivemtl/charcoal-base/metadata/',
-    $base_dir.'metadata/'
-];

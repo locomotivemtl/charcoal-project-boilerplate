@@ -42,6 +42,16 @@
         ]
     },
 
+    "metadata":{
+        "paths":[
+            "vendor/locomotivemtl/charcoal-admin/metadata/",
+            "vendor/locomotivemtl/charcoal-app/metadata/",
+            "vendor/locomotivemtl/charcoal-property/metadata/",
+            "vendor/locomotivemtl/charcoal-base/metadata/",
+            "metadata/"
+        ]
+    }
+
     "view": {
         "paths": [
             "templates/",
