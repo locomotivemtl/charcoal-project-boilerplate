@@ -50,7 +50,7 @@
             "vendor/locomotivemtl/charcoal-base/metadata/",
             "metadata/"
         ]
-    }
+    },
 
     "view": {
         "paths": [
