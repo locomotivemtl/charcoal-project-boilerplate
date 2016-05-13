@@ -1,8 +1,15 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-<IfModule mod_vhost_alias.c>
-  RewriteBase /
+    <IfModule mod_vhost_alias.c>
+        RewriteBase /
+    </IfModule>
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front controller: All requests go to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
 </IfModule>
-
-RewriteRule ^ index.php [QSA,L]

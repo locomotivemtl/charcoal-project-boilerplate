@@ -2,6 +2,7 @@
 
 namespace Boilerplate\Action\Cli;
 
+use \Exception;
 use \InvalidArgumentException;
 
 use \Charcoal\App\Script\AbstractScript;
@@ -149,13 +150,13 @@ class RenameScript extends AbstractScript
 
         if ($climate->arguments->defined('help')) {
             $climate->usage();
-            die();
+            return;
         }
 
         $climate->arguments->parse();
         $projectName = $climate->arguments->get('projectName');
         $verbose = (bool)$climate->arguments->get('quiet');
-        $this->set_verbose($verbose);
+        $this->setVerbose($verbose);
 
         if (!$projectName) {
             $input = $climate->input('What is the name of the project?');
@@ -164,7 +165,7 @@ class RenameScript extends AbstractScript
 
         try {
             $this->setProjectName($projectName);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $climate->error($e->getMessage());
         }
 

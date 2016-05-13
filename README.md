@@ -121,25 +121,57 @@ The next step to customize the _backend_ is to configure the main menu, as well 
 # Dependencies and Requirements
 
 - [`PHP 5.5+`](http://php.net)
-- `ext-pdo`
+    + `ext-json`
+    + `ext-pdo`
+    + `ext-spl`
+    + `ext-mbstring`
 
 ## The Charcoal modules
 
-| Module                   | Version | Description |
-| ------------------------ | ------- | ----------- |
-| **charcoal-admin**       | _@dev_  | The backend, or control panel. |
-| **charcoal-app**         | 0.1.1   | App components based on Slim. |
-| **charcoal-base**        | _@dev_  | Base objects and behaviors. |
-| **charcoal-cms**         | _@dev_  | CMS objects (Section, News, Events, etc.) |
-| **charcoal-config**      | 0.5     | Base configuration system. |
-| **charcoal-core**        | _@dev_  | Core objects, Model, Source. |
-| **charcoal-email**       | _@dev_  | Email utilities, based on phpmailer. |
-| **charcoal-factory**     | 0.3.2   | Dynamic objects creation. |
-| **charcoal-image**       | 0.2     | Image manipulation and effects. |
-| **charcoal-property**    | _@dev_  | Metadata's properties. |
-| **charcoal-translation** | _@dev_  | Translation utilities. |
-| **charcoal-ui**          | _@dev_  | Ui objects (Form, Menu, Dashboard, Layout, etc.) |
-| **charcoal-view**        | 0.1.2   | View renderer. (mustache, twig, etc.) |
+- [charcoal-admin](https://github.com/locomotivemtl/charcoal-)
+    + The backend, or control panel.
+- [charcoal-app](https://github.com/locomotivemtl/charcoal-)
+    + App components based on Slim.
+- [charcoal-base](https://github.com/locomotivemtl/charcoal-)
+    + Base objects and behaviors.
+- [charcoal-cms](https://github.com/locomotivemtl/charcoal-)
+    + CMS objects (Section, News, Events, etc.)
+- [charcoal-core](https://github.com/locomotivemtl/charcoal-)
+    + Core objects, Model, Source.
+- [charcoal-config](https://github.com/locomotivemtl/charcoal-)
+    + Base configuration system.
+- [charcoal-email](https://github.com/locomotivemtl/charcoal-)
+    + Email utilities, based on phpmailer.
+- [charcoal-factory](https://github.com/locomotivemtl/charcoal-)
+    + Dynamic objects creation.
+- [charcoal-image](https://github.com/locomotivemtl/charcoal-)
+    + Image manipulation and effects.
+- [charcoal-property](https://github.com/locomotivemtl/charcoal-)
+    + Metadata's properties.
+- [charcoal-translation](https://github.com/locomotivemtl/charcoal-)
+    + Translation utilities.
+- [charcoal-ui](https://github.com/locomotivemtl/charcoal-)
+    + Ui objects (Form, Menu, Dashboard, Layout, etc.)
+- [charcoal-view](https://github.com/locomotivemtl/charcoal-)
+    + View renderer. (mustache, twig, etc.)
+
+### Status matrix
+
+| Module                   | Version | Travis | Scrutinizer | Insights | Coveralls | PHPDoc | ApiGen |
+| ------------------------ | ------- | ------ | ----------- | -------- | --------- | ------ | ------ |
+| **admin**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-adminadmin.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-admin.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-admin) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a/mini.png)](https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-admin/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-admin?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-admin/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-admin/apigen/master/) |
+| **app**         | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-app.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-app.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-app) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-app/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-app/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a/mini.png)](https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-app/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-app?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-app/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-app/apigen/master/) |
+**base**        | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-base.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-base.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-base) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-base/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-base/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/76dc07e1-1a2c-4fed-b7fa-030f18648c51/mini.png)](https://insight.sensiolabs.com/projects/76dc07e1-1a2c-4fed-b7fa-030f18648c51) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-base/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-base?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-base/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-base/apigen/master/) |
+| **cms**         | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-cms.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-cms.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-cms) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-cms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-cms/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/44d8d264-207b-417d-bcbd-dd52274fc201/mini.png)](https://insight.sensiolabs.com/projects/44d8d264-207b-417d-bcbd-dd52274fc201) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-cms/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-cms?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-cms/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-cms/apigen/master/) |
+| **config**      | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-config.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-config.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-config) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-config/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-config/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/27ad205f-4208-4fa6-9dcf-534b3a1c0aaa/mini.png)](https://insight.sensiolabs.com/projects/27ad205f-4208-4fa6-9dcf-534b3a1c0aaa) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-config/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-config?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-config/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-config/apigen/master/) |
+| **core**     | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-core.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-core.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-core) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-core/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ab15f6b0-2063-445e-81d7-2575b919b0ab/mini.png)](https://insight.sensiolabs.com/projects/ab15f6b0-2063-445e-81d7-2575b919b0ab) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-core/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-core?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-core/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-core/apigen/master/) |
+| **email**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-email.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-email.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-email) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/54058388-3b5d-47e3-8185-f001232d31f7/mini.png)](https://insight.sensiolabs.com/projects/54058388-3b5d-47e3-8185-f001232d31f7) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-email/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-email?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-email/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-email/apigen/master/) |
+| **factory**   | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-factory.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-factory.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-factory) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-factory/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-factory/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0aec930b-d696-415a-b4ef-a15c1a56509e/mini.png)](https://insight.sensiolabs.com/projects/0aec930b-d696-415a-b4ef-a15c1a56509e) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-factory/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-factory?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-factory/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-factory/apigen/master/) |
+| **image**    | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-image.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-image.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-image) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e/mini.png)](https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-image/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-image?branch=master)  | - | - |
+| **property**  | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-property.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-property.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-property) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-property/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-property/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/f3bdff38-c300-4207-8342-da002e64a6e1/mini.png)](https://insight.sensiolabs.com/projects/f3bdff38-c300-4207-8342-da002e64a6e1) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-property/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-property?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-property/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-property/apigen/master/) |
+| **translation** | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-translation.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-translation.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-translation) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translation/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986/mini.png)](https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-translation/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-translation?branch=master)  | - | - |
+| **ui**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-ui.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-ui.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-ui) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-ui/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-ui/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ad5d1699-07cc-45b5-9ba4-9b3b45f677e0/mini.png)](https://insight.sensiolabs.com/projects/ad5d1699-07cc-45b5-9ba4-9b3b45f677e0) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-ui/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-ui?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-ui/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-ui/apigen/master/) |
+| **view**    | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-view.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-view.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-view) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29/mini.png)](https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-view/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-view?branch=master)  | - | - |
 
 
 # What's inside this Boilerplate?
@@ -222,7 +254,6 @@ The charcoal-base module follows the Charcoal coding-style:
 # Authors
 
 - Mathieu Ducharme, mat@locomotive.ca
-
 
 # Changelog
 

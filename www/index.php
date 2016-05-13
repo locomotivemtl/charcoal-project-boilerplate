@@ -37,8 +37,6 @@ $container = new AppContainer([
     'config' => $config
 ]);
 
-$container->register(new \Charcoal\Email\ServiceProvider\EmailServiceProvider());
-
 // Charcoal / Slim is the main app
 $app = App::instance($container);
 

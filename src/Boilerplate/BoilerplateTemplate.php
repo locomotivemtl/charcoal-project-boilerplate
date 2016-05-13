@@ -2,6 +2,9 @@
 
 namespace Boilerplate;
 
+// Dependencies from `pimple`
+use \Pimple\Container;
+
 // From `charcoal-base`
 use \Charcoal\App\Template\AbstractTemplate;
 
@@ -10,12 +13,22 @@ use \Charcoal\App\Template\AbstractTemplate;
  */
 abstract class BoilerplateTemplate extends AbstractTemplate
 {
+
+    /**
+     * @param Container $container The pimple DI container.
+     */
+    public function setDependencies(Container $container)
+    {
+        // Set required service dependencies here.
+        // ex: $this->setModelFactory($container['model/factory']);
+    }
+
     /**
      * @return string
      */
     public function pageTitle()
     {
-        return 'Page title';
+        return 'Charcoal Project Boilerplate';
     }
 
     /**
