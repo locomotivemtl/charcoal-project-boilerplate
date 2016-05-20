@@ -9,9 +9,9 @@
   "require": {
     "php": ">=5.5.0",
     "locomotivemtl/charcoal-admin": "dev-master",
-    "locomotivemtl/charcoal-app": "dev-master",
+    "locomotivemtl/charcoal-app": "~0.2",
     "locomotivemtl/charcoal-cms": "dev-master",
-    "locomotivemtl/charcoal-email": "dev-master",
+    "locomotivemtl/charcoal-email": "~0.1",
     "mustache/mustache": "^2.10"
   },
   "require-dev": {
