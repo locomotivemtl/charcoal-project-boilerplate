@@ -70,6 +70,8 @@
 
     "service_providers": {
         "charcoal/email/service-provider/email": {},
-        "charcoal/model/service-provider/model": {}
+        "charcoal/model/service-provider/model": {},
+        "charcoal/admin/service-provider/admin": {},
+        "charcoal/ui/service-provider/ui": {}
     }
 }
