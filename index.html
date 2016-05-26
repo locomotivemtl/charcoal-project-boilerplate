@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Charcoal-project-boilerplate by locomotivemtl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Charcoal-project-boilerplate</h1>
+      <h2 class="project-tagline">The easiest way to get started with Charcoal</h2>
+      <a href="https://github.com/locomotivemtl/charcoal-project-boilerplate" class="btn">View on GitHub</a>
+      <a href="https://github.com/locomotivemtl/charcoal-project-boilerplate/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/locomotivemtl/charcoal-project-boilerplate/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="charcoal-project-boilerplate" class="anchor" href="#charcoal-project-boilerplate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Charcoal Project Boilerplate</h1>
+
+<p>The goal of this project is to provide a fully working "boilerplate" (empty <em>skeleton</em> project) using the Charcoal framework.</p>
+
+<h1>
+<a id="table-of-content" class="anchor" href="#table-of-content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Content</h1>
+
+<ul>
+<li>
+<a href="#how-to-install">How to Install</a>
+
+<ul>
+<li><a href="#1-create-clone-the-project-boilerplate">1. Create / clone the project boilerplate</a></li>
+<li><a href="#2-rename-the-boilerplate-to-your-project">2. Rename the boilerplate to your project</a></li>
+<li><a href="#3-test-your-installation">3. Test your installation</a></li>
+<li><a href="#4-set-up-database-storage">4. Set up database storage</a></li>
+<li><a href="#5-set-up-charcoal-admin">5. Set up <code>charcoal-admin</code></a></li>
+</ul>
+</li>
+<li>
+<a href="#going-further">Going further</a>
+
+<ul>
+<li>More config customizations</li>
+<li>Creating a custom template</li>
+<li>Using objects</li>
+<li>Customizing the backend</li>
+</ul>
+</li>
+<li>
+<a href="#dependencies-and-requirements">Dependencies and requirements</a>
+
+<ul>
+<li><a href="#the-charcoal-modules">The charcoal modules</a></li>
+</ul>
+</li>
+<li>What's inside the Boilerplate</li>
+<li>
+<a href="#development">Development</a>
+
+<ul>
+<li><a href="#development-dependencies">Development dependencies</a></li>
+<li><a href="#continuous-integration">Continuous Integration</a></li>
+<li><a href="#coding-style">Coding Style</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#changelog">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+<h1>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Install</h1>
+
+<p>To start a Charcoal project with this Boilerplate, simply:</p>
+
+<h2>
+<a id="1-create--clone-the-project-boilerplate" class="anchor" href="#1-create--clone-the-project-boilerplate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. <strong>Create / clone the project boilerplate</strong>
+</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ composer create-project locomotivemtl/charcoal-project-boilerplate:@dev --prefer-source</pre></div>
+
+<blockquote>
+<p><strong>About the Document Root</strong></p>
+
+<p><g-emoji alias="point_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png">👉</g-emoji> The project should not be cloned directly in a web-accessible directory. The web server should be configured to serve the <code>www/</code> folder directly. The other folders (<code>vendor/</code>, <code>src/</code>, <code>templates/</code>, <code>metadata/</code>, <code>config/</code>, etc.) should therefore not be available from the web server (kept outside the document root).</p>
+</blockquote>
+
+<h2>
+<a id="2-rename-the-boilerplate-to-your-project" class="anchor" href="#2-rename-the-boilerplate-to-your-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. <strong>Rename the boilerplate to your project</strong>
+</h2>
+
+<p><strong>This step must be done manually.</strong> Ensure to change <strong>all</strong> references to "boilerplate" and "Boilerplate" to your project name. (Make sure to look in the <code>src</code>, <code>metadata</code> and <code>templates</code> folders). Also rename the <code>metadata/boilerplate</code>, <code>src/Boilerplate</code> and <code>templates/boilerplate</code> folders to match your project.</p>
+
+<blockquote>
+<p><g-emoji alias="point_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png">👉</g-emoji> Do not forget to change the "Boilerplate" reference in <code>composer.json</code>. To ensure the autloader is still working, run the following command after renaming:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer dump-autoload</pre></div>
+</blockquote>
+
+<h2>
+<a id="3-test-your-installation" class="anchor" href="#3-test-your-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. <strong>Test your installation</strong>
+</h2>
+
+<p>A quick server can be started using the PHP builtin server:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> www
+$ php -S localhost:8080</pre></div>
+
+<p>Point your browser to <code>http://localhost:8080/</code> and you should see the boilerplate's default home page.</p>
+
+<p><img src="docs/images/boilerplate-home.png" alt="Boilerplate homepage"></p>
+
+<p>How to change the default page and add routes/templates is explained later in this README.</p>
+
+<h2>
+<a id="4-set-up-a-database-storage" class="anchor" href="#4-set-up-a-database-storage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. <strong>Set up a database storage</strong>
+</h2>
+
+<p>The next step requires a custom configuration file. It is recommended to use <code>config/config.local.json</code> and making sure it is not committed to source control:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ cp config/config.sample.json config/config.<span class="pl-k">local</span>.json
+$ <span class="pl-c1">echo</span> -n <span class="pl-s"><span class="pl-pds">"</span>config/config.local.json<span class="pl-pds">"</span></span> <span class="pl-k">&gt;&gt;</span> .gitignore</pre></div>
+
+<p>Create an empty database and ensure a SQL user has the proper permissions for this database. Then edit the <code>config/config.local.json</code> file with this information.</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>databases<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>default<span class="pl-pds">"</span></span>: {
+            <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>mysql<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>hostname<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>127.0.0.1<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>database<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>foobar<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>foo_bar<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>password<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>F00$BâR123<span class="pl-pds">"</span></span>
+        }
+    },
+    <span class="pl-s"><span class="pl-pds">"</span>default_database<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>default<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<h2>
+<a id="5-set-up-charcoal-admin" class="anchor" href="#5-set-up-charcoal-admin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. <strong>Set up charcoal-admin</strong>
+</h2>
+
+<p>First, ensure the admin module (the <em>backend</em>) is properly set up and ready:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> vendor/locomotivemtl/charcoal-admin
+$ npm install
+$ bower install
+$ grunt
+$ <span class="pl-c1">cd</span> -</pre></div>
+
+<p>Then create the first admin user, to be able to login into the backend:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ ./vendor/bin/charcoal admin/user/create</pre></div>
+
+<blockquote>
+<p><g-emoji alias="point_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png">👉</g-emoji> The <code>./vendor/bin/charcoal</code> CLI tool, provided by <code>charcoal-app</code> is required to run various scripts, many of which are provided by the <code>charcoal-admin</code> and <code>charcoal-base</code> modules.</p>
+</blockquote>
+
+<p>Point your browser to http://localhost:8080/ and you should see the boilerplate's default home page.</p>
+
+<p><img src="docs/images/admin-login.png" alt="Admin login"></p>
+
+<p>The next step to customize the <em>backend</em> is to configure the main menu, as well as the various</p>
+
+<h1>
+<a id="dependencies-and-requirements" class="anchor" href="#dependencies-and-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies and Requirements</h1>
+
+<ul>
+<li>
+<a href="http://php.net"><code>PHP 5.5+</code></a>
+
+<ul>
+<li><code>ext-json</code></li>
+<li><code>ext-pdo</code></li>
+<li><code>ext-spl</code></li>
+<li><code>ext-mbstring</code></li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="the-charcoal-modules" class="anchor" href="#the-charcoal-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Charcoal modules</h2>
+
+<ul>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-admin</a>
+
+<ul>
+<li>The backend, or control panel.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-app</a>
+
+<ul>
+<li>App components based on Slim.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-base</a>
+
+<ul>
+<li>Base objects and behaviors.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-cms</a>
+
+<ul>
+<li>CMS objects (Section, News, Events, etc.)</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-core</a>
+
+<ul>
+<li>Core objects, Model, Source.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-config</a>
+
+<ul>
+<li>Base configuration system.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-email</a>
+
+<ul>
+<li>Email utilities, based on phpmailer.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-factory</a>
+
+<ul>
+<li>Dynamic objects creation.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-image</a>
+
+<ul>
+<li>Image manipulation and effects.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-property</a>
+
+<ul>
+<li>Metadata's properties.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-translation</a>
+
+<ul>
+<li>Translation utilities.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-ui</a>
+
+<ul>
+<li>Ui objects (Form, Menu, Dashboard, Layout, etc.)</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-">charcoal-view</a>
+
+<ul>
+<li>View renderer. (mustache, twig, etc.)</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="status-matrix" class="anchor" href="#status-matrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status matrix</h3>
+
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Version</th>
+<th>Travis</th>
+<th>Scrutinizer</th>
+<th>Insights</th>
+<th>Coveralls</th>
+<th>PHPDoc</th>
+<th>ApiGen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>admin</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-adminadmin.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-admin"><img src="https://travis-ci.org/locomotivemtl/charcoal-admin.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a"><img src="https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-admin?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-admin/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-admin/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-admin/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>app</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-app.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-app"><img src="https://travis-ci.org/locomotivemtl/charcoal-app.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-app/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-app/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a"><img src="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-app?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-app/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-app/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-app/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>base</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-base.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-base"><img src="https://travis-ci.org/locomotivemtl/charcoal-base.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-base/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-base/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/76dc07e1-1a2c-4fed-b7fa-030f18648c51"><img src="https://insight.sensiolabs.com/projects/76dc07e1-1a2c-4fed-b7fa-030f18648c51/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-base?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-base/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-base/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-base/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>cms</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-cms.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-cms"><img src="https://travis-ci.org/locomotivemtl/charcoal-cms.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-cms/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-cms/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/44d8d264-207b-417d-bcbd-dd52274fc201"><img src="https://insight.sensiolabs.com/projects/44d8d264-207b-417d-bcbd-dd52274fc201/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-cms?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-cms/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-cms/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-cms/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>config</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-config.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-config"><img src="https://travis-ci.org/locomotivemtl/charcoal-config.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-config/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-config/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/27ad205f-4208-4fa6-9dcf-534b3a1c0aaa"><img src="https://insight.sensiolabs.com/projects/27ad205f-4208-4fa6-9dcf-534b3a1c0aaa/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-config?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-config/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-config/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-config/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>core</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-core.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-core"><img src="https://travis-ci.org/locomotivemtl/charcoal-core.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-core/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-core/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/ab15f6b0-2063-445e-81d7-2575b919b0ab"><img src="https://insight.sensiolabs.com/projects/ab15f6b0-2063-445e-81d7-2575b919b0ab/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-core?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-core/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-core/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-core/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>email</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-email.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-email"><img src="https://travis-ci.org/locomotivemtl/charcoal-email.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/54058388-3b5d-47e3-8185-f001232d31f7"><img src="https://insight.sensiolabs.com/projects/54058388-3b5d-47e3-8185-f001232d31f7/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-email?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-email/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-email/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-email/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>factory</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-factory.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-factory"><img src="https://travis-ci.org/locomotivemtl/charcoal-factory.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-factory/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-factory/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/0aec930b-d696-415a-b4ef-a15c1a56509e"><img src="https://insight.sensiolabs.com/projects/0aec930b-d696-415a-b4ef-a15c1a56509e/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-factory?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-factory/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-factory/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-factory/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>image</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-image.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-image"><img src="https://travis-ci.org/locomotivemtl/charcoal-image.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e"><img src="https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-image?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-image/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>property</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-property.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-property"><img src="https://travis-ci.org/locomotivemtl/charcoal-property.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-property/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-property/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/f3bdff38-c300-4207-8342-da002e64a6e1"><img src="https://insight.sensiolabs.com/projects/f3bdff38-c300-4207-8342-da002e64a6e1/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-property?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-property/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-property/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-property/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>translation</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-translation.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-translation"><img src="https://travis-ci.org/locomotivemtl/charcoal-translation.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translation/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translation/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986"><img src="https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-translation?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-translation/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>ui</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-ui.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-ui"><img src="https://travis-ci.org/locomotivemtl/charcoal-ui.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-ui/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-ui/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/ad5d1699-07cc-45b5-9ba4-9b3b45f677e0"><img src="https://insight.sensiolabs.com/projects/ad5d1699-07cc-45b5-9ba4-9b3b45f677e0/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-ui?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-ui/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-ui/docs/master/">PHPDoc</a></td>
+<td><a href="http://locomotivemtl.github.io/charcoal-ui/apigen/master/">ApiGen</a></td>
+</tr>
+<tr>
+<td><strong>view</strong></td>
+<td><img src="https://img.shields.io/github/tag/locomotivemtl/charcoal-view.svg?style=flat&amp;label=release" alt="version"></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-view"><img src="https://travis-ci.org/locomotivemtl/charcoal-view.svg?branch=master" alt="Build Status"></a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td><a href="https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29"><img src="https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29/mini.png" alt="SensioLabsInsight"></a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-view?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-view/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<h1>
+<a id="whats-inside-this-boilerplate" class="anchor" href="#whats-inside-this-boilerplate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What's inside this Boilerplate?</h1>
+
+<p>Like all Charcoal projects / modules, the main components are:</p>
+
+<ul>
+<li>
+<strong>Autoloader</strong>
+
+<ul>
+<li>Provided by Composer.</li>
+</ul>
+</li>
+<li>
+<strong>Config</strong>
+
+<ul>
+<li>As JSON or PHP files in the <a href="config/"><code>config/</code></a> directory.</li>
+<li>Use <a href="https://github.com/locomotivemtl/charcoal-config"><code>locomotivemtl/charcoal-config</code></a>
+</li>
+</ul>
+</li>
+<li>
+<strong>Front Controller</strong>
+
+<ul>
+<li>See <a href="www/.htaccess"><code>www/.htaccess</code></a> and <a href="www/index.php"><code>www/index.php</code></a> for details.</li>
+<li>Route dispatcher</li>
+</ul>
+</li>
+<li>
+<strong>Script Controller (Charoal Binary)</strong>
+
+<ul>
+<li>Installed from <code>charcoal-app</code> as <code>vendor/bin/charcoal</code>.</li>
+</ul>
+</li>
+<li>
+<strong>PHP scripts</strong>
+
+<ul>
+<li>PSR-1, PSR2 and PSR-4 compliant scripts are located in <a href="src/"><code>src/</code></a>
+</li>
+<li>There are typically 3 types of controllers:
+
+<ul>
+<li><em>Templates</em></li>
+<li><em>Actions</em></li>
+<li><em>Scripts</em></li>
+</ul>
+</li>
+<li>... 2 types of object
+
+<ul>
+<li>Objects based on <em>Content</em>
+</li>
+<li>Objects based on <em>UserData</em>
+</li>
+</ul>
+</li>
+<li>... and all other types of scripts (services, helpers, configs, factories, etc.)</li>
+</ul>
+</li>
+<li>
+<strong>Assets</strong>
+
+<ul>
+<li>Assets are files required to be on the webserver root</li>
+<li>Scripts, in <code>src/scripts/</code> and compiled in <code>www/assets/scripts/</code>
+</li>
+<li>Styles , with Sass in <code>src/styles/</code> and compiled CSS in <code>www/assets/styles/</code>
+</li>
+<li>Images, in <code>www/assets/images/</code>
+</li>
+</ul>
+</li>
+</ul>
+
+<h1>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h1>
+
+<p>To install the development environment:</p>
+
+<div class="highlight highlight-source-shell"><pre>★ composer install --prefer-source</pre></div>
+
+<p>To run the scripts (phplint, phpcs and phpunit):</p>
+
+<div class="highlight highlight-source-shell"><pre>★ composer <span class="pl-c1">test</span></pre></div>
+
+<h2>
+<a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API documentation</h2>
+
+<ul>
+<li>The auto-generated <code>phpDocumentor</code> API documentation is available at <a href="https://locomotivemtl.github.io/charcoal-base/docs/master/">https://locomotivemtl.github.io/charcoal-base/docs/master/</a>
+</li>
+<li>The auto-generated <code>apigen</code> API documentation is available at <a href="https://codedoc.pub/locomotivemtl/charcoal-base/master/index.html">https://codedoc.pub/locomotivemtl/charcoal-base/master/</a>
+</li>
+</ul>
+
+<h2>
+<a id="development-dependencies" class="anchor" href="#development-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development dependencies</h2>
+
+<ul>
+<li><code>phpunit/phpunit</code></li>
+<li><code>squizlabs/php_codesniffer</code></li>
+<li><code>satooshi/php-coveralls</code></li>
+</ul>
+
+<h2>
+<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Continuous Integration</h2>
+
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Badge</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-base">Travis</a></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-base"><img src="https://travis-ci.org/locomotivemtl/charcoal-base.svg?branch=master" alt="Build Status"></a></td>
+<td>Runs code sniff check and unit tests. Auto-generates API documentation.</td>
+</tr>
+<tr>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-base/">Scrutinizer</a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-base/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-base/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td>Code quality checker. Also validates API documentation quality.</td>
+</tr>
+<tr>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-base">Coveralls</a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-base?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-base/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td>Unit Tests code coverage.</td>
+</tr>
+<tr>
+<td><a href="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a">Sensiolabs</a></td>
+<td><a href="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a"><img src="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a/mini.png" alt="SensioLabsInsight"></a></td>
+<td>Another code quality checker, focused on PHP.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="coding-style" class="anchor" href="#coding-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Coding Style</h2>
+
+<p>The charcoal-base module follows the Charcoal coding-style:</p>
+
+<ul>
+<li><a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md"><em>PSR-1</em></a></li>
+<li><a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md"><em>PSR-2</em></a></li>
+<li>
+<a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md"><em>PSR-4</em></a>, autoloading is therefore provided by <em>Composer</em>.</li>
+<li>
+<a href="http://phpdoc.org/"><em>phpDocumentor</em></a> comments.</li>
+<li>Read the <a href="phpcs.xml">phpcs.xml</a> file for all the details on code style.</li>
+</ul>
+
+<blockquote>
+<p>Coding style validation / enforcement can be performed with <code>composer phpcs</code>. An auto-fixer is also available with <code>composer phpcbf</code>.</p>
+</blockquote>
+
+<h1>
+<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors</h1>
+
+<ul>
+<li>Mathieu Ducharme, <a href="mailto:mat@locomotive.ca">mat@locomotive.ca</a>
+</li>
+</ul>
+
+<h1>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h1>
+
+<p><em>Unreleased</em></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/locomotivemtl/charcoal-project-boilerplate">Charcoal-project-boilerplate</a> is maintained by <a href="https://github.com/locomotivemtl">locomotivemtl</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
