@@ -9,7 +9,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-    # Handle Front controller: All requests go to index.php
+    # Handle Slim/Charcoal Front controller: All requests go to index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [QSA,L]
 </IfModule>

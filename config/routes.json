@@ -12,7 +12,9 @@
         },
 
         "scripts": {
-
+            "boilerplate/rename":{
+                "ident":"boilerplate/script/rename"
+            }
         }
     },
 

@@ -1,34 +1,15 @@
 <?php
 
-namespace Boilerplate\Action\Cli;
+namespace Boilerplate\Script;
 
 use \Exception;
 use \InvalidArgumentException;
 
+// PSR-7 dependencies
+use \Psr\Http\Message\RequestInterface;
+use \Psr\Http\Message\ResponseInterface;
+
 use \Charcoal\App\Script\AbstractScript;
-
-if (!function_exists('globRecursive')) {
-    /**
-     * Recursively find pathnames matching a pattern
-     *
-     * @see glob() for a description of the function and its parameters.
-     *
-     * @param string  $pattern The search pattern.
-     * @param integer $flags   The glob flags.
-     * @return array Returns an array containing the matched files/directories,
-     *               an empty array if no file matched or FALSE on error.
-     */
-    function globRecursive($pattern, $flags = 0)
-    {
-        $files = glob($pattern, $flags);
-
-        foreach (glob(dirname($pattern).'/*', (GLOB_ONLYDIR|GLOB_NOSORT)) as $dir) {
-            $files = array_merge($files, globRecursive($dir.'/'.basename($pattern), $flags));
-        }
-
-        return $files;
-    }
-}
 
 /**
  * Renames the current module's name
@@ -49,8 +30,8 @@ class RenameScript extends AbstractScript
      */
     public function __construct()
     {
-        $arguments = $this->default_arguments();
-        $this->set_arguments($arguments);
+        $arguments = $this->defaultArguments();
+        $this->setArguments($arguments);
     }
 
     /**
@@ -65,7 +46,7 @@ class RenameScript extends AbstractScript
         $arguments = [
             'projectName' => [
                 'longPrefix'   => 'name',
-                'description'  => 'Project (module) name',
+                'description'  => 'Project (module) name. All occurences of "Boilerplate" in the files will be changed to this name.',
                 'defaultValue' => ''
             ]
         ];
@@ -140,9 +121,11 @@ class RenameScript extends AbstractScript
      * with the provided Project name_.
      *
      * @see \League\CLImate\CLImate Used by `CliActionTrait`
+     * @param RequestInterface  $request  PSR-7 request.
+     * @param ResponseInterface $response PSR-7 response.
      * @return void
      */
-    public function run()
+    public function run(RequestInterface $request, ResponseInterface $response)
     {
         $climate = $this->climate();
 
@@ -155,7 +138,7 @@ class RenameScript extends AbstractScript
 
         $climate->arguments->parse();
         $projectName = $climate->arguments->get('projectName');
-        $verbose = (bool)$climate->arguments->get('quiet');
+        $verbose = !!$climate->arguments->get('quiet');
         $this->setVerbose($verbose);
 
         if (!$projectName) {
@@ -196,12 +179,12 @@ class RenameScript extends AbstractScript
 
         $climate->out("\n".'Replacing file content...');
         $files = array_merge(
-            globRecursive('config/*'),
-            globRecursive('metadata/*'),
-            globRecursive('src/*'),
-            globRecursive('templates/*'),
-            globRecursive('tests/*'),
-            globRecursive('www/*'),
+            $this->globRecursive('config/*'),
+            $this->globRecursive('metadata/*'),
+            $this->globRecursive('src/*'),
+            $this->globRecursive('templates/*'),
+            $this->globRecursive('tests/*'),
+            $this->globRecursive('www/*'),
             glob('*.*')
         );
         foreach ($files as $filename) {
@@ -245,7 +228,7 @@ class RenameScript extends AbstractScript
         $verbose = $this->verbose();
 
         $climate->out("\n".'Renaming files and directories');
-        $boilerplate_files = globRecursive('*boilerplate*');
+        $boilerplate_files = $this->globRecursive('*boilerplate*');
         $boilerplate_files = array_reverse($boilerplate_files);
 
         foreach ($boilerplate_files as $filename) {
@@ -260,7 +243,7 @@ class RenameScript extends AbstractScript
             }
         }
 
-        $boilerplate_files = globRecursive('*Boilerplate*');
+        $boilerplate_files = $this->globRecursive('*Boilerplate*');
         $boilerplate_files = array_reverse($boilerplate_files);
 
         foreach ($boilerplate_files as $filename) {
@@ -275,5 +258,26 @@ class RenameScript extends AbstractScript
                 }
             }
         }
+    }
+
+    /**
+     * Recursively find pathnames matching a pattern
+     *
+     * @see glob() for a description of the function and its parameters.
+     *
+     * @param string  $pattern The search pattern.
+     * @param integer $flags   The glob flags.
+     * @return array Returns an array containing the matched files/directories,
+     *               an empty array if no file matched or FALSE on error.
+     */
+    private function globRecursive($pattern, $flags = 0)
+    {
+        $files = glob($pattern, $flags);
+
+        foreach (glob(dirname($pattern).'/*', (GLOB_ONLYDIR|GLOB_NOSORT)) as $dir) {
+            $files = array_merge($files, $this->globRecursive($dir.'/'.basename($pattern), $flags));
+        }
+
+        return $files;
     }
 }
