@@ -21,9 +21,16 @@ use \Charcoal\App\Script\AbstractScript;
 class RenameScript extends AbstractScript
 {
     /**
-     * @var string $ProjectName The user-provided name of the project.
+     * @var string $sourceName The original string to search and replace.
+     */
+    protected $sourceName = 'boilerplate';
+
+    /**
+     * @var string $projectName The user-provided name of the project.
      */
     protected $projectName;
+
+
 
     /**
      * Constructor — Register the action's arguments.
@@ -117,7 +124,7 @@ class RenameScript extends AbstractScript
      * The action will ask the user a series of questions,
      * and then update the current module for them.
      *
-     * It attempts to rename all occurrences of "Boilerplate"
+     * It attempts to rename all occurrences of the "soure name"
      * with the provided Project name_.
      *
      * @see \League\CLImate\CLImate Used by `CliActionTrait`
@@ -129,7 +136,7 @@ class RenameScript extends AbstractScript
     {
         $climate = $this->climate();
 
-        $climate->underline()->out('Charcoal Boilerplate Module Setup');
+        $climate->underline()->out('Charcoal batch rename script');
 
         if ($climate->arguments->defined('help')) {
             $climate->usage();
@@ -153,6 +160,7 @@ class RenameScript extends AbstractScript
         }
 
         $climate->bold()->out(sprintf('Using "%s" as project name...', $projectName));
+        $climate->out(sprintf('Using "%s" as namespace...', ucfirst($projectName)));
 
         // Replace file contents
         $this->replaceFileContent();
@@ -164,9 +172,9 @@ class RenameScript extends AbstractScript
     }
 
     /**
-     * Replace "Boilerplate" in the contents of files.
+     * Replace "source name" in the contents of files.
      *
-     * Renames all occurrences of "Boilerplate" with the provided Project name_
+     * Renames all occurrences of "source name" with the provided Project name_
      * in the contents of all module files.
      *
      * @return void
@@ -194,29 +202,29 @@ class RenameScript extends AbstractScript
             $file = file_get_contents($filename);
             $numReplacement1 = 0;
             $numReplacement2 = 0;
-            $content = preg_replace('/boilerplate/', $projectName, $file, -1, $numReplacement1);
-            $content = preg_replace('/Boilerplate/', ucfirst($projectName), $content, -1, $numReplacement2);
+            $content = preg_replace('#'.$this->sourceName.'#', $projectName, $file, -1, $numReplacement1);
+            $content = preg_replace('#'.ucfirst($this->sourceNmae).'#', ucfirst($projectName), $content, -1, $numReplacement2);
             $numReplacements = ($numReplacement1+$numReplacement2);
             if ($numReplacements > 0) {
-                //file_put_contents($filename, $content);
-                if ($verbose) {
-                    $climate->dim()->out(
-                        sprintf(
-                            '%d occurence(s) of "boilerplate" have been changed to "%s" in file "%s"',
-                            $numReplacements,
-                            $projectName,
-                            $filename
-                        )
-                    );
-                }
+                // Save file content
+                file_put_contents($filename, $content);
+                $climate->dim()->out(
+                    sprintf(
+                        '%d occurence(s) of "%s" have been changed to "%s" in file "%s"',
+                        $numReplacements,
+                        $this->sourceName,
+                        $projectName,
+                        $filename
+                    )
+                );
             }
         }
     }
 
     /**
-     * Replace "Boilerplate" in the names of files.
+     * Replace "source name" in the names of files.
      *
-     * Renames all occurrences of "Boilerplate" with the
+     * Renames all occurrences of "source name" with the
      * provided _project name_ in all module file names.
      *
      * @return void
@@ -228,34 +236,30 @@ class RenameScript extends AbstractScript
         $verbose = $this->verbose();
 
         $climate->out("\n".'Renaming files and directories');
-        $boilerplate_files = $this->globRecursive('*boilerplate*');
-        $boilerplate_files = array_reverse($boilerplate_files);
+        $sourceFiles = $this->globRecursive('*'.$this->sourceName.'*');
+        $sourceFiles = array_reverse($sourceFiles);
 
-        foreach ($boilerplate_files as $filename) {
-            $targetName = preg_replace('/boilerplate/', $projectName, basename($filename));
+        foreach ($sourceFiles as $filename) {
+            $targetName = preg_replace('#'.$this->sourceName.'#', $projectName, basename($filename));
             $targetName = dirname($filename).'/'.$targetName;
 
             if ($targetName != $filename) {
-                //rename($filename, $targetName);
-                if ($verbose) {
-                    $climate->dim()->out(sprintf('%s has been renamed to %s', $filename, $targetName));
-                }
+                rename($filename, $targetName);
+                $climate->dim()->out(sprintf('%s has been renamed to %s', $filename, $targetName));
             }
         }
 
-        $boilerplate_files = $this->globRecursive('*Boilerplate*');
-        $boilerplate_files = array_reverse($boilerplate_files);
+        $sourceFiles = $this->globRecursive('*'.ucfirst($this->sourceName).'*');
+        $sourceFiles = array_reverse($sourceFiles);
 
-        foreach ($boilerplate_files as $filename) {
+        foreach ($sourceFiles as $filename) {
             $climate->inline('.');
-            $targetName = preg_replace('/Boilerplate/', ucfirst($projectName), basename($filename));
+            $targetName = preg_replace('/'.ucfirst($this->sourceName).'/', ucfirst($projectName), basename($filename));
             $targetName = dirname($filename).'/'.$targetName;
 
             if ($targetName != $filename) {
-                //rename($filename, $targetName);
-                if ($verbose) {
-                    $climate->dim()->out(sprintf('%s has been renamed to %s', $filename, $targetName));
-                }
+                rename($filename, $targetName);
+                $climate->dim()->out(sprintf('%s has been renamed to %s', $filename, $targetName));
             }
         }
     }
