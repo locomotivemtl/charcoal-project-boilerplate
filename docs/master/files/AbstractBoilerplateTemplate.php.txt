@@ -2,13 +2,12 @@
 
 namespace Boilerplate;
 
-// Dependencies from `pimple`
 use \Pimple\Container;
 
-// Dependencies from `charcoal-config`
+// Dependency from 'charcoal-config'
 use \Charcoal\Config\ConfigInterface;
 
-// Dependencies `charcoal-app`
+// Dependency from 'charcoal-app'
 use \Charcoal\App\Template\AbstractTemplate;
 
 /**
@@ -29,8 +28,6 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate
     {
         parent::setDependencies($container);
 
-        // Set required service dependencies here.
-        // ex: $this->setModelFactory($container['model/factory']);
         $this->setTranslationConfig($container['translator/config']);
     }
 
@@ -41,6 +38,7 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate
     private function setTranslationConfig(ConfigInterface $config)
     {
         $this->translationConfig = $config;
+
         return $this;
     }
 
