@@ -1,52 +1,52 @@
 {
   "parent": "charcoal/object/content",
 
-	"properties":{
-		"id":{
-			"type":"id",
-			"mode":"auto-increment"
-		},
-		"name":{
-			"type":"string"
-		},
-    "content":{
-      "type":"html",
-      "input_type":"charcoal/admin/property/input/tinymce",
-      "editor_options":{
-        "test":"allo"
+  "properties": {
+    "id": {
+      "type": "id",
+      "mode": "auto-increment"
+    },
+    "name": {
+      "type": "string"
+    },
+    "content": {
+      "type": "html",
+      "input_type": "charcoal/admin/property/input/tinymce",
+      "editor_options": {
+        "test": "allo"
       }
     },
-		"num":{
-			"type":"integer"
-		},
-    "sound":{
-        "type":"audio",
-        "upload_path":"uploads/sounds/"
+    "num": {
+      "type": "integer"
     },
-    "sound2":{
-        "type":"audio",
-        "upload_path":"uploads/sounds/",
-        "input_type":"charcoal/admin/property/input/file"
+    "sound": {
+      "type": "audio",
+      "upload_path": "uploads/sounds/"
     },
-    "file":{
-        "type":"file",
-        "upload_path":"uploads/files/"
+    "sound2": {
+      "type": "audio",
+      "upload_path": "uploads/sounds/",
+      "input_type": "charcoal/admin/property/input/file"
     },
-    "img":{
-      "type":"image",
-      "upload_path":"uploads/images/"
+    "file": {
+      "type": "file",
+      "upload_path": "uploads/files/"
     },
-		"ok":{
-			"type":"boolean"
-		}
-	},
-	"sources":{
-		"default":{
-			"type":"database",
-			"table":"boilerplate_tests"
-		}
-	},
-	"default_source":"default",
+    "img": {
+      "type": "image",
+      "upload_path": "uploads/images/"
+    },
+    "ok": {
+      "type": "boolean"
+    }
+  },
+  "sources": {
+    "default": {
+      "type": "database",
+      "table": "boilerplate_tests"
+    }
+  },
+  "default_source": "default",
 
   "admin": {
     "lists": {
@@ -57,63 +57,52 @@
           "num",
           "ok"
         ],
-        "properties_options": {
-
-        },
-        "filters": [
-
-        ],
-        "orders": [
-
-        ],
-        "pagination": [
-
-        ]
-
+        "properties_options": {},
+        "filters": [],
+        "orders": [],
+        "pagination": []
       }
     },
     "default_list": "default",
 
+    "forms": {
+      "default": {
+        "groups": {
+          "all": {}
+        }
+      }
+    },
+    "default_form": "default",
 
-		"forms":{
-			"default":{
-				"groups":{
-					"all":{
-            "title": "Test object",
-						"properties":[
-							"id",
-							"name",
-              "content",
-              "img",
-							"num",
-              "file",
-							"ok"
-						],
-            "layout":{
-              "structure":[
-                {
-                  "columns":[2,10]
-                },
-                {
-                  "columns":[12]
-                },
-                {
-                  "columns":[3,3,3,3]
-                }
-              ]
-            }
-					}
-				}
-			}
-		},
-		"default_form":"default",
+    "form_groups": {
+      "all": {
+        "title": "Test object",
+        "properties": [
+          "id",
+          "name",
+          "content",
+          "img",
+          "num",
+          "file",
+          "ok"
+        ],
+        "properties_options": {},
+        "layout": {
+          "structure": [
+            { "columns": [ 2, 10 ] },
+            { "columns": [ 12 ] },
+            { "columns": [ 3, 3, 3, 3 ] }
+          ]
+        }
+      }
+    },
 
     "dashboards": {
       "admin.edit": {
         "layout": {
-          "structure": [{
-            "columns": [1]
-          }]
+          "structure": [
+            { "columns": [ 1 ] }
+          ]
         },
         "widgets": {
           "form": {
@@ -125,9 +114,9 @@
       },
       "admin.table": {
         "layout": {
-          "structure": [{
-            "columns": [1]
-          }]
+          "structure": [
+            { "columns": [ 1 ] }
+          ]
         },
         "widgets": {
           "list": {

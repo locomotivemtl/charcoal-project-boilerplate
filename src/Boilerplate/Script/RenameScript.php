@@ -5,10 +5,11 @@ namespace Boilerplate\Script;
 use \Exception;
 use \InvalidArgumentException;
 
-// PSR-7 dependencies
+// Dependencies from PSR-7 (HTTP Messaging)
 use \Psr\Http\Message\RequestInterface;
 use \Psr\Http\Message\ResponseInterface;
 
+// Dependency from 'charcoal-app'
 use \Charcoal\App\Script\AbstractScript;
 
 /**
@@ -29,8 +30,6 @@ class RenameScript extends AbstractScript
      * @var string $projectName The user-provided name of the project.
      */
     protected $projectName;
-
-
 
     /**
      * Constructor — Register the action's arguments.
@@ -53,7 +52,10 @@ class RenameScript extends AbstractScript
         $arguments = [
             'projectName' => [
                 'longPrefix'   => 'name',
-                'description'  => 'Project (module) name. All occurences of "Boilerplate" in the files will be changed to this name.',
+                'description'  => sprintf(
+                    'Project (module) name. All occurences of "%s" in the files will be changed to this name.',
+                    'Boilerplate'
+                ),
                 'defaultValue' => ''
             ]
         ];
@@ -72,7 +74,6 @@ class RenameScript extends AbstractScript
      */
     public function setProjectName($projectName)
     {
-
         if (!is_string($projectName)) {
             throw new InvalidArgumentException(
                 'Invalid project name. Must be a string.'
@@ -134,6 +135,9 @@ class RenameScript extends AbstractScript
      */
     public function run(RequestInterface $request, ResponseInterface $response)
     {
+        // Never Used
+        unset($request, $response);
+
         $climate = $this->climate();
 
         $climate->underline()->out('Charcoal batch rename script');
@@ -202,8 +206,20 @@ class RenameScript extends AbstractScript
             $file = file_get_contents($filename);
             $numReplacement1 = 0;
             $numReplacement2 = 0;
-            $content = preg_replace('#'.$this->sourceName.'#', $projectName, $file, -1, $numReplacement1);
-            $content = preg_replace('#'.ucfirst($this->sourceNmae).'#', ucfirst($projectName), $content, -1, $numReplacement2);
+            $content = preg_replace(
+                '#'.$this->sourceName.'#',
+                $projectName,
+                $file,
+                -1,
+                $numReplacement1
+            );
+            $content = preg_replace(
+                '#'.ucfirst($this->sourceNmae).'#',
+                ucfirst($projectName),
+                $content,
+                -1,
+                $numReplacement2
+            );
             $numReplacements = ($numReplacement1+$numReplacement2);
             if ($numReplacements > 0) {
                 // Save file content

@@ -3,7 +3,7 @@
 /**
  * Test Charcoal
  *
- * @package Charcoal\Boilerplate
+ * @package Charcoal
  */
 
 /** Composer autoloader for Charcoal's PSR4-compliant Unit Tests */
