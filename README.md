@@ -38,12 +38,12 @@ $ composer create-project locomotivemtl/charcoal-project-boilerplate:@dev --pref
 
 > **About the Document Root**
 >
-> 👉 The project should not be cloned directly in a web-accessible directory. The web server should be configured to serve the `www/` folder directly. The other folders (`vendor/`, `src/`, `templates/`, `metadata/`, `config/`, etc.) should therefore not be available from the web server (kept outside the document root).
+> 👉 The project should not be cloned directly in a web-accessible directory. The web server should be configured to serve the `www/` folder directly. The other folders (`vendor/`, `src/`, `views/`, `metadata/`, `config/`, etc.) should therefore not be available from the web server (kept outside the document root).
 
 
 ## 2. **Rename the boilerplate to your project**
 
-**This step must be done manually.** Ensure to change **all** references to "boilerplate" and "Boilerplate" to your project name. (Make sure to look in the `src`, `metadata` and `templates` folders). Also rename the `metadata/boilerplate`, `src/Boilerplate` and `templates/boilerplate` folders to match your project.
+**This step must be done manually.** Ensure to change **all** references to "boilerplate" and "Boilerplate" to your project name. (Make sure to look in the `src`, `metadata` and `views` folders). Also rename the `metadata/boilerplate`, `src/Boilerplate` and `views/boilerplate` folders to match your project.
 
 > 👉 Do not forget to change the "Boilerplate" reference in `composer.json`. To ensure the autloader is still working, run the following command after renaming:
 >
