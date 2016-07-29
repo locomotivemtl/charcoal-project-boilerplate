@@ -1,6 +1,6 @@
 {
-  "name": "locomotivemtl/charcoal-project-boilerplate",
   "type":"project",
+  "name": "locomotivemtl/charcoal-project-boilerplate",
   "description":"A Charcoal Project Boilerplate",
   "keywords": [ "charcoal", "project", "boilerplate" ],
   "homepage": "https://locomotive.ca",

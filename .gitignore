@@ -1,20 +1,17 @@
 # Charcoal
+# ------------------
 
-www/assets/admin/
-config/config.*.json
-!config/config.sample.json
+config/config.*.*
+!config/config.sample.*
+www/uploads/
 
-# Package Managers
+# General
+# ------------------
 
-composer.lock
-composer.phar
-vendor/
-node_modules/
-bower_components/
-
-# Logging
+# Logs
 
 *.log
+error_log
 logs/
 
 # Caches
@@ -22,6 +19,10 @@ logs/
 mustache_cache/
 tmp/
 
-# Generated files
+# Package Managers
+# ------------------
 
-build/docs/
+composer.phar
+vendor/
+node_modules/
+bower_components/
