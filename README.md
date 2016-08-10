@@ -128,31 +128,31 @@ The next step to customize the _backend_ is to configure the main menu, as well 
 
 ## The Charcoal modules
 
-- [charcoal-admin](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-admin](https://github.com/locomotivemtl/charcoal-admin)
     + The backend, or control panel.
-- [charcoal-app](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-app](https://github.com/locomotivemtl/charcoal-app)
     + App components based on Slim.
-- [charcoal-base](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-base](https://github.com/locomotivemtl/charcoal-base)
     + Base objects and behaviors.
-- [charcoal-cms](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-cms](https://github.com/locomotivemtl/charcoal-cms)
     + CMS objects (Section, News, Events, etc.)
-- [charcoal-core](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-core](https://github.com/locomotivemtl/charcoal-core)
     + Core objects, Model, Source.
-- [charcoal-config](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-config](https://github.com/locomotivemtl/charcoal-config)
     + Base configuration system.
-- [charcoal-email](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-email](https://github.com/locomotivemtl/charcoal-email)
     + Email utilities, based on phpmailer.
-- [charcoal-factory](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-factory](https://github.com/locomotivemtl/charcoal-factory)
     + Dynamic objects creation.
-- [charcoal-image](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-image](https://github.com/locomotivemtl/charcoal-image)
     + Image manipulation and effects.
-- [charcoal-property](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-property](https://github.com/locomotivemtl/charcoal-property)
     + Metadata's properties.
-- [charcoal-translation](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-translation](https://github.com/locomotivemtl/charcoal-translation)
     + Translation utilities.
-- [charcoal-ui](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-ui](https://github.com/locomotivemtl/charcoal-ui)
     + Ui objects (Form, Menu, Dashboard, Layout, etc.)
-- [charcoal-view](https://github.com/locomotivemtl/charcoal-)
+- [charcoal-view](https://github.com/locomotivemtl/charcoal-view)
     + View renderer. (mustache, twig, etc.)
 
 ### Status matrix
@@ -258,4 +258,3 @@ The charcoal-base module follows the Charcoal coding-style:
 # Changelog
 
 _Unreleased_
-
