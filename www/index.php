@@ -31,13 +31,13 @@ if ( PHP_SAPI === 'cli-server' ) {
     }
 }
 
+/** Register the Composer autoloader */
+require dirname(__DIR__) . '/vendor/autoload.php';
+
 /** Start new or resume existing session */
 if ( ! session_id() ) {
     session_start();
 }
-
-/** Register the Composer autoloader */
-require dirname(__DIR__) . '/vendor/autoload.php';
 
 /** Import the application's settings */
 $appConfig = new AppConfig();
