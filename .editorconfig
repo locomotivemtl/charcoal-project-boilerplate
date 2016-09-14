@@ -12,6 +12,3 @@ trim_trailing_whitespace = true
 
 [*.{md,markdown}]
 trim_trailing_whitespace = false
-
-[{.*rc,*.ini,*.json,*.yml,*.yaml,.env.*,.git*,.htaccess,.jshint*}]
-indent_size = 2
