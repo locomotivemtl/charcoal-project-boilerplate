@@ -2,7 +2,7 @@
 
 namespace Boilerplate\Template;
 
-use Boilerplate\AbstractBoilerplateTemplate;
+use Boilerplate\Template\AbstractBoilerplateTemplate;
 
 /**
  * Boilerplate Generic Template Controller

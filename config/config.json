@@ -6,7 +6,7 @@
   "dev_mode": true,
 
   "cache": {
-    "active": false,
+    "active": true,
     "types": [ "memcache", "redis", "apc" ],
     "prefix": "boilerplate"
   },
@@ -76,7 +76,7 @@
     "charcoal/model/service-provider/model": {},
     "charcoal/admin/service-provider/admin": {},
     "charcoal/ui/service-provider/ui": {},
-    "boilerplate/": {}
+    "boilerplate/service-provider/boilerplate": {}
   },
 
   "routes": {

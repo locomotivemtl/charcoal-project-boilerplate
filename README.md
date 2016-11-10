@@ -126,6 +126,32 @@ The next step to customize the _backend_ is to configure the main menu, as well 
     + `ext-spl`
     + `ext-mbstring`
 
+## External libraries
+
+Most Charcoal features are built on top of proven, open-source technologies:
+
+- **Composer** (Deployment and auto-loading)
+- **Slim** (PSR-7 Framework)
+- **Pimple** (DI Container)
+- **Mustache** (Templating Engine)
+  - Optionally supports **Twig**
+- **PDO / MySQL** (Database Storage)
+- **Stash** (PSR-6 Cache)
+- **Climate** (Terminal Utility)
+- **Symfony Translation** (Localization Tools)
+- **Zend ACL** (Permissions Management)
+- **PHPmailer** (Email Transport)
+- **Monolog** (PSR-3 Logger)
+- **PHPUnit** (Unit Testing)
+- **APIGen** (API Documentation)
+- **PHP Code Sniffer** (Coding Standards)
+- **JQuery** (Javascript Framework)
+- **Bootstrap** (CSS Framework)
+- **TinyMCE** (HTML Editor)
+- **Github** (Source control)
+- **Travis** (Continuous Integration)
+
+
 ## The Charcoal modules
 
 - [charcoal-admin](https://github.com/locomotivemtl/charcoal-admin)

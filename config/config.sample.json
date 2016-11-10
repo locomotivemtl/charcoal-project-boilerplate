@@ -6,5 +6,16 @@
       "password": ""
     }
   },
-  "default_database": "default"
+  "default_database": "default",
+
+  "apis":{
+    "google":{
+        "analytics":{
+            "tracking_id":""
+        }
+    },
+    "typekit":{
+        "kit_id":""
+    }
+  }
 }
