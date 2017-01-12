@@ -1,0 +1,16 @@
+{
+  "routes": {
+    "templates": {
+      "/": {
+        "template": "boilerplate/template/home",
+        "controller": "boilerplate/template/home"
+      }
+    },
+    "actions": {},
+    "scripts": {
+      "boilerplate/rename": {
+        "ident": "boilerplate/script/rename"
+      }
+    }
+  }
+}
