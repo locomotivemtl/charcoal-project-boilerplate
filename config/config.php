@@ -18,6 +18,9 @@ $this['base_path'] = dirname(__DIR__).'/';
 /** Import core settings */
 $this->addFile(__DIR__ . '/config.json');
 
+/** Import Boilerplate routes */
+$this->addFile(__DIR__ . '/routes.json');
+
 /**
  * Load environment settings; such as database credentials
  * or credentials for 3rd party services.

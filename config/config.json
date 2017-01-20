@@ -26,7 +26,7 @@
   },
 
   "locales": {
-    "languages: ": {
+    "languages": {
       "fr": {
         "locale": "fr-FR"
       },
@@ -78,20 +78,5 @@
     "charcoal/admin/service-provider/admin": {},
     "charcoal/ui/service-provider/ui": {},
     "boilerplate/service-provider/boilerplate": {}
-  },
-
-  "routes": {
-    "templates": {
-      "/": {
-        "template": "boilerplate/template/home",
-        "controller": "boilerplate/template/home"
-      }
-    },
-    "actions": {},
-    "scripts": {
-      "boilerplate/rename": {
-        "ident": "boilerplate/script/rename"
-      }
-    }
   }
 }
