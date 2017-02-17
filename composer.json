@@ -6,6 +6,7 @@
   "homepage": "https://locomotive.ca",
   "license": "MIT",
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "php": ">=5.5.0",
     "locomotivemtl/charcoal-admin": "~0.2",
