@@ -2,8 +2,8 @@
 
 namespace Boilerplate\ServiceProvider;
 
-use \Pimple\Container;
-use \Pimple\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 
 /**
  * Boilerplate Service Provider
@@ -11,12 +11,12 @@ use \Pimple\ServiceProviderInterface;
 class BoilerplateServiceProvider implements ServiceProviderInterface
 {
     /**
-     * @param Container $container Pimple DI Container.
+     * @param  Container $container Pimple DI Container.
      * @return void
      */
     public function register(Container $container)
     {
-        // ...
+        /** @todo */
     }
 }
 
