@@ -1,82 +1,93 @@
 {
-  "project_name": "Charcoal Boilerplate",
+    "project_name": "Charcoal Boilerplate",
 
-  "timezone": "America/Montreal",
+    "timezone": "America/Montreal",
 
-  "dev_mode": true,
+    "dev_mode": false,
 
-  "cache": {
-    "active": true,
-    "types": [ "memcache", "redis", "apc" ],
-    "prefix": "boilerplate"
-  },
-
-  "logger": {
-    "active": true,
-    "levels": {
-      "debug": true
-    }
-  },
-
-  "email": {
-    "default_from": {
-      "email": null,
-      "name": null
-    }
-  },
-
-  "locales": {
-    "languages": {
-      "fr": {
-        "locale": "fr-FR"
-      },
-      "en": {
-        "locale": "en-US"
-      }
+    "cache": {
+        "active": true,
+        "types": [ "memcache", "redis", "apc" ],
+        "prefix": "boilerplate"
     },
-    "default_language": "fr"
-  },
 
-  "translations": {
-    "paths": [
-      "translations/boilerplate/",
-      "vendor/locomotivemtl/charcoal-app/translations/charcoal/app/"
-    ]
-  },
+    "logger": {
+        "active": true,
+        "levels": {
+            "debug": true
+        }
+    },
 
-  "view": {
-    "paths": [
-      "views/",
-      "vendor/locomotivemtl/charcoal-admin/templates/",
-      "vendor/locomotivemtl/charcoal-app/templates/"
-    ],
-    "default_engine": "mustache",
-    "default_controller": "\\Boilerplate\\Template\\Generic"
-  },
+    "email": {
+        "default_from": {
+            "email": null,
+            "name": null
+        }
+    },
 
-  "metadata": {
-    "paths": [
-      "metadata/",
-      "vendor/locomotivemtl/charcoal-cms/metadata/",
-      "vendor/locomotivemtl/charcoal-admin/metadata/",
-      "vendor/locomotivemtl/charcoal-app/metadata/",
-      "vendor/locomotivemtl/charcoal-email/metadata/",
-      "vendor/locomotivemtl/charcoal-messaging/metadata/",
-      "vendor/locomotivemtl/charcoal-property/metadata/",
-      "vendor/locomotivemtl/charcoal-object/metadata/",
-      "vendor/locomotivemtl/charcoal-user/metadata/"
-    ]
-  },
+    "locales": {
+        "languages": {
+            "fr": {
+                "locale": "fr-FR"
+            },
+            "en": {
+                "locale": "en-US"
+            }
+        },
+        "default_language": "fr"
+    },
 
-  "modules": {
-    "charcoal/admin/admin": {}
-  },
+    "translations": {
+        "paths": [
+            "translations/boilerplate/",
+            "vendor/locomotivemtl/charcoal-admin/translations/",
+            "vendor/locomotivemtl/charcoal-app/translations/"
+        ]
+    },
 
-  "service_providers": {
-    "charcoal/email/service-provider/email": {},
-    "charcoal/model/service-provider/model": {},
-    "charcoal/admin/service-provider/admin": {},
-    "charcoal/ui/service-provider/ui": {},
-    "boilerplate/service-provider/boilerplate": {}
-  }
+    "apis": {
+        "google": {
+            "analytics": {
+                "tracking_id": ""
+            }
+        },
+        "typekit": {
+            "kit_id": ""
+        }
+    },
+
+    "view": {
+        "paths": [
+            "views/",
+            "vendor/locomotivemtl/charcoal-admin/templates/",
+            "vendor/locomotivemtl/charcoal-app/templates/"
+        ],
+        "default_engine": "mustache",
+        "default_controller": "\\Boilerplate\\Template\\Generic"
+    },
+
+    "metadata": {
+        "paths": [
+            "metadata/",
+            "vendor/locomotivemtl/charcoal-cms/metadata/",
+            "vendor/locomotivemtl/charcoal-admin/metadata/",
+            "vendor/locomotivemtl/charcoal-app/metadata/",
+            "vendor/locomotivemtl/charcoal-email/metadata/",
+            "vendor/locomotivemtl/charcoal-messaging/metadata/",
+            "vendor/locomotivemtl/charcoal-property/metadata/",
+            "vendor/locomotivemtl/charcoal-object/metadata/",
+            "vendor/locomotivemtl/charcoal-user/metadata/"
+        ]
+    },
+
+    "modules": {
+        "charcoal/admin/admin": {}
+    },
+
+    "service_providers": {
+        "charcoal/model/service-provider/model": {},
+        "charcoal/ui/service-provider/ui": {},
+        "charcoal/admin/service-provider/admin": {},
+        "boilerplate/service-provider/boilerplate": {}
+    }
 }

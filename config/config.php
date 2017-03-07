@@ -10,7 +10,6 @@
 
 /** For the time being, let's track and show all issues. */
 error_reporting(E_ALL);
-ini_set('display_errors', true);
 
 /** The application's absolute root path */
 $this['base_path'] = dirname(__DIR__).'/';
@@ -45,3 +44,5 @@ if ( isset($app_environment) && $app_environment ) {
         }
     }
 }
+
+ini_set('display_errors', $this['debug']);

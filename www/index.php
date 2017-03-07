@@ -5,17 +5,17 @@
  *
  * @package   Charcoal
  * @author    Locomotive <info@locomotive.ca>
- * @copyright Copyright (c) 2016 Locomotive Inc.
+ * @copyright Copyright (c) 2017 Locomotive Inc.
  * @link      https://github.com/locomotivemtl/charcoal-project-boilerplate
  */
 
 /** Built on top of Slim */
-use \Charcoal\App\App;
-use \Charcoal\App\AppConfig;
-use \Charcoal\App\AppContainer;
+use Charcoal\App\App;
+use Charcoal\App\AppConfig;
+use Charcoal\App\AppContainer;
 
 /** If we're not using PHP 5.6+, explicitly set the default character set. */
-if ( PHP_VERSION_ID < 50600 ) {
+if (PHP_VERSION_ID < 50600) {
     ini_set('default_charset', 'UTF-8');
 }
 
@@ -23,7 +23,7 @@ if ( PHP_VERSION_ID < 50600 ) {
  * If you are using PHP's built-in server, return FALSE
  * for existing files on the filesystem.
  */
-if ( PHP_SAPI === 'cli-server' ) {
+if (PHP_SAPI === 'cli-server') {
     $file = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
 
     if ( is_file($file) ) {
@@ -35,7 +35,7 @@ if ( PHP_SAPI === 'cli-server' ) {
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 /** Start new or resume existing session */
-if ( ! session_id() ) {
+if (!session_id()) {
     session_start();
 }
 
@@ -44,12 +44,12 @@ $appConfig = new AppConfig();
 $appConfig->addFile(dirname(__DIR__) . '/config/config.php');
 
 /** Build the DI container */
-$container = new AppContainer( [
+$container = new AppContainer([
     'config'   => $appConfig,
     'settings' => [
         'displayErrorDetails' => true
     ]
-] );
+]);
 
 /** Instantiate a Charcoal~Slim application */
 $app = App::instance($container);

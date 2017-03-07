@@ -1,12 +1,7 @@
 <?php
 
-/**
- * Test Charcoal
- *
- * @package Charcoal
- */
+mb_internal_encoding('UTF-8');
+date_default_timezone_set('UTC');
 
-/** Composer autoloader for Charcoal's PSR4-compliant Unit Tests */
+/** @var \Composer\Autoload\ClassLoader $autoloader */
 $autoloader = require __DIR__.'/../vendor/autoload.php';
-$autoloader->add('Charcoal\\', __DIR__.'/src/');
-$autoloader->add('Charcoal\\Tests\\', __DIR__);

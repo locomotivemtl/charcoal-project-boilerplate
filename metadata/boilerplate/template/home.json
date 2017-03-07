@@ -1,10 +1,10 @@
 {
-  "properties": {
-    "x": {
-      "type": "string"
+    "properties": {
+        "x": {
+            "type": "string"
+        }
+    },
+    "data": {
+        "x": "Héllö <strong>Ben!</strong>"
     }
-  },
-  "data": {
-    "x": "Héllö <strong>Ben!</strong>"
-  }
 }

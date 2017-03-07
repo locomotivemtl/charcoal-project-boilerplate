@@ -1,21 +1,12 @@
 {
-  "databases": {
-    "default": {
-      "database": "charcoal_boilerplate",
-      "username": "root",
-      "password": ""
-    }
-  },
-  "default_database": "default",
+    "dev_mode": true,
 
-  "apis":{
-    "google":{
-        "analytics":{
-            "tracking_id":""
+    "databases": {
+        "default": {
+            "database": "charcoal_boilerplate",
+            "username": "root",
+            "password": ""
         }
     },
-    "typekit":{
-        "kit_id":""
-    }
-  }
+    "default_database": "default"
 }

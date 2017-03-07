@@ -1,22 +1,22 @@
 {
-  "routes": {
-    "templates": {
-      "/": {
-        "template": "boilerplate/template/home",
-        "controller": "boilerplate/template/home"
-      }
+    "routes": {
+        "templates": {
+            "[/]": {
+                "template": "boilerplate/template/home",
+                "controller": "boilerplate/template/home"
+            }
+        },
+        "actions": {},
+        "scripts": {
+            "boilerplate/rename": {
+                "ident": "boilerplate/script/rename"
+            }
+        }
     },
-    "actions": {},
-    "scripts": {
-      "boilerplate/rename": {
-        "ident": "boilerplate/script/rename"
-      }
+    "handlers": {
+        "defaults": {
+            "template": "boilerplate/template/error",
+            "controller": "boilerplate/template/error"
+        }
     }
-  },
-  "handlers": {
-    "defaults": {
-      "template": "boilerplate/template/error",
-      "controller": "boilerplate/template/error"
-    }
-  }
 }

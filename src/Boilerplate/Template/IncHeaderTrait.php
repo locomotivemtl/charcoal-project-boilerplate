@@ -3,7 +3,7 @@
 namespace Boilerplate\Template;
 
 // From `charcoal-core`
-use \Charcoal\Translation\TranslationString;
+use Charcoal\Translation\TranslationString;
 
 /**
  * Header include. Provide defaults (stubs) to fulfill the interface.

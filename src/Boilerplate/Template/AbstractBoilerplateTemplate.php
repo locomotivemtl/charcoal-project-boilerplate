@@ -7,26 +7,26 @@ use RuntimeException;
 use InvalidArgumentException;
 
 // Dependency from Pimple
-use \Pimple\Container;
+use Pimple\Container;
 
 // Dependency from PSR-7
 use Psr\Http\Message\UriInterface;
 
 // Dependency from 'charcoal-config'
-use \Charcoal\Config\ConfigInterface;
+use Charcoal\Config\ConfigInterface;
 
 // Dependencies from 'charcoal-translator'
-use \Charcoal\Translator\Translation;
-use \Charcoal\Translator\TranslatorAwareTrait;
+use Charcoal\Translator\Translation;
+use Charcoal\Translator\TranslatorAwareTrait;
 
 // Dependency from 'charcoal-app'
-use \Charcoal\App\Template\AbstractTemplate;
+use Charcoal\App\Template\AbstractTemplate;
 
 // Local dependencies
-use \Boilerplate\Template\IncHeaderInterface;
-use \Boilerplate\Template\IncHeaderTrait;
-use \Boilerplate\Template\IncFooterInterface;
-use \Boilerplate\Template\IncFooterTrait;
+use Boilerplate\Template\IncHeaderInterface;
+use Boilerplate\Template\IncHeaderTrait;
+use Boilerplate\Template\IncFooterInterface;
+use Boilerplate\Template\IncFooterTrait;
 
 /**
  * Base class for all "Boilerplate" templates.
@@ -75,7 +75,9 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     }
 
     /**
-     * @param  ConfigInterface $config Main app config.
+     * Set the application's configset.
+     *
+     * @param  array|ArrayAccess $config A configset.
      * @throws InvalidArgumentException If the configset is invalid.
      * @return void
      */

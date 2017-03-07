@@ -1,133 +1,133 @@
 {
-  "parent": "charcoal/object/content",
+    "parent": "charcoal/object/content",
 
-  "properties": {
-    "id": {
-      "type": "id",
-      "mode": "auto-increment"
-    },
-    "name": {
-      "type": "string"
-    },
-    "content": {
-      "type": "html",
-      "input_type": "charcoal/admin/property/input/tinymce",
-      "editor_options": {
-        "test": "allo"
-      }
-    },
-    "num": {
-      "type": "integer"
-    },
-    "sound": {
-      "type": "audio",
-      "upload_path": "uploads/sounds/"
-    },
-    "sound2": {
-      "type": "audio",
-      "upload_path": "uploads/sounds/",
-      "input_type": "charcoal/admin/property/input/file"
-    },
-    "file": {
-      "type": "file",
-      "upload_path": "uploads/files/"
-    },
-    "img": {
-      "type": "image",
-      "upload_path": "uploads/images/"
-    },
-    "ok": {
-      "type": "boolean"
-    }
-  },
-  "sources": {
-    "default": {
-      "type": "database",
-      "table": "boilerplate_tests"
-    }
-  },
-  "default_source": "default",
-
-  "admin": {
-    "lists": {
-      "default": {
-        "properties": [
-          "id",
-          "name",
-          "num",
-          "ok"
-        ],
-        "properties_options": {},
-        "filters": [],
-        "orders": [],
-        "pagination": []
-      }
-    },
-    "default_list": "default",
-
-    "forms": {
-      "default": {
-        "groups": {
-          "all": {}
-        }
-      }
-    },
-    "default_form": "default",
-
-    "form_groups": {
-      "all": {
-        "title": "Test object",
-        "properties": [
-          "id",
-          "name",
-          "content",
-          "img",
-          "num",
-          "file",
-          "ok"
-        ],
-        "properties_options": {},
-        "layout": {
-          "structure": [
-            { "columns": [ 2, 10 ] },
-            { "columns": [ 12 ] },
-            { "columns": [ 3, 3, 3, 3 ] }
-          ]
-        }
-      }
-    },
-
-    "dashboards": {
-      "admin.edit": {
-        "layout": {
-          "structure": [
-            { "columns": [ 1 ] }
-          ]
+    "properties": {
+        "id": {
+            "type": "id",
+            "mode": "auto-increment"
         },
-        "widgets": {
-          "form": {
-            "type": "charcoal/admin/widget/objectForm",
-            "form_ident": "default",
-            "obj_type": "boilerplate/test"
-          }
-        }
-      },
-      "admin.table": {
-        "layout": {
-          "structure": [
-            { "columns": [ 1 ] }
-          ]
+        "name": {
+            "type": "string"
         },
-        "widgets": {
-          "list": {
-            "type": "charcoal/admin/widget/table",
-            "label": "Table label",
-            "obj_type": "boilerplate/test"
-          }
+        "content": {
+            "type": "html",
+            "input_type": "charcoal/admin/property/input/tinymce",
+            "editor_options": {
+                "test": "allo"
+            }
+        },
+        "num": {
+            "type": "integer"
+        },
+        "sound": {
+            "type": "audio",
+            "upload_path": "uploads/sounds/"
+        },
+        "sound2": {
+            "type": "audio",
+            "upload_path": "uploads/sounds/",
+            "input_type": "charcoal/admin/property/input/file"
+        },
+        "file": {
+            "type": "file",
+            "upload_path": "uploads/files/"
+        },
+        "img": {
+            "type": "image",
+            "upload_path": "uploads/images/"
+        },
+        "ok": {
+            "type": "boolean"
         }
-      }
     },
-    "default_edit_dashboard": "admin.edit",
-    "default_collection_dashboard": "admin.table"
-  }
+    "sources": {
+        "default": {
+            "type": "database",
+            "table": "boilerplate_tests"
+        }
+    },
+    "default_source": "default",
+
+    "admin": {
+        "lists": {
+            "default": {
+                "properties": [
+                    "id",
+                    "name",
+                    "num",
+                    "ok"
+                ],
+                "properties_options": {},
+                "filters": [],
+                "orders": [],
+                "pagination": []
+            }
+        },
+        "default_list": "default",
+
+        "forms": {
+            "default": {
+                "groups": {
+                    "all": {}
+                }
+            }
+        },
+        "default_form": "default",
+
+        "form_groups": {
+            "all": {
+                "title": "Test object",
+                "properties": [
+                    "id",
+                    "name",
+                    "content",
+                    "img",
+                    "num",
+                    "file",
+                    "ok"
+                ],
+                "properties_options": {},
+                "layout": {
+                    "structure": [
+                        { "columns": [ 2, 10 ] },
+                        { "columns": [ 12 ] },
+                        { "columns": [ 3, 3, 3, 3 ] }
+                    ]
+                }
+            }
+        },
+
+        "dashboards": {
+            "admin.edit": {
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                },
+                "widgets": {
+                    "form": {
+                        "type": "charcoal/admin/widget/objectForm",
+                        "form_ident": "default",
+                        "obj_type": "boilerplate/test"
+                    }
+                }
+            },
+            "admin.table": {
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                },
+                "widgets": {
+                    "list": {
+                        "type": "charcoal/admin/widget/table",
+                        "label": "Table label",
+                        "obj_type": "boilerplate/test"
+                    }
+                }
+            }
+        },
+        "default_edit_dashboard": "admin.edit",
+        "default_collection_dashboard": "admin.table"
+    }
 }
