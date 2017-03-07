@@ -12,5 +12,11 @@
         "ident": "boilerplate/script/rename"
       }
     }
+  },
+  "handlers": {
+    "defaults": {
+      "template": "boilerplate/template/error",
+      "controller": "boilerplate/template/error"
+    }
   }
 }
