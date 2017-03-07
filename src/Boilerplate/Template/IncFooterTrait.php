@@ -20,7 +20,7 @@ trait IncFooterTrait
      */
     public function companyName()
     {
-        return 'Company';
+        return 'Boilerplate';
     }
 
     /**
