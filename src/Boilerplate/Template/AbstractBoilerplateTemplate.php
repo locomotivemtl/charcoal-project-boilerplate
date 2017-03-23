@@ -61,6 +61,18 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     private $debug = false;
 
     /**
+     * @var Parser $browserParser
+     */
+    private $browserParser;
+
+    /**
+     * The cache of parsed template names.
+     *
+     * @var array
+     */
+    protected static $templateNameCache = [];
+
+    /**
      * @param  Container $container The pimple DI container.
      * @return void
      */
@@ -72,6 +84,7 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
         $this->setBaseUrl($container['base-url']);
         $this->setAppConfig($container['config']);
         $this->setTranslator($container['translator']);
+        $this->setBrowserParser($container['browserparser']);
     }
 
     /**
@@ -145,6 +158,24 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     }
 
     /**
+     * @param Parser $loader From dependencies container.
+     */
+    public function setBrowserParser($parser)
+    {
+        $this->browserParser = $parser;
+
+        return $this;
+    }
+
+    /**
+     * @return Parser Set from dependencies container.
+     */
+    public function browserParser()
+    {
+        return $this->browserParser;
+    }
+
+    /**
      * Prepend the base URI to the given path.
      *
      * @param  string $uri A URI path to wrap.
@@ -191,5 +222,78 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     public function lang()
     {
         return $this->translator()->getLocale();
+    }
+
+    // Front-end helpers
+    // ============================================================
+
+    /**
+     * Retrieve the template's identifier.
+     *
+     * @return string
+     */
+    public function templateName()
+    {
+        $key = substr(strrchr('\\'.get_class($this), '\\'), 1);
+
+        if (!isset(static::$templateNameCache[$key])) {
+            $value = $key;
+
+            if (!ctype_lower($value)) {
+                $value = preg_replace('/\s+/u', '', $value);
+                $value = mb_strtolower(preg_replace('/(.)(?=[A-Z])/u', '$1-', $value), 'UTF-8');
+            }
+
+            $value = str_replace(
+                [ 'abstract', 'trait', 'interface', 'template', '\\' ],
+                '',
+                $value
+           );
+
+            static::$templateNameCache[$key] = trim($value, '-');
+        }
+
+        return static::$templateNameCache[$key];
+    }
+
+    /**
+     * Use BrowserParser to determine if is iOS.
+     *
+     * @return boolean
+     */
+    public function isIos()
+    {
+        return $this->browserParser()->isOs('iOS');
+    }
+
+    /**
+     * Use BrowserParser to determine if is IE9
+     *
+     * @return boolean
+     */
+    public function isIe9()
+    {
+        return $this->browserParser()->isBrowser('Internet Explorer', '<', '10');
+    }
+
+    /**
+     * Use BrowserParser to determine if is IE10
+     *
+     * @return boolean
+     */
+    public function isIe10()
+    {
+        return $this->browserParser()->isBrowser('Internet Explorer', '=', '10');
+    }
+
+    /**
+     * Use BrowserParser to determine if is Internet Explorer
+     *
+     * @return boolean
+     */
+    public function isIe()
+    {
+        return  $this->browserParser()->isBrowser('Internet Explorer') ||
+                $this->browserParser()->isBrowser('Edge');
     }
 }

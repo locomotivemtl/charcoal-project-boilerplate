@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "90cd186039df60a35d83d6ec8d08902c",
+    "hash": "4a5f84da023cd96948af698b8f167a50",
+    "content-hash": "2393511d68d607674fb002e42f86db63",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -60,7 +61,7 @@
                 "elfinder",
                 "filesystem"
             ],
-            "time": "2016-04-05T14:47:48+00:00"
+            "time": "2016-04-05 14:47:48"
         },
         {
             "name": "container-interop/container-interop",
@@ -91,7 +92,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
-            "time": "2017-02-14T19:40:03+00:00"
+            "time": "2017-02-14 19:40:03"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -156,7 +157,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-02-27T10:51:17+00:00"
+            "time": "2017-02-27 10:51:17"
         },
         {
             "name": "intervention/image",
@@ -218,7 +219,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-02-04T10:37:19+00:00"
+            "time": "2017-02-04 10:37:19"
         },
         {
             "name": "league/climate",
@@ -269,7 +270,7 @@
                 "php",
                 "terminal"
             ],
-            "time": "2016-04-04T20:24:59+00:00"
+            "time": "2016-04-04 20:24:59"
         },
         {
             "name": "league/flysystem",
@@ -352,7 +353,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-02-09T11:33:58+00:00"
+            "time": "2017-02-09 11:33:58"
         },
         {
             "name": "league/flysystem-cached-adapter",
@@ -400,7 +401,7 @@
                 }
             ],
             "description": "An adapter decorator to enable meta-data caching.",
-            "time": "2016-11-20T21:02:42+00:00"
+            "time": "2016-11-20 21:02:42"
         },
         {
             "name": "locomotivemtl/charcoal-admin",
@@ -474,7 +475,7 @@
                 "charcoal",
                 "cms"
             ],
-            "time": "2017-03-03T17:06:42+00:00"
+            "time": "2017-03-03 17:06:42"
         },
         {
             "name": "locomotivemtl/charcoal-app",
@@ -551,7 +552,7 @@
                 "framework",
                 "slim"
             ],
-            "time": "2017-03-02T22:14:04+00:00"
+            "time": "2017-03-02 22:14:04"
         },
         {
             "name": "locomotivemtl/charcoal-cms",
@@ -615,7 +616,7 @@
                 "charcoal",
                 "cms"
             ],
-            "time": "2017-02-28T16:45:08+00:00"
+            "time": "2017-02-28 16:45:08"
         },
         {
             "name": "locomotivemtl/charcoal-config",
@@ -677,7 +678,7 @@
                 "yaml",
                 "yml"
             ],
-            "time": "2017-02-03T19:10:34+00:00"
+            "time": "2017-02-03 19:10:34"
         },
         {
             "name": "locomotivemtl/charcoal-core",
@@ -747,7 +748,7 @@
                 "framework",
                 "locomotive"
             ],
-            "time": "2017-02-24T17:51:39+00:00"
+            "time": "2017-02-24 17:51:39"
         },
         {
             "name": "locomotivemtl/charcoal-email",
@@ -805,7 +806,7 @@
                 "phpmailer",
                 "queue"
             ],
-            "time": "2016-05-31T00:56:29+00:00"
+            "time": "2016-05-31 00:56:29"
         },
         {
             "name": "locomotivemtl/charcoal-factory",
@@ -854,7 +855,7 @@
             "keywords": [
                 "charcoal"
             ],
-            "time": "2016-11-08T16:15:36+00:00"
+            "time": "2016-11-08 16:15:36"
         },
         {
             "name": "locomotivemtl/charcoal-image",
@@ -905,7 +906,7 @@
                 "locomotive",
                 "php"
             ],
-            "time": "2017-01-19T09:53:00+00:00"
+            "time": "2017-01-19 09:53:00"
         },
         {
             "name": "locomotivemtl/charcoal-object",
@@ -959,7 +960,7 @@
                 }
             ],
             "description": "Object (Content and UserData) definition and object behaviors and tools.",
-            "time": "2017-02-17T15:41:04+00:00"
+            "time": "2017-02-17 15:41:04"
         },
         {
             "name": "locomotivemtl/charcoal-property",
@@ -1022,7 +1023,7 @@
             "keywords": [
                 "charcoal"
             ],
-            "time": "2017-02-24T16:52:52+00:00"
+            "time": "2017-02-24 16:52:52"
         },
         {
             "name": "locomotivemtl/charcoal-queue",
@@ -1074,7 +1075,7 @@
                 "charcoal",
                 "queue"
             ],
-            "time": "2016-05-19T12:16:23+00:00"
+            "time": "2016-05-19 12:16:23"
         },
         {
             "name": "locomotivemtl/charcoal-translator",
@@ -1123,7 +1124,7 @@
                 }
             ],
             "description": "Charcoal Translator and locales management.",
-            "time": "2017-02-27T15:44:54+00:00"
+            "time": "2017-02-27 15:44:54"
         },
         {
             "name": "locomotivemtl/charcoal-ui",
@@ -1194,7 +1195,7 @@
                 "menu",
                 "ui"
             ],
-            "time": "2017-03-03T17:00:56+00:00"
+            "time": "2017-03-03 17:00:56"
         },
         {
             "name": "locomotivemtl/charcoal-user",
@@ -1249,7 +1250,7 @@
                 }
             ],
             "description": "User definition, authentication and authorization.",
-            "time": "2017-02-27T22:17:43+00:00"
+            "time": "2017-02-27 22:17:43"
         },
         {
             "name": "locomotivemtl/charcoal-view",
@@ -1318,7 +1319,7 @@
                 "twig",
                 "view"
             ],
-            "time": "2017-02-14T12:59:38+00:00"
+            "time": "2017-02-14 12:59:38"
         },
         {
             "name": "monolog/monolog",
@@ -1396,7 +1397,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-11-26T00:15:39+00:00"
+            "time": "2016-11-26 00:15:39"
         },
         {
             "name": "mustache/mustache",
@@ -1442,7 +1443,7 @@
                 "mustache",
                 "templating"
             ],
-            "time": "2016-07-31T06:18:27+00:00"
+            "time": "2016-07-31 06:18:27"
         },
         {
             "name": "nikic/fast-route",
@@ -1485,7 +1486,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2017-01-19T11:35:12+00:00"
+            "time": "2017-01-19 11:35:12"
         },
         {
             "name": "paragonie/random_compat",
@@ -1533,7 +1534,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18T20:34:03+00:00"
+            "time": "2016-03-18 20:34:03"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -1592,7 +1593,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2017-02-28T10:46:22+00:00"
+            "time": "2017-02-28 10:46:22"
         },
         {
             "name": "pimple/pimple",
@@ -1638,7 +1639,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2015-09-11T15:10:35+00:00"
+            "time": "2015-09-11 15:10:35"
         },
         {
             "name": "psr/cache",
@@ -1684,7 +1685,7 @@
                 "psr",
                 "psr-6"
             ],
-            "time": "2016-08-06T20:24:11+00:00"
+            "time": "2016-08-06 20:24:11"
         },
         {
             "name": "psr/container",
@@ -1733,7 +1734,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14T16:28:37+00:00"
+            "time": "2017-02-14 16:28:37"
         },
         {
             "name": "psr/http-message",
@@ -1783,7 +1784,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -1830,7 +1831,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "seld/cli-prompt",
@@ -1878,7 +1879,7 @@
                 "input",
                 "prompt"
             ],
-            "time": "2016-04-18T09:31:41+00:00"
+            "time": "2016-04-18 09:31:41"
         },
         {
             "name": "slim/slim",
@@ -1948,7 +1949,7 @@
                 "micro",
                 "router"
             ],
-            "time": "2016-12-20T20:30:47+00:00"
+            "time": "2016-12-20 20:30:47"
         },
         {
             "name": "studio-42/elfinder",
@@ -2006,7 +2007,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2017-02-08T13:49:35+00:00"
+            "time": "2017-02-08 13:49:35"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2065,7 +2066,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2016-11-14 01:06:16"
         },
         {
             "name": "symfony/translation",
@@ -2129,7 +2130,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-16T22:46:52+00:00"
+            "time": "2017-02-16 22:46:52"
         },
         {
             "name": "tedivm/stash",
@@ -2189,7 +2190,66 @@
                 "redis",
                 "sessions"
             ],
-            "time": "2016-02-10T22:23:16+00:00"
+            "time": "2016-02-10 22:23:16"
+        },
+        {
+            "name": "whichbrowser/parser",
+            "version": "v2.0.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WhichBrowser/Parser.git",
+                "reference": "ed6e911bed49a2946b5920469c0071b6fe57776e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WhichBrowser/Parser/zipball/ed6e911bed49a2946b5920469c0071b6fe57776e",
+                "reference": "ed6e911bed49a2946b5920469c0071b6fe57776e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/cache": "^1.0"
+            },
+            "require-dev": {
+                "cache/array-adapter": "^0.4",
+                "icomefromthenet/reverse-regex": "dev-master",
+                "league/csv": "^8.0",
+                "phpdocumentor/reflection-docblock": "^2.0",
+                "phpunit/php-code-coverage": "^2.2|^3.0",
+                "phpunit/phpunit": "^4.0",
+                "satooshi/php-coveralls": "^0.6",
+                "squizlabs/php_codesniffer": "2.5.*",
+                "symfony/yaml": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WhichBrowser\\": [
+                        "src/",
+                        "tests/src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Niels Leenheer",
+                    "email": "niels@leenheer.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Useragent sniffing library for PHP",
+            "homepage": "http://whichbrowser.net",
+            "keywords": [
+                "browser",
+                "sniffing",
+                "ua",
+                "useragent"
+            ],
+            "time": "2016-09-08 14:07:33"
         },
         {
             "name": "zendframework/zend-permissions-acl",
@@ -2238,7 +2298,7 @@
                 "acl",
                 "zf2"
             ],
-            "time": "2016-02-03T21:46:45+00:00"
+            "time": "2016-02-03 21:46:45"
         }
     ],
     "packages-dev": [
@@ -2294,7 +2354,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2015-06-14 21:17:01"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2348,7 +2408,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2015-12-27T11:43:31+00:00"
+            "time": "2015-12-27 11:43:31"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -2393,7 +2453,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-09-30T07:12:33+00:00"
+            "time": "2016-09-30 07:12:33"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -2440,7 +2500,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2016-11-25T06:54:22+00:00"
+            "time": "2016-11-25 06:54:22"
         },
         {
             "name": "phpspec/prophecy",
@@ -2503,7 +2563,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-03-02T20:05:34+00:00"
+            "time": "2017-03-02 20:05:34"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2565,7 +2625,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-06T15:47:00+00:00"
+            "time": "2015-10-06 15:47:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2612,7 +2672,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03T07:40:28+00:00"
+            "time": "2016-10-03 07:40:28"
         },
         {
             "name": "phpunit/php-text-template",
@@ -2653,7 +2713,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21T13:50:34+00:00"
+            "time": "2015-06-21 13:50:34"
         },
         {
             "name": "phpunit/php-timer",
@@ -2702,7 +2762,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26T11:10:40+00:00"
+            "time": "2017-02-26 11:10:40"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -2751,7 +2811,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27T10:12:30+00:00"
+            "time": "2017-02-27 10:12:30"
         },
         {
             "name": "phpunit/phpunit",
@@ -2823,7 +2883,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-02-06T05:18:07+00:00"
+            "time": "2017-02-06 05:18:07"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2879,7 +2939,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-10-02T06:51:40+00:00"
+            "time": "2015-10-02 06:51:40"
         },
         {
             "name": "sebastian/comparator",
@@ -2943,7 +3003,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29T09:50:25+00:00"
+            "time": "2017-01-29 09:50:25"
         },
         {
             "name": "sebastian/diff",
@@ -2995,7 +3055,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08T07:14:41+00:00"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",
@@ -3045,7 +3105,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-08-18T05:49:44+00:00"
+            "time": "2016-08-18 05:49:44"
         },
         {
             "name": "sebastian/exporter",
@@ -3112,7 +3172,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-06-17T09:04:28+00:00"
+            "time": "2016-06-17 09:04:28"
         },
         {
             "name": "sebastian/global-state",
@@ -3163,7 +3223,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2015-10-12T03:26:01+00:00"
+            "time": "2015-10-12 03:26:01"
         },
         {
             "name": "sebastian/recursion-context",
@@ -3216,7 +3276,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-10-03T07:41:43+00:00"
+            "time": "2016-10-03 07:41:43"
         },
         {
             "name": "sebastian/version",
@@ -3251,7 +3311,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-06-21T13:59:46+00:00"
+            "time": "2015-06-21 13:59:46"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -3329,7 +3389,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-01T22:17:45+00:00"
+            "time": "2017-03-01 22:17:45"
         },
         {
             "name": "symfony/yaml",
@@ -3384,7 +3444,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-16T22:46:52+00:00"
+            "time": "2017-02-16 22:46:52"
         },
         {
             "name": "webmozart/assert",
@@ -3434,7 +3494,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23T20:04:58+00:00"
+            "time": "2016-11-23 20:04:58"
         }
     ],
     "aliases": [],

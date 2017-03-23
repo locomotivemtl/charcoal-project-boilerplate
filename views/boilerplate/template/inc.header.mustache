@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="{{lang}}">
+<html data-template="{{templateName}}" lang="{{lang}}"{{# debug }} data-debug="true"{{/ debug }} class="
+{{#isIe}} is-ie{{/isIe}}
+{{#isIe9}} is-ie9{{/isIe9}}
+{{#isIe10}} is-ie10{{/isIe10}}">
 <head>
     <base href="{{baseUrl}}">
     <meta charset="utf-8">
