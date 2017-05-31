@@ -22,29 +22,32 @@ use Charcoal\Translator\TranslatorAwareTrait;
 // Dependency from 'charcoal-app'
 use Charcoal\App\Template\AbstractTemplate;
 
+// Dependency from 'charcoal-cms'
+use Charcoal\Cms\MetatagInterface;
+use Charcoal\Cms\MetatagTrait;
+
 // Local dependencies
-use Boilerplate\Template\IncHeaderInterface;
-use Boilerplate\Template\IncHeaderTrait;
-use Boilerplate\Template\IncFooterInterface;
-use Boilerplate\Template\IncFooterTrait;
+use Boilerplate\Template\Partial\IncHeaderInterface;
+use Boilerplate\Template\Partial\IncHeaderTrait;
+use Boilerplate\Template\Partial\IncFooterInterface;
+use Boilerplate\Template\Partial\IncFooterTrait;
+use Boilerplate\Template\BrowserParserAwareInterface;
+use Boilerplate\Template\BrowserParserAwareTrait;
 
 /**
  * Base class for all "Boilerplate" templates.
  */
 abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     IncHeaderInterface,
-    IncFooterInterface
+    IncFooterInterface,
+    BrowserParserAwareInterface,
+    MetatagInterface
 {
     use IncHeaderTrait;
     use IncFooterTrait;
     use TranslatorAwareTrait;
-
-    /**
-     * The base URI.
-     *
-     * @var UriInterface|null
-     */
-    private $baseUrl;
+    use BrowserParserAwareTrait;
+    use MetatagTrait;
 
     /**
      * The application's configuration container.
@@ -54,16 +57,18 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     private $appConfig = [];
 
     /**
+     * The base URI.
+     *
+     * @var UriInterface|null
+     */
+    private $baseUrl;
+
+    /**
      * Whether the debug mode is enabled.
      *
      * @var boolean
      */
     private $debug = false;
-
-    /**
-     * @var Parser $browserParser
-     */
-    private $browserParser;
 
     /**
      * The cache of parsed template names.
@@ -80,11 +85,16 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     {
         parent::setDependencies($container);
 
-        $this->setDebug($container['debug']);
-        $this->setBaseUrl($container['base-url']);
+        // Fulfill Local dependencies requirements
         $this->setAppConfig($container['config']);
-        $this->setTranslator($container['translator']);
+        $this->setBaseUrl($container['base-url']);
+        $this->setDebug($container['debug']);
+
+        // Fulfill BrowserParserAwareTrait dependencies requirements
         $this->setBrowserParser($container['browserparser']);
+
+        // Fulfill TranslatorAwareTrait dependencies requirements
+        $this->setTranslator($container['translator']);
     }
 
     /**
@@ -157,23 +167,7 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
         return $this->baseUrl;
     }
 
-    /**
-     * @param Parser $loader From dependencies container.
-     */
-    public function setBrowserParser($parser)
-    {
-        $this->browserParser = $parser;
 
-        return $this;
-    }
-
-    /**
-     * @return Parser Set from dependencies container.
-     */
-    public function browserParser()
-    {
-        return $this->browserParser;
-    }
 
     /**
      * Prepend the base URI to the given path.
@@ -188,6 +182,8 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
             if (!in_array($uri[0], [ '/', '#', '?' ])) {
                 return $this->baseUrl()->withPath($uri);
             }
+        } else {
+            return $this->baseUrl()->withPath('');
         }
 
         return $uri;
@@ -215,13 +211,32 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     }
 
     /**
-     * Retrieve the current locale's landguage code.
+     * @return string
+     */
+    public function canonicalUrl()
+    {
+        return '';
+    }
+
+    /**
+     * Retrieve the current locale's language code.
+     * * Ex: "en" or "fr"
      *
      * @return string
      */
     public function lang()
     {
         return $this->translator()->getLocale();
+    }
+
+    /**
+     * @return array
+     */
+    public function meta()
+    {
+        return [
+
+        ];
     }
 
     // Front-end helpers
@@ -254,46 +269,5 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
         }
 
         return static::$templateNameCache[$key];
-    }
-
-    /**
-     * Use BrowserParser to determine if is iOS.
-     *
-     * @return boolean
-     */
-    public function isIos()
-    {
-        return $this->browserParser()->isOs('iOS');
-    }
-
-    /**
-     * Use BrowserParser to determine if is IE9
-     *
-     * @return boolean
-     */
-    public function isIe9()
-    {
-        return $this->browserParser()->isBrowser('Internet Explorer', '<', '10');
-    }
-
-    /**
-     * Use BrowserParser to determine if is IE10
-     *
-     * @return boolean
-     */
-    public function isIe10()
-    {
-        return $this->browserParser()->isBrowser('Internet Explorer', '=', '10');
-    }
-
-    /**
-     * Use BrowserParser to determine if is Internet Explorer
-     *
-     * @return boolean
-     */
-    public function isIe()
-    {
-        return  $this->browserParser()->isBrowser('Internet Explorer') ||
-                $this->browserParser()->isBrowser('Edge');
     }
 }

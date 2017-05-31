@@ -1,6 +1,6 @@
 <?php
 
-namespace Boilerplate\Template;
+namespace Boilerplate\Template\Partial;
 
 /**
  *
@@ -12,13 +12,13 @@ trait IncFooterTrait
      */
     public function copyright()
     {
-        return sprintf('© %s %s', $this->companyName(), $this->year());
+        return sprintf('© %s %s', $this->copyrightName(), $this->copyrightYear());
     }
 
     /**
      * @return string
      */
-    public function companyName()
+    public function copyrightName()
     {
         return 'Boilerplate';
     }
@@ -28,7 +28,7 @@ trait IncFooterTrait
      *
      * @return string
      */
-    public function year()
+    public function copyrightYear()
     {
         return date('Y');
     }

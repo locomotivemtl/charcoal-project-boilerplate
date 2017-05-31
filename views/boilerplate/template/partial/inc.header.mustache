@@ -1,0 +1,26 @@
+<!doctype html>
+<html data-template="{{templateName}}" lang="{{lang}}"{{# debug }} data-debug="true"{{/ debug }} class="
+{{#isIe}} is-ie{{/isIe}}
+{{#isIe9}} is-ie9{{/isIe9}}
+{{#isIe10}} is-ie10{{/isIe10}}">
+<head>
+    <base href="{{baseUrl}}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{pageTitle}}</title>
+
+    <meta name="description" content="{{metaDescription}}">
+    {{opengraphTags}}
+
+    {{>boilerplate/template/partial/inc.header.meta}}
+    {{>boilerplate/template/partial/inc.header.analytics}}
+    {{>boilerplate/template/partial/inc.header.icons}}
+    {{>boilerplate/template/partial/inc.header.fonts}}
+
+    <link rel="stylesheet" href="assets/styles/main.css">
+
+    {{!-- A final chance to have custom headers tags (like styles or scripts) in the controllers --}}
+    {{extraHeaderContent}}
+</head>
+<body>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Boilerplate\Template;
+namespace Boilerplate\Template\Partial;
 
 /**
  *
@@ -11,6 +11,11 @@ interface IncHeaderInterface
      * @return string
      */
     public function lang();
+
+    /**
+     * @return array
+     */
+    public function meta();
 
     /**
      * @return string|TranslationString

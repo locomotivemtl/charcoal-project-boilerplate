@@ -1,6 +1,6 @@
 <?php
 
-namespace Boilerplate\Template;
+namespace Boilerplate\Template\Partial;
 
 /**
  * Footer include

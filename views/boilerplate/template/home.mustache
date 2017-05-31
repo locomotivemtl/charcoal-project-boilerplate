@@ -1,8 +1,15 @@
-{{>boilerplate/template/inc.header}}
+{{>boilerplate/template/partial/inc.header}}
+<!-- Start home -->
 
 <h1>{{page_title}}</h1>
 
 <h2>Home template.</h2>
-<strong>{{test}}</strong>
+Calling the "test" method: <strong>{{test}}</strong>
 
-{{>boilerplate/template/inc.footer}}
+
+<div>
+    Template name: {{templateName}}
+</div>
+
+<!-- End home -->
+{{>boilerplate/template/partial/inc.footer}}

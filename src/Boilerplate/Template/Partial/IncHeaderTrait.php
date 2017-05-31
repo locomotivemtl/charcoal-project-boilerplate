@@ -1,6 +1,6 @@
 <?php
 
-namespace Boilerplate\Template;
+namespace Boilerplate\Template\Partial;
 
 // From `charcoal-core`
 use Charcoal\Translation\TranslationString;
@@ -14,6 +14,11 @@ trait IncHeaderTrait
      * @return string
      */
     abstract public function lang();
+
+    /**
+     * @return array
+     */
+    abstract public function meta();
 
     /**
      * @return string|TranslationString
@@ -34,7 +39,7 @@ trait IncHeaderTrait
     /**
      * @return string|TranslationString
      */
-    public function metaTitle()
+    public function metaSuffix()
     {
         return '';
     }
@@ -42,7 +47,7 @@ trait IncHeaderTrait
     /**
      * @return string|TranslationString
      */
-    public function metaDescription()
+    public function defaultMetaTitle()
     {
         return '';
     }
@@ -50,7 +55,7 @@ trait IncHeaderTrait
     /**
      * @return string|TranslationString
      */
-    public function metaTags()
+    public function defaultMetaDescription()
     {
         return '';
     }
@@ -58,7 +63,23 @@ trait IncHeaderTrait
     /**
      * @return string|TranslationString
      */
-    public function opengraphTags()
+    public function defaultMetaTags()
+    {
+        return '';
+    }
+
+    /**
+     * @return string|TranslationString
+     */
+//    public function opengraphTags()
+//    {
+//        return '';
+//    }
+
+    /**
+     * @return string|TranslationString
+     */
+    public function defaultMetaImage()
     {
         return '';
     }
