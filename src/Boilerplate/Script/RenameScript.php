@@ -2,15 +2,15 @@
 
 namespace Boilerplate\Script;
 
+use Charcoal\App\Script\AbstractScript;
 use Exception;
-use InvalidArgumentException;
 
 // Dependencies from PSR-7 (HTTP Messaging)
+use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 
 // Dependency from 'charcoal-app'
-use Charcoal\App\Script\AbstractScript;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Log\NullLogger;
 
 /**
@@ -42,8 +42,8 @@ class RenameScript extends AbstractScript
     /**
      * @var string $excludeFromGlob Namespaces to exclude from replacement.
      */
-    protected $excludeFromGlob = '!(\/city|vendor|node_modules|bower_components|mustache_cache'.
-    '|www\/assets\/admin|www\/uploads|\.log)($|/)!i';
+    protected $excludeFromGlob = '!(\/city|vendor|node_modules|bower_components|mustache_cache' .
+        '|www\/assets\/admin|www\/uploads|\.log)($|/)!i';
 
     // ==========================================================================
     // DEFAULTS
@@ -63,7 +63,7 @@ class RenameScript extends AbstractScript
                 'prefix'      => 'src',
                 'longPrefix'  => 'source',
                 'description' => sprintf(
-                    'Project (module) source. The source namespace. '.
+                    'Project (module) source. The source namespace. ' .
                     'By default "%s" will by used as source if you let it blank.',
                     $this->defaultSourceName
                 )
@@ -104,7 +104,7 @@ class RenameScript extends AbstractScript
 
     /**
      * Create a new rename script and runs it while passing arguments.
-     * @param array $data The data passed.
+     * @param  array  $data The data passed.
      * @return void
      */
     public static function start(array $data = [])
@@ -113,7 +113,7 @@ class RenameScript extends AbstractScript
 
         // Parse data
         foreach ($data as $key => $value) {
-            $setter = $script->camel('set-'.$key);
+            $setter = $script->camel('set-' . $key);
             if (is_callable($script, $setter)) {
                 $script->{$setter}($value);
             } else {
@@ -128,8 +128,9 @@ class RenameScript extends AbstractScript
 
     /**
      * @see \League\CLImate\CLImate Used by `CliActionTrait`
-     * @param RequestInterface  $request  PSR-7 request.
-     * @param ResponseInterface $response PSR-7 response.
+     *
+     * @param  RequestInterface  $request  PSR-7 request.
+     * @param  ResponseInterface $response PSR-7 response.
      * @return void
      */
     public function run(RequestInterface $request, ResponseInterface $response)
@@ -181,19 +182,17 @@ class RenameScript extends AbstractScript
             $targetName = $this->promptTargetName($targetName);
         } while (!$targetName);
 
-        $climate->bold()->out(sprintf('Replacing "%s" with "%s"', $this->sourceName(), $this->targetName()));
-
         // Replace file contents
         $this->replaceFileContent();
 
         // Rename files
         $this->renameFiles();
 
-        $climate->green()->out("\n".'Success!');
+        $climate->green()->br()->out('Success!');
     }
 
     /**
-     * @param string|null $name The source name of the project.
+     * @param  string|null   $name The source name of the project.
      * @return string|null
      */
     private function promptSourceName($name = null)
@@ -219,7 +218,7 @@ class RenameScript extends AbstractScript
     }
 
     /**
-     * @param string|null $name The target name of the project.
+     * @param  string|null   $name The target name of the project.
      * @return string|null
      */
     private function promptTargetName($name = null)
@@ -259,16 +258,32 @@ class RenameScript extends AbstractScript
         $studlySourceName = self::studly($sourceName);
         $verbose          = $this->verbose();
 
-        $climate->out("\n".'Replacing file content...');
+        $climate->br()->backgroundGreen()->out('Replacing all files content');
+        $climate->green()->out('<green>Changing </green><white>' . $snakeSourceName . '</white> to <white>' . $snakeTargetName . '</white>');
+        $climate->green()->out('<green>Studly target name: </green><white>' . $studlySourceName . '</white> to <white>' . $studlyTargetName . '</white>');
+        $climate->br();
+
         $files = array_merge(
             $this->globRecursive('config/*'),
             $this->globRecursive('metadata/*'),
             $this->globRecursive('src/*'),
             $this->globRecursive('templates/*'),
+            $this->globRecursive('views/*'),
             $this->globRecursive('tests/*'),
             $this->globRecursive('www/*'),
             glob('*.*')
         );
+
+        // Output array
+        $data = [
+            [
+                '<white>File name</white>',
+                $snakeSourceName,
+                $studlySourceName,
+                'total'
+            ]
+        ];
+
         foreach ($files as $filename) {
             if (is_dir($filename)) {
                 continue;
@@ -276,41 +291,36 @@ class RenameScript extends AbstractScript
             $file            = file_get_contents($filename);
             $numReplacement1 = 0;
             $numReplacement2 = 0;
-            $numReplacement3 = 0;
             $content         = preg_replace(
-                '#\b'.$snakeSourceName.'\b#',
+                '#' . $snakeSourceName . '#',
                 $snakeTargetName,
                 $file,
                 -1,
                 $numReplacement1
             );
-            $content         = preg_replace(
-                '#\b'.$sourceName.'\b#',
-                $targetName,
-                $content,
-                -1,
-                $numReplacement2
-            );
-            $content         = preg_replace(
-                '#\b'.$studlySourceName.'\b#',
+            $content = preg_replace(
+                '#' . $studlySourceName . '#',
                 $studlyTargetName,
                 $content,
                 -1,
-                $numReplacement3
+                $numReplacement
             );
-            $numReplacements = ($numReplacement1 + $numReplacement2 + $numReplacement3);
+            $numReplacements = ($numReplacement1 + $numReplacement2);
             if ($numReplacements > 0) {
                 // Save file content
                 file_put_contents($filename, $content);
-                $climate->dim()->out(
-                    sprintf(
-                        '%d occurence(s) have been changed in file "%s"',
-                        $numReplacements,
-                        $filename
-                    )
-                );
+
+                $data[] = [
+                    $filename,
+                    '<white>' . $numReplacement1 . '</white>',
+                    '<white>' . $numReplacement2 . '</white>',
+                    '<white>' . $numReplacements . '</white>'
+                ];
+
             }
+
         }
+        $climate->green()->table($data);
     }
 
     /**
@@ -332,46 +342,66 @@ class RenameScript extends AbstractScript
         $studlyTargetName = self::studly($targetName);
         $verbose          = $this->verbose();
 
-        $climate->out("\n".'Renaming files and directories');
+        $climate->br()->backgroundGreen()->out('Renaming files and directories');
 
-        $sourceFiles = $this->globRecursive('*'.$snakeSourceName.'*');
+        // Output array
+        $data = [
+            [
+                'File name',
+                'Rename'
+            ]
+        ];
+
+        $sourceFiles = $this->globRecursive('*' . $snakeSourceName . '*');
+        $sourceFiles = array_merge($sourceFiles, $this->globRecursive('*' . $studlySourceName . '*'));
         $sourceFiles = array_reverse($sourceFiles);
 
         foreach ($sourceFiles as $filename) {
-            $name = preg_replace('#'.$snakeSourceName.'#', $snakeTargetName, basename($filename));
-            $name = dirname($filename).'/'.$name;
+            $name = preg_replace('#' . $snakeSourceName . '#', $snakeTargetName, basename($filename));
+            $name = dirname($filename) . '/' . $name;
 
             if ($name != $filename) {
+                $data[] = [
+                    $filename,
+                    '<white>' . $name . '</white>'
+                ];
                 rename($filename, $name);
-                $climate->dim()->out(sprintf('%s has been renamed to %s', $filename, $name));
             }
         }
 
-        $sourceFiles = $this->globRecursive('*'.$sourceName.'*');
+        $sourceFiles = $this->globRecursive('*' . $sourceName . '*');
         $sourceFiles = array_reverse($sourceFiles);
 
         foreach ($sourceFiles as $filename) {
-            $name = preg_replace('/'.$sourceName.'/', $targetName, basename($filename));
-            $name = dirname($filename).'/'.$name;
+            $name = preg_replace('/' . $sourceName . '/', $targetName, basename($filename));
+            $name = dirname($filename) . '/' . $name;
 
             if ($name != $filename) {
                 rename($filename, $name);
-                $climate->dim()->out(sprintf('%s has been renamed to %s', $filename, $name));
+                $data[] = [
+                    $filename,
+                    '<white>' . $name . '</white>'
+                ];
             }
         }
 
-        $sourceFiles = $this->globRecursive('*'.$studlySourceName.'*');
+        $sourceFiles = $this->globRecursive('*' . $studlySourceName . '*');
         $sourceFiles = array_reverse($sourceFiles);
 
         foreach ($sourceFiles as $filename) {
-            $name = preg_replace('/'.$studlySourceName.'/', $studlyTargetName, basename($filename));
-            $name = dirname($filename).'/'.$name;
+            $name = preg_replace('/' . $studlySourceName . '/', $studlyTargetName, basename($filename));
+            $name = dirname($filename) . '/' . $name;
 
             if ($name != $filename) {
                 rename($filename, $name);
-                $climate->dim()->out(sprintf('%s has been renamed to %s', $filename, $name));
+                $data[] = [
+                    $filename,
+                    '<white>' . $name . '</white>'
+                ];
             }
         }
+
+        $climate->green()->table($data);
     }
 
     // ==========================================================================
@@ -381,9 +411,9 @@ class RenameScript extends AbstractScript
     /**
      * Set the current project name.
      *
-     * @param string $targetName The target name of the project.
+     * @param  string                   $targetName The target name of the project.
      * @throws InvalidArgumentException If the project name is invalid.
-     * @return RenameScript Chainable
+     * @return RenameScript             Chainable
      */
     public function setTargetName($targetName)
     {
@@ -416,9 +446,9 @@ class RenameScript extends AbstractScript
     /**
      * Set the current source name.
      *
-     * @param string $sourceName The name of the project.
+     * @param  string                   $sourceName The name of the project.
      * @throws InvalidArgumentException If the project name is invalid.
-     * @return RenameScript Chainable
+     * @return RenameScript             Chainable
      */
     public function setSourceName($sourceName)
     {
@@ -491,20 +521,20 @@ class RenameScript extends AbstractScript
     /**
      * Recursively find pathnames matching a pattern
      *
+     *                         an empty array if no file matched or FALSE on error.
      * @see glob() for a description of the function and its parameters.
      *
-     * @param string  $pattern The search pattern.
-     * @param integer $flags   The glob flags.
-     * @return array Returns an array containing the matched files/directories,
-     *                         an empty array if no file matched or FALSE on error.
+     * @param  string  $pattern The search pattern.
+     * @param  integer $flags   The glob flags.
+     * @return array   Returns an array containing the matched files/directories,
      */
     private function globRecursive($pattern, $flags = 0)
     {
         $files = glob($pattern, $flags);
 
-        foreach (glob(dirname($pattern).'/*', (GLOB_ONLYDIR | GLOB_NOSORT)) as $dir) {
+        foreach (glob(dirname($pattern) . '/*', (GLOB_ONLYDIR | GLOB_NOSORT)) as $dir) {
             if (!preg_match($this->excludeFromGlob, $dir)) {
-                $files = array_merge($files, $this->globRecursive($dir.'/'.basename($pattern), $flags));
+                $files = array_merge($files, $this->globRecursive($dir . '/' . basename($pattern), $flags));
             }
         }
 
