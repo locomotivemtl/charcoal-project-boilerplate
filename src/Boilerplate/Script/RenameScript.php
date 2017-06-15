@@ -303,7 +303,7 @@ class RenameScript extends AbstractScript
                 $studlyTargetName,
                 $content,
                 -1,
-                $numReplacement
+                $numReplacement2
             );
             $numReplacements = ($numReplacement1 + $numReplacement2);
             if ($numReplacements > 0) {
