@@ -1,0 +1,25 @@
+{
+  "middlewares":{
+    "charcoal/translator/middleware/language":{
+      "active": true
+    },
+    "charcoal/app/middleware/cache":{
+      "active": true,
+      "included_path": "*",
+      "excluded_path": [
+        "^/admin"
+      ],
+      "ignored_query": "*",
+      "ttl": 3600
+    },
+    "charcoal/app/middleware/ip":{
+      "active": false,
+      "blacklist": [],
+      "whitelist": [],
+      "blacklisted_redirect": null,
+      "not_whitelisted_redirect": null,
+
+      "fail_on_invalid_ip": false
+    }
+  }
+}
