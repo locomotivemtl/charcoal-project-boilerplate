@@ -7,7 +7,7 @@
 
     "cache": {
         "active": true,
-        "types": [ "memcache", "redis", "apc" ],
+        "types": [ "apc", "memcache", "redis" ],
         "prefix": "boilerplate"
     },
 
@@ -41,7 +41,8 @@
         "paths": [
             "translations/boilerplate/",
             "vendor/locomotivemtl/charcoal-admin/translations/",
-            "vendor/locomotivemtl/charcoal-app/translations/"
+            "vendor/locomotivemtl/charcoal-app/translations/",
+            "vendor/beneroch/charcoal-attachment/translations/"
         ]
     },
 
@@ -60,7 +61,8 @@
         "paths": [
             "views/",
             "vendor/locomotivemtl/charcoal-admin/templates/",
-            "vendor/locomotivemtl/charcoal-app/templates/"
+            "vendor/locomotivemtl/charcoal-app/templates/",
+            "vendor/beneroch/charcoal-attachment/templates/"
         ],
         "default_engine": "mustache",
         "default_controller": "\\Boilerplate\\Template\\Generic"
@@ -76,7 +78,8 @@
             "vendor/locomotivemtl/charcoal-messaging/metadata/",
             "vendor/locomotivemtl/charcoal-property/metadata/",
             "vendor/locomotivemtl/charcoal-object/metadata/",
-            "vendor/locomotivemtl/charcoal-user/metadata/"
+            "vendor/locomotivemtl/charcoal-user/metadata/",
+            "vendor/beneroch/charcoal-attachment/metadata/"
         ]
     },
 
@@ -88,6 +91,7 @@
         "charcoal/model/service-provider/model": {},
         "charcoal/ui/service-provider/ui": {},
         "charcoal/admin/service-provider/admin": {},
+        "charcoal/translator/service-provider/translator":{},
         "boilerplate/service-provider/boilerplate": {}
     }
 }

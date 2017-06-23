@@ -17,8 +17,16 @@ $this['base_path'] = dirname(__DIR__).'/';
 /** Import core settings */
 $this->addFile(__DIR__ . '/config.json');
 
+/** Admin settings */
+$this->addFile(__DIR__ . '/admin.json');
+
+/** Import Boilerplate middlewares */
+$this->addFile(__DIR__ . '/middlewares.json');
+
 /** Import Boilerplate routes */
 $this->addFile(__DIR__ . '/routes.json');
+
+
 
 /**
  * Load environment settings; such as database credentials
@@ -33,7 +41,7 @@ if ( isset($app_environment) && $app_environment ) {
     $environment = preg_replace('/[^A-Za-z0-9_]+/', '', $app_environment);
 
     /** Import local settings */
-    $exts = [ 'php', 'json', 'yml', 'yaml', 'ini' ];
+    $exts = [ 'php', 'json' ];
     while ( $exts ) {
         $ext = array_pop($exts);
         $cfg = sprintf('%1$s/config.%2$s.%3$s', __DIR__, $environment, $ext);
