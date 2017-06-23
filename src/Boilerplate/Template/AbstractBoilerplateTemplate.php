@@ -263,7 +263,7 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
                 [ 'abstract', 'trait', 'interface', 'template', '\\' ],
                 '',
                 $value
-           );
+            );
 
             static::$templateNameCache[$key] = trim($value, '-');
         }
