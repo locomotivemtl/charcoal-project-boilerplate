@@ -1,0 +1,27 @@
+{
+  "attachments":{
+    "attachables":{
+      "boilerplate/attachment/text":{
+        "label":"Text"
+      },
+      "boilerplate/attachment/image":{
+        "label":"Image"
+      },
+      "boilerplate/attachment/gallery":{
+        "label":"Image gallery"
+      },
+      "boilerplate/attachment/file":{
+        "label":"File"
+      }
+      "boilerplate/attachment/link":{
+        "label":"External link"
+      }
+    },
+    "groups":{
+
+    },
+    "widgets":{
+
+    }
+  }
+}
