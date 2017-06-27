@@ -11,12 +11,12 @@
 >
     <testsuites>
         <testsuite name="Charcoal App Test Suite">
-            <directory>Charcoal/App</directory>
+            <directory>Boilerplate</directory>
         </testsuite>
     </testsuites>
     <filter>
     <whitelist>
-        <directory suffix=".php">../src/Charcoal/App</directory>
+        <directory suffix=".php">../src/Boilerplate</directory>
     </whitelist>
     </filter>
     <logging>
