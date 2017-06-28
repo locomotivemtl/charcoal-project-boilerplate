@@ -3,28 +3,68 @@ Charcoal Project Boilerplate
 
 The goal of this project is to provide a fully working "boilerplate" (empty _skeleton_ project) using the Charcoal framework.
 
+It can also optionally set up the [Locomotive Boilerplate](https://github.com/locomotivemtl/locomotive-boilerplate) for the frontend.
+
 # Table of Content
 
 - [How to Install](#how-to-install)
-    - [1. Create / clone the project boilerplate](#1-create-clone-the-project-boilerplate)
-    - [2. Rename the boilerplate to your project](#2-rename-the-boilerplate-to-your-project)
-    - [3. Test your installation](#3-test-your-installation)
-    - [4. Set up database storage](#4-set-up-database-storage)
-    - [5. Set up `charcoal-admin`](#5-set-up-charcoal-admin)
+    + [1. Create / clone the project boilerplate](#1-create-clone-the-project-boilerplate)
+    + [2. Rename the boilerplate to your project](#2-rename-the-boilerplate-to-your-project)
+    + [3. Test your installation](#3-test-your-installation)
+    + [4. Set up database storage](#4-set-up-database-storage)
+    + [5. Set up `charcoal-admin`](#5-set-up-charcoal-admin)
+    + [6. (Optional) Install `locomotive-boilerplate`](#6-optional-install-locomotive-boilerplate)
 - [Going further](#going-further)
-    - More config customizations
-   - Creating a custom template
-   - Using objects
-   - Customizing the backend
+    + More config customizations
+    + Creating a custom template
+    + Using objects
+    + Customizing the backend
 - [Dependencies and requirements](#dependencies-and-requirements)
-    - [The charcoal modules](#the-charcoal-modules)
+    + [The charcoal modules](#the-charcoal-modules)
+        - [Status matrix](#status-matrix)
 - What's inside the Boilerplate
 - [Development](#development)
     + [Development dependencies](#development-dependencies)
     + [Continuous Integration](#continuous-integration)
     + [Coding Style](#coding-style)
     + [Authors](#authors)
-    + [Changelog](#changelog)
+
+# Intended scope
+
+Although it is fully ready to use, this boilerplate is still incomplete. 
+It does not _yet_ showcase all of the Charcoal features and therefore require a lot of manual tinkering for options.
+
+Here is a short "mission statement" of what is expected to be accomplished with this project:
+
+- A fully automated setup process.
+    - Optionally install `locomotive-boilerplate` for the frontend.
+- Translation (l10n) fully working with `charcoal-translator`.
+    - Default data also provided in english and french.
+    - ...and spanish and more...
+- A working "backend" with `charcoal-admin`.
+    - User set up automatically.
+    - With a default configuration that allows to manage CMS objects (sections, news, events, blogs, locations, etc.)
+    - Permission system working and enabled.
+    - Notification system working and enabled.
+    - Revisioning system working and enabled.
+    - Media library working and enabled.
+    - Built-in help (doc) system working and enabled.
+- A few default, common templates (mustache) built-in.
+    - Home page, with a few options and widgets (like carousel) or similar.
+    - News list / news details, with attachment support.
+    - Calendar (event list) with ajax options / event details, with attachment support.
+    - Blog / article details, with attachment support and options to enable comments, and ajax actions
+    - Contact, with a contact form that saves to a database and send a confirmation email depending to category options, with ajax actions.
+    - Map, with locations by categories.
+- Metadata 100% fully working on every pages and for every objects.
+    - Use objects' metadata information, which all are editable in `charcoal-admin`.
+- Provide an optimized set of SEO features.
+- Search enabled
+    - Results returned for all types of cms objects (sections, news, events, blogs, locations, etc.)
+    - Used keywords, which all are editable in `charcoal-admin`.
+    - Also search in attachments.
+    - Auto-complete enabled and working.
+- 100% tested with PHPUnit.
 
 # How to Install
 
@@ -33,46 +73,59 @@ To start a Charcoal project with this Boilerplate, simply:
 ## 1. **Create / clone the project boilerplate**
 
 ```shell
-$ composer create-project locomotivemtl/charcoal-project-boilerplate:@dev --prefer-source
+★ composer create-project locomotivemtl/charcoal-project-boilerplate:@dev --prefer-source
 ```
 
 > **About the Document Root**
 >
-> 👉 The project should not be cloned directly in a web-accessible directory. The web server should be configured to serve the `www/` folder directly. The other folders (`vendor/`, `src/`, `templates/`, `metadata/`, `config/`, etc.) should therefore not be available from the web server (kept outside the document root).
+> 👉 The project should *not* be cloned directly in a web-accessible directory. 
+> The web server should be configured to serve the `www/` folder directly. 
+> The other folders (`vendor/`, `src/`, `templates/`, `metadata/`, `config/`, etc.) should therefore not be available from the web server (kept outside the document root).
 
 
 ## 2. **Rename the boilerplate to your project**
 
 **This step must be done manually.** Ensure to change **all** references to "boilerplate" and "Boilerplate" to your project name. (Make sure to look in the `src`, `metadata` and `templates` folders). Also rename the `metadata/boilerplate`, `src/Boilerplate` and `templates/boilerplate` folders to match your project.
 
-> 👉 Do not forget to change the "Boilerplate" reference in `composer.json`. To ensure the autloader is still working, run the following command after renaming:
+> 👉 Do not forget to change the "Boilerplate" reference in `composer.json`. 
+> To ensure the autoloader is still working, run the following command after renaming:
 >
 > ```shell
-> $ composer dump-autoload
+> ★ composer dump-autoload
 > ```
+
+> **Experimental renaming tool**
+> (Use at your own risk)
+>
+> ```shell
+> ★ ./vendor/bin/charcoal boilerplate/rename
+> ```
+
 
 ## 3. **Test your installation**
 
 A quick server can be started using the PHP builtin server:
 
 ```shell
-$ cd www
-$ php -S localhost:8080
+★ cd www
+★ php -S localhost:8080
 ```
 
 Point your browser to `http://localhost:8080/` and you should see the boilerplate's default home page.
 
 ![Boilerplate homepage](docs/images/boilerplate-home.png)
 
-How to change the default page and add routes/templates is explained later in this README.
+How to change the default page and add routes/templates is explained later in this README. 
+
+> Hint: the recommended way is from the admin, by adding pages (sections).
 
 ## 4. **Set up a database storage**
 
-The next step requires a custom configuration file. It is recommended to use `config/config.local.json` and making sure it is not committed to source control:
+The next step requires a custom configuration file. 
+It is recommended to use `config/config.local.json` and making sure it is not committed to source control:
 
 ```shell
-$ cp config/config.sample.json config/config.local.json
-$ echo -n "config/config.local.json" >> .gitignore
+★ cp config/config.sample.json config/config.local.json
 ```
 
 Create an empty database and ensure a SQL user has the proper permissions for this database. Then edit the `config/config.local.json` file with this information.
@@ -94,33 +147,38 @@ Create an empty database and ensure a SQL user has the proper permissions for th
 
 ## 5. **Set up charcoal-admin**
 
-First, ensure the admin module (the _backend_) is properly set up and ready:
+A quick-and-dirty script is provided to install charcoal-admin automatically:
 
 ```shell
-$ cd vendor/locomotivemtl/charcoal-admin
-$ npm install
-$ bower install
-$ grunt
-$ cd -
+★ sh ./build/script/install-charcoal-admin.sh
 ```
 
-Then create the first admin user, to be able to login into the backend:
-
-```shell
-$ ./vendor/bin/charcoal admin/user/create
-```
-
-> 👉  The `./vendor/bin/charcoal` CLI tool, provided by `charcoal-app` is required to run various scripts, many of which are provided by the `charcoal-admin` module.
-
-Point your browser to http://localhost:8080/ and you should see the boilerplate's default home page.
+Point your browser to http://localhost:8080/admin and you should see the Charcoal's admin login screen.
 
 ![Admin login](docs/images/admin-login.png)
 
-The next step to customize the _backend_ is to configure the main menu, as well as the various
+The next step to customize the _backend_ is to configure the main menu, as well as the various admin options. 
+See the `config/admin.json` file for details. 
+
+> Refer to the `charcoal-admin` help for more information.
+
+
+## 6. **(Optional) Install `locomotive-boilerplate`)**
+
+Another quick-and-dirty script is provided to install the locomotive frontend, from its github repository.
+
+```shell
+★ sh ./build/script/install-locomotive-boilerplate.sh
+```
+
+> For more information about the `locomotive-boilerplate` frontend module: 
+> visit [https://github.com/locomotivemtl/locomotive-boilerplate](https://github.com/locomotivemtl/locomotive-boilerplate)
+
 
 # Dependencies and Requirements
 
-- [`PHP 5.5+`](http://php.net)
+- [`PHP 5.6+`](http://php.net)
+    + `PHP 7` is recommended for performance and security reasons.
     + `ext-json`
     + `ext-pdo`
     + `ext-spl`
@@ -131,13 +189,15 @@ The next step to customize the _backend_ is to configure the main menu, as well 
 Most Charcoal features are built on top of proven, open-source technologies:
 
 - **Composer** (Deployment and auto-loading)
-- **Slim** (PSR-7 Framework)
-- **Pimple** (DI Container)
+- **Slim** (PSR-7 App Framework)
+- **FastRoute** (Router)
+- **Pimple** (DI Container, from symfony)
 - **Mustache** (Templating Engine)
-  - Optionally supports **Twig**
+  - Optionally supports **Twig**, from symfony
 - **PDO / MySQL** (Database Storage)
 - **Stash** (PSR-6 Cache)
-- **Climate** (Terminal Utility)
+- **Climate** (Terminal Utility, from the php league)
+- **Flysystem** (File system abstraction, from the php league)
 - **Symfony Translation** (Localization Tools)
 - **Zend ACL** (Permissions Management)
 - **PHPmailer** (Email Transport)
@@ -148,6 +208,7 @@ Most Charcoal features are built on top of proven, open-source technologies:
 - **JQuery** (Javascript Framework)
 - **Bootstrap** (CSS Framework)
 - **TinyMCE** (HTML Editor)
+- **elFinder** (File Manager)
 - **Github** (Source control)
 - **Travis** (Continuous Integration)
 
@@ -158,12 +219,14 @@ Most Charcoal features are built on top of proven, open-source technologies:
     + The backend, or control panel.
 - [charcoal-app](https://github.com/locomotivemtl/charcoal-app)
     + App components based on Slim.
+- [charcoal-attachment](https://github.com/locomotivemtl/charcoal-attachment)
+    + Additional attachments to content objects.
 - [charcoal-cms](https://github.com/locomotivemtl/charcoal-cms)
     + CMS objects (Section, News, Events, etc.)
-- [charcoal-core](https://github.com/locomotivemtl/charcoal-core)
-    + Core objects, Model, Source.
 - [charcoal-config](https://github.com/locomotivemtl/charcoal-config)
     + Base configuration system.
+- [charcoal-core](https://github.com/locomotivemtl/charcoal-core)
+    + Core objects, Model, Source.
 - [charcoal-email](https://github.com/locomotivemtl/charcoal-email)
     + Email utilities, based on phpmailer.
 - [charcoal-factory](https://github.com/locomotivemtl/charcoal-factory)
@@ -187,17 +250,18 @@ Most Charcoal features are built on top of proven, open-source technologies:
 
 | Module                   | Version | Travis | Scrutinizer | Insights | Coveralls | PHPDoc | ApiGen |
 | ------------------------ | ------- | ------ | ----------- | -------- | --------- | ------ | ------ |
-| **admin**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-adminadmin.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-admin.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-admin) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a/mini.png)](https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-admin/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-admin?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-admin/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-admin/apigen/master/) |
+| **admin**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-admin.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-admin.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-admin) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-admin/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a/mini.png)](https://insight.sensiolabs.com/projects/00402be5-f8bb-4279-89b8-3e1e3248178a) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-admin/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-admin?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-admin/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-admin/apigen/master/) |
 | **app**         | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-app.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-app.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-app) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-app/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-app/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a/mini.png)](https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-app/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-app?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-app/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-app/apigen/master/) |
+| **attachment**  | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-attachment.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-attachment.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-attachment) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-attachment/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-attachment/?branch=master) | Insights | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-attachment/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-attachment?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-attachment/docs/master/) | ApiGen |
 | **cms**         | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-cms.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-cms.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-cms) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-cms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-cms/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/44d8d264-207b-417d-bcbd-dd52274fc201/mini.png)](https://insight.sensiolabs.com/projects/44d8d264-207b-417d-bcbd-dd52274fc201) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-cms/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-cms?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-cms/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-cms/apigen/master/) |
 | **config**      | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-config.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-config.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-config) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-config/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-config/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/27ad205f-4208-4fa6-9dcf-534b3a1c0aaa/mini.png)](https://insight.sensiolabs.com/projects/27ad205f-4208-4fa6-9dcf-534b3a1c0aaa) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-config/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-config?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-config/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-config/apigen/master/) |
 | **core**        | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-core.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-core.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-core) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-core/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ab15f6b0-2063-445e-81d7-2575b919b0ab/mini.png)](https://insight.sensiolabs.com/projects/ab15f6b0-2063-445e-81d7-2575b919b0ab) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-core/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-core?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-core/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-core/apigen/master/) |
 | **email**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-email.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-email.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-email) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/54058388-3b5d-47e3-8185-f001232d31f7/mini.png)](https://insight.sensiolabs.com/projects/54058388-3b5d-47e3-8185-f001232d31f7) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-email/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-email?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-email/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-email/apigen/master/) |
 | **factory**     | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-factory.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-factory.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-factory) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-factory/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-factory/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0aec930b-d696-415a-b4ef-a15c1a56509e/mini.png)](https://insight.sensiolabs.com/projects/0aec930b-d696-415a-b4ef-a15c1a56509e) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-factory/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-factory?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-factory/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-factory/apigen/master/) |
-| **image**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-image.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-image.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-image) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e/mini.png)](https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-image/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-image?branch=master)  | - | - |
+| **image**       | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-image.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-image.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-image) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-image/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e/mini.png)](https://insight.sensiolabs.com/projects/87c9621d-3b2e-4e71-a42f-e69ebca4672e) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-image/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-image?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-image/docs/master/) | - |
 | **object**      | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-object.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-object.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-object) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-object/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-object/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ef771c49-8c05-448b-a112-069737b380dc/mini.png)](https://insight.sensiolabs.com/projects/ef771c49-8c05-448b-a112-069737b380dc) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-property/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-property?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-object/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-object/apigen/master/) |
 | **property**    | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-property.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-property.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-property) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-property/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-property/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/f3bdff38-c300-4207-8342-da002e64a6e1/mini.png)](https://insight.sensiolabs.com/projects/f3bdff38-c300-4207-8342-da002e64a6e1) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-property/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-property?branch=master) | [PHPDoc](http://locomotivemtl.github.io/charcoal-property/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-property/apigen/master/) |
-| **translator**  | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-translator.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-translator.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-translator) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translator/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986/mini.png)](https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-translator/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-translator?branch=master)  | - | - |
+| **translator**  | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-translator.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-translator.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-translator) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-translator/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986/mini.png)](https://insight.sensiolabs.com/projects/fa44d2ed-99b7-4fb1-99a1-a4a9b7acb986) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-translator/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-translator?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-translator/docs/master/) | - |
 | **ui**          | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-ui.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-ui.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-ui) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-ui/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-ui/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ad5d1699-07cc-45b5-9ba4-9b3b45f677e0/mini.png)](https://insight.sensiolabs.com/projects/ad5d1699-07cc-45b5-9ba4-9b3b45f677e0) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-ui/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-ui?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-ui/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-ui/apigen/master/) |
 | **user**        | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-user.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-user.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-user) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-user/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-user/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5b05fad5-5e2d-41d3-acd3-12822b354892/mini.png)](https://insight.sensiolabs.com/projects/5b05fad5-5e2d-41d3-acd3-12822b354892) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-ui/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-ui?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-user/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-user/apigen/master/) |
 | **view**        | ![version](https://img.shields.io/github/tag/locomotivemtl/charcoal-view.svg?style=flat&label=release) | [![Build Status](https://travis-ci.org/locomotivemtl/charcoal-view.svg?branch=master)](https://travis-ci.org/locomotivemtl/charcoal-view) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/?branch=master) | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29/mini.png)](https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29) | [![Coverage Status](https://coveralls.io/repos/github/locomotivemtl/charcoal-view/badge.svg?branch=master)](https://coveralls.io/github/locomotivemtl/charcoal-view?branch=master)  | [PHPDoc](http://locomotivemtl.github.io/charcoal-view/docs/master/) | [ApiGen](http://locomotivemtl.github.io/charcoal-view/apigen/master/) |
@@ -215,6 +279,7 @@ Like all Charcoal projects / modules, the main components are:
 - **Front Controller**
     - See [`www/.htaccess`](www/.htaccess) and [`www/index.php`](www/index.php) for details.
     - Route dispatcher
+        - See [`config/routes.json`](config/routes.json) for route configuration.
 - **Script Controller (Charoal Binary)**
     - Installed from `charcoal-app` as `vendor/bin/charcoal`.
 - **PHP scripts**
@@ -275,10 +340,6 @@ The charcoal-project-boilerplate module follows the Charcoal coding-style:
 
 > Coding style validation / enforcement can be performed with `composer phpcs`. An auto-fixer is also available with `composer phpcbf`.
 
-# Authors
+## Authors
 
-- Mathieu Ducharme, mat@locomotive.ca
-
-# Changelog
-
-_Unreleased_
+- [Locomotive, a Montreal Web agency](https://locomotive.ca)
