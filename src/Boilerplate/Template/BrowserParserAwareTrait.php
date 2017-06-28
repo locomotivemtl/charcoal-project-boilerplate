@@ -2,6 +2,13 @@
 
 namespace Boilerplate\Template;
 
+use \WhichBrowser\Parser;
+
+/**
+ * Implementation of the BrowserParserAwareInterface
+ *
+ * Encapsulates all browser-parsing related functions in a single trait.
+ */
 trait BrowserParserAwareTrait
 {
     /**
@@ -10,13 +17,12 @@ trait BrowserParserAwareTrait
     private $browserParser;
 
     /**
-     * @param Parser $loader From dependencies container.
+     * @param Parser $parser The browser parser, from dependencies container.
+     * @return void
      */
-    protected function setBrowserParser($parser)
+    protected function setBrowserParser(Parser $parser)
     {
         $this->browserParser = $parser;
-
-        return $this;
     }
 
     /**

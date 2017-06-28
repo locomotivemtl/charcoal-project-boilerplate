@@ -10,7 +10,7 @@ namespace Boilerplate\Template;
 interface BrowserParserAwareInterface
 {
     /**
-     * @return Parser Set from dependencies container.
+     * @return \WhichBrowser\Parser Set from dependencies container.
      */
     public function browserParser();
 

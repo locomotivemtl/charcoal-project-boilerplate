@@ -27,8 +27,8 @@ class Section extends AbstractSection
     private $collectionLoader;
 
     /**
-     * @param Container $container
-     * *return void
+     * @param Container $container Pimple DI Container.
+     * @return void
      */
     public function setDependencies(Container $container)
     {
@@ -37,7 +37,7 @@ class Section extends AbstractSection
     }
 
     /**
-     * @param CollectionLoader $loader
+     * @param CollectionLoader $loader The collection loader to use.
      * @return void
      */
     private function setCollectionLoader(CollectionLoader $loader)
