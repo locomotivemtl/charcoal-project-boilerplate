@@ -1,39 +1,38 @@
 {
-  "admin": {
-    "title": "Boilerplate",
-    "acl": {
-      "permissions": {
-        "dev": {
-          "allowed": ["section_dev"],
-          "denied": [],
-          "superuser": true
+    "admin": {
+        "title": "Boilerplate",
+        "acl": {
+            "permissions": {
+                "dev": {
+                    "allowed": [ "section_dev" ],
+                    "denied": [],
+                    "superuser": true
+                },
+                "admin": {
+                    "allowed": [],
+                    "denied": [ "section_dev" ],
+                    "superuser": false
+                }
+            }
         },
-        "admin": {
-          "allowed": [],
-          "denied": ["section_dev"],
-          "superuser": false
-        }
-      }
-    },
-    "routes": {
-      "templates": {
-        "home": {
-          "route": "[/[home]]",
-          "redirect": "admin/object/collection?main_menu=content&obj_type=boilerplate/object/section"
-        }
-      },
-      "actions": {
-      }
-    },
-    "login_logo": "assets/admin/images/login-logo.png",
-    "login": {
-      "background_image": "assets/admin/images/login-background.jpg"
-    },
-    "user_menu": {},
-    "header_menu": {
-      "items":{}
-    },
-    "sidemenu": {},
-    "footer_menu": {}
-  }
+        "routes": {
+            "templates": {
+                "home": {
+                    "route": "[/[home]]",
+                    "redirect": "admin/object/collection?main_menu=content&obj_type=boilerplate/object/section"
+                }
+            },
+            "actions": {}
+        },
+        "login_logo": "assets/admin/images/login-logo.png",
+        "login": {
+            "background_image": "assets/admin/images/login-background.jpg"
+        },
+        "user_menu": {},
+        "header_menu": {
+            "items": {}
+        },
+        "sidemenu": {},
+        "footer_menu": {}
+    }
 }

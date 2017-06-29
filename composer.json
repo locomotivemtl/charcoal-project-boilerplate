@@ -27,7 +27,7 @@
         "mustache/mustache": "^2.11",
         "locomotivemtl/charcoal-admin": "~0.4",
         "locomotivemtl/charcoal-app": "~0.4",
-        "locomotivemtl/charcoal-attachment": "^0.5.1",
+        "locomotivemtl/charcoal-attachment": "~0.5",
         "locomotivemtl/charcoal-cms": "~0.2",
         "whichbrowser/parser": "^2.0"
     },
