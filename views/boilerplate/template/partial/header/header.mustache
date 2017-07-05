@@ -1,0 +1,16 @@
+<!doctype html>
+<html data-template="{{templateName}}" lang="{{lang}}"{{# debug }} data-debug="true"{{/ debug }} class="
+{{#isIe}} is-ie{{/isIe}}
+{{#isIe9}} is-ie9{{/isIe9}}
+{{#isIe10}} is-ie10{{/isIe10}}">
+    <head>
+        {{>lococity/template/partial/header/metas}}
+        {{>lococity/template/partial/header/icons}}
+        {{>lococity/template/partial/header/styles}}
+        {{>lococity/template/partial/header/fonts}}
+        {{>lococity/template/partial/header/analytics}}
+
+        {{!-- A final chance to have custom headers tags (like styles or scripts) in the controllers --}}
+        {{extraHeaderContent}}
+    </head>
+    <body>
