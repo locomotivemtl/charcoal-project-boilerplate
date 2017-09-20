@@ -5,11 +5,17 @@
         RewriteBase /
     </IfModule>
 
-    # Redirect Trailing Slashes If Not A Folder...
+    # Handle missing assets and stored media
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} ^/?(assets|uploads)(/.+)? [NC]
+    RewriteRule ^ - [QSA,L,R=404]
+
+    # Redirect trailing slashes if not a folder…
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-    # Handle Front Controller...
+    # Handle front controller…
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [QSA,L]
 </IfModule>
