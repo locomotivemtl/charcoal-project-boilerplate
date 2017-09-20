@@ -4,9 +4,7 @@
             "active": true
         },
         "charcoal/app/middleware/cache": {
-            "active": true,
-            "ignored_query": "*",
-            "ttl": 3600
+            "active": true
         },
         "charcoal/app/middleware/ip": {
             "active": false
