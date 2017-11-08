@@ -44,16 +44,6 @@ trait BrowserParserAwareTrait
     }
 
     /**
-     * Use BrowserParser to determine if is IE9 (or less)
-     *
-     * @return boolean
-     */
-    public function isIe9()
-    {
-        return $this->browserParser()->isBrowser('Internet Explorer', '<', '10');
-    }
-
-    /**
      * Use BrowserParser to determine if is IE10
      *
      * @return boolean
@@ -70,7 +60,37 @@ trait BrowserParserAwareTrait
      */
     public function isIe()
     {
-        return  $this->browserParser()->isBrowser('Internet Explorer') ||
+        return $this->browserParser()->isBrowser('Internet Explorer') ||
             $this->browserParser()->isBrowser('Edge');
+    }
+
+    /**
+     * Use BrowserParser to determine if is Trident
+     *
+     * @return boolean
+     */
+    public function isTrident()
+    {
+        return $this->browserParser()->isBrowser('Internet Explorer');
+    }
+
+    /**
+     * Use BrowserParser to determine if is Edge
+     *
+     * @return boolean
+     */
+    public function isEdge()
+    {
+        return $this->browserParser()->isBrowser('Edge');
+    }
+
+    /**
+     * Use BrowserParser to determine if is Firefox
+     *
+     * @return boolean
+     */
+    public function isFirefox()
+    {
+        return $this->browserParser()->isBrowser('Firefox');
     }
 }

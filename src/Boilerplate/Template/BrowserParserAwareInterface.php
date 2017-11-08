@@ -22,13 +22,6 @@ interface BrowserParserAwareInterface
     public function isIos();
 
     /**
-     * Use BrowserParser to determine if is IE9 (or less)
-     *
-     * @return boolean
-     */
-    public function isIe9();
-
-    /**
      * Use BrowserParser to determine if is IE10
      *
      * @return boolean
@@ -41,4 +34,25 @@ interface BrowserParserAwareInterface
      * @return boolean
      */
     public function isIe();
+
+    /**
+     * Use BrowserParser to determine if is Trident
+     *
+     * @return boolean
+     */
+    public function isTrident();
+
+    /**
+     * Use BrowserParser to determine if is Edge
+     *
+     * @return boolean
+     */
+    public function isEdge();
+
+    /**
+     * Use BrowserParser to determine if is Firefox
+     *
+     * @return boolean
+     */
+    public function isFirefox();
 }
