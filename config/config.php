@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Load Application Configuration
  *
@@ -26,30 +25,23 @@ $this->addFile(__DIR__ . '/middlewares.json');
 /** Import Boilerplate routes */
 $this->addFile(__DIR__ . '/routes.json');
 
+/** Import Boilerplate redirections */
+$this->addFile(__DIR__ . '/redirections.json');
 
 
 /**
  * Load environment settings; such as database credentials
  * or credentials for 3rd party services.
  */
-$app_environment = getenv('APPLICATION_ENV');
-if ( ! $app_environment ) {
-    $app_environment = 'local';
-}
+$app_environment = getenv('APPLICATION_ENV') ?: 'local';
 
-if ( isset($app_environment) && $app_environment ) {
+if ($app_environment) {
     $environment = preg_replace('/[^A-Za-z0-9_]+/', '', $app_environment);
 
     /** Import local settings */
-    $exts = [ 'php', 'json' ];
-    while ( $exts ) {
-        $ext = array_pop($exts);
-        $cfg = sprintf('%1$s/config.%2$s.%3$s', __DIR__, $environment, $ext);
-
-        if ( file_exists($cfg) ) {
-            $this->addFile($cfg);
-            break;
-        }
+    $cfg = sprintf('%1$s/config.%2$s.json', __DIR__, $environment);
+    if (file_exists($cfg)) {
+        $this->addFile($cfg);
     }
 }
 

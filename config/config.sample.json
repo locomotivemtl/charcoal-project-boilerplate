@@ -8,5 +8,9 @@
             "password": ""
         }
     },
-    "default_database": "default"
+    "default_database": "default",
+
+    "logger": {
+        "level": "debug"
+    }
 }

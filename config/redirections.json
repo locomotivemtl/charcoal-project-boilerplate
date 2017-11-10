@@ -1,0 +1,9 @@
+{
+    "routes":{
+        "templates":{
+            "/old-url-example":{
+                "redirect":"https://example.com/new-url"
+            }
+        }
+    }
+}

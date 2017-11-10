@@ -13,9 +13,7 @@
 
     "logger": {
         "active": true,
-        "levels": {
-            "debug": true
-        }
+        "level":"warning"
     },
 
     "email": {
