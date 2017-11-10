@@ -33,7 +33,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
-        "squizlabs/php_codesniffer": "^2.6"
+        "squizlabs/php_codesniffer": "^2.6",
+        "mockery/mockery": "^0.9.9"
     },
     "autoload": {
         "psr-4": {
