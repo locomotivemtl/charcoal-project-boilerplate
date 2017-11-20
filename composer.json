@@ -27,13 +27,13 @@
         "mustache/mustache": "^2.11",
         "locomotivemtl/charcoal-admin": "~0.8",
         "locomotivemtl/charcoal-app": "~0.5",
-        "locomotivemtl/charcoal-attachment": "~0.7",
+        "locomotivemtl/charcoal-attachment": "~0.8",
         "locomotivemtl/charcoal-cms": "~0.4",
         "whichbrowser/parser": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8",
-        "squizlabs/php_codesniffer": "^2.4"
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "^2.6"
     },
     "autoload": {
         "psr-4": {
