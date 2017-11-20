@@ -25,10 +25,10 @@
     "require": {
         "php": ">=5.6.0",
         "mustache/mustache": "^2.11",
-        "locomotivemtl/charcoal-admin": "~0.4",
-        "locomotivemtl/charcoal-app": "~0.4",
-        "locomotivemtl/charcoal-attachment": "~0.5",
-        "locomotivemtl/charcoal-cms": "~0.2",
+        "locomotivemtl/charcoal-admin": "~0.8",
+        "locomotivemtl/charcoal-app": "~0.5",
+        "locomotivemtl/charcoal-attachment": "~0.7",
+        "locomotivemtl/charcoal-cms": "~0.4",
         "whichbrowser/parser": "^2.0"
     },
     "require-dev": {
