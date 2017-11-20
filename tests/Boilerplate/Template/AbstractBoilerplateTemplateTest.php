@@ -2,9 +2,14 @@
 
 namespace Boilerplate\Tests\Template;
 
-use Boilerplate\Template\AbstractBoilerplateTemplate;
-
+// From PHPUnit
 use PHPUnit_Framework_TestCase;
+
+// From PSR-3
+use Psr\Log\NullLogger;
+
+// From 'charcoal-project-boilerplate'
+use Boilerplate\Template\AbstractBoilerplateTemplate;
 
 /**
  * Class AbstractBoilerplateTemplateTest
@@ -12,14 +17,24 @@ use PHPUnit_Framework_TestCase;
 class AbstractBoilerplateTemplateTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Object (mock) under test
+     * The class to test.
+     *
      * @var AbstractBoilerplateTemplate
      */
     private $obj;
 
+    /**
+     * Setup the test.
+     */
     public function setUp()
     {
-        $this->obj = $this->getMockForAbstractClass(AbstractBoilerplateTemplate::class);
+        $mock = $this->getMockBuilder(AbstractBoilerplateTemplate::class)
+                     ->disableOriginalConstructor()
+                     ->getMockForAbstractClass();
+
+        $mock->setLogger(new NullLogger());
+
+        $this->obj = $mock;
     }
 
     public function testDebugIsFalseByDefault()

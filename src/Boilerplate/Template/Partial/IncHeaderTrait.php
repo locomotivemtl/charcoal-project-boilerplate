@@ -71,10 +71,12 @@ trait IncHeaderTrait
     /**
      * @return string|TranslationString
      */
-//    public function opengraphTags()
-//    {
-//        return '';
-//    }
+    /*
+    public function opengraphTags()
+    {
+        return '';
+    }
+    */
 
     /**
      * @return string|TranslationString

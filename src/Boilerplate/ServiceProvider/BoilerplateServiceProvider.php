@@ -6,7 +6,7 @@ use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
 // From `whichbrowser/parser`
-use \WhichBrowser\Parser as BrowserParser;
+use WhichBrowser\Parser as BrowserParser;
 
 /**
  * Boilerplate Service Provider
@@ -20,10 +20,10 @@ class BoilerplateServiceProvider implements ServiceProviderInterface
     public function register(Container $container)
     {
         /**
-         * @param Container $container
+         * @param  Container $container Pimple DI Container.
          * @return BrowserParser Helper to determine the environment in which we're running.
          */
-        $container['browserparser'] = function (Container $container) {
+        $container['browserparser'] = function () {
             return new BrowserParser($_SERVER['HTTP_USER_AGENT']);
         };
     }

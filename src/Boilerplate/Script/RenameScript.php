@@ -259,8 +259,16 @@ class RenameScript extends AbstractScript
         $verbose          = $this->verbose();
 
         $climate->br()->backgroundGreen()->out('Replacing all files content');
-        $climate->green()->out('<green>Changing </green><white>'.$snakeSourceName.'</white> to <white>'.$snakeTargetName.'</white>');
-        $climate->green()->out('<green>Studly target name: </green><white>'.$studlySourceName.'</white> to <white>'.$studlyTargetName.'</white>');
+        $climate->green()->out(sprintf(
+            '<green>Changing </green><white>%s</white> to <white>%s</white>',
+            $snakeSourceName,
+            $snakeTargetName
+        ));
+        $climate->green()->out(sprintf(
+            '<green>Studly target name: </green><white>%s</white> to <white>%s</white>',
+            $studlySourceName,
+            $studlyTargetName
+        ));
         $climate->br();
 
         $files = array_merge(
