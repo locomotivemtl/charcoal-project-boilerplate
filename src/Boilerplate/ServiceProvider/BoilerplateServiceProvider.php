@@ -19,9 +19,16 @@ class BoilerplateServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $container)
     {
+        // Boilerplate dependencies
+        $container->register(new \Charcoal\Model\ServiceProvider\ModelServiceProvider());
+        $container->register(new \Charcoal\Ui\ServiceProvider\UiServiceProvider());
+        $container->register(new \Charcoal\Translator\ServiceProvider\TranslatorServiceProvider());
+
         /**
-         * @param  Container $container Pimple DI Container.
-         * @return BrowserParser Helper to determine the environment in which we're running.
+         * BrowserParser helps to determine the environment in which we're running.
+         *
+         * @param Container $container Pimple DI Container
+         * @return BrowserParser
          */
         $container['browserparser'] = function () {
             return new BrowserParser($_SERVER['HTTP_USER_AGENT']);

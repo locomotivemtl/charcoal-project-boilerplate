@@ -86,10 +86,8 @@
     },
 
     "service_providers": {
-        "charcoal/model/service-provider/model": {},
-        "charcoal/ui/service-provider/ui": {},
-        "charcoal/admin/service-provider/admin": {},
-        "charcoal/translator/service-provider/translator":{},
         "boilerplate/service-provider/boilerplate": {}
-    }
+    },
+
+    "admin_config":"config/admin.json"
 }
