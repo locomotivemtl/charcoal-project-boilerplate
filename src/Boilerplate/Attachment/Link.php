@@ -9,5 +9,4 @@ use Charcoal\Attachment\Object\Link as LinkAttachment;
  */
 class Link extends LinkAttachment
 {
-
 }

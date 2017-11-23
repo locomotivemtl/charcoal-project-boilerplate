@@ -2,16 +2,18 @@
 
 namespace Boilerplate\Script;
 
-use Charcoal\App\Script\AbstractScript;
 use Exception;
-
-// Dependencies from PSR-7 (HTTP Messaging)
 use InvalidArgumentException;
-use Psr\Http\Message\RequestInterface;
 
-// Dependency from 'charcoal-app'
-use Psr\Http\Message\ResponseInterface;
+// From PSR-3
 use Psr\Log\NullLogger;
+
+// From PSR-7
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
+// From 'charcoal-app'
+use Charcoal\App\Script\AbstractScript;
 
 /**
  * Renames the current module's name

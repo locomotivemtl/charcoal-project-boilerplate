@@ -2,6 +2,9 @@
 
 namespace Boilerplate\Script;
 
+/**
+ * Provides string-manipulation helpers.
+ */
 trait KeyNormalizerTrait
 {
     /**
@@ -34,13 +37,15 @@ trait KeyNormalizerTrait
     public static function studly($value)
     {
         $key = $value;
+
         if (isset(static::$studlyCache[$key])) {
             return static::$studlyCache[$key];
         }
-        $value                     = ucwords(str_replace(['-', '_'], ' ', $value));
-        $value                     = str_replace(' ', '', $value);
-        static::$studlyCache[$key] = $value;
 
+        $value = ucwords(str_replace(['-', '_'], ' ', $value));
+        $value = str_replace(' ', '', $value);
+
+        static::$studlyCache[$key] = $value;
         return $value;
     }
 
@@ -57,9 +62,10 @@ trait KeyNormalizerTrait
         if (isset(static::$camelCache[$key])) {
             return static::$camelCache[$key];
         }
-        $value                    = lcfirst(static::studly($value));
-        static::$camelCache[$key] = $value;
 
+        $value = lcfirst(static::studly($value));
+
+        static::$camelCache[$key] = $value;
         return $value;
     }
 
@@ -73,15 +79,17 @@ trait KeyNormalizerTrait
     public static function snake($value, $delimiter = '-')
     {
         $key = $value;
+
         if (isset(static::$snakeCache[$key][$delimiter])) {
             return static::$snakeCache[$key][$delimiter];
         }
+
         if (!ctype_lower($value)) {
             $value = preg_replace('/\s+/u', '', $value);
             $value = mb_strtolower(preg_replace('/(.)(?=[A-Z])/u', '$1'.$delimiter, $value), 'UTF-8');
         }
-        static::$snakeCache[$key][$delimiter] = $value;
 
+        static::$snakeCache[$key][$delimiter] = $value;
         return $value;
     }
 }

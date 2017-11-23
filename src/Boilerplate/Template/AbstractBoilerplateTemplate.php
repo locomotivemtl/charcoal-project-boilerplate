@@ -6,23 +6,19 @@ use ArrayAccess;
 use RuntimeException;
 use InvalidArgumentException;
 
-// Dependency from Pimple
+// From Pimple
 use Pimple\Container;
 
-// Dependency from PSR-7
+// From PSR-7
 use Psr\Http\Message\UriInterface;
 
-// Dependency from 'charcoal-config'
-use Charcoal\Config\ConfigInterface;
-
-// Dependencies from 'charcoal-translator'
-use Charcoal\Translator\Translation;
+// From 'charcoal-translator'
 use Charcoal\Translator\TranslatorAwareTrait;
 
-// Dependency from 'charcoal-app'
+// From 'charcoal-app'
 use Charcoal\App\Template\AbstractTemplate;
 
-// Dependency from 'charcoal-cms'
+// From 'charcoal-cms'
 use Charcoal\Cms\MetatagInterface;
 use Charcoal\Cms\MetatagTrait;
 

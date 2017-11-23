@@ -2,6 +2,7 @@
 
 namespace Boilerplate\Template;
 
+// Local dependencies
 use Boilerplate\Template\AbstractBoilerplateTemplate;
 
 /**

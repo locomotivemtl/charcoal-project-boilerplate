@@ -9,5 +9,4 @@ use Charcoal\Attachment\Object\Video as VideoAttachment;
  */
 class Video extends VideoAttachment
 {
-
 }

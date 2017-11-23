@@ -2,6 +2,7 @@
 
 namespace Boilerplate\Template;
 
+// Local dependencies
 use Boilerplate\Template\AbstractBoilerplateTemplate;
 
 /**
@@ -12,19 +13,19 @@ class ErrorTemplate extends AbstractBoilerplateTemplate
     /**
      * The current error title.
      *
-     * @var Translation|string|null
+     * @var string|\Charcoal\Translator\Translation
      */
     private $errorTitle;
 
     /**
      * The current error message.
      *
-     * @var Translation|string|null
+     * @var string|\Charcoal\Translator\Translation
      */
     private $errorMessage;
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function pageTitle()
     {
@@ -34,7 +35,7 @@ class ErrorTemplate extends AbstractBoilerplateTemplate
     /**
      * Retrieve the error message.
      *
-     * @return Translation|string|null
+     * @return string|\Charcoal\Translator\Translation
      */
     public function errorMessage()
     {
@@ -61,7 +62,7 @@ class ErrorTemplate extends AbstractBoilerplateTemplate
     /**
      * Retrieve the error title.
      *
-     * @return Translation|string|null
+     * @return string|\Charcoal\Translator\Translation
      */
     public function errorTitle()
     {

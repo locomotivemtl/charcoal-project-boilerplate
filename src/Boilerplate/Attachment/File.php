@@ -9,5 +9,4 @@ use Charcoal\Attachment\Object\File as FileAttachment;
  */
 class File extends FileAttachment
 {
-
 }

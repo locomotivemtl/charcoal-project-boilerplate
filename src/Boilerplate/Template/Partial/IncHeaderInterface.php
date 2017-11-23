@@ -18,37 +18,37 @@ interface IncHeaderInterface
     public function meta();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function pageTitle();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function metaPrefix();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function metaTitle();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function metaDescription();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function metaTags();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function opengraphTags();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function extraHeaderContent();
 

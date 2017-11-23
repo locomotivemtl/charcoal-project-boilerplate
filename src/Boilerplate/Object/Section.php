@@ -2,16 +2,16 @@
 
 namespace Boilerplate\Object;
 
-// Dependencies from 'pimple'
+// From Pimple
 use Pimple\Container;
 
-// Dependencies from 'charcoal-core'
+// From 'charcoal-core'
 use Charcoal\Loader\CollectionLoader;
 
-// Dependencies from 'charcoal-attachment'
+// From 'charcoal-attachment'
 use Charcoal\Attachment\Traits\AttachmentAwareTrait;
 
-// Dependencies from 'charcoal-cms'
+// From 'charcoal-cms'
 use Charcoal\Cms\AbstractSection;
 
 /**

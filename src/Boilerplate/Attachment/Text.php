@@ -9,5 +9,4 @@ use Charcoal\Attachment\Object\Text as TextAttachment;
  */
 class Text extends TextAttachment
 {
-
 }

@@ -2,10 +2,11 @@
 
 namespace Boilerplate\ServiceProvider;
 
+// From Pimple
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-// From `whichbrowser/parser`
+// From 'whichbrowser/parser'
 use WhichBrowser\Parser as BrowserParser;
 
 /**

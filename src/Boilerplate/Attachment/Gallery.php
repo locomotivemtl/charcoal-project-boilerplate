@@ -9,5 +9,4 @@ use Charcoal\Attachment\Object\Gallery as GalleryAttachment;
  */
 class Gallery extends GalleryAttachment
 {
-
 }

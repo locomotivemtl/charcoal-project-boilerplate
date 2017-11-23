@@ -9,5 +9,4 @@ use Charcoal\Attachment\Object\Image as ImageAttachment;
  */
 class Image extends ImageAttachment
 {
-
 }

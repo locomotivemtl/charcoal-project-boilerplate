@@ -2,9 +2,6 @@
 
 namespace Boilerplate\Template\Partial;
 
-// From `charcoal-core`
-use Charcoal\Translation\TranslationString;
-
 /**
  * Header include. Provide defaults (stubs) to fulfill the interface.
  */
@@ -21,7 +18,7 @@ trait IncHeaderTrait
     abstract public function meta();
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function pageTitle()
     {
@@ -29,7 +26,7 @@ trait IncHeaderTrait
     }
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function metaPrefix()
     {
@@ -37,7 +34,7 @@ trait IncHeaderTrait
     }
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function metaSuffix()
     {
@@ -45,7 +42,7 @@ trait IncHeaderTrait
     }
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function defaultMetaTitle()
     {
@@ -53,7 +50,7 @@ trait IncHeaderTrait
     }
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function defaultMetaDescription()
     {
@@ -61,7 +58,7 @@ trait IncHeaderTrait
     }
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function defaultMetaTags()
     {
@@ -69,7 +66,7 @@ trait IncHeaderTrait
     }
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     /*
     public function opengraphTags()
@@ -79,7 +76,7 @@ trait IncHeaderTrait
     */
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function defaultMetaImage()
     {
@@ -87,7 +84,7 @@ trait IncHeaderTrait
     }
 
     /**
-     * @return string|TranslationString
+     * @return string|\Charcoal\Translator\Translation
      */
     public function extraHeaderContent()
     {

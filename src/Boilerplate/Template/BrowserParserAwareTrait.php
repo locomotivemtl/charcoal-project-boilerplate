@@ -2,7 +2,8 @@
 
 namespace Boilerplate\Template;
 
-use \WhichBrowser\Parser;
+// From 'whichbrowser/parser'
+use WhichBrowser\Parser;
 
 /**
  * Implementation of the BrowserParserAwareInterface
