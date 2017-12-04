@@ -22,8 +22,6 @@ class BoilerplateServiceProvider implements ServiceProviderInterface
     {
         // Boilerplate dependencies
         $container->register(new \Charcoal\Model\ServiceProvider\ModelServiceProvider());
-        $container->register(new \Charcoal\Ui\ServiceProvider\UiServiceProvider());
-        $container->register(new \Charcoal\Translator\ServiceProvider\TranslatorServiceProvider());
 
         /**
          * BrowserParser helps to determine the environment in which we're running.
