@@ -1,8 +1,11 @@
 # Charcoal
 # -------
 
+config/admin.*.*
+!config/admin.sample.*
 config/config.*.*
 !config/config.sample.*
+uploads/
 
 # Package Managers
 # -------
@@ -29,4 +32,3 @@ logs/
 
 cache/
 tmp/
-www/mustache_cache
