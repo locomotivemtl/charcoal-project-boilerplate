@@ -23,6 +23,17 @@
         }
     },
 
+    "admin_config": "config/admin.json",
+
+    "modules": {
+        "charcoal/admin/admin": {}
+    },
+
+    "service_providers": {
+        "charcoal/model/service-provider/model": {},
+        "boilerplate/service-provider/boilerplate": {}
+    },
+
     "locales": {
         "languages": {
             "fr": {
@@ -79,15 +90,6 @@
             "vendor/locomotivemtl/charcoal-user/metadata/",
             "vendor/beneroch/charcoal-attachment/metadata/"
         ]
-    },
 
-    "modules": {
-        "charcoal/admin/admin": {}
-    },
-
-    "service_providers": {
-        "boilerplate/service-provider/boilerplate": {}
-    },
-
-    "admin_config":"config/admin.json"
+    }
 }
