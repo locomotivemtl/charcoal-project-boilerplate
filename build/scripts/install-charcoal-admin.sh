@@ -6,7 +6,6 @@ cd vendor/locomotivemtl/charcoal-admin
 
 composer install
 npm install
-bower install
 
 grunt --force
 
