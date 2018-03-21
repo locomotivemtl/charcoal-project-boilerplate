@@ -1,9 +1,6 @@
 {
     "project_name": "Charcoal Boilerplate",
-
     "timezone": "America/Montreal",
-
-    "dev_mode": false,
 
     "cache": {
         "active": true,
@@ -13,7 +10,7 @@
 
     "logger": {
         "active": true,
-        "level":"warning"
+        "level": "warning"
     },
 
     "email": {
@@ -34,6 +31,17 @@
         "boilerplate/service-provider/boilerplate": {}
     },
 
+    "apis": {
+        "google": {
+            "analytics": {
+                "tracking_id": ""
+            }
+        },
+        "typekit": {
+            "kit_id": ""
+        }
+    },
+
     "locales": {
         "languages": {
             "fr": {
@@ -49,29 +57,18 @@
     "translations": {
         "paths": [
             "translations/boilerplate/",
+            "vendor/locomotivemtl/charcoal-attachment/translations/",
             "vendor/locomotivemtl/charcoal-admin/translations/",
-            "vendor/locomotivemtl/charcoal-app/translations/",
-            "vendor/beneroch/charcoal-attachment/translations/"
+            "vendor/locomotivemtl/charcoal-app/translations/"
         ]
-    },
-
-    "apis": {
-        "google": {
-            "analytics": {
-                "tracking_id": ""
-            }
-        },
-        "typekit": {
-            "kit_id": ""
-        }
     },
 
     "view": {
         "paths": [
             "views/",
+            "vendor/locomotivemtl/charcoal-attachment/templates/",
             "vendor/locomotivemtl/charcoal-admin/templates/",
-            "vendor/locomotivemtl/charcoal-app/templates/",
-            "vendor/beneroch/charcoal-attachment/templates/"
+            "vendor/locomotivemtl/charcoal-app/templates/"
         ],
         "default_engine": "mustache",
         "default_controller": "\\Boilerplate\\Template\\Generic"
@@ -80,16 +77,16 @@
     "metadata": {
         "paths": [
             "metadata/",
+            "vendor/locomotivemtl/charcoal-attachment/metadata/",
             "vendor/locomotivemtl/charcoal-cms/metadata/",
             "vendor/locomotivemtl/charcoal-admin/metadata/",
             "vendor/locomotivemtl/charcoal-app/metadata/",
             "vendor/locomotivemtl/charcoal-email/metadata/",
             "vendor/locomotivemtl/charcoal-messaging/metadata/",
+            "vendor/locomotivemtl/charcoal-search/metadata/",
             "vendor/locomotivemtl/charcoal-property/metadata/",
             "vendor/locomotivemtl/charcoal-object/metadata/",
-            "vendor/locomotivemtl/charcoal-user/metadata/",
-            "vendor/beneroch/charcoal-attachment/metadata/"
+            "vendor/locomotivemtl/charcoal-user/metadata/"
         ]
-
     }
 }

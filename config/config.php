@@ -18,10 +18,10 @@ $this->addFile(__DIR__ . '/redirections.json');
 $environment = getenv('APPLICATION_ENV') ?: 'local';
 
 /** Import local settings */
-
-$cfg = sprintf('%1$s/config.%2$s.json', __DIR__, $environment);
-if (file_exists($cfg)) {
-    $this->addFile($cfg);
+$appEnv = preg_replace('/!^[A-Za-z0-9_]+$/', '', getenv('APPLICATION_ENV'));
+if (!$appEnv) {
+    $appEnv = 'local';
 }
-
-
+if (file_exists(__DIR__.'/config.'.$appEnv.'.json')) {
+    $this->addFile(__DIR__.'/config.'.$appEnv.'.json');
+}

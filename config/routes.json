@@ -13,6 +13,7 @@
             }
         }
     },
+
     "handlers": {
         "defaults": {
             "template": "boilerplate/template/error",

@@ -6,8 +6,6 @@ rm -rf locomotive-boilerplate/.git
 
 rm locomotive-boilerplate/www/index.html;
 rm locomotive-boilerplate/LICENSE;
-rm locomotive-boilerplate/.editorconfig;
-rm locomotive-boilerplate/.gitignore;
 mv locomotive-boilerplate/README.md locomotive-boilerplate/README-locomotive.md;
 
 cp -Rav locomotive-boilerplate/* .

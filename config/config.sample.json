@@ -1,6 +1,10 @@
 {
     "dev_mode": true,
 
+    "logger": {
+        "level": "debug"
+    },
+
     "databases": {
         "default": {
             "database": "charcoal_boilerplate",
@@ -8,9 +12,5 @@
             "password": ""
         }
     },
-    "default_database": "default",
-
-    "logger": {
-        "level": "debug"
-    }
+    "default_database": "default"
 }
