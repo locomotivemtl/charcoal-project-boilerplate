@@ -54,7 +54,7 @@
         "default_language": "fr"
     },
 
-    "translations": {
+    "translator": {
         "paths": [
             "translations/boilerplate/",
             "vendor/locomotivemtl/charcoal-attachment/translations/",
