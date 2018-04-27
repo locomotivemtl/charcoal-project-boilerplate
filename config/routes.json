@@ -8,8 +8,8 @@
         },
         "actions": {},
         "scripts": {
-            "boilerplate/rename": {
-                "ident": "boilerplate/script/rename"
+            "charcoal/rename": {
+                "ident": "charcoal/script/rename"
             }
         }
     },

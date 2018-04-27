@@ -1,6 +1,6 @@
 <?php
 
-namespace Boilerplate\Script;
+namespace Charcoal\Script;
 
 /**
  * Provides string-manipulation helpers.

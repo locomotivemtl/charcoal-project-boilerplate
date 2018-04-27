@@ -98,7 +98,7 @@ To start a Charcoal project with this Boilerplate, simply:
 > (Use at your own risk)
 >
 > ```shell
-> ★ ./vendor/bin/charcoal boilerplate/rename
+> ★ ./vendor/bin/charcoal charcoal/rename
 > ```
 
 

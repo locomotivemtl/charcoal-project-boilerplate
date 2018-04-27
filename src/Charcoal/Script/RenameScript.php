@@ -1,6 +1,6 @@
 <?php
 
-namespace Boilerplate\Script;
+namespace Charcoal\Script;
 
 use Exception;
 use InvalidArgumentException;
@@ -42,10 +42,15 @@ class RenameScript extends AbstractScript
     protected $targetName;
 
     /**
+     * @var string $path The path of the folder.
+     */
+    protected $path;
+
+    /**
      * @var string $excludeFromGlob Namespaces to exclude from replacement.
      */
-    protected $excludeFromGlob = '!(\/city|vendor|node_modules|bower_components|mustache_cache'.
-        '|www\/assets\/admin|www\/uploads|\.log)($|/)!i';
+    protected $excludeFromGlob = '!(\/city|vendor|node_modules|bower_components|mustache_cache' .
+    '|www\/assets\/admin|www\/uploads|\.log)($|/)!i';
 
     // ==========================================================================
     // DEFAULTS
@@ -62,21 +67,24 @@ class RenameScript extends AbstractScript
     {
         $arguments = [
             'sourceName' => [
-                'prefix'      => 'src',
-                'longPrefix'  => 'source',
-                'description' => sprintf(
-                    'Project (module) source. The source namespace. '.
-                    'By default "%s" will by used as source if you let it blank.',
+                'prefix'       => 's',
+                'longPrefix'   => 'source',
+                'description'  => sprintf(
+                    'What is the project <red>source</red> namespace? [default: <green>%s</green>]',
                     $this->defaultSourceName
-                )
+                ),
+                'defaultValue' => $this->defaultSourceName
             ],
             'targetName' => [
                 'prefix'      => 't',
                 'longPrefix'  => 'target',
-                'description' => sprintf(
-                    'Project (module) name. All occurences of "%s" in the files will be changed to this name.',
-                    'sourceName'
-                )
+                'description' => 'What is the project <red>target</red> namespace?'
+            ],
+            'path'       => [
+                'prefix'       => 'p',
+                'longPrefix'   => 'path',
+                'description'  => 'What is the <red>path</red> to where you want to rename?',
+                'defaultValue' => '../*'
             ]
         ];
 
@@ -115,7 +123,7 @@ class RenameScript extends AbstractScript
 
         // Parse data
         foreach ($data as $key => $value) {
-            $setter = $script->camel('set-'.$key);
+            $setter = $script->camel('set-' . $key);
             if (is_callable($script, $setter)) {
                 $script->{$setter}($value);
             } else {
@@ -131,14 +139,35 @@ class RenameScript extends AbstractScript
     /**
      * @see \League\CLImate\CLImate Used by `CliActionTrait`
      *
-     * @param  RequestInterface  $request  PSR-7 request.
+     * @param  RequestInterface $request PSR-7 request.
      * @param  ResponseInterface $response PSR-7 response.
+     * @throws Exception
      * @return void
      */
     public function run(RequestInterface $request, ResponseInterface $response)
     {
         // Never Used
         unset($request, $response);
+
+        $climate = $this->climate();
+
+        // Get arguments
+//        $climate->arguments->parse();
+
+        // Outputs usage
+        if ($climate->arguments->defined('help')) {
+            $climate->usage();
+
+            return;
+        }
+
+        // Necessary arguments
+        $this->setPath($this->argOrInput('path'));
+        $this->setSourceName($this->argOrInput('sourceName'));
+        $this->setTargetName($this->argOrInput('targetName'));
+
+        $climate->underline()->green()->out('Charcoal batch rename script');
+
         $this->rename();
     }
 
@@ -160,85 +189,11 @@ class RenameScript extends AbstractScript
     {
         $climate = $this->climate();
 
-        $climate->underline()->green()->out('Charcoal batch rename script');
-
-        if ($climate->arguments->defined('help')) {
-            $climate->usage();
-
-            return;
-        }
-
-        // Parse arguments
-        $climate->arguments->parse();
-        $sourceName = $climate->arguments->get('sourceName') ?: $this->sourceName;
-        $targetName = $climate->arguments->get('targetName') ?: $this->targetName;
-        $verbose    = !!$climate->arguments->get('quiet');
-        $this->setVerbose($verbose);
-
-        // Prompt for source name until correctly entered
-        do {
-            $sourceName = $this->promptSourceName($sourceName);
-        } while (!$sourceName);
-        // Prompt for source name until correctly entered
-        do {
-            $targetName = $this->promptTargetName($targetName);
-        } while (!$targetName);
-
-        // Replace file contents
+        // Replace content and rename files.
         $this->replaceFileContent();
-
-        // Rename files
         $this->renameFiles();
 
         $climate->green()->br()->out('Success!');
-    }
-
-    /**
-     * @param  string|null $name The source name of the project.
-     * @return string|null
-     */
-    private function promptSourceName($name = null)
-    {
-        if (!$name) {
-            $input = $this->climate()->input(sprintf(
-                'What is the project <red>source</red> namespace? [default: <green>%s</green>]',
-                $this->defaultSourceName
-            ));
-            $input->defaultTo($this->defaultSourceName);
-            $name = $input->prompt();
-        }
-
-        try {
-            $this->setSourceName($name);
-        } catch (Exception $e) {
-            $this->climate()->error($e->getMessage());
-
-            return null;
-        }
-
-        return $name;
-    }
-
-    /**
-     * @param  string|null $name The target name of the project.
-     * @return string|null
-     */
-    private function promptTargetName($name = null)
-    {
-        if (!$name) {
-            $input = $this->climate()->input('What is the project <red>target</red> namespace?');
-            $name  = $input->prompt();
-        }
-
-        try {
-            $this->setTargetName($name);
-        } catch (Exception $e) {
-            $this->climate()->error($e->getMessage());
-
-            return null;
-        }
-
-        return $name;
     }
 
     /**
@@ -258,7 +213,6 @@ class RenameScript extends AbstractScript
         $sourceName       = $this->sourceName();
         $snakeSourceName  = self::snake($sourceName);
         $studlySourceName = self::studly($sourceName);
-        $verbose          = $this->verbose();
 
         $climate->br()->backgroundGreen()->out('Replacing all files content');
         $climate->green()->out(sprintf(
@@ -274,13 +228,7 @@ class RenameScript extends AbstractScript
         $climate->br();
 
         $files = array_merge(
-            $this->globRecursive('config/*'),
-            $this->globRecursive('metadata/*'),
-            $this->globRecursive('src/*'),
-            $this->globRecursive('templates/*'),
-            $this->globRecursive('views/*'),
-            $this->globRecursive('tests/*'),
-            $this->globRecursive('www/*'),
+            $this->globRecursive($this->path()),
             glob('*.*')
         );
 
@@ -302,14 +250,14 @@ class RenameScript extends AbstractScript
             $numReplacement1 = 0;
             $numReplacement2 = 0;
             $content         = preg_replace(
-                '#'.$snakeSourceName.'#',
+                '#' . $snakeSourceName . '#',
                 $snakeTargetName,
                 $file,
                 -1,
                 $numReplacement1
             );
-            $content = preg_replace(
-                '#'.$studlySourceName.'#',
+            $content         = preg_replace(
+                '#' . $studlySourceName . '#',
                 $studlyTargetName,
                 $content,
                 -1,
@@ -322,12 +270,13 @@ class RenameScript extends AbstractScript
 
                 $data[] = [
                     $filename,
-                    '<white>'.$numReplacement1.'</white>',
-                    '<white>'.$numReplacement2.'</white>',
-                    '<white>'.$numReplacements.'</white>'
+                    '<white>' . $numReplacement1 . '</white>',
+                    '<white>' . $numReplacement2 . '</white>',
+                    '<white>' . $numReplacements . '</white>'
                 ];
             }
         }
+
         $climate->green()->table($data);
     }
 
@@ -348,7 +297,6 @@ class RenameScript extends AbstractScript
         $targetName       = $this->targetName();
         $snakeTargetName  = self::snake($targetName);
         $studlyTargetName = self::studly($targetName);
-        $verbose          = $this->verbose();
 
         $climate->br()->backgroundGreen()->out('Renaming files and directories');
 
@@ -360,51 +308,54 @@ class RenameScript extends AbstractScript
             ]
         ];
 
-        $sourceFiles = $this->globRecursive('*'.$snakeSourceName.'*');
-        $sourceFiles = array_merge($sourceFiles, $this->globRecursive('*'.$studlySourceName.'*'));
+        // Replacing SnakeCase
+        $sourceFiles = $this->globRecursive($this->path() . $snakeSourceName . '*');
         $sourceFiles = array_reverse($sourceFiles);
 
         foreach ($sourceFiles as $filename) {
-            $name = preg_replace('#'.$snakeSourceName.'#', $snakeTargetName, basename($filename));
-            $name = dirname($filename).'/'.$name;
+            if (!file_exists($filename) && !is_dir($filename)) {
+                continue;
+            }
+            $name = preg_replace('#' . $snakeSourceName . '#', $snakeTargetName, basename($filename));
+            $name = dirname($filename) . '/' . $name;
 
             if ($name != $filename) {
                 $data[] = [
                     $filename,
-                    '<white>'.$name.'</white>'
+                    '<white>' . $name . '</white>'
                 ];
                 rename($filename, $name);
             }
         }
 
-        $sourceFiles = $this->globRecursive('*'.$sourceName.'*');
+        $sourceFiles = $this->globRecursive($this->path() . $sourceName . '*');
         $sourceFiles = array_reverse($sourceFiles);
 
         foreach ($sourceFiles as $filename) {
-            $name = preg_replace('/'.$sourceName.'/', $targetName, basename($filename));
-            $name = dirname($filename).'/'.$name;
+            $name = preg_replace('/' . $sourceName . '/', $targetName, basename($filename));
+            $name = dirname($filename) . '/' . $name;
 
             if ($name != $filename) {
                 rename($filename, $name);
                 $data[] = [
                     $filename,
-                    '<white>'.$name.'</white>'
+                    '<white>' . $name . '</white>'
                 ];
             }
         }
 
-        $sourceFiles = $this->globRecursive('*'.$studlySourceName.'*');
+        $sourceFiles = $this->globRecursive($this->path() . $studlySourceName . '*');
         $sourceFiles = array_reverse($sourceFiles);
 
         foreach ($sourceFiles as $filename) {
-            $name = preg_replace('/'.$studlySourceName.'/', $studlyTargetName, basename($filename));
-            $name = dirname($filename).'/'.$name;
+            $name = preg_replace('/' . $studlySourceName . '/', $studlyTargetName, basename($filename));
+            $name = dirname($filename) . '/' . $name;
 
             if ($name != $filename) {
                 rename($filename, $name);
                 $data[] = [
                     $filename,
-                    '<white>'.$name.'</white>'
+                    '<white>' . $name . '</white>'
                 ];
             }
         }
@@ -486,6 +437,14 @@ class RenameScript extends AbstractScript
         return $this;
     }
 
+    /**
+     * @param string $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
     // ==========================================================================
     // GETTERS
     // ==========================================================================
@@ -522,6 +481,15 @@ class RenameScript extends AbstractScript
         ];
     }
 
+    /**
+     * @return string
+     */
+    public function path()
+    {
+        return $this->path;
+    }
+
+
     // ==========================================================================
     // UTILS
     // ==========================================================================
@@ -532,20 +500,21 @@ class RenameScript extends AbstractScript
      *                         an empty array if no file matched or FALSE on error.
      * @see glob() for a description of the function and its parameters.
      *
-     * @param  string  $pattern The search pattern.
-     * @param  integer $flags   The glob flags.
+     * @param  string $pattern The search pattern.
+     * @param  integer $flags The glob flags.
      * @return array   Returns an array containing the matched files/directories,
      */
     private function globRecursive($pattern, $flags = 0)
     {
         $files = glob($pattern, $flags);
 
-        foreach (glob(dirname($pattern).'/*', (GLOB_ONLYDIR | GLOB_NOSORT)) as $dir) {
+        foreach (glob(dirname($pattern) . '/*', (GLOB_ONLYDIR | GLOB_NOSORT)) as $dir) {
             if (!preg_match($this->excludeFromGlob, $dir)) {
-                $files = array_merge($files, $this->globRecursive($dir.'/'.basename($pattern), $flags));
+                $files = array_merge($files, $this->globRecursive($dir . '/' . basename($pattern), $flags));
             }
         }
 
         return $files;
     }
+
 }
