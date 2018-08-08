@@ -1,0 +1,18 @@
+    <footer>
+        {{copyright}}
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/scripts/jquery-3.3.1.min.js"><\/script>')</script>
+    <script src="assets/scripts/vendors.js?v={{assetsVersion}}"></script>
+    <script src="assets/scripts/app.js?v={{assetsVersion}}"></script>
+
+    {{#googleAnalytics}}
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', '{{googleAnalytics}}', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    {{/googleAnalytics}}
+</body>
+</html>
