@@ -27,8 +27,6 @@ use Boilerplate\Template\Partial\IncHeaderInterface;
 use Boilerplate\Template\Partial\IncHeaderTrait;
 use Boilerplate\Template\Partial\IncFooterInterface;
 use Boilerplate\Template\Partial\IncFooterTrait;
-use Boilerplate\Template\BrowserParserAwareInterface;
-use Boilerplate\Template\BrowserParserAwareTrait;
 
 /**
  * Base class for all "Boilerplate" templates.
@@ -36,13 +34,11 @@ use Boilerplate\Template\BrowserParserAwareTrait;
 abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
     IncHeaderInterface,
     IncFooterInterface,
-    BrowserParserAwareInterface,
     MetatagInterface
 {
     use IncHeaderTrait;
     use IncFooterTrait;
     use TranslatorAwareTrait;
-    use BrowserParserAwareTrait;
     use MetatagTrait;
 
     /**
@@ -85,9 +81,6 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
         $this->setAppConfig($container['config']);
         $this->setBaseUrl($container['base-url']);
         $this->setDebug($container['debug']);
-
-        // Fulfill BrowserParserAwareTrait dependencies requirements
-        $this->setBrowserParser($container['browserparser']);
 
         // Fulfill TranslatorAwareTrait dependencies requirements
         $this->setTranslator($container['translator']);
