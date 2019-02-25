@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f514683fa4fb56d3ad080bd57c6535f",
+    "content-hash": "29efedfd9f8e428fb37fb7fcd58d991e",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -94,17 +94,63 @@
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
-            "name": "guzzlehttp/guzzle",
-            "version": "6.3.0",
+            "name": "erusev/parsedown",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+                "url": "https://github.com/erusev/parsedown.git",
+                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
+                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Parsedown": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "Parser for Markdown.",
+            "homepage": "http://parsedown.org",
+            "keywords": [
+                "markdown",
+                "parser"
+            ],
+            "time": "2018-03-08T01:11:30+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +160,7 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.0 || ^5.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
                 "psr/log": "^1.0"
             },
             "suggest": {
@@ -123,7 +169,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.2-dev"
+                    "dev-master": "6.3-dev"
                 }
             },
             "autoload": {
@@ -156,7 +202,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-06-22T18:50:49+00:00"
+            "time": "2018-04-22T15:46:56+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -211,32 +257,33 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.2",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+                "reference": "9f83dded91781a01c63574e387eaa769be769115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+                "reference": "9f83dded91781a01c63574e387eaa769be769115",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -266,26 +313,27 @@
             "keywords": [
                 "http",
                 "message",
+                "psr-7",
                 "request",
                 "response",
                 "stream",
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2018-12-04T20:46:45+00:00"
         },
         {
             "name": "intervention/image",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919"
+                "reference": "e82d274f786e3d4b866a59b173f42e716f0783eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/3603dbcc9a17d307533473246a6c58c31cf17919",
-                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/e82d274f786e3d4b866a59b173f42e716f0783eb",
+                "reference": "e82d274f786e3d4b866a59b173f42e716f0783eb",
                 "shasum": ""
             },
             "require": {
@@ -305,7 +353,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -342,30 +390,111 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-09-21T16:29:17+00:00"
+            "time": "2018-05-29T14:19:03+00:00"
         },
         {
-            "name": "league/climate",
-            "version": "3.2.4",
+            "name": "kriswallsmith/assetic",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thephpleague/climate.git",
-                "reference": "ca70f67f7739cca823eba0ad98f8130bca226bf0"
+                "url": "https://github.com/kriswallsmith/assetic.git",
+                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/climate/zipball/ca70f67f7739cca823eba0ad98f8130bca226bf0",
-                "reference": "ca70f67f7739cca823eba0ad98f8130bca226bf0",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
+                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
-                "seld/cli-prompt": "~1.0"
+                "php": ">=5.3.1",
+                "symfony/process": "~2.1|~3.0"
+            },
+            "conflict": {
+                "twig/twig": "<1.27"
             },
             "require-dev": {
-                "mikey179/vfsstream": "~1.4",
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.6"
+                "leafo/lessphp": "^0.3.7",
+                "leafo/scssphp": "~0.1",
+                "meenie/javascript-packer": "^1.1",
+                "mrclay/minify": "<2.3",
+                "natxet/cssmin": "3.0.4",
+                "patchwork/jsqueeze": "~1.0|~2.0",
+                "phpunit/phpunit": "~4.8 || ^5.6",
+                "psr/log": "~1.0",
+                "ptachoire/cssembed": "~1.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "twig/twig": "~1.23|~2.0",
+                "yfix/packager": "dev-master"
+            },
+            "suggest": {
+                "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+                "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+                "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+                "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
+                "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+                "twig/twig": "Assetic provides the integration with the Twig templating engine"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Assetic": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Asset Management for PHP",
+            "homepage": "https://github.com/kriswallsmith/assetic",
+            "keywords": [
+                "assets",
+                "compression",
+                "minification"
+            ],
+            "time": "2016-11-11T18:43:20+00:00"
+        },
+        {
+            "name": "league/climate",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/climate.git",
+                "reference": "0d2fdbf8829f60f6ba6433df68d6f3fe1271b8e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/climate/zipball/0d2fdbf8829f60f6ba6433df68d6f3fe1271b8e6",
+                "reference": "0d2fdbf8829f60f6ba6433df68d6f3fe1271b8e6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "psr/log": "^1.0",
+                "seld/cli-prompt": "^1.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.4",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^5.7.16"
+            },
+            "suggest": {
+                "ext-mbstring": "If ext-mbstring is not available you MUST install symfony/polyfill-mbstring"
             },
             "type": "library",
             "autoload": {
@@ -378,6 +507,12 @@
                 "MIT"
             ],
             "authors": [
+                {
+                    "name": "Craig Duncan",
+                    "email": "git@duncanc.co.uk",
+                    "homepage": "https://github.com/duncan3dc",
+                    "role": "Developer"
+                },
                 {
                     "name": "Joe Tannenbaum",
                     "email": "hey@joe.codes",
@@ -393,32 +528,32 @@
                 "php",
                 "terminal"
             ],
-            "time": "2016-10-30T22:18:25+00:00"
+            "time": "2019-02-10T18:25:19+00:00"
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.43",
+            "version": "1.0.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "1ce7cc142d906ba58dc54c82915d355a9191c8a8"
+                "reference": "dab4e7624efa543a943be978008f439c333f2249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1ce7cc142d906ba58dc54c82915d355a9191c8a8",
-                "reference": "1ce7cc142d906ba58dc54c82915d355a9191c8a8",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dab4e7624efa543a943be978008f439c333f2249",
+                "reference": "dab4e7624efa543a943be978008f439c333f2249",
                 "shasum": ""
             },
             "require": {
+                "ext-fileinfo": "*",
                 "php": ">=5.5.9"
             },
             "conflict": {
                 "league/flysystem-sftp": "<1.0.6"
             },
             "require-dev": {
-                "ext-fileinfo": "*",
                 "phpspec/phpspec": "^3.4",
-                "phpunit/phpunit": "^5.7"
+                "phpunit/phpunit": "^5.7.10"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -477,20 +612,20 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-03-01T10:27:04+00:00"
+            "time": "2019-02-01T08:50:36+00:00"
         },
         {
             "name": "league/flysystem-cached-adapter",
-            "version": "1.0.6",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-cached-adapter.git",
-                "reference": "93eec679c57f8510816577f361988b10b5b57351"
+                "reference": "08ef74e9be88100807a3b92cc9048a312bf01d6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-cached-adapter/zipball/93eec679c57f8510816577f361988b10b5b57351",
-                "reference": "93eec679c57f8510816577f361988b10b5b57351",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-cached-adapter/zipball/08ef74e9be88100807a3b92cc9048a312bf01d6f",
+                "reference": "08ef74e9be88100807a3b92cc9048a312bf01d6f",
                 "shasum": ""
             },
             "require": {
@@ -498,10 +633,9 @@
                 "psr/cache": "^1.0.0"
             },
             "require-dev": {
-                "henrikbjorn/phpspec-code-coverage": "~1.0@dev",
                 "mockery/mockery": "~0.9",
-                "phpspec/phpspec": "~2.1",
-                "phpunit/phpunit": "~4.1",
+                "phpspec/phpspec": "^3.4",
+                "phpunit/phpunit": "^5.7",
                 "predis/predis": "~1.0",
                 "tedivm/stash": "~0.12"
             },
@@ -525,34 +659,38 @@
                 }
             ],
             "description": "An adapter decorator to enable meta-data caching.",
-            "time": "2017-03-20T09:59:34+00:00"
+            "time": "2018-07-09T20:51:04+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-admin",
-            "version": "0.10.3.1",
+            "version": "0.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-admin.git",
-                "reference": "757af7f61d27db6e97a3352806b98ca686a26d4c"
+                "reference": "83ed067891962b647d39708a5f219bac65610170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-admin/zipball/757af7f61d27db6e97a3352806b98ca686a26d4c",
-                "reference": "757af7f61d27db6e97a3352806b98ca686a26d4c",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-admin/zipball/83ed067891962b647d39708a5f219bac65610170",
+                "reference": "83ed067891962b647d39708a5f219bac65610170",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/elfinder-flysystem-driver": "^0.2.1",
                 "guzzlehttp/guzzle": "^6.3",
-                "locomotivemtl/charcoal-app": "~0.6",
-                "locomotivemtl/charcoal-core": "^0.3",
-                "locomotivemtl/charcoal-email": "^0.2",
-                "locomotivemtl/charcoal-object": "~0.4",
+                "kriswallsmith/assetic": "^1.4",
+                "locomotivemtl/charcoal-app": "~0.8.1",
+                "locomotivemtl/charcoal-cache": "~0.1",
+                "locomotivemtl/charcoal-core": "~0.4",
+                "locomotivemtl/charcoal-email": "~0.3",
+                "locomotivemtl/charcoal-object": "~0.6",
                 "locomotivemtl/charcoal-translator": "~0.3",
                 "locomotivemtl/charcoal-ui": "~0.3",
-                "locomotivemtl/charcoal-user": "~0.2",
-                "paragonie/random_compat": "^1.2",
-                "php": ">=5.6.0",
+                "locomotivemtl/charcoal-user": "~0.3",
+                "mcaskill/php-html-build-attributes": "1.0",
+                "paragonie/random_compat": ">=2",
+                "php": ">=5.6.0 || >=7.0",
+                "psr/cache": "^1.0",
                 "psr/http-message": "^1.0",
                 "psr/log": "^1.0",
                 "studio-42/elfinder": "~2.1.32"
@@ -562,9 +700,9 @@
                 "league/csv": "^8.1",
                 "mockery/mockery": "^1.0",
                 "mustache/mustache": "^2.11",
-                "php-coveralls/php-coveralls": "^1.0",
-                "phpunit/phpunit": "^5.7",
-                "squizlabs/php_codesniffer": "^2.9",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
                 "tedivm/stash": "~0.14"
             },
             "suggest": {
@@ -574,12 +712,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.10.x-dev"
+                    "dev-master": "0.13.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Charcoal\\Admin\\": "src/Charcoal/Admin"
+                    "Charcoal\\Admin\\": "src/Charcoal/Admin/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -603,35 +741,36 @@
                 "charcoal",
                 "cms"
             ],
-            "time": "2018-03-21T17:34:43+00:00"
+            "time": "2019-02-24T23:22:53+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-app",
-            "version": "0.7.1",
+            "version": "0.8.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-app.git",
-                "reference": "fab55f013f24901605216a67b04a010caac72a42"
+                "reference": "d931dc47c38fb2bc7f46a48e88d7e7d09aa533b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-app/zipball/fab55f013f24901605216a67b04a010caac72a42",
-                "reference": "fab55f013f24901605216a67b04a010caac72a42",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-app/zipball/d931dc47c38fb2bc7f46a48e88d7e7d09aa533b9",
+                "reference": "d931dc47c38fb2bc7f46a48e88d7e7d09aa533b9",
                 "shasum": ""
             },
             "require": {
+                "ext-pdo": "*",
                 "league/climate": "^3.2",
                 "league/flysystem": "^1.0",
+                "locomotivemtl/charcoal-cache": "~0.1",
                 "locomotivemtl/charcoal-config": "~0.8",
                 "locomotivemtl/charcoal-factory": "~0.4",
                 "locomotivemtl/charcoal-translator": "~0.3",
                 "locomotivemtl/charcoal-view": "~0.3",
                 "monolog/monolog": "^1.17",
-                "php": ">=5.6.0",
+                "php": ">=5.6.0 || >=7.0",
                 "psr/http-message": "^1.0",
                 "psr/log": "^1.0",
-                "slim/slim": "~3.7",
-                "tedivm/stash": "~0.14"
+                "slim/slim": "~3.7"
             },
             "require-dev": {
                 "league/flysystem-aws-s3-v3": "^1.0",
@@ -640,9 +779,10 @@
                 "league/flysystem-sftp": "^1.0",
                 "mockery/mockery": "^1.0",
                 "mustache/mustache": "^2.11",
-                "php-coveralls/php-coveralls": "^1.0",
-                "phpunit/phpunit": "^5.7",
-                "squizlabs/php_codesniffer": "^2.4"
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
+                "tedivm/stash": "~0.14"
             },
             "bin": [
                 "bin/charcoal"
@@ -650,7 +790,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.7.x-dev"
+                    "dev-master": "0.8.x-dev"
                 }
             },
             "autoload": {
@@ -672,7 +812,7 @@
                     "homepage": "https://locomotive.ca"
                 }
             ],
-            "description": "Charcoal App, based on Slim 3",
+            "description": "Charcoal application, based on Slim 3",
             "homepage": "https://charcoal.locomotive.ca",
             "keywords": [
                 "charcoal",
@@ -680,33 +820,34 @@
                 "framework",
                 "slim"
             ],
-            "time": "2018-03-14T13:54:17+00:00"
+            "time": "2019-02-21T20:14:56+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-attachment",
-            "version": "0.8.2",
+            "version": "0.10.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-attachment.git",
-                "reference": "a4d357a2bbff77dc07995fb189ae8009bf0f9a77"
+                "reference": "b143b9db3bd99aa3fdd31d93ffd312b71c0debad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-attachment/zipball/a4d357a2bbff77dc07995fb189ae8009bf0f9a77",
-                "reference": "a4d357a2bbff77dc07995fb189ae8009bf0f9a77",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-attachment/zipball/b143b9db3bd99aa3fdd31d93ffd312b71c0debad",
+                "reference": "b143b9db3bd99aa3fdd31d93ffd312b71c0debad",
                 "shasum": ""
             },
             "require": {
-                "locomotivemtl/charcoal-config": "^0.8",
-                "locomotivemtl/charcoal-core": "~0.3",
-                "locomotivemtl/charcoal-object": "~0.4",
-                "locomotivemtl/charcoal-translator": "~0.3"
+                "locomotivemtl/charcoal-config": "~0.8",
+                "locomotivemtl/charcoal-core": "~0.4",
+                "locomotivemtl/charcoal-object": "~0.5",
+                "locomotivemtl/charcoal-translator": "~0.3",
+                "php": ">=5.6.0 || >=7.0"
             },
             "require-dev": {
                 "locomotivemtl/charcoal-admin": "~0.8",
-                "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "~1.0",
-                "squizlabs/php_codesniffer": "^2.6"
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0"
             },
             "suggest": {
                 "locomotivemtl/charcoal-admin": "To use the attachment widgets, actions, and scripts."
@@ -714,7 +855,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.8.x-dev"
+                    "dev-master": "0.9.x-dev"
                 }
             },
             "autoload": {
@@ -738,29 +879,92 @@
             ],
             "description": "Charcoal Attachments Module",
             "homepage": "https://charcoal.locomotive.ca",
-            "time": "2017-12-18T17:53:15+00:00"
+            "time": "2019-02-14T18:27:19+00:00"
         },
         {
-            "name": "locomotivemtl/charcoal-cms",
-            "version": "0.4.5.1",
+            "name": "locomotivemtl/charcoal-cache",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/locomotivemtl/charcoal-cms.git",
-                "reference": "6b1401a164480154cad7b2246fd44e78ade85fe0"
+                "url": "https://github.com/locomotivemtl/charcoal-cache.git",
+                "reference": "c3b10a5ae0227bb71989d64963916b148188de40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-cms/zipball/6b1401a164480154cad7b2246fd44e78ade85fe0",
-                "reference": "6b1401a164480154cad7b2246fd44e78ade85fe0",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-cache/zipball/c3b10a5ae0227bb71989d64963916b148188de40",
+                "reference": "c3b10a5ae0227bb71989d64963916b148188de40",
                 "shasum": ""
             },
             "require": {
-                "locomotivemtl/charcoal-app": "~0.6",
-                "locomotivemtl/charcoal-attachment": "~0.2",
-                "locomotivemtl/charcoal-core": "~0.3",
+                "locomotivemtl/charcoal-config": "~0.8",
+                "php": ">=5.6.0 || >=7.0",
+                "pimple/pimple": "^3.0",
+                "psr/cache": "^1.0",
+                "tedivm/stash": "~0.14"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "psr/log": "^1.0",
+                "slim/http": "~0.3",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Charcoal\\": "src/Charcoal/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathieu Ducharme",
+                    "email": "mat@locomotive.ca"
+                },
+                {
+                    "name": "Locomotive",
+                    "homepage": "https://locomotive.ca"
+                }
+            ],
+            "description": "Charcoal service provider for the Stash Cache Library",
+            "homepage": "https://locomotivemtl.github.io/charcoal-config/",
+            "keywords": [
+                "cache",
+                "caching",
+                "charcoal",
+                "stash"
+            ],
+            "time": "2018-12-05T02:31:42+00:00"
+        },
+        {
+            "name": "locomotivemtl/charcoal-cms",
+            "version": "0.8.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/locomotivemtl/charcoal-cms.git",
+                "reference": "d90a7cd20a581fc372cd70582814a755feab15cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-cms/zipball/d90a7cd20a581fc372cd70582814a755feab15cb",
+                "reference": "d90a7cd20a581fc372cd70582814a755feab15cb",
+                "shasum": ""
+            },
+            "require": {
+                "locomotivemtl/charcoal-app": "~0.8",
+                "locomotivemtl/charcoal-attachment": "~0.10",
+                "locomotivemtl/charcoal-core": "~0.4",
                 "locomotivemtl/charcoal-factory": "~0.4",
-                "locomotivemtl/charcoal-object": "~0.3",
-                "locomotivemtl/charcoal-property": "~0.5",
+                "locomotivemtl/charcoal-object": "~0.6",
+                "locomotivemtl/charcoal-property": "~0.7",
                 "locomotivemtl/charcoal-translator": "~0.3",
                 "php": ">=5.6.0",
                 "psr/http-message": "^1.0"
@@ -770,16 +974,16 @@
                 "locomotivemtl/charcoal-admin": "~0.6",
                 "mockery/mockery": "^0.9.6",
                 "mustache/mustache": "^2.11",
-                "phpunit/phpunit": "^5.7",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
                 "psr/log": "^1.0",
-                "satooshi/php-coveralls": "~1.0.1",
-                "squizlabs/php_codesniffer": "^2.4",
+                "squizlabs/php_codesniffer": "^3.0",
                 "tedivm/stash": "~0.14"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.4.x-dev"
+                    "dev-master": "0.7.x-dev"
                 }
             },
             "autoload": {
@@ -807,38 +1011,43 @@
                 "charcoal",
                 "cms"
             ],
-            "time": "2017-12-15T19:24:12+00:00"
+            "time": "2018-09-11T18:58:04+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-config",
-            "version": "0.8",
+            "version": "0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-config.git",
-                "reference": "8b6eaccfeed5407ad1a6353f577c486e069f4efb"
+                "reference": "2318d3fe52e1bc76633cf1461e492c1b52ef9b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-config/zipball/8b6eaccfeed5407ad1a6353f577c486e069f4efb",
-                "reference": "8b6eaccfeed5407ad1a6353f577c486e069f4efb",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-config/zipball/2318d3fe52e1bc76633cf1461e492c1b52ef9b57",
+                "reference": "2318d3fe52e1bc76633cf1461e492c1b52ef9b57",
                 "shasum": ""
             },
             "require": {
-                "container-interop/container-interop": "^1.1",
                 "ext-json": "*",
                 "ext-spl": "*",
-                "php": ">=5.6.0"
+                "php": ">=5.6.0 || >=7.0",
+                "psr/container": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "satooshi/php-coveralls": "~1.0.1",
-                "squizlabs/php_codesniffer": "^2.4",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
                 "symfony/yaml": "^3.0"
             },
             "suggest": {
                 "symfony/yaml": "To load and parse configuration files in yaml format."
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.9.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Charcoal\\": "src/Charcoal/"
@@ -858,8 +1067,8 @@
                     "homepage": "https://locomotive.ca"
                 }
             ],
-            "description": "Configuration container for all things Charcoal",
-            "homepage": "http://locomotivemtl.github.io/charcoal-config/",
+            "description": "Charcoal component for configuration data and object modeling",
+            "homepage": "https://locomotivemtl.github.io/charcoal-config/",
             "keywords": [
                 "charcoal",
                 "configuration",
@@ -869,30 +1078,31 @@
                 "yaml",
                 "yml"
             ],
-            "time": "2017-11-20T15:10:17+00:00"
+            "time": "2018-05-10T21:08:46+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-core",
-            "version": "0.3.3",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-core.git",
-                "reference": "018ba43cc6b8c85e2ae30c3ee8ecca746202d921"
+                "reference": "105e5135191d7e95fc072a8a505ef4706fa7d66d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-core/zipball/018ba43cc6b8c85e2ae30c3ee8ecca746202d921",
-                "reference": "018ba43cc6b8c85e2ae30c3ee8ecca746202d921",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-core/zipball/105e5135191d7e95fc072a8a505ef4706fa7d66d",
+                "reference": "105e5135191d7e95fc072a8a505ef4706fa7d66d",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "ext-pdo": "*",
-                "locomotivemtl/charcoal-config": "~0.7",
+                "locomotivemtl/charcoal-cache": "~0.1",
+                "locomotivemtl/charcoal-config": "~0.9",
                 "locomotivemtl/charcoal-factory": "~0.4",
-                "locomotivemtl/charcoal-property": "~0.5",
-                "locomotivemtl/charcoal-view": "~0.2",
-                "php": ">=5.6.0",
+                "locomotivemtl/charcoal-property": "~0.7",
+                "locomotivemtl/charcoal-view": "~0.3",
+                "php": ">=5.6.0 || >=7.0",
                 "pimple/pimple": "^3.0",
                 "psr/cache": "^1.0",
                 "psr/log": "^1.0"
@@ -901,15 +1111,15 @@
                 "cache/void-adapter": "^0.3.0",
                 "locomotivemtl/charcoal-app": "^0.4",
                 "mockery/mockery": "^0.9.6",
-                "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.6",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
                 "tedivm/stash": "~0.14"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.3.x-dev"
+                    "dev-master": "0.4.x-dev"
                 }
             },
             "autoload": {
@@ -939,20 +1149,20 @@
                 "framework",
                 "locomotive"
             ],
-            "time": "2017-12-04T00:07:44+00:00"
+            "time": "2019-01-23T18:38:08+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-email",
-            "version": "0.2",
+            "version": "0.3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-email.git",
-                "reference": "e83dd6b86e6549e2784ed853a62253ecd38c8c1f"
+                "reference": "c793b0cda093f16101d7117ff985cefeea00fd15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-email/zipball/e83dd6b86e6549e2784ed853a62253ecd38c8c1f",
-                "reference": "e83dd6b86e6549e2784ed853a62253ecd38c8c1f",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-email/zipball/c793b0cda093f16101d7117ff985cefeea00fd15",
+                "reference": "c793b0cda093f16101d7117ff985cefeea00fd15",
                 "shasum": ""
             },
             "require": {
@@ -965,15 +1175,15 @@
             },
             "require-dev": {
                 "mustache/mustache": "^2.11",
-                "php-coveralls/php-coveralls": "~1.0.1",
+                "php-coveralls/php-coveralls": "~1.0",
                 "phpunit/phpunit": "^5.7",
                 "pimple/pimple": "~3.0",
-                "squizlabs/php_codesniffer": "^2.4"
+                "squizlabs/php_codesniffer": "^3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2.x-dev"
+                    "dev-master": "0.3.x-dev"
                 }
             },
             "autoload": {
@@ -987,10 +1197,6 @@
             ],
             "authors": [
                 {
-                    "name": "Mathieu Ducharme",
-                    "email": "mat@locomotive.ca"
-                },
-                {
                     "name": "Locomotive",
                     "homepage": "https://locomotive.ca"
                 }
@@ -1003,7 +1209,7 @@
                 "phpmailer",
                 "queue"
             ],
-            "time": "2018-03-01T16:15:13+00:00"
+            "time": "2019-01-11T21:23:36+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-factory",
@@ -1120,38 +1326,38 @@
         },
         {
             "name": "locomotivemtl/charcoal-object",
-            "version": "0.4.2",
+            "version": "0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-object.git",
-                "reference": "8f8faab3818e463722c86659daae1f491d1d3d3b"
+                "reference": "fc331d67becdc090f08aff1c29b9b9808d5141d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-object/zipball/8f8faab3818e463722c86659daae1f491d1d3d3b",
-                "reference": "8f8faab3818e463722c86659daae1f491d1d3d3b",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-object/zipball/fc331d67becdc090f08aff1c29b9b9808d5141d7",
+                "reference": "fc331d67becdc090f08aff1c29b9b9808d5141d7",
                 "shasum": ""
             },
             "require": {
-                "locomotivemtl/charcoal-config": "~0.6",
-                "locomotivemtl/charcoal-core": "^0.3",
-                "locomotivemtl/charcoal-factory": "~0.3",
-                "locomotivemtl/charcoal-translator": "~0.2",
-                "php": ">=5.6.0",
+                "locomotivemtl/charcoal-config": "~0.9",
+                "locomotivemtl/charcoal-core": "~0.4",
+                "locomotivemtl/charcoal-factory": "~0.4",
+                "locomotivemtl/charcoal-translator": "~0.3",
+                "php": ">=5.6.0 || >=7.0",
                 "psr/log": "^1.0"
             },
             "require-dev": {
                 "cache/void-adapter": "^0.3.1",
-                "phpunit/phpunit": "^5.7",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
                 "pimple/pimple": "^3.0",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.6",
+                "squizlabs/php_codesniffer": "^3.0",
                 "tedivm/stash": "~0.14"
             },
-            "type": "project",
+            "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.4.x-dev"
+                    "dev-master": "0.6.x-dev"
                 }
             },
             "autoload": {
@@ -1170,45 +1376,48 @@
                 }
             ],
             "description": "Object (Content and UserData) definition and object behaviors and tools.",
-            "time": "2018-03-09T19:05:04+00:00"
+            "time": "2018-12-18T23:02:53+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-property",
-            "version": "0.6.5",
+            "version": "0.7.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-property.git",
-                "reference": "de990a354f0ab758d45b4a423b0ec0eec7dddbfa"
+                "reference": "285d4c853ed40ed023894da75cefec8700ed5a72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-property/zipball/de990a354f0ab758d45b4a423b0ec0eec7dddbfa",
-                "reference": "de990a354f0ab758d45b4a423b0ec0eec7dddbfa",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-property/zipball/285d4c853ed40ed023894da75cefec8700ed5a72",
+                "reference": "285d4c853ed40ed023894da75cefec8700ed5a72",
                 "shasum": ""
             },
             "require": {
+                "ext-fileinfo": "*",
                 "ext-pdo": "*",
-                "locomotivemtl/charcoal-config": "~0.8",
-                "locomotivemtl/charcoal-core": "~0.3",
+                "ext-simplexml": "*",
+                "locomotivemtl/charcoal-config": "~0.9",
+                "locomotivemtl/charcoal-core": "~0.4",
                 "locomotivemtl/charcoal-factory": "~0.4",
                 "locomotivemtl/charcoal-image": "~0.4",
                 "locomotivemtl/charcoal-translator": "~0.3",
-                "php": ">=5.6.0",
+                "php": ">=5.6.0 || >=7.0",
+                "psr/cache": "^1.0",
                 "psr/log": "^1.0"
             },
             "require-dev": {
                 "cache/void-adapter": "^0.3.0",
                 "mustache/mustache": "^2.11",
-                "phpunit/phpunit": "^5.7",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
                 "pimple/pimple": "^3.0",
-                "satooshi/php-coveralls": "~1.0",
-                "squizlabs/php_codesniffer": "^2.6",
+                "squizlabs/php_codesniffer": "^3.0",
                 "tedivm/stash": "~0.14"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5.x-dev"
+                    "dev-master": "0.7.x-dev"
                 }
             },
             "autoload": {
@@ -1235,32 +1444,32 @@
             "keywords": [
                 "charcoal"
             ],
-            "time": "2018-02-26T20:42:24+00:00"
+            "time": "2019-02-22T19:27:40+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-queue",
-            "version": "0.2",
+            "version": "0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-queue.git",
-                "reference": "7eb9535fb0e2d2c00320c9dcea5f9556184725fc"
+                "reference": "90c47581cd35fbb554eca513f909171a70325b44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-queue/zipball/7eb9535fb0e2d2c00320c9dcea5f9556184725fc",
-                "reference": "7eb9535fb0e2d2c00320c9dcea5f9556184725fc",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-queue/zipball/90c47581cd35fbb554eca513f909171a70325b44",
+                "reference": "90c47581cd35fbb554eca513f909171a70325b44",
                 "shasum": ""
             },
             "require": {
-                "locomotivemtl/charcoal-core": "^0.3",
+                "locomotivemtl/charcoal-core": "~0.3",
                 "locomotivemtl/charcoal-factory": "~0.4",
                 "php": ">=5.6.0",
                 "psr/log": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "satooshi/php-coveralls": "~1.0.1",
-                "squizlabs/php_codesniffer": "^2.4"
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0"
             },
             "type": "library",
             "extra": {
@@ -1293,34 +1502,37 @@
                 "charcoal",
                 "queue"
             ],
-            "time": "2017-12-04T21:17:21+00:00"
+            "time": "2018-10-15T04:28:35+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-translator",
-            "version": "0.3.1",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-translator.git",
-                "reference": "5e7dffaf9bf7dd638e21e138ae85ee0d17cc35b0"
+                "reference": "e2d20b128ab247eded402ca0bdd2b1ca7fecfbf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-translator/zipball/5e7dffaf9bf7dd638e21e138ae85ee0d17cc35b0",
-                "reference": "5e7dffaf9bf7dd638e21e138ae85ee0d17cc35b0",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-translator/zipball/e2d20b128ab247eded402ca0bdd2b1ca7fecfbf7",
+                "reference": "e2d20b128ab247eded402ca0bdd2b1ca7fecfbf7",
                 "shasum": ""
             },
             "require": {
-                "locomotivemtl/charcoal-config": "^0.8",
-                "php": ">=5.6.0",
+                "locomotivemtl/charcoal-config": "~0.8",
+                "php": ">=5.6.0 || >=7.0",
                 "pimple/pimple": "^3.0",
                 "symfony/translation": "^3.2"
             },
             "require-dev": {
-                "locomotivemtl/charcoal-admin": "^0.8",
+                "locomotivemtl/charcoal-admin": "~0.8",
                 "mockery/mockery": "^0.9",
-                "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.4"
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "suggest": {
+                "locomotivemtl/charcoal-app": "To run the parser script."
             },
             "type": "library",
             "extra": {
@@ -1341,39 +1553,52 @@
                 {
                     "name": "Mathieu Ducharme",
                     "email": "mat@locomotive.ca"
+                },
+                {
+                    "name": "Locomotive",
+                    "homepage": "https://locomotive.ca"
                 }
             ],
-            "description": "Charcoal Translator and locales management.",
-            "time": "2018-02-19T18:54:31+00:00"
+            "description": "Charcoal service provider for translating messages and managing locales.",
+            "homepage": "https://locomotivemtl.github.io/charcoal-translator/",
+            "keywords": [
+                "charcoal",
+                "g11n",
+                "i18n",
+                "l10n",
+                "translation",
+                "translator"
+            ],
+            "time": "2018-05-28T22:10:49+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-ui",
-            "version": "0.3.4",
+            "version": "0.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-ui.git",
-                "reference": "3ff4f0e914e527cf4d6a62a969077d3119c84b92"
+                "reference": "d18046ba3cd052ba59e2205027d03be12c441f6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-ui/zipball/3ff4f0e914e527cf4d6a62a969077d3119c84b92",
-                "reference": "3ff4f0e914e527cf4d6a62a969077d3119c84b92",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-ui/zipball/d18046ba3cd052ba59e2205027d03be12c441f6a",
+                "reference": "d18046ba3cd052ba59e2205027d03be12c441f6a",
                 "shasum": ""
             },
             "require": {
                 "locomotivemtl/charcoal-config": "~0.7",
                 "locomotivemtl/charcoal-factory": "~0.4",
                 "locomotivemtl/charcoal-translator": "~0.2",
-                "locomotivemtl/charcoal-user": "^0.2",
+                "locomotivemtl/charcoal-user": "~0.2",
                 "locomotivemtl/charcoal-view": "~0.2",
-                "php": ">=5.6.0",
+                "php": ">=5.6.0 || >=7.0",
                 "psr/log": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
                 "pimple/pimple": "^3.0",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.6",
+                "squizlabs/php_codesniffer": "^3.0",
                 "tedivm/stash": "~0.14"
             },
             "suggest": {
@@ -1415,43 +1640,43 @@
                 "menu",
                 "ui"
             ],
-            "time": "2017-12-11T15:12:03+00:00"
+            "time": "2018-07-25T18:01:32+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-user",
-            "version": "0.2",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-user.git",
-                "reference": "e9b07ba2ac29b3c850a380c060f1d42915c455c7"
+                "reference": "388e0bd88008045cec730c407b9f4101408f3744"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-user/zipball/e9b07ba2ac29b3c850a380c060f1d42915c455c7",
-                "reference": "e9b07ba2ac29b3c850a380c060f1d42915c455c7",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-user/zipball/388e0bd88008045cec730c407b9f4101408f3744",
+                "reference": "388e0bd88008045cec730c407b9f4101408f3744",
                 "shasum": ""
             },
             "require": {
-                "locomotivemtl/charcoal-config": "~0.6",
-                "locomotivemtl/charcoal-core": "^0.3",
-                "locomotivemtl/charcoal-factory": "~0.3",
-                "locomotivemtl/charcoal-object": "~0.4",
-                "locomotivemtl/charcoal-translator": "~0.2",
-                "php": ">=5.6.0",
+                "locomotivemtl/charcoal-config": "~0.9",
+                "locomotivemtl/charcoal-core": "~0.4",
+                "locomotivemtl/charcoal-factory": "~0.4",
+                "locomotivemtl/charcoal-object": "~0.6",
+                "locomotivemtl/charcoal-translator": "~0.3",
+                "php": ">=5.6.0 || >=7.0",
                 "psr/log": "^1.0",
                 "zendframework/zend-permissions-acl": "^2.6"
             },
             "require-dev": {
                 "cache/void-adapter": "^0.3",
-                "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.6",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
                 "tedivm/stash": "~0.14"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2.x-dev"
+                    "dev-master": "0.3.x-dev"
                 }
             },
             "autoload": {
@@ -1470,35 +1695,37 @@
                 }
             ],
             "description": "User definition, authentication and authorization.",
-            "time": "2017-11-17T20:08:32+00:00"
+            "time": "2018-10-03T17:41:32+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-view",
-            "version": "0.3.3",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-view.git",
-                "reference": "931af640d37d374322e957d8c3971ede66ad1533"
+                "reference": "aeb3c3857837657e0fffb4a7d6f8cc95f05138ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-view/zipball/931af640d37d374322e957d8c3971ede66ad1533",
-                "reference": "931af640d37d374322e957d8c3971ede66ad1533",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-view/zipball/aeb3c3857837657e0fffb4a7d6f8cc95f05138ac",
+                "reference": "aeb3c3857837657e0fffb4a7d6f8cc95f05138ac",
                 "shasum": ""
             },
             "require": {
+                "erusev/parsedown": "^1.7",
                 "locomotivemtl/charcoal-config": "~0.8",
-                "php": ">=5.6.0",
+                "php": ">=5.6.0 || >=7.0",
                 "psr/http-message": "^1.0",
                 "psr/log": "^1.0"
             },
             "require-dev": {
+                "locomotivemtl/charcoal-translator": "~0.3",
                 "mustache/mustache": "^2.11",
-                "php-coveralls/php-coveralls": "^1.0",
-                "phpunit/phpunit": "^5.7",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^5.7 || ^6.5",
                 "pimple/pimple": "^3.0",
                 "slim/slim": "^3.7",
-                "squizlabs/php_codesniffer": "^2.4",
+                "squizlabs/php_codesniffer": "^3.0",
                 "twig/twig": "^1.31"
             },
             "suggest": {
@@ -1539,20 +1766,55 @@
                 "twig",
                 "view"
             ],
-            "time": "2017-12-05T01:43:48+00:00"
+            "time": "2018-08-20T16:07:21+00:00"
+        },
+        {
+            "name": "mcaskill/php-html-build-attributes",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://gist.github.com/mcaskill/0177f151e39b94ee2629f06d72c4b65b",
+                "reference": "d599eddfa835dde603bc4349e1d1b6881b113fba"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Function.HTML-Build-Attributes.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chauncey McAskill",
+                    "email": "chauncey@mcaskill.ca",
+                    "homepage": "https://github.com/mcaskill"
+                }
+            ],
+            "description": "Generate a string of HTML attributes.",
+            "keywords": [
+                "function",
+                "wordpress"
+            ],
+            "time": "2017-02-23T20:41:23+00:00"
         },
         {
             "name": "monolog/monolog",
-            "version": "1.23.0",
+            "version": "1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
-                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
                 "shasum": ""
             },
             "require": {
@@ -1617,7 +1879,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-06-19T01:22:40+00:00"
+            "time": "2018-11-05T09:00:11+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -1713,33 +1975,29 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.4.2",
+            "version": "v9.99.99",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "965cdeb01fdcab7653253aa81d40441d261f1e66"
+                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/965cdeb01fdcab7653253aa81d40441d261f1e66",
-                "reference": "965cdeb01fdcab7653253aa81d40441d261f1e66",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.0"
+                "php": "^7"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*|5.*"
+                "phpunit/phpunit": "4.*|5.*",
+                "vimeo/psalm": "^1"
             },
             "suggest": {
                 "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
             },
             "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/random.php"
-                ]
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -1754,23 +2012,24 @@
             "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
             "keywords": [
                 "csprng",
+                "polyfill",
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-03-13T16:22:52+00:00"
+            "time": "2018-07-02T15:55:56+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.0.3",
+            "version": "v6.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6"
+                "reference": "0c41a36d4508d470e376498c1c0c527aa36a2d59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6",
-                "reference": "44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/0c41a36d4508d470e376498c1c0c527aa36a2d59",
+                "reference": "0c41a36d4508d470e376498c1c0c527aa36a2d59",
                 "shasum": ""
             },
             "require": {
@@ -1823,7 +2082,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2018-01-05T13:19:58+00:00"
+            "time": "2019-02-01T15:04:28+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -2022,16 +2281,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
                 "shasum": ""
             },
             "require": {
@@ -2065,7 +2324,47 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2018-11-20T15:27:04+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2016-02-11T07:05:27+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -2117,16 +2416,16 @@
         },
         {
             "name": "slim/slim",
-            "version": "3.9.2",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "4086d0106cf5a7135c69fce4161fe355a8feb118"
+                "reference": "f4947cc900b6e51cbfda58b9f1247bca2f76f9f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/4086d0106cf5a7135c69fce4161fe355a8feb118",
-                "reference": "4086d0106cf5a7135c69fce4161fe355a8feb118",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/f4947cc900b6e51cbfda58b9f1247bca2f76f9f0",
+                "reference": "f4947cc900b6e51cbfda58b9f1247bca2f76f9f0",
                 "shasum": ""
             },
             "require": {
@@ -2184,20 +2483,20 @@
                 "micro",
                 "router"
             ],
-            "time": "2017-11-26T19:13:09+00:00"
+            "time": "2019-01-15T13:21:25+00:00"
         },
         {
             "name": "studio-42/elfinder",
-            "version": "2.1.35",
+            "version": "2.1.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "6ae2d6a826b2bd42035df63857a0ba80c7033baa"
+                "reference": "6884c4f0b742bd343cb2c873321fc9bb0cbde3fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/6ae2d6a826b2bd42035df63857a0ba80c7033baa",
-                "reference": "6ae2d6a826b2bd42035df63857a0ba80c7033baa",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/6884c4f0b742bd343cb2c873321fc9bb0cbde3fa",
+                "reference": "6884c4f0b742bd343cb2c873321fc9bb0cbde3fa",
                 "shasum": ""
             },
             "require": {
@@ -2242,20 +2541,20 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2018-03-21T14:17:40+00:00"
+            "time": "2019-02-25T00:08:43+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.7.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
-                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
                 "shasum": ""
             },
             "require": {
@@ -2267,7 +2566,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -2301,20 +2600,69 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-01-30T19:27:44+00:00"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
-            "name": "symfony/translation",
-            "version": "v3.4.6",
+            "name": "symfony/process",
+            "version": "v3.4.22",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/translation.git",
-                "reference": "80e19eaf12cbb546ac40384e5c55c36306823e57"
+                "url": "https://github.com/symfony/process.git",
+                "reference": "009f8dda80930e89e8344a4e310b08f9ff07dd2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/80e19eaf12cbb546ac40384e5c55c36306823e57",
-                "reference": "80e19eaf12cbb546ac40384e5c55c36306823e57",
+                "url": "https://api.github.com/repos/symfony/process/zipball/009f8dda80930e89e8344a4e310b08f9ff07dd2e",
+                "reference": "009f8dda80930e89e8344a4e310b08f9ff07dd2e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-01-16T13:27:11+00:00"
+        },
+        {
+            "name": "symfony/translation",
+            "version": "v3.4.22",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation.git",
+                "reference": "81cfcd6935cb7505640153576c1f9155b2a179c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/81cfcd6935cb7505640153576c1f9155b2a179c1",
+                "reference": "81cfcd6935cb7505640153576c1f9155b2a179c1",
                 "shasum": ""
             },
             "require": {
@@ -2335,7 +2683,7 @@
                 "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
-                "psr/log": "To use logging capability in translator",
+                "psr/log-implementation": "To use logging capability in translator",
                 "symfony/config": "",
                 "symfony/yaml": ""
             },
@@ -2369,32 +2717,32 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-22T06:28:18+00:00"
+            "time": "2019-01-25T10:00:44+00:00"
         },
         {
             "name": "tedivm/stash",
-            "version": "v0.14.2",
+            "version": "v0.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tedious/Stash.git",
-                "reference": "7ea9749784152dcd2dab72c4bbf2bef18c326e41"
+                "reference": "a6f14f7787e765efbc8f1a871519f74caa0fd6db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tedious/Stash/zipball/7ea9749784152dcd2dab72c4bbf2bef18c326e41",
-                "reference": "7ea9749784152dcd2dab72c4bbf2bef18c326e41",
+                "url": "https://api.github.com/repos/tedious/Stash/zipball/a6f14f7787e765efbc8f1a871519f74caa0fd6db",
+                "reference": "a6f14f7787e765efbc8f1a871519f74caa0fd6db",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.4|^7.0",
+                "php": "^7.0",
                 "psr/cache": "~1.0"
             },
             "provide": {
                 "psr/cache-implementation": "1.0.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.9",
-                "phpunit/phpunit": "4.8.*",
+                "friendsofphp/php-cs-fixer": "^2.8",
+                "phpunit/phpunit": "^6",
                 "satooshi/php-coveralls": "1.0.*"
             },
             "type": "library",
@@ -2429,87 +2777,28 @@
                 "redis",
                 "sessions"
             ],
-            "time": "2017-04-23T17:16:57+00:00"
-        },
-        {
-            "name": "whichbrowser/parser",
-            "version": "v2.0.32",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/WhichBrowser/Parser-PHP.git",
-                "reference": "933a695fe0b3d6cf3e957af9b73dd14ade6ed354"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/WhichBrowser/Parser-PHP/zipball/933a695fe0b3d6cf3e957af9b73dd14ade6ed354",
-                "reference": "933a695fe0b3d6cf3e957af9b73dd14ade6ed354",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/cache": "^1.0"
-            },
-            "require-dev": {
-                "icomefromthenet/reverse-regex": "dev-master",
-                "phpunit/php-code-coverage": "^2.2|^3.0",
-                "phpunit/phpunit": "^4.0|^5.0",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "2.5.*",
-                "symfony/yaml": ">=2.8"
-            },
-            "suggest": {
-                "cache/array-adapter": "Allows testing of the caching functionality"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WhichBrowser\\": [
-                        "src/",
-                        "tests/src/"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Niels Leenheer",
-                    "email": "niels@leenheer.nl",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Useragent sniffing library for PHP",
-            "homepage": "http://whichbrowser.net",
-            "keywords": [
-                "browser",
-                "sniffing",
-                "ua",
-                "useragent"
-            ],
-            "time": "2018-01-24T20:27:42+00:00"
+            "time": "2018-02-19T21:12:55+00:00"
         },
         {
             "name": "zendframework/zend-permissions-acl",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-permissions-acl.git",
-                "reference": "843bbd9c6f6d20b84dd0ce6c815d10397e98082b"
+                "reference": "c9568f4aee2887e43bf07769973f9686e8f61707"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-permissions-acl/zipball/843bbd9c6f6d20b84dd0ce6c815d10397e98082b",
-                "reference": "843bbd9c6f6d20b84dd0ce6c815d10397e98082b",
+                "url": "https://api.github.com/repos/zendframework/zend-permissions-acl/zipball/c9568f4aee2887e43bf07769973f9686e8f61707",
+                "reference": "c9568f4aee2887e43bf07769973f9686e8f61707",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3"
             },
             "suggest": {
@@ -2518,8 +2807,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev",
-                    "dev-develop": "2.7-dev"
+                    "dev-master": "2.7.x-dev",
+                    "dev-develop": "2.8.x-dev"
                 }
             },
             "autoload": {
@@ -2531,13 +2820,13 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "description": "provides a lightweight and flexible access control list (ACL) implementation for privileges management",
-            "homepage": "https://github.com/zendframework/zend-permissions-acl",
+            "description": "Provides a lightweight and flexible access control list (ACL) implementation for privileges management",
             "keywords": [
+                "ZendFramework",
                 "acl",
-                "zf2"
+                "zf"
             ],
-            "time": "2016-02-03T21:46:45+00:00"
+            "time": "2018-05-01T21:53:20+00:00"
         }
     ],
     "packages-dev": [
@@ -2596,139 +2885,29 @@
             "time": "2017-07-22T11:58:36+00:00"
         },
         {
-            "name": "hamcrest/hamcrest-php",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hamcrest/hamcrest-php.git",
-                "reference": "776503d3a8e85d4f9a1148614f95b7a608b046ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hamcrest/hamcrest-php/zipball/776503d3a8e85d4f9a1148614f95b7a608b046ad",
-                "reference": "776503d3a8e85d4f9a1148614f95b7a608b046ad",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3|^7.0"
-            },
-            "replace": {
-                "cordoval/hamcrest-php": "*",
-                "davedevelopment/hamcrest-php": "*",
-                "kodova/hamcrest-php": "*"
-            },
-            "require-dev": {
-                "phpunit/php-file-iterator": "1.3.3",
-                "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "hamcrest"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD"
-            ],
-            "description": "This is the PHP port of Hamcrest Matchers",
-            "keywords": [
-                "test"
-            ],
-            "time": "2016-01-20T08:20:44+00:00"
-        },
-        {
-            "name": "mockery/mockery",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mockery/mockery.git",
-                "reference": "1bac8c362b12f522fdd1f1fa3556284c91affa38"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/1bac8c362b12f522fdd1f1fa3556284c91affa38",
-                "reference": "1bac8c362b12f522fdd1f1fa3556284c91affa38",
-                "shasum": ""
-            },
-            "require": {
-                "hamcrest/hamcrest-php": "~2.0",
-                "lib-pcre": ">=7.0",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~5.7|~6.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Mockery": "library/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Pádraic Brady",
-                    "email": "padraic.brady@gmail.com",
-                    "homepage": "http://blog.astrumfutura.com"
-                },
-                {
-                    "name": "Dave Marshall",
-                    "email": "dave.marshall@atstsolutions.co.uk",
-                    "homepage": "http://davedevelopment.co.uk"
-                }
-            ],
-            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succinct API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
-            "homepage": "http://github.com/mockery/mockery",
-            "keywords": [
-                "BDD",
-                "TDD",
-                "library",
-                "mock",
-                "mock objects",
-                "mockery",
-                "stub",
-                "test",
-                "test double",
-                "testing"
-            ],
-            "time": "2017-10-06T16:20:43+00:00"
-        },
-        {
             "name": "myclabs/deep-copy",
-            "version": "1.7.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
-                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0"
+                "php": "^7.1"
+            },
+            "replace": {
+                "myclabs/deep-copy": "self.version"
             },
             "require-dev": {
                 "doctrine/collections": "^1.0",
                 "doctrine/common": "^2.6",
-                "phpunit/phpunit": "^4.1"
+                "phpunit/phpunit": "^7.1"
             },
             "type": "library",
             "autoload": {
@@ -2751,7 +2930,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-10-19T19:58:43+00:00"
+            "time": "2018-06-11T23:09:50+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2907,33 +3086,33 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.5",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
+                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
-                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
+                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
-                "sebastian/comparator": "^1.1|^2.0",
+                "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
             "require-dev": {
                 "phpspec/phpspec": "^2.5|^3.2",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5 || ^7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7.x-dev"
+                    "dev-master": "1.8.x-dev"
                 }
             },
             "autoload": {
@@ -2966,7 +3145,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-19T10:16:54+00:00"
+            "time": "2018-08-05T17:53:17+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3356,6 +3535,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2017-06-30T09:13:00+00:00"
         },
         {
@@ -3873,16 +4053,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.2.3",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "4842476c434e375f9d3182ff7b89059583aa8b27"
+                "reference": "379deb987e26c7cd103a7b387aea178baec96e48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/4842476c434e375f9d3182ff7b89059583aa8b27",
-                "reference": "4842476c434e375f9d3182ff7b89059583aa8b27",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/379deb987e26c7cd103a7b387aea178baec96e48",
+                "reference": "379deb987e26c7cd103a7b387aea178baec96e48",
                 "shasum": ""
             },
             "require": {
@@ -3920,24 +4100,83 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-02-20T21:35:23+00:00"
+            "time": "2018-12-19T23:57:18+00:00"
         },
         {
-            "name": "symfony/yaml",
-            "version": "v4.0.6",
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "de5f125ea39de846b90b313b2cfb031a0152d223"
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/de5f125ea39de846b90b313b2cfb031a0152d223",
-                "reference": "de5f125ea39de846b90b313b2cfb031a0152d223",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "time": "2018-08-06T14:22:27+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d461670ee145092b7e2a56c1da7118f19cadadb0",
+                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
             },
             "conflict": {
                 "symfony/console": "<3.4"
@@ -3951,7 +4190,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -3978,24 +4217,25 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-19T20:08:53+00:00"
+            "time": "2019-01-16T20:35:37+00:00"
         },
         {
             "name": "webmozart/assert",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -4028,7 +4268,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29T19:49:41+00:00"
+            "time": "2018-12-25T11:19:39+00:00"
         }
     ],
     "aliases": [],
@@ -4037,7 +4277,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0 || >=7.0"
     },
     "platform-dev": []
 }
