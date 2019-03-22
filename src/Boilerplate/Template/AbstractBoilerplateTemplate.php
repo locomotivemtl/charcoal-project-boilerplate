@@ -156,28 +156,6 @@ abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
         return $this->baseUrl;
     }
 
-
-
-    /**
-     * Prepend the base URI to the given path.
-     *
-     * @param  string $uri A URI path to wrap.
-     * @return UriInterface
-     */
-    public function withBaseUrl($uri)
-    {
-        $uri = strval($uri);
-        if ($uri && !parse_url($uri, PHP_URL_SCHEME)) {
-            if (!in_array($uri[0], [ '/', '#', '?' ])) {
-                return $this->baseUrl()->withPath($uri);
-            }
-        } else {
-            return $this->baseUrl()->withPath('');
-        }
-
-        return $uri;
-    }
-
     /**
      * Set application debug mode.
      *

@@ -29,10 +29,10 @@
             "background_image": "assets/admin/images/login-background.jpg"
         },
         "user_menu": {},
-        "header_menu": {
+        "main_menu": {
             "items": {}
         },
-        "sidemenu": {},
+        "secondary_menu": {},
         "footer_menu": {}
     }
 }

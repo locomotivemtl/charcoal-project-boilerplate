@@ -1,0 +1,10 @@
+{
+    "templates": {
+        "home": {
+            "value": "home",
+            "label": "Front Page",
+            "template": "boilerplate/template/home",
+            "controller": "boilerplate/template/home"
+        }
+    }
+}
