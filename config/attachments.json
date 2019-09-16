@@ -12,40 +12,32 @@
             },
             "boilerplate/attachment/file": {
                 "label": "File"
-            },
-            "boilerplate/attachment/link": {
-                "label": "External link"
             }
         },
         "groups": {
             "content-blocks": [
-                "boilerplate/attachment/text"
+                "boilerplate/attachment/text",
+                "boilerplate/attachment/image",
+                "boilerplate/attachment/gallery"
             ]
         },
         "widgets": {
             "content-blocks": {
-                "show_title": true,
-                "show_header": false,
                 "title": {
                     "en": "Content block",
                     "fr": "Blocs de contenu"
                 },
+                "show_title": true,
+                "show_header": false,
                 "template": "charcoal/admin/widget/form-group/attachment",
                 "group": "content-blocks",
-                "attachable_objects": {
-                    "boilerplate/attachment/text": {
-                        "label": {
-                            "fr": "Bloc texte",
-                            "en": "Text block"
-                        }
-                    }
-                },
                 "attachment_heading": "{{ ident }}",
+                "attachable_objects": "content-blocks",
                 "attachment_options": {
+                    "show_header": false,
                     "show_preview": true,
                     "show_heading": true
-                },
-                "attachable_objects": "content-blocks"
+                }
             }
         }
     }

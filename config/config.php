@@ -6,20 +6,19 @@ $this['base_path'] = dirname(__DIR__).'/';
 /** Import core settings */
 $this->addFile(__DIR__ . '/config.json');
 
-/** Import Boilerplate middlewares */
+/** Import middlewares */
 $this->addFile(__DIR__ . '/middlewares.json');
 
-/** Import Boilerplate routes */
+/** Import routes */
 $this->addFile(__DIR__ . '/routes.json');
 
-/** Import Boilerplate redirections */
+/** Import redirections */
 $this->addFile(__DIR__ . '/redirections.json');
 
-/** Import Boilerplate templates */
-
+/** Import templates */
 $this->addFile(__DIR__ . '/templates.json');
 
-/** Import Boilerplate attachments */
+/** Import attachments */
 $this->addFile(__DIR__ . '/attachments.json');
 
 /** Import local settings */
