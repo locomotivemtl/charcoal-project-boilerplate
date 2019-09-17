@@ -24,6 +24,7 @@ class BoilerplateServiceProvider implements ServiceProviderInterface
         $container->register(new \Charcoal\Ui\ServiceProvider\UiServiceProvider());
 
         $container->extend('view/mustache/helpers', function (array $helpers, Container $container) {
+            unset($container);
             $helper = [
                 /**
                  * Retrieve the current date/time.

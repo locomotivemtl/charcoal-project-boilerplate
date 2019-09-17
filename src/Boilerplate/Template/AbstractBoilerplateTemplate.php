@@ -4,18 +4,12 @@ namespace Boilerplate\Template;
 
 // From 'charcoal-cms'
 use Charcoal\Cms\AbstractWebTemplate;
-// use Charcoal\Cms\MetatagInterface;
-// use Charcoal\Cms\MetatagTrait;
 
 /**
  * Base class for all "Boilerplate" templates.
  */
-// abstract class AbstractBoilerplateTemplate extends AbstractWebTemplate implements
-    // MetatagInterface
 abstract class AbstractBoilerplateTemplate extends AbstractWebTemplate
 {
-    // use MetatagTrait;
-
     /**
      * Static assets versionning.
      *

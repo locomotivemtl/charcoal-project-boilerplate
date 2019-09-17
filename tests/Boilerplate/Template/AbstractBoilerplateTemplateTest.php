@@ -2,10 +2,10 @@
 
 namespace Tests\Boilerplate\Template;
 
-// From PSR-3
+// From 'psr/log'
 use Psr\Log\NullLogger;
 
-// From 'charcoal-project-boilerplate'
+// From 'boilerplate'
 use Boilerplate\Template\AbstractBoilerplateTemplate;
 use Tests\TestCase;
 
