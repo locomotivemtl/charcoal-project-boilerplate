@@ -2,14 +2,7 @@
 
 composer install
 
-cd vendor/locomotivemtl/charcoal-admin
-
-composer install
-npm install
-
-grunt --force
-
-cd ../../..
+./vendor/bin/charcoal admin/tools/copy-assets
 
 echo -n "Do you want to add the admin assets to the project's git repository? "
 read gitadd
