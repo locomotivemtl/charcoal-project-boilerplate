@@ -20,7 +20,10 @@ $appConfig->addFile(dirname(__DIR__) . '/config/config.php');
 
 /* Build the DI container */
 $container = new AppContainer([
-    'config' => $appConfig
+    'config' => $appConfig,
+    'settings' => [
+        'displayErrorDetails' => $appConfig['dev_mode']
+    ]
 ]);
 
 /* Instantiate a Charcoal~Slim application and run */
