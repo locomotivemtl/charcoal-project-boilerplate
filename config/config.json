@@ -70,7 +70,8 @@
             "views/",
             "vendor/locomotivemtl/charcoal-admin/templates/",
             "vendor/locomotivemtl/charcoal-app/templates/",
-            "vendor/locomotivemtl/charcoal-attachment/templates/"
+            "vendor/locomotivemtl/charcoal-attachment/templates/",
+            "vendor/locomotivemtl/charcoal-cms/views/"
         ]
     }
 }

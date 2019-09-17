@@ -12,13 +12,17 @@
             },
             "boilerplate/attachment/file": {
                 "label": "File"
+            },
+            "boilerplate/attachment/video": {
+                "label": "Video"
             }
         },
         "groups": {
             "content-blocks": [
                 "boilerplate/attachment/text",
                 "boilerplate/attachment/image",
-                "boilerplate/attachment/gallery"
+                "boilerplate/attachment/gallery",
+                "boilerplate/attachment/video"
             ]
         },
         "widgets": {

@@ -2,239 +2,172 @@
 
 namespace Boilerplate\Template;
 
-use ArrayAccess;
-use RuntimeException;
-use InvalidArgumentException;
-
-// From Pimple
-use Pimple\Container;
-
-// From PSR-7
-use Psr\Http\Message\UriInterface;
-
-// From 'charcoal-translator'
-use Charcoal\Translator\TranslatorAwareTrait;
-
-// From 'charcoal-app'
-use Charcoal\App\Template\AbstractTemplate;
-
 // From 'charcoal-cms'
-use Charcoal\Cms\MetatagInterface;
-use Charcoal\Cms\MetatagTrait;
-
-// Local dependencies
-use Boilerplate\Template\Partial\IncHeaderInterface;
-use Boilerplate\Template\Partial\IncHeaderTrait;
-use Boilerplate\Template\Partial\IncFooterInterface;
-use Boilerplate\Template\Partial\IncFooterTrait;
+use Charcoal\Cms\AbstractWebTemplate;
+// use Charcoal\Cms\MetatagInterface;
+// use Charcoal\Cms\MetatagTrait;
 
 /**
  * Base class for all "Boilerplate" templates.
  */
-abstract class AbstractBoilerplateTemplate extends AbstractTemplate implements
-    IncHeaderInterface,
-    IncFooterInterface,
-    MetatagInterface
+// abstract class AbstractBoilerplateTemplate extends AbstractWebTemplate implements
+    // MetatagInterface
+abstract class AbstractBoilerplateTemplate extends AbstractWebTemplate
 {
-    use IncHeaderTrait;
-    use IncFooterTrait;
-    use TranslatorAwareTrait;
-    use MetatagTrait;
+    // use MetatagTrait;
 
     /**
-     * The application's configuration container.
+     * Static assets versionning.
      *
-     * @var array|ArrayAccess
+     * @var string
      */
-    private $appConfig = [];
+    const ASSETS_VERSION = '1.0';
+
+
+
+    // Site Head/Metatags
+    // ============================================================
 
     /**
-     * The base URI.
+     * Retrieve the site name.
      *
-     * @var UriInterface|null
+     * @return string|null
      */
-    private $baseUrl;
-
-    /**
-     * Whether the debug mode is enabled.
-     *
-     * @var boolean
-     */
-    private $debug = false;
-
-    /**
-     * The cache of parsed template names.
-     *
-     * @var array
-     */
-    protected static $templateNameCache = [];
-
-    /**
-     * @param  Container $container The pimple DI container.
-     * @return void
-     */
-    public function setDependencies(Container $container)
+    public function siteName()
     {
-        parent::setDependencies($container);
-
-        // Fulfill Local dependencies requirements
-        $this->setAppConfig($container['config']);
-        $this->setBaseUrl($container['base-url']);
-        $this->setDebug($container['debug']);
-
-        // Fulfill TranslatorAwareTrait dependencies requirements
-        $this->setTranslator($container['translator']);
+        return $this->appConfig('project_name');
     }
 
-    /**
-     * Set the application's configset.
-     *
-     * @param  array|ArrayAccess $config A configset.
-     * @throws InvalidArgumentException If the configset is invalid.
-     * @return void
-     */
-    private function setAppConfig($config)
-    {
-        if (!is_array($config) && !($config instanceof ArrayAccess)) {
-            throw new InvalidArgumentException('The configset must be array-accessible.');
-        }
 
-        $this->appConfig = $config;
-    }
+
+    // APIs
+    // ============================================================
 
     /**
-     * Retrieve the application's configset.
-     *
-     * @param  string|null $key     Optional data key to retrieve from the configset.
-     * @param  mixed|null  $default The default value to return if data key does not exist.
-     * @return mixed
+     * @return string
      */
-    protected function appConfig($key = null, $default = null)
+    public function google()
     {
-        if ($key) {
-            if (isset($this->appConfig[$key])) {
-                return $this->appConfig[$key];
-            } else {
-                if (!is_string($default) && is_callable($default)) {
-                    return $default();
-                } else {
-                    return $default;
-                }
-            }
-        }
-
-        return $this->appConfig;
-    }
-
-    /**
-     * Set the base URI of the project.
-     *
-     * @see    \Charcoal\App\ServiceProvider\AppServiceProvider `$container['base-url']`
-     * @param  UriInterface $uri The base URI.
-     * @return void
-     */
-    private function setBaseUrl(UriInterface $uri)
-    {
-        $this->baseUrl = $uri;
-    }
-
-    /**
-     * Retrieve the base URI of the project.
-     *
-     * @throws RuntimeException If the base URI is missing.
-     * @return UriInterface|null
-     */
-    public function baseUrl()
-    {
-        if (!isset($this->baseUrl)) {
-            throw new RuntimeException(sprintf(
-                'The base URI is not defined for [%s]',
-                get_class($this)
-            ));
-        }
-
-        return $this->baseUrl;
-    }
-
-    /**
-     * Set application debug mode.
-     *
-     * @param  boolean $debug The debug flag.
-     * @return void
-     */
-    private function setDebug($debug)
-    {
-        $this->debug = !!$debug;
-    }
-
-    /**
-     * Retrieve the application debug mode.
-     *
-     * @return boolean
-     */
-    public function debug()
-    {
-        return $this->debug;
+        return $this->appConfig('apis.google');
     }
 
     /**
      * @return string
      */
-    public function canonicalUrl()
+    public function typekit()
     {
-        return '';
+        return $this->appConfig('apis.typekit');
     }
 
+
+
+    // Presentation & Templating
+    // =========================================================================
+
     /**
-     * Retrieve the current locale's language code.
-     * * Ex: "en" or "fr"
+     * Retrieve the <html> element attribute structure.
      *
-     * @return string
-     */
-    public function lang()
-    {
-        return $this->translator()->getLocale();
-    }
-
-    /**
      * @return array
      */
-    public function meta()
+    protected function htmlAttrStructure()
     {
-        return [
+        $classes = [ 'has-no-js' ];
 
+        return [
+            'class'         => $classes,
+            'lang'          => $this->currentLanguage(),
+            'data-template' => $this->templateName(),
+            'data-debug'    => $this->debug() ? 'true' : false,
         ];
     }
+
+    /**
+     * Generate a string containing HTML attributes for the <html> element.
+     *
+     * @return string
+     */
+    public function htmlAttr()
+    {
+        return html_build_attributes($this->htmlAttrStructure());
+    }
+
+    /**
+     * Retrieve the assets version for cache busting.
+     *
+     * @return string
+     */
+    public function assetsVersion()
+    {
+        return self::ASSETS_VERSION;
+    }
+
+    /**
+     * @return string
+     */
+    public function copyright()
+    {
+        return sprintf('© %s %s', $this->copyrightName(), $this->copyrightYear());
+    }
+
+    /**
+     * @return string
+     */
+    public function copyrightName()
+    {
+        return 'Boilerplate';
+    }
+
+    /**
+     * Retrieve current year (for copyright info).
+     *
+     * @return string
+     */
+    public function copyrightYear()
+    {
+        return date('Y');
+    }
+
+
 
     // Front-end helpers
     // ============================================================
 
     /**
-     * Retrieve the template's identifier.
+     * Loop X number of times.
+     *
+     * @return array
+     */
+    public function forLoop()
+    {
+        $i = 0;
+        $max = 50;
+        $out = [];
+        for (; $i < $max; $i++) {
+            $k = 1;
+            $mini = [];
+            for (; $k <= $i; $k++) {
+                $mini[] = $k;
+            }
+
+            $out[(string)$i] = $mini;
+        }
+
+        return $out;
+    }
+
+    /**
+     * Retrieve the critical stylesheet to inject in the markup.
      *
      * @return string
      */
-    public function templateName()
+    public function criticalCss()
     {
-        $key = substr(strrchr('\\'.get_class($this), '\\'), 1);
-
-        if (!isset(static::$templateNameCache[$key])) {
-            $value = $key;
-
-            if (!ctype_lower($value)) {
-                $value = preg_replace('/\s+/u', '', $value);
-                $value = mb_strtolower(preg_replace('/(.)(?=[A-Z])/u', '$1-', $value), 'UTF-8');
-            }
-
-            $value = str_replace(
-                [ 'abstract', 'trait', 'interface', 'template', '\\' ],
-                '',
-                $value
-            );
-
-            static::$templateNameCache[$key] = trim($value, '-');
+        $filePath = $this->appConfig()->publicPath().'assets/styles/critical.css';
+        if (file_exists($filePath)) {
+            ob_start();
+            echo file_get_contents($filePath);
+            return ob_get_clean();
         }
-
-        return static::$templateNameCache[$key];
+        return '';
     }
 }

@@ -4,7 +4,6 @@
             "obj_type": "boilerplate/object/section"
         }
     },
-
     "sources": {
         "default": {
             "table": "boilerplate_sections"
