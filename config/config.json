@@ -1,36 +1,5 @@
 {
-    "project_name": "Charcoal Boilerplate",
-    "timezone": "America/Montreal",
-
-    "cache": {
-        "active": true,
-        "types": [ "apc", "memcache", "redis" ],
-        "prefix": "boilerplate"
-    },
-
-    "logger": {
-        "active": true,
-        "level": "warning"
-    },
-
-    "email": {
-        "default_from": {
-            "email": null,
-            "name": null
-        }
-    },
-
-    "admin_config": "config/admin.json",
-
-    "modules": {
-        "charcoal/admin/admin": {}
-    },
-
-    "service_providers": {
-        "charcoal/model/service-provider/model": {},
-        "boilerplate/service-provider/boilerplate": {}
-    },
-
+    "admin_config": "config/admin.php",
     "apis": {
         "google": {
             "analytics": {
@@ -41,7 +10,17 @@
             "kit_id": ""
         }
     },
-
+    "cache": {
+        "active": true,
+        "types": [ "apc", "memcache", "redis" ],
+        "prefix": "boilerplate"
+    },
+    "email": {
+        "default_from": {
+            "email": null,
+            "name": null
+        }
+    },
     "locales": {
         "languages": {
             "fr": {
@@ -53,40 +32,46 @@
         },
         "default_language": "fr"
     },
-
-    "translator": {
-        "paths": [
-            "translations/boilerplate/",
-            "vendor/locomotivemtl/charcoal-attachment/translations/",
-            "vendor/locomotivemtl/charcoal-admin/translations/",
-            "vendor/locomotivemtl/charcoal-app/translations/"
-        ]
+    "logger": {
+        "active": true,
+        "level": "warning"
     },
-
-    "view": {
-        "paths": [
-            "views/",
-            "vendor/locomotivemtl/charcoal-attachment/templates/",
-            "vendor/locomotivemtl/charcoal-admin/templates/",
-            "vendor/locomotivemtl/charcoal-app/templates/"
-        ],
-        "default_engine": "mustache",
-        "default_controller": "\\Boilerplate\\Template\\Generic"
-    },
-
     "metadata": {
         "paths": [
             "metadata/",
-            "vendor/locomotivemtl/charcoal-attachment/metadata/",
-            "vendor/locomotivemtl/charcoal-cms/metadata/",
             "vendor/locomotivemtl/charcoal-admin/metadata/",
             "vendor/locomotivemtl/charcoal-app/metadata/",
+            "vendor/locomotivemtl/charcoal-attachment/metadata/",
+            "vendor/locomotivemtl/charcoal-cms/metadata/",
             "vendor/locomotivemtl/charcoal-email/metadata/",
-            "vendor/locomotivemtl/charcoal-messaging/metadata/",
-            "vendor/locomotivemtl/charcoal-search/metadata/",
-            "vendor/locomotivemtl/charcoal-property/metadata/",
             "vendor/locomotivemtl/charcoal-object/metadata/",
+            "vendor/locomotivemtl/charcoal-property/metadata/",
             "vendor/locomotivemtl/charcoal-user/metadata/"
+        ]
+    },
+    "modules": {
+        "charcoal/admin/admin": {}
+    },
+    "project_name": "Charcoal Boilerplate",
+    "service_providers": {
+        "boilerplate/service-provider/boilerplate": {}
+    },
+    "timezone": "America/Montreal",
+    "translator": {
+        "paths": [
+            "translations/boilerplate/",
+            "vendor/locomotivemtl/charcoal-admin/translations/",
+            "vendor/locomotivemtl/charcoal-app/translations/",
+            "vendor/locomotivemtl/charcoal-attachment/translations/"
+        ]
+    },
+    "view": {
+        "paths": [
+            "views/",
+            "vendor/locomotivemtl/charcoal-admin/templates/",
+            "vendor/locomotivemtl/charcoal-app/templates/",
+            "vendor/locomotivemtl/charcoal-attachment/templates/",
+            "vendor/locomotivemtl/charcoal-cms/views/"
         ]
     }
 }

@@ -1,15 +1,11 @@
-{{>boilerplate/template/partial/header}}
-<!-- Start home -->
+{{> boilerplate/template/partial/site-header }}
 
-<h1>{{page_title}}</h1>
+<h1>{{ siteName }}</h1>
 
 <h2>Home template.</h2>
-Calling the "test" method: <strong>{{test}}</strong>
 
+<p>Calling the "test" method: <strong>{{ test }}</strong></p>
 
-<div>
-    Template name: {{templateName}}
-</div>
+<p>Template name: {{ templateName }}</p>
 
-<!-- End home -->
-{{>boilerplate/template/partial/footer}}
+{{> boilerplate/template/partial/site-footer }}

@@ -5,7 +5,7 @@ namespace Boilerplate\Attachment;
 use Charcoal\Attachment\Object\File as FileAttachment;
 
 /**
- * Link attachment
+ * File attachment
  */
 class File extends FileAttachment
 {

@@ -150,9 +150,6 @@ class RenameScript extends AbstractScript
 
         $climate = $this->climate();
 
-        // Get arguments
-//        $climate->arguments->parse();
-
         // Outputs usage
         if ($climate->arguments->defined('help')) {
             $climate->usage();

@@ -13,7 +13,9 @@
             }
         }
     },
-
+    "routables": {
+        "charcoal/cms/route/generic": {}
+    },
     "handlers": {
         "defaults": {
             "template": "boilerplate/template/error",

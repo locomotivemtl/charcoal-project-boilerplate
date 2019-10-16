@@ -5,7 +5,7 @@ namespace Boilerplate\Attachment;
 use Charcoal\Attachment\Object\Text as TextAttachment;
 
 /**
- * Link attachment
+ * Text attachment
  */
 class Text extends TextAttachment
 {

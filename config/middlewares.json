@@ -4,7 +4,10 @@
             "active": true
         },
         "charcoal/app/middleware/cache": {
-            "active": true
+            "active": true,
+            "excluded_path" : [
+                "^/(admin)\\b"
+            ]
         },
         "charcoal/app/middleware/ip": {
             "active": false
