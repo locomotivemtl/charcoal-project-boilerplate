@@ -177,8 +177,7 @@ Another quick-and-dirty script is provided to install the locomotive frontend, f
 
 # Dependencies and Requirements
 
-- [`PHP 5.6+`](http://php.net)
-    + `PHP 7` is recommended for performance and security reasons.
+- [`PHP 7.1+`](http://php.net)
     + `ext-json`
     + `ext-pdo`
     + `ext-spl`

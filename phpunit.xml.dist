@@ -8,7 +8,6 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false">
-
     <testsuites>
         <testsuite name="Boilerplate">
             <directory suffix="Test.php">./tests/Boilerplate</directory>
@@ -30,7 +29,7 @@
     </php>
 
     <logging>
-        <log type="coverage-html" target="logs/tests/report" charset="UTF-8" highlight="true" lowUpperBound="40" highLowerBound="80" />
+        <log type="coverage-html" target="logs/tests/report" lowUpperBound="40" highLowerBound="80" />
         <log type="coverage-clover" target="logs/tests/clover.xml"/>
         <log type="testdox-html" target="logs/tests/testdox.html"/>
         <log type="testdox-text" target="logs/tests/testdox.txt"/>
