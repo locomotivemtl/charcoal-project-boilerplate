@@ -23,7 +23,7 @@ $container = new AppContainer([
     'config' => $appConfig,
     'settings' => [
         'displayErrorDetails' => $appConfig['dev_mode']
-    ]
+    ],
 ]);
 
 /* Instantiate a Charcoal~Slim application and run */

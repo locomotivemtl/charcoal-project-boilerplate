@@ -132,7 +132,7 @@ trait AdminAwareTrait
         } else {
             return [
                 'en' => '',
-                'fr' => ''
+                'fr' => '',
             ];
         }
     }

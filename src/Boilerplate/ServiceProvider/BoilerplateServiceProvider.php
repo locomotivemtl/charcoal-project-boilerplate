@@ -32,7 +32,7 @@ class BoilerplateServiceProvider implements ServiceProviderInterface
                  * @return array
                  */
                 'now' => [
-                    'year' => date('Y')
+                    'year' => date('Y'),
                 ],
             ];
             return array_merge($helpers, $helper);

@@ -73,19 +73,19 @@ class RenameScript extends AbstractScript
                     'What is the project <red>source</red> namespace? [default: <green>%s</green>]',
                     $this->defaultSourceName
                 ),
-                'defaultValue' => $this->defaultSourceName
+                'defaultValue' => $this->defaultSourceName,
             ],
             'targetName' => [
                 'prefix'      => 't',
                 'longPrefix'  => 'target',
-                'description' => 'What is the project <red>target</red> namespace?'
+                'description' => 'What is the project <red>target</red> namespace?',
             ],
             'path'       => [
                 'prefix'       => 'p',
                 'longPrefix'   => 'path',
                 'description'  => 'What is the <red>path</red> to where you want to rename?',
-                'defaultValue' => '../*'
-            ]
+                'defaultValue' => '../*',
+            ],
         ];
 
         $arguments = array_merge(parent::defaultArguments(), $arguments);
@@ -268,7 +268,7 @@ class RenameScript extends AbstractScript
                     $filename,
                     '<white>'.$numReplacement1.'</white>',
                     '<white>'.$numReplacement2.'</white>',
-                    '<white>'.$numReplacements.'</white>'
+                    '<white>'.$numReplacements.'</white>',
                 ];
             }
         }
@@ -300,8 +300,8 @@ class RenameScript extends AbstractScript
         $data = [
             [
                 'File name',
-                'Rename'
-            ]
+                'Rename',
+            ],
         ];
 
         // Replacing SnakeCase
@@ -318,7 +318,7 @@ class RenameScript extends AbstractScript
             if ($name != $filename) {
                 $data[] = [
                     $filename,
-                    '<white>'.$name.'</white>'
+                    '<white>'.$name.'</white>',
                 ];
                 rename($filename, $name);
             }
@@ -335,7 +335,7 @@ class RenameScript extends AbstractScript
                 rename($filename, $name);
                 $data[] = [
                     $filename,
-                    '<white>'.$name.'</white>'
+                    '<white>'.$name.'</white>',
                 ];
             }
         }
@@ -351,7 +351,7 @@ class RenameScript extends AbstractScript
                 rename($filename, $name);
                 $data[] = [
                     $filename,
-                    '<white>'.$name.'</white>'
+                    '<white>'.$name.'</white>',
                 ];
             }
         }
@@ -474,7 +474,7 @@ class RenameScript extends AbstractScript
     public function response()
     {
         return [
-            'success' => $this->success()
+            'success' => $this->success(),
         ];
     }
 
