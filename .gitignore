@@ -1,34 +1,31 @@
 # Charcoal
 # -------
 
-config/admin.*.*
-!config/admin.sample.*
-config/config.*.*
-!config/config.sample.*
-uploads/
+/config/admin.*.*
+!/config/admin.sample.*
+/config/config.*.*
+!/config/config.sample.*
+/uploads/
+/www/uploads
+/var/
 
 # Package Managers
 # -------
 
 composer.phar
-vendor/
-node_modules/
-bower_components/
-
-# Documentation
-# -------
-
-docs/
+/vendor/
+/node_modules/
+/bower_components/
 
 # Logging
 # -------
 
 *.log
 error_log
-logs/
+/logs/
 
 # Caches
 # -------
 
-cache/
-tmp/
+/cache/
+/tmp/
