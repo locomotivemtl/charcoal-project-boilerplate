@@ -196,7 +196,7 @@ Most Charcoal features are built on top of proven, open-source technologies:
   - Optionally supports **Twig**, from symfony
 - **PDO / MySQL** (Database Storage)
 - **Stash** (PSR-6 Cache)
-- **Climate** (Terminal Utility, from the php league)
+- **CLImate** (Terminal Utility, from the php league)
 - **Flysystem** (File system abstraction, from the php league)
 - **Symfony Translation** (Localization Tools)
 - **Zend ACL** (Permissions Management)
@@ -205,7 +205,7 @@ Most Charcoal features are built on top of proven, open-source technologies:
 - **PHPUnit** (Unit Testing)
 - **APIGen** (API Documentation)
 - **PHP Code Sniffer** (Coding Standards)
-- **JQuery** (Javascript Framework)
+- **jQuery** (Javascript Framework)
 - **Bootstrap** (CSS Framework)
 - **TinyMCE** (HTML Editor)
 - **elFinder** (File Manager)
