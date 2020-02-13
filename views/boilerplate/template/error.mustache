@@ -1,13 +1,13 @@
-{{>boilerplate/template/partial/header}}
-
 {{# debug }}
 <pre>
 {{& htmlErrorDetails }}
 </pre>
 {{/ debug }}
 {{^ debug }}
+{{>boilerplate/template/partial/header}}
+
 <h1>{{# _t }}Page Not Found{{/ _t }}</h1>
 <p>{{# _t }}The page you are looking for could not be found.{{/ _t }}</p>
-{{/ debug }}
 
 {{>boilerplate/template/partial/footer}}
+{{/ debug }}
