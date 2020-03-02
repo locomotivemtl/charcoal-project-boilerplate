@@ -22,7 +22,7 @@ $appConfig->addFile(dirname(__DIR__) . '/config/config.php');
 $container = new AppContainer([
     'config' => $appConfig,
     'settings' => [
-        'displayErrorDetails' => $appConfig['dev_mode']
+        'displayErrorDetails' => $appConfig['dev_mode'],
     ],
 ]);
 
