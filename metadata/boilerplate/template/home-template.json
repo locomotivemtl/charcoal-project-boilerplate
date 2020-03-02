@@ -1,8 +1,0 @@
-{
-    "properties": {
-        "featured_section": {
-            "type": "object",
-            "obj_type": "boilerplate/object/section"
-        }
-    }
-}

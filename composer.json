@@ -39,7 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Boilerplate\\": "src/Boilerplate",
+            "App\\": "src/App",
             "Charcoal\\": "src/Charcoal"
         }
     },

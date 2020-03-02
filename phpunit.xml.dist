@@ -9,8 +9,8 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Boilerplate">
-            <directory suffix="Test.php">./tests/Boilerplate</directory>
+        <testsuite name="App">
+            <directory suffix="Test.php">./tests/App</directory>
         </testsuite>
 
         <testsuite name="Charcoal">

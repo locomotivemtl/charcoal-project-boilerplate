@@ -3,8 +3,8 @@
         {
             "value": "home",
             "label": "Front Page",
-            "template": "boilerplate/template/home",
-            "controller": "boilerplate/template/home"
+            "template": "app/template/home",
+            "controller": "app/template/home"
         }
     ]
 }

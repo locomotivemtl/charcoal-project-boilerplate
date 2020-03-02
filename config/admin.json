@@ -1,6 +1,6 @@
 {
     "admin": {
-        "title": "Boilerplate",
+        "title": "Acme",
         "acl": {
             "permissions": {
                 "dev": {
@@ -19,7 +19,7 @@
             "templates": {
                 "home": {
                     "route": "[/[home]]",
-                    "redirect": "admin/object/collection?obj_type=boilerplate/object/section"
+                    "redirect": "admin/object/collection?obj_type=app/object/section"
                 }
             },
             "actions": {}

@@ -1,0 +1,180 @@
+{
+    "labels": {
+        "name": {
+            "en": "Pages",
+            "fr": "Pages"
+        },
+        "singular_name": {
+            "en": "Page",
+            "fr": "Page"
+        },
+        "create_item": {
+            "en": "Create Page",
+            "fr": "Créer une page"
+        },
+        "new_item": {
+            "en": "New Page",
+            "fr": "Nouvelle page"
+        },
+        "view_item": {
+            "en": "View Page",
+            "fr": "Voir la page"
+        },
+        "edit_item": {
+            "en": "Edit Page",
+            "fr": "Modifier la page"
+        },
+        "all_items": {
+            "en": "All Pages",
+            "fr": "Toutes les pages"
+        },
+        "menu_items": {
+            "en": "Pages",
+            "fr": "Pages"
+        }
+    },
+    "admin": {
+        "lists": {
+            "app.default": {
+                "properties": [
+                    "template_ident",
+                    "title",
+                    "last_modified",
+                    "active"
+                ],
+                "orders": [
+                    {
+                        "property": "position",
+                        "mode": "asc"
+                    }
+                ],
+                "list_actions": [
+                    {
+                        "ident": "create",
+                        "url": "object/edit?obj_type={{ objType }}",
+                        "permissions": [ "object/create" ]
+                    }
+                ],
+                "properties_options": {
+                    "title": {
+                        "display_type": "charcoal/admin/property/display/hierarchical",
+                        "view_options": {
+                            "attr": {
+                                "width": "55%"
+                            }
+                        }
+                    },
+                    "template_ident": {
+                        "view_options": {
+                            "attr": {
+                                "width": "15%"
+                            }
+                        }
+                    },
+                    "last_modified": {
+                        "view_options": {
+                            "attr": {
+                                "width": "15%"
+                            }
+                        }
+                    },
+                    "active": {
+                        "view_options": {
+                            "attr": {
+                                "width": "5%",
+                                "class": "text-center"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "default_list": "app.default",
+        "forms": {
+            "app.create": {
+                "groups": {
+                    "cms.info": {
+                        "priority": 100
+                    }
+                },
+                "sidebars": {
+                    "default": {}
+                }
+            },
+            "app.edit": {
+                "groups": {
+                    "cms.info": {
+                        "priority": 100
+                    },
+                    "content-blocks": {
+                        "type": "charcoal/admin/widget/form-group/attachment",
+                        "preset": "content-blocks",
+                        "priority": 200
+                    },
+                    "cms.advanced": {
+                        "priority": 300
+                    },
+                    "cms.dev": {
+                        "priority": 400
+                    },
+                    "cms.meta": {
+                        "priority": 500
+                    },
+                    "cms.table": {
+                        "priority": 600
+                    },
+                    "cms.revisions": {
+                        "priority": 700
+                    }
+                },
+                "sidebars": {
+                    "default": {}
+                }
+            }
+        },
+        "form_sidebars": {
+            "default": {
+                "properties": [
+                    "created",
+                    "created_by",
+                    "last_modified",
+                    "last_modified_by"
+                ]
+            }
+        },
+        "dashboards": {
+            "admin.edit": {
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                },
+                "widgets": {
+                    "form": {
+                        "type": "charcoal/admin/widget/object-form",
+                        "form_ident": "{{ formIdent }}",
+                        "group_display_mode": "tab"
+                    }
+                }
+            },
+            "admin.table": {
+                "layout": {
+                    "structure": [
+                        { "columns": [ 1 ] }
+                    ]
+                },
+                "widgets": {
+                    "table": {
+                        "type": "charcoal/admin/widget/hierarchical-table",
+                        "obj_type": "app/object/section",
+                        "collection_ident": "app.default",
+                        "sortable": true
+                    }
+                }
+            }
+        },
+        "default_create_dashboard": "admin.edit",
+        "default_edit_dashboard": "admin.edit",
+        "default_collection_dashboard": "admin.table"
+    }
+}

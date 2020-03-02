@@ -1,0 +1,13 @@
+{
+    "properties": {
+        "master": {
+            "obj_type": "app/object/section"
+        }
+    },
+    "sources": {
+        "default": {
+            "table": "app_sections"
+        }
+    },
+    "default_source": "default"
+}

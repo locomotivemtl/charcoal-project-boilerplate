@@ -1,4 +1,6 @@
 {
+    "project_name": "Acme",
+    "timezone": "America/Montreal",
     "admin_config": "config/admin.php",
     "apis": {
         "google": {
@@ -13,7 +15,7 @@
     "cache": {
         "active": true,
         "types": [ "apc", "memcache", "redis" ],
-        "prefix": "boilerplate"
+        "prefix": "app"
     },
     "email": {
         "default_from": {
@@ -52,14 +54,12 @@
     "modules": {
         "charcoal/admin/admin": {}
     },
-    "project_name": "Charcoal Boilerplate",
     "service_providers": {
-        "boilerplate/service-provider/boilerplate": {}
+        "app/service-provider/app": {}
     },
-    "timezone": "America/Montreal",
     "translator": {
         "paths": [
-            "translations/boilerplate/",
+            "translations/app/",
             "vendor/locomotivemtl/charcoal-admin/translations/",
             "vendor/locomotivemtl/charcoal-app/translations/",
             "vendor/locomotivemtl/charcoal-attachment/translations/"

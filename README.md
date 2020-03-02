@@ -9,9 +9,9 @@ It can also optionally set up the [Locomotive Boilerplate](https://github.com/lo
 
 - [How to Install](#how-to-install)
     + [1. Create / clone the project boilerplate](#1-create-clone-the-project-boilerplate)
-    + [2. Rename the boilerplate to your project](#2-rename-the-boilerplate-to-your-project)
-    + [3. Test your installation](#3-test-your-installation)
-    + [4. Set up database storage](#4-set-up-database-storage)
+    + [2. Test your installation](#3-test-your-installation)
+    + [3. Set up database storage](#4-set-up-database-storage)
+    + [4. Set the project name](#4-set-the-project-name)
     + [5. Set up `charcoal-admin`](#5-set-up-charcoal-admin)
     + [6. (Optional) Install `locomotive-boilerplate`](#6-optional-install-locomotive-boilerplate)
 - [Going further](#going-further)
@@ -87,26 +87,7 @@ Replace "acme" with the desired directory name for your new project.
 > The other folders (`vendor/`, `src/`, `templates/`, `metadata/`, `config/`, etc.) should therefore not be available from the web server (kept outside the document root).
 
 
-## 2. **Rename the boilerplate to your project**
-
-**This step must be done manually.** Ensure to change **all** references to "boilerplate" and "Boilerplate" to your project name. (Make sure to look in the `src`, `metadata` and `templates` folders). Also rename the `metadata/boilerplate`, `src/Boilerplate` and `templates/boilerplate` folders to match your project.
-
-> 👉 Do not forget to change the "Boilerplate" reference in `composer.json`. 
-> To ensure the autoloader is still working, run the following command after renaming:
->
-> ```shell
-> ★ composer dump-autoload
-> ```
-
-> **Experimental renaming tool**
-> (Use at your own risk)
->
-> ```shell
-> ★ ./vendor/bin/charcoal charcoal/rename
-> ```
-
-
-## 3. **Test your installation**
+## 2. **Test your installation**
 
 A quick server can be started using the PHP builtin server:
 
@@ -123,7 +104,7 @@ How to change the default page and add routes/templates is explained later in th
 
 > Hint: the recommended way is from the admin, by adding pages (sections).
 
-## 4. **Set up a database storage**
+## 3. **Set up a database storage**
 
 The next step requires a custom configuration file. 
 It is recommended to use `config/config.local.json` and making sure it is not committed to source control:
@@ -148,6 +129,19 @@ Create an empty database and ensure a SQL user has the proper permissions for th
     "default_database": "default"
 }
 ```
+
+## 4. **Set the project name**
+
+By default, the project is named "Acme" and namespaced under `App` and is autoloaded by Composer using the [PSR-4 autoloading standard](https://www.php-fig.org/psr/psr-4/).
+
+There are a few occurrences of "Acme" in the boilerplate:
+
+- [config/admin.json](config/admin.json): See `admin.title`.
+- [config/config.json](config/config.json): See `project_name`.
+
+You should also change the name of the Composer package:
+
+- [composer.json](composer.json): See `name`.
 
 ## 5. **Set up charcoal-admin**
 
