@@ -2,8 +2,13 @@
     "type": "project",
     "name": "locomotivemtl/charcoal-project-boilerplate",
     "description": "A Charcoal Project Boilerplate",
-    "keywords": [ "charcoal", "project", "boilerplate" ],
-    "homepage": "https://locomotive.ca",
+    "keywords": [
+        "charcoal",
+        "boilerplate",
+        "project",
+        "skeleton"
+    ],
+    "homepage": "https://charcoal.locomotive.ca/",
     "license": "MIT",
     "support": {
         "source": "https://github.com/locomotivemtl/charcoal-project-boilerplate",
@@ -15,13 +20,6 @@
             "homepage": "https://locomotive.ca"
         }
     ],
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": ">7.1",
         "locomotivemtl/charcoal-admin": "^0.23",
@@ -34,6 +32,11 @@
         "phpunit/phpunit": "^7.0",
         "squizlabs/php_codesniffer": "^3.3"
     },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
             "Boilerplate\\": "src/Boilerplate",
@@ -45,6 +48,8 @@
             "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "test": [
             "@tests"
