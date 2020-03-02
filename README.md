@@ -70,11 +70,15 @@ Here is a short "mission statement" of what is expected to be accomplished with 
 
 To start a Charcoal project with this Boilerplate, simply:
 
-## 1. **Create / clone the project boilerplate**
+## 1. **Installing boilerplate**
+
+Charcoal uses the Composer `create-project` command to install the boilerplate:
 
 ```shell
-★ composer create-project locomotivemtl/charcoal-project-boilerplate:@dev --prefer-source
+★ composer create-project --prefer-dist locomotivemtl/charcoal-project-boilerplate acme
 ```
+
+Replace "acme" with the desired directory name for your new project.
 
 > **About the Document Root**
 >
