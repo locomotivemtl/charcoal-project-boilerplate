@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f48eee67e053ccd9c5677dffa24f23e5",
+    "content-hash": "10268aa2a3793536930ff22b839e90da",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -445,6 +445,111 @@
             "time": "2016-11-11T18:43:20+00:00"
         },
         {
+            "name": "laminas/laminas-permissions-acl",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-permissions-acl.git",
+                "reference": "624567fe376a70e0bfb5aa8217d5afa13b9d6e61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-permissions-acl/zipball/624567fe376a70e0bfb5aa8217d5afa13b9d6e61",
+                "reference": "624567fe376a70e0bfb5aa8217d5afa13b9d6e61",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-zendframework-bridge": "^1.0",
+                "php": "^5.6 || ^7.0"
+            },
+            "replace": {
+                "zendframework/zend-permissions-acl": "self.version"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-servicemanager": "^2.7.5 || ^3.0.3",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5"
+            },
+            "suggest": {
+                "laminas/laminas-servicemanager": "To support Laminas\\Permissions\\Acl\\Assertion\\AssertionManager plugin manager usage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev",
+                    "dev-develop": "2.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Permissions\\Acl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Provides a lightweight and flexible access control list (ACL) implementation for privileges management",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "acl",
+                "laminas"
+            ],
+            "time": "2019-12-31T17:37:23+00:00"
+        },
+        {
+            "name": "laminas/laminas-zendframework-bridge",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
+                "reference": "0fb9675b84a1666ab45182b6c5b29956921e818d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/0fb9675b84a1666ab45182b6c5b29956921e818d",
+                "reference": "0fb9675b84a1666ab45182b6c5b29956921e818d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.1",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev",
+                    "dev-develop": "1.1.x-dev"
+                },
+                "laminas": {
+                    "module": "Laminas\\ZendFrameworkBridge"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/autoload.php"
+                ],
+                "psr-4": {
+                    "Laminas\\ZendFrameworkBridge\\": "src//"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Alias legacy ZF class names to Laminas Project equivalents.",
+            "keywords": [
+                "ZendFramework",
+                "autoloading",
+                "laminas",
+                "zf"
+            ],
+            "time": "2020-01-07T22:58:31+00:00"
+        },
+        {
             "name": "league/climate",
             "version": "3.5.2",
             "source": {
@@ -638,48 +743,49 @@
         },
         {
             "name": "locomotivemtl/charcoal-admin",
-            "version": "0.22.0.13",
+            "version": "0.23.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-admin.git",
-                "reference": "0ce407eab14d3c26f1d0de210790961d2b1d89fc"
+                "reference": "bc4ca567c3c3e702db9e15a3373ff4bfe81f993f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-admin/zipball/0ce407eab14d3c26f1d0de210790961d2b1d89fc",
-                "reference": "0ce407eab14d3c26f1d0de210790961d2b1d89fc",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-admin/zipball/bc4ca567c3c3e702db9e15a3373ff4bfe81f993f",
+                "reference": "bc4ca567c3c3e702db9e15a3373ff4bfe81f993f",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/elfinder-flysystem-driver": "^0.2.1",
                 "guzzlehttp/guzzle": "^6.3",
                 "kriswallsmith/assetic": "^1.4",
+                "laminas/laminas-permissions-acl": "^2.7",
                 "locomotivemtl/charcoal-app": "~0.8.1",
                 "locomotivemtl/charcoal-cache": "~0.1",
                 "locomotivemtl/charcoal-cms": "~0.8",
                 "locomotivemtl/charcoal-core": "~0.6",
                 "locomotivemtl/charcoal-email": "~0.4",
-                "locomotivemtl/charcoal-object": "~0.6",
+                "locomotivemtl/charcoal-object": "~0.7",
                 "locomotivemtl/charcoal-translator": "~0.3",
                 "locomotivemtl/charcoal-ui": "~0.3.10",
                 "locomotivemtl/charcoal-user": "~0.6",
                 "mcaskill/php-html-build-attributes": "1.0",
                 "paragonie/random_compat": ">=2",
-                "php": ">=5.6.0 || >=7.0",
+                "php": ">7.1",
                 "psr/cache": "^1.0",
                 "psr/http-message": "^1.0",
                 "psr/log": "^1.0",
-                "studio-42/elfinder": "~2.1.48"
+                "studio-42/elfinder": "2.1.53"
             },
             "require-dev": {
                 "cache/void-adapter": "^0.3",
-                "league/csv": "^8.1",
+                "league/csv": "^9.5",
                 "mockery/mockery": "^1.0",
                 "mustache/mustache": "^2.11",
-                "php-coveralls/php-coveralls": "^2.0",
-                "phpunit/phpunit": "^5.7 || ^6.5",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^7.5",
                 "seld/jsonlint": "^1.7",
-                "squizlabs/php_codesniffer": "^3.0",
+                "squizlabs/php_codesniffer": "^3.3",
                 "tedivm/stash": "~0.14"
             },
             "suggest": {
@@ -689,7 +795,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.21.x-dev"
+                    "dev-master": "0.22.x-dev"
                 }
             },
             "autoload": {
@@ -718,7 +824,7 @@
                 "charcoal",
                 "cms"
             ],
-            "time": "2020-02-04T19:20:16+00:00"
+            "time": "2020-03-02T17:28:44+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-app",
@@ -923,16 +1029,16 @@
         },
         {
             "name": "locomotivemtl/charcoal-cms",
-            "version": "0.8.6.2",
+            "version": "0.9.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-cms.git",
-                "reference": "bff460e703ab6f47fc940a3c114811e26f84c041"
+                "reference": "186de77eb150a62d1963e2ffc6d3111dfcb08b48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-cms/zipball/bff460e703ab6f47fc940a3c114811e26f84c041",
-                "reference": "bff460e703ab6f47fc940a3c114811e26f84c041",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-cms/zipball/186de77eb150a62d1963e2ffc6d3111dfcb08b48",
+                "reference": "186de77eb150a62d1963e2ffc6d3111dfcb08b48",
                 "shasum": ""
             },
             "require": {
@@ -945,6 +1051,9 @@
                 "locomotivemtl/charcoal-translator": "~0.3",
                 "php": ">=5.6.0",
                 "psr/http-message": "^1.0"
+            },
+            "conflict": {
+                "locomotivemtl/charcoal-admin": "<0.23.0"
             },
             "require-dev": {
                 "cache/void-adapter": "^0.3.0",
@@ -988,7 +1097,7 @@
                 "charcoal",
                 "cms"
             ],
-            "time": "2020-01-28T19:17:26+00:00"
+            "time": "2020-03-02T16:25:55+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-config",
@@ -1059,16 +1168,16 @@
         },
         {
             "name": "locomotivemtl/charcoal-core",
-            "version": "0.6.1",
+            "version": "0.6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-core.git",
-                "reference": "d6b656f8fa9ebe9c1b221ab1c24fe1f6969818d5"
+                "reference": "16d41eb959ad98d5a4555479d63f166ddf0a3945"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-core/zipball/d6b656f8fa9ebe9c1b221ab1c24fe1f6969818d5",
-                "reference": "d6b656f8fa9ebe9c1b221ab1c24fe1f6969818d5",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-core/zipball/16d41eb959ad98d5a4555479d63f166ddf0a3945",
+                "reference": "16d41eb959ad98d5a4555479d63f166ddf0a3945",
                 "shasum": ""
             },
             "require": {
@@ -1126,7 +1235,7 @@
                 "framework",
                 "locomotive"
             ],
-            "time": "2019-11-21T22:10:32+00:00"
+            "time": "2020-03-02T17:23:19+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-email",
@@ -1304,16 +1413,16 @@
         },
         {
             "name": "locomotivemtl/charcoal-object",
-            "version": "0.7.3.1",
+            "version": "0.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-object.git",
-                "reference": "dc9deb3316fd11150e8683ada839783e1a32b48e"
+                "reference": "bd3d9d56539977110012cd1cc3961197bfb39297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-object/zipball/dc9deb3316fd11150e8683ada839783e1a32b48e",
-                "reference": "dc9deb3316fd11150e8683ada839783e1a32b48e",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-object/zipball/bd3d9d56539977110012cd1cc3961197bfb39297",
+                "reference": "bd3d9d56539977110012cd1cc3961197bfb39297",
                 "shasum": ""
             },
             "require": {
@@ -1355,20 +1464,20 @@
                 }
             ],
             "description": "Object (Content and UserData) definition and object behaviors and tools.",
-            "time": "2019-11-21T16:31:08+00:00"
+            "time": "2020-02-27T14:20:50+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-property",
-            "version": "0.10.3",
+            "version": "0.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-property.git",
-                "reference": "b476d2e7f5266749220e37965c056302fcce1fac"
+                "reference": "b20c8a94572cdfd0f2647a5d7dd7a413d18d7cd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-property/zipball/b476d2e7f5266749220e37965c056302fcce1fac",
-                "reference": "b476d2e7f5266749220e37965c056302fcce1fac",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-property/zipball/b20c8a94572cdfd0f2647a5d7dd7a413d18d7cd9",
+                "reference": "b20c8a94572cdfd0f2647a5d7dd7a413d18d7cd9",
                 "shasum": ""
             },
             "require": {
@@ -1423,7 +1532,7 @@
             "keywords": [
                 "charcoal"
             ],
-            "time": "2020-01-16T21:43:55+00:00"
+            "time": "2020-02-26T21:06:25+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-queue",
@@ -1624,40 +1733,40 @@
         },
         {
             "name": "locomotivemtl/charcoal-user",
-            "version": "0.6.3",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-user.git",
-                "reference": "6e42aa69ebff15fcd90752de1af51856f7890859"
+                "reference": "d48de491df6ea00b50c84c09e2bd6a5729565f68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-user/zipball/6e42aa69ebff15fcd90752de1af51856f7890859",
-                "reference": "6e42aa69ebff15fcd90752de1af51856f7890859",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-user/zipball/d48de491df6ea00b50c84c09e2bd6a5729565f68",
+                "reference": "d48de491df6ea00b50c84c09e2bd6a5729565f68",
                 "shasum": ""
             },
             "require": {
-                "locomotivemtl/charcoal-config": "~0.9",
+                "laminas/laminas-permissions-acl": "^2.7",
+                "locomotivemtl/charcoal-config": "~0.10",
                 "locomotivemtl/charcoal-core": "~0.4",
                 "locomotivemtl/charcoal-factory": "~0.4",
-                "locomotivemtl/charcoal-object": "~0.6",
+                "locomotivemtl/charcoal-object": "~0.7",
                 "locomotivemtl/charcoal-translator": "~0.3",
-                "php": ">=5.6.0 || >=7.0",
-                "psr/log": "^1.0",
-                "zendframework/zend-permissions-acl": "^2.6"
+                "php": ">7.1",
+                "psr/log": "^1.0"
             },
             "require-dev": {
-                "cache/void-adapter": "^0.3",
-                "php-coveralls/php-coveralls": "^2.0",
-                "phpunit/phpunit": "^5.7 || ^6.5",
+                "cache/void-adapter": "^1.0",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^7.5",
                 "seld/jsonlint": "^1.7",
-                "squizlabs/php_codesniffer": "^3.0",
+                "squizlabs/php_codesniffer": "^3.3",
                 "tedivm/stash": "~0.14"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.6.x-dev"
+                    "dev-master": "0.7.x-dev"
                 }
             },
             "autoload": {
@@ -1676,7 +1785,7 @@
                 }
             ],
             "description": "User definition, authentication and authorization.",
-            "time": "2020-01-24T17:12:05+00:00"
+            "time": "2020-03-02T17:41:29+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-view",
@@ -2573,16 +2682,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f"
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
                 "shasum": ""
             },
             "require": {
@@ -2594,7 +2703,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -2628,20 +2737,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-11-27T14:18:11+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.37",
+            "version": "v3.4.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "5b9d2bcffe4678911a4c941c00b7c161252cf09a"
+                "reference": "b03b02dcea26ba4c65c16a73bab4f00c186b13da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/5b9d2bcffe4678911a4c941c00b7c161252cf09a",
-                "reference": "5b9d2bcffe4678911a4c941c00b7c161252cf09a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/b03b02dcea26ba4c65c16a73bab4f00c186b13da",
+                "reference": "b03b02dcea26ba4c65c16a73bab4f00c186b13da",
                 "shasum": ""
             },
             "require": {
@@ -2677,20 +2786,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-01T11:03:25+00:00"
+            "time": "2020-02-04T08:04:52+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v3.4.37",
+            "version": "v3.4.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "577ec9ba1d6443947c48058acc3de298ad25e2bf"
+                "reference": "1eb074e0bd94939a30dd14dbecf7a92b165cea34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/577ec9ba1d6443947c48058acc3de298ad25e2bf",
-                "reference": "577ec9ba1d6443947c48058acc3de298ad25e2bf",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/1eb074e0bd94939a30dd14dbecf7a92b165cea34",
+                "reference": "1eb074e0bd94939a30dd14dbecf7a92b165cea34",
                 "shasum": ""
             },
             "require": {
@@ -2747,7 +2856,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-04T12:05:51+00:00"
+            "time": "2020-02-04T07:22:30+00:00"
         },
         {
             "name": "tedivm/stash",
@@ -2808,56 +2917,6 @@
                 "sessions"
             ],
             "time": "2019-03-09T21:04:14+00:00"
-        },
-        {
-            "name": "zendframework/zend-permissions-acl",
-            "version": "2.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-permissions-acl.git",
-                "reference": "1323e30a9357e6f6956f63d97faf7e8c8db1f4f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-permissions-acl/zipball/1323e30a9357e6f6956f63d97faf7e8c8db1f4f8",
-                "reference": "1323e30a9357e6f6956f63d97faf7e8c8db1f4f8",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5",
-                "zendframework/zend-coding-standard": "~1.0.0",
-                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3"
-            },
-            "suggest": {
-                "zendframework/zend-servicemanager": "To support Zend\\Permissions\\Acl\\Assertion\\AssertionManager plugin manager usage"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7.x-dev",
-                    "dev-develop": "2.8.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zend\\Permissions\\Acl\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Provides a lightweight and flexible access control list (ACL) implementation for privileges management",
-            "keywords": [
-                "ZendFramework",
-                "acl",
-                "zf"
-            ],
-            "abandoned": "laminas/laminas-permissions-acl",
-            "time": "2019-06-25T08:09:22+00:00"
         }
     ],
     "packages-dev": [
@@ -4236,16 +4295,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
                 "shasum": ""
             },
             "require": {
@@ -4257,7 +4316,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -4290,7 +4349,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-11-27T13:56:44+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -4334,16 +4393,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925"
+                "reference": "aed98a490f9a8f78468232db345ab9cf606cf598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/573381c0a64f155a0d9a23f4b0c797194805b925",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/aed98a490f9a8f78468232db345ab9cf606cf598",
+                "reference": "aed98a490f9a8f78468232db345ab9cf606cf598",
                 "shasum": ""
             },
             "require": {
@@ -4378,7 +4437,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2019-11-24T13:36:37+00:00"
+            "time": "2020-02-14T12:15:55+00:00"
         }
     ],
     "aliases": [],

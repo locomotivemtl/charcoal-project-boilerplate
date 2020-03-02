@@ -24,10 +24,10 @@
     "prefer-stable": true,
     "require": {
         "php": ">7.1",
-        "locomotivemtl/charcoal-admin": "^0.22",
+        "locomotivemtl/charcoal-admin": "^0.23",
         "locomotivemtl/charcoal-app": "^0.8",
         "locomotivemtl/charcoal-attachment": "^0.10",
-        "locomotivemtl/charcoal-cms": "^0.8",
+        "locomotivemtl/charcoal-cms": "^0.9",
         "mustache/mustache": "^2.12"
     },
     "require-dev": {
