@@ -3,7 +3,7 @@
         "charcoal/translator/middleware/language": {
             "active": true
         },
-        "charcoal/app/middleware/cache": {
+        "charcoal/cache/middleware/cache": {
             "active": true,
             "excluded_path" : [
                 "^/(admin)\\b"
