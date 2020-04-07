@@ -1,28 +1,28 @@
 {
     "attachments": {
         "attachables": {
-            "boilerplate/attachment/text": {
+            "app/attachment/text": {
                 "label": "Text"
             },
-            "boilerplate/attachment/image": {
+            "app/attachment/image": {
                 "label": "Image"
             },
-            "boilerplate/attachment/gallery": {
+            "app/attachment/gallery": {
                 "label": "Image gallery"
             },
-            "boilerplate/attachment/file": {
+            "app/attachment/file": {
                 "label": "File"
             },
-            "boilerplate/attachment/video": {
+            "app/attachment/video": {
                 "label": "Video"
             }
         },
         "groups": {
             "content-blocks": [
-                "boilerplate/attachment/text",
-                "boilerplate/attachment/image",
-                "boilerplate/attachment/gallery",
-                "boilerplate/attachment/video"
+                "app/attachment/text",
+                "app/attachment/image",
+                "app/attachment/gallery",
+                "app/attachment/video"
             ]
         },
         "widgets": {

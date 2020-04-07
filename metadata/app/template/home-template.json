@@ -1,0 +1,8 @@
+{
+    "properties": {
+        "featured_section": {
+            "type": "object",
+            "obj_type": "app/object/section"
+        }
+    }
+}

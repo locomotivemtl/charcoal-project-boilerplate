@@ -1,25 +1,22 @@
 {
     "routes": {
         "templates": {
-            "[/]": {
-                "template": "boilerplate/template/home",
-                "controller": "boilerplate/template/home"
+            "home": {
+                "route": "[/]",
+                "template": "app/template/home",
+                "controller": "app/template/home"
             }
         },
         "actions": {},
-        "scripts": {
-            "charcoal/rename": {
-                "ident": "charcoal/script/rename"
-            }
-        }
+        "scripts": {}
     },
     "routables": {
         "charcoal/cms/route/generic": {}
     },
     "handlers": {
         "defaults": {
-            "template": "boilerplate/template/error",
-            "controller": "boilerplate/template/error"
+            "template": "app/template/error",
+            "controller": "app/template/error"
         }
     }
 }
