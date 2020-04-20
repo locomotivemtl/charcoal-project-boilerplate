@@ -8,9 +8,9 @@ It can also optionally set up the [Locomotive Boilerplate](https://github.com/lo
 # Table of Content
 
 - [How to Install](#how-to-install)
-    + [1. Create / clone the project boilerplate](#1-create-clone-the-project-boilerplate)
-    + [2. Test your installation](#3-test-your-installation)
-    + [3. Set up database storage](#4-set-up-database-storage)
+    + [1. Installing boilerplate](#1-installing-boilerplate)
+    + [2. Test your installation](#2-test-your-installation)
+    + [3. Set up a database storage](#3-set-up-a-database-storage)
     + [4. Set the project name](#4-set-the-project-name)
     + [5. Set up `charcoal-admin`](#5-set-up-charcoal-admin)
     + [6. (Optional) Install `locomotive-boilerplate`](#6-optional-install-locomotive-boilerplate)
