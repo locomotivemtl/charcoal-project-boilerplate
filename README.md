@@ -22,7 +22,7 @@ It can also optionally set up the [Locomotive Boilerplate](https://github.com/lo
 - [Dependencies and requirements](#dependencies-and-requirements)
     + [The charcoal modules](#the-charcoal-modules)
         - [Status matrix](#status-matrix)
-- What's inside the Boilerplate
+- [What's inside this Boilerplate](#whats-inside-this-boilerplate)
 - [Development](#development)
     + [Development dependencies](#development-dependencies)
     + [Continuous Integration](#continuous-integration)
@@ -148,7 +148,7 @@ You should also change the name of the Composer package:
 A quick-and-dirty script is provided to install charcoal-admin automatically:
 
 ```shell
-★ sh ./build/script/install-charcoal-admin.sh
+★ sh ./build/scripts/install-charcoal-admin.sh
 ```
 
 Point your browser to http://localhost:8080/admin and you should see the Charcoal's admin login screen.
@@ -166,7 +166,7 @@ See the `config/admin.json` file for details.
 Another quick-and-dirty script is provided to install the locomotive frontend, from its github repository.
 
 ```shell
-★ sh ./build/script/install-locomotive-boilerplate.sh
+★ sh ./build/scripts/install-locomotive-boilerplate.sh
 ```
 
 > For more information about the `locomotive-boilerplate` frontend module: 
