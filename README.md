@@ -196,7 +196,7 @@ Most Charcoal features are built on top of proven, open-source technologies:
 - **CLImate** (Terminal Utility, from the php league)
 - **Flysystem** (File system abstraction, from the php league)
 - **Symfony Translation** (Localization Tools)
-- **Zend ACL** (Permissions Management)
+- **Laminas ACL** (Permissions Management)
 - **PHPmailer** (Email Transport)
 - **Monolog** (PSR-3 Logger)
 - **PHPUnit** (Unit Testing)
@@ -238,7 +238,7 @@ Most Charcoal features are built on top of proven, open-source technologies:
 - [charcoal-ui](https://github.com/locomotivemtl/charcoal-ui)
     + Ui objects (Form, Menu, Dashboard, Layout, etc.)
 - [charcoal-user](https://github.com/locomotivemtl/charcoal-user)
-    + User definition, authentication and authorization (based on Zend ACL).
+    + User definition, authentication and authorization (based on Laminas ACL).
 - [charcoal-validator](https://github.com/locomotivemtl/chracoal-validator)
     + Data validation.
 - [charcoal-view](https://github.com/locomotivemtl/charcoal-view)
