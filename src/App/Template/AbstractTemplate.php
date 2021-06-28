@@ -100,7 +100,7 @@ abstract class AbstractTemplate extends AbstractWebTemplate
      */
     public function copyright()
     {
-        return sprintf('© %s %s', $this->copyrightName(), $this->copyrightYear());
+        return sprintf('© %s %s', $this->copyrightYear(), $this->copyrightName());
     }
 
     /**
