@@ -2,20 +2,11 @@
 
 namespace App\Object;
 
-// From 'pimple/pimple'
-use Pimple\Container;
-
-// From 'charcoal-core'
-use Charcoal\Loader\CollectionLoaderAwareTrait;
-
-// From 'charcoal-attachment'
-use Charcoal\Attachment\Traits\AttachmentAwareTrait;
-
-// From 'charcoal-cms'
-use Charcoal\Cms\AbstractSection;
-
-// From App
 use App\Support\AdminAwareTrait;
+use Pimple\Container;
+use Charcoal\Attachment\Traits\AttachmentAwareTrait;
+use Charcoal\Cms\AbstractSection;
+use Charcoal\Loader\CollectionLoaderAwareTrait;
 
 /**
  * Class Section
@@ -27,7 +18,7 @@ class Section extends AbstractSection
     use CollectionLoaderAwareTrait;
 
     /**
-     * @param Container $container Pimple DI Container.
+     * @param  Container $container Pimple DI Container.
      * @return void
      */
     public function setDependencies(Container $container)

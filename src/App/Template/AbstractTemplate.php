@@ -2,7 +2,6 @@
 
 namespace App\Template;
 
-// From 'charcoal-cms'
 use Charcoal\Cms\AbstractWebTemplate;
 
 /**

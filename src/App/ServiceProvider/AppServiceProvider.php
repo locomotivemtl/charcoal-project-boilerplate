@@ -2,15 +2,10 @@
 
 namespace App\ServiceProvider;
 
-// From 'pimple/pimple'
+use Charcoal\Email\ServiceProvider\EmailServiceProvider;
+use Charcoal\Model\ServiceProvider\ModelServiceProvider;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-
-// From 'charcoal-email'
-use Charcoal\Email\ServiceProvider\EmailServiceProvider;
-
-// From 'charcoal-core'
-use Charcoal\Model\ServiceProvider\ModelServiceProvider;
 
 /**
  * App Service Provider
@@ -26,7 +21,7 @@ class AppServiceProvider implements ServiceProviderInterface
         $container->register(new EmailServiceProvider());
         $container->register(new ModelServiceProvider());
 
-        $container->extend('view/mustache/helpers', function (array $helpers, Container $container) {
+        $container->extend('view/mustache/helpers', function (array $helpers, Container $container): array {
             unset($container);
             $helper = [
                 /**

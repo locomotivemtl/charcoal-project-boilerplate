@@ -2,22 +2,14 @@
 
 namespace App\Action;
 
-// From Pimple
-use Pimple\Container;
-
-// From PSR-7
-use Psr\Http\Message\UriInterface;
-
-// From 'charcoal-core'
-use Charcoal\Model\ModelFactoryTrait;
-
-// From 'charcoal-translator'
-use Charcoal\Translator\TranslatorAwareTrait;
-
-// From 'charcoal-app'
+use Charcoal\App\Action\AbstractAction as CharcoalAction;
 use Charcoal\App\AppConfig;
 use Charcoal\App\DebugAwareTrait;
-use Charcoal\App\Action\AbstractAction as CharcoalAction;
+use Charcoal\Model\ModelFactoryTrait;
+use Charcoal\Translator\TranslatorAwareTrait;
+use Closure;
+use Pimple\Container;
+use Psr\Http\Message\UriInterface;
 
 /**
  * Base API Controller
@@ -38,7 +30,7 @@ abstract class AbstractAction extends CharcoalAction
     /**
      * The base URI.
      *
-     * @var UriInterface|null
+     * @var UriInterface
      */
     protected $baseUrl;
 
@@ -61,13 +53,11 @@ abstract class AbstractAction extends CharcoalAction
      * Set the application's configset.
      *
      * @param  AppConfig $appConfig A Charcoal application configset.
-     * @return self
+     * @return void
      */
-    protected function setAppConfig(AppConfig $appConfig)
+    protected function setAppConfig(AppConfig $appConfig): void
     {
         $this->appConfig = $appConfig;
-
-        return $this;
     }
 
     /**
@@ -77,13 +67,13 @@ abstract class AbstractAction extends CharcoalAction
      * @param  mixed|null  $default The default value to return if data key does not exist.
      * @return mixed|AppConfig|SettingsInterface
      */
-    public function appConfig($key = null, $default = null)
+    public function getAppConfig(string $key = null, $default = null)
     {
         if ($key) {
             if (isset($this->appConfig[$key])) {
                 return $this->appConfig[$key];
             } else {
-                if (!is_string($default) && is_callable($default)) {
+                if ($default instanceof Closure) {
                     return $default();
                 } else {
                     return $default;
@@ -98,7 +88,7 @@ abstract class AbstractAction extends CharcoalAction
      * @param  UriInterface $uri A URI.
      * @return void
      */
-    protected function setBaseUrl(UriInterface $uri)
+    protected function setBaseUrl(UriInterface $uri): void
     {
         $this->baseUrl = $uri;
     }
@@ -106,7 +96,7 @@ abstract class AbstractAction extends CharcoalAction
     /**
      * @return UriInterface
      */
-    public function baseUrl()
+    public function getBaseUrl(): UriInterface
     {
         return $this->baseUrl;
     }
@@ -119,7 +109,7 @@ abstract class AbstractAction extends CharcoalAction
      * The `$container` DI-container (from `Pimple`) should not be saved or passed around, only to be used to
      * inject dependencies (typically via setters).
      *
-     * @param Container $container A dependencies container instance.
+     * @param  Container $container A dependencies container instance.
      * @return void
      */
     protected function setDependencies(Container $container)

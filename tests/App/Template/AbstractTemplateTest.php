@@ -2,11 +2,8 @@
 
 namespace Tests\App\Template;
 
-// From 'psr/log'
-use Psr\Log\NullLogger;
-
-// From App
 use App\Template\AbstractTemplate;
+use Psr\Log\NullLogger;
 use Tests\TestCase;
 
 /**
@@ -24,7 +21,7 @@ class AbstractTemplateTest extends TestCase
     /**
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->obj = $this->createTemplate();
     }
@@ -35,7 +32,7 @@ class AbstractTemplateTest extends TestCase
      * @covers \App\Template\AbstractTemplate::debug
      * @return void
      */
-    public function testDebugIsFalseByDefault()
+    public function testDebugIsFalseByDefault(): void
     {
         $this->assertFalse($this->obj->debug());
     }
@@ -45,7 +42,7 @@ class AbstractTemplateTest extends TestCase
      *
      * @return AbstractTemplate
      */
-    protected function createTemplate()
+    protected function createTemplate(): AbstractTemplate
     {
         $mock = $this->getMockBuilder(AbstractTemplate::class)
                      ->disableOriginalConstructor()

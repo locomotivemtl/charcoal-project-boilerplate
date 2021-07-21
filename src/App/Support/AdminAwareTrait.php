@@ -4,16 +4,10 @@ namespace App\Support;
 
 use DateTime;
 use DateTimeInterface;
-
-// From 'charcoal-translator'
-use Charcoal\Translator\Translation;
-
-// From 'charcoal-object'
+use Charcoal\Cms\TemplateableInterface as Templateable;
 use Charcoal\Object\PublishableInterface as Publishable;
 use Charcoal\Object\RoutableInterface;
-
-// From 'charcoal-cms'
-use Charcoal\Cms\TemplateableInterface as Templateable;
+use Charcoal\Translator\Translation;
 
 /**
  * A model in the admin module.
@@ -37,9 +31,9 @@ trait AdminAwareTrait
     /**
      * Get the key for the form structure to use.
      *
-     * @return string|null
+     * @return ?string
      */
-    public function formIdent()
+    public function getFormIdent(): ?string
     {
         if ($this->formIdent === null) {
             $this->formIdent = $this->resolveFormIdent($this['id'] ? 'app.edit' : 'app.create');
@@ -54,7 +48,7 @@ trait AdminAwareTrait
      * @param  mixed $ident A form identifier to lookup.
      * @return string The resolved form identifier.
      */
-    protected function resolveFormIdent($ident)
+    protected function resolveFormIdent($ident): string
     {
         if ($this instanceof Templateable) {
             $template = $this['templateIdent'];
@@ -76,9 +70,9 @@ trait AdminAwareTrait
     /**
      * Get the model's macros.
      *
-     * @return mixed[]
+     * @return ?array<string, mixed>
      */
-    public function macro()
+    public function getMacro(): ?array
     {
         if ($this->macros === null) {
             $this->macros = [];
@@ -119,11 +113,11 @@ trait AdminAwareTrait
     }
 
     /**
-     * Retrieve the flattened URL Translation for usage in the admin interface.
+     * Retrieve the flattened multilingual URL for usage in the admin interface.
      *
-     * @return array
+     * @return array<string, string>
      */
-    public function adminViewUrl()
+    public function getAdminViewUrl(): array
     {
         if ($this instanceof RoutableInterface && $this['url'] instanceof Translation) {
             $url = $this['url']->data();

@@ -2,7 +2,6 @@
 
 namespace App\Template;
 
-// From App
 use App\Template\AbstractTemplate;
 
 /**
@@ -13,7 +12,7 @@ class HomeTemplate extends AbstractTemplate
     /**
      * @return string
      */
-    public function test()
+    public function getTest(): string
     {
         return 'TEST '.rand(0, 100);
     }

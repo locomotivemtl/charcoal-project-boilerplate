@@ -2,12 +2,9 @@
 
 namespace App\Template;
 
-// From 'charcoal-app'
+use App\Template\AbstractTemplate;
 use Charcoal\App\Handler\AbstractError;
 use Charcoal\App\Handler\HandlerAwareTrait;
-
-// From App
-use App\Template\AbstractTemplate;
 
 /**
  * Template Controller: Error Handler
