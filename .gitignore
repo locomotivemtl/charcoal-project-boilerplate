@@ -29,3 +29,4 @@ error_log
 
 /cache/
 /tmp/
+/.phpunit.result.cache
