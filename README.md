@@ -113,7 +113,23 @@ It is recommended to use `config/config.local.json` and making sure it is not co
 ★ cp config/config.sample.json config/config.local.json
 ```
 
-Create an empty database and ensure a SQL user has the proper permissions for this database. Then edit the `config/config.local.json` file with this information.
+Then edit the `config/config.local.json` file with this information.
+
+If your project does not require any database storage, use a database in memory such as SQLite by adding the following to the `config/config.local.json` file:
+
+```json
+{
+    "databases": {
+        "default": {
+            "type": "sqlite",
+            "database": ":memory:"
+        }
+    },
+    "default_database": "default"
+}
+```
+
+If your project uses MySQL, create an empty database and ensure a SQL user has the proper permissions for this database. Then add the following to the `config/config.local.json` file:
 
 ```json
 {

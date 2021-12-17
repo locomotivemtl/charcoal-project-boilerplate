@@ -1,12 +1,17 @@
 {
     "databases": {
-        "default": {
+        "mysql": {
+            "type": "mysql",
             "database": "charcoal",
             "username": "root",
             "password": ""
+        },
+        "sqlite": {
+            "type": "sqlite",
+            "database": ":memory:"
         }
     },
-    "default_database": "default",
+    "default_database": "mysql",
     "dev_mode": true,
     "logger": {
         "level": "debug"
