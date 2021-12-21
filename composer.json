@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": "^7.3 || ^8.0",
-        "locomotivemtl/charcoal-admin": "^0.26",
+        "locomotivemtl/charcoal-admin": "^0.27",
         "locomotivemtl/charcoal-app": "^0.9",
         "locomotivemtl/charcoal-attachment": "^0.10",
         "locomotivemtl/charcoal-cms": "^0.9",
