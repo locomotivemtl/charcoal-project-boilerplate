@@ -12,7 +12,7 @@
                     "public": {
                         "attributes": [
                             {
-                                "pattern": "!-(\\d+)?x(\\d+)?\\.[\\w-]+$!",
+                                "pattern": "!\\.(\\d+)?x(\\d+)?\\.[\\w-]+$!",
                                 "read": false,
                                 "write": false,
                                 "hidden": true,
@@ -29,7 +29,7 @@
                     "private": {
                         "attributes": [
                             {
-                                "pattern": "!-(\\d+)?x(\\d+)?\\.[\\w-]+$!",
+                                "pattern": "!\\.(\\d+)?x(\\d+)?\\.[\\w-]+$!",
                                 "read": false,
                                 "write": false,
                                 "hidden": true,
