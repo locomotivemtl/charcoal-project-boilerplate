@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5434ae68a025283c88e93b419c0f0309",
+    "content-hash": "af667ba061eaeb23ba42e7ced609a1c9",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -669,16 +669,16 @@
         },
         {
             "name": "league/climate",
-            "version": "3.7.0",
+            "version": "3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/climate.git",
-                "reference": "5c717c3032c5118be7ad2395dbe0813d9894e8c7"
+                "reference": "22243322c6f049240e0fa6ad6c3873343b6f6055"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/climate/zipball/5c717c3032c5118be7ad2395dbe0813d9894e8c7",
-                "reference": "5c717c3032c5118be7ad2395dbe0813d9894e8c7",
+                "url": "https://api.github.com/repos/thephpleague/climate/zipball/22243322c6f049240e0fa6ad6c3873343b6f6055",
+                "reference": "22243322c6f049240e0fa6ad6c3873343b6f6055",
                 "shasum": ""
             },
             "require": {
@@ -728,9 +728,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/climate/issues",
-                "source": "https://github.com/thephpleague/climate/tree/3.7.0"
+                "source": "https://github.com/thephpleague/climate/tree/3.8.1"
             },
-            "time": "2021-01-10T20:18:52+00:00"
+            "time": "2022-01-23T14:38:49+00:00"
         },
         {
             "name": "league/flysystem",
@@ -935,16 +935,16 @@
         },
         {
             "name": "locomotivemtl/charcoal-admin",
-            "version": "0.27.1",
+            "version": "0.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-admin.git",
-                "reference": "a0b9f749f820528afcd2cc26bdf9ee24b97557b0"
+                "reference": "3e1aa39153767108427e346b9287b934e23e84c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-admin/zipball/a0b9f749f820528afcd2cc26bdf9ee24b97557b0",
-                "reference": "a0b9f749f820528afcd2cc26bdf9ee24b97557b0",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-admin/zipball/3e1aa39153767108427e346b9287b934e23e84c1",
+                "reference": "3e1aa39153767108427e346b9287b934e23e84c1",
                 "shasum": ""
             },
             "require": {
@@ -1017,9 +1017,9 @@
             ],
             "support": {
                 "issues": "https://github.com/locomotivemtl/charcoal-admin/issues",
-                "source": "https://github.com/locomotivemtl/charcoal-admin/tree/0.27.1"
+                "source": "https://github.com/locomotivemtl/charcoal-admin/tree/0.27.2"
             },
-            "time": "2021-12-16T19:57:05+00:00"
+            "time": "2021-12-22T23:11:27+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-app",
@@ -1907,16 +1907,16 @@
         },
         {
             "name": "locomotivemtl/charcoal-ui",
-            "version": "0.3.13",
+            "version": "0.3.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-ui.git",
-                "reference": "994111f449036b4c9b124690398f202e8bf25479"
+                "reference": "4216cc9c0ddd0e5cfd99b2bca4e8e87f719347c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-ui/zipball/994111f449036b4c9b124690398f202e8bf25479",
-                "reference": "994111f449036b4c9b124690398f202e8bf25479",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-ui/zipball/4216cc9c0ddd0e5cfd99b2bca4e8e87f719347c4",
+                "reference": "4216cc9c0ddd0e5cfd99b2bca4e8e87f719347c4",
                 "shasum": ""
             },
             "require": {
@@ -1977,9 +1977,9 @@
             ],
             "support": {
                 "issues": "https://github.com/locomotivemtl/charcoal-ui/issues",
-                "source": "https://github.com/locomotivemtl/charcoal-ui/tree/master"
+                "source": "https://github.com/locomotivemtl/charcoal-ui/tree/0.3.13.1"
             },
-            "time": "2020-05-28T13:12:25+00:00"
+            "time": "2021-12-22T22:28:10+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-user",
@@ -2256,16 +2256,16 @@
         },
         {
             "name": "mustache/mustache",
-            "version": "v2.14.0",
+            "version": "v2.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/mustache.php.git",
-                "reference": "4e2724dd40ae9499a55e7db7df82665be0ab7e34"
+                "reference": "579ffa5c96e1d292c060b3dd62811ff01ad8c24e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/4e2724dd40ae9499a55e7db7df82665be0ab7e34",
-                "reference": "4e2724dd40ae9499a55e7db7df82665be0ab7e34",
+                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/579ffa5c96e1d292c060b3dd62811ff01ad8c24e",
+                "reference": "579ffa5c96e1d292c060b3dd62811ff01ad8c24e",
                 "shasum": ""
             },
             "require": {
@@ -2300,9 +2300,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/mustache.php/issues",
-                "source": "https://github.com/bobthecow/mustache.php/tree/v2.14.0"
+                "source": "https://github.com/bobthecow/mustache.php/tree/v2.14.1"
             },
-            "time": "2021-12-14T14:42:17+00:00"
+            "time": "2022-01-21T06:08:36+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -3212,20 +3212,23 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.23.1",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
+            },
+            "provide": {
+                "ext-mbstring": "*"
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
@@ -3272,7 +3275,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -3288,7 +3291,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T12:26:48+00:00"
+            "time": "2021-11-30T18:21:41+00:00"
         },
         {
             "name": "symfony/process",
@@ -3590,9 +3593,6 @@
             },
             "require": {
                 "php": "^7.1 || ^8.0"
-            },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
             },
             "require-dev": {
                 "doctrine/collections": "^1.0",
@@ -3911,16 +3911,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.5.1",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae"
+                "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/a12f7e301eb7258bb68acd89d4aefa05c2906cae",
-                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/93ebd0014cab80c4ea9f5e297ea48672f1b87706",
+                "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706",
                 "shasum": ""
             },
             "require": {
@@ -3955,9 +3955,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.1"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.0"
             },
-            "time": "2021-10-02T14:08:47+00:00"
+            "time": "2022-01-04T19:58:01+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -4346,16 +4346,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.10",
+            "version": "9.5.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c814a05837f2edb0d1471d6e3f4ab3501ca3899a"
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c814a05837f2edb0d1471d6e3f4ab3501ca3899a",
-                "reference": "c814a05837f2edb0d1471d6e3f4ab3501ca3899a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/597cb647654ede35e43b137926dfdfef0fb11743",
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743",
                 "shasum": ""
             },
             "require": {
@@ -4433,11 +4433,11 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.10"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
             },
             "funding": [
                 {
-                    "url": "https://phpunit.de/donate.html",
+                    "url": "https://phpunit.de/sponsors.html",
                     "type": "custom"
                 },
                 {
@@ -4445,7 +4445,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-25T07:38:51+00:00"
+            "time": "2022-01-24T07:33:35+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -5469,20 +5469,23 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce"
+                "reference": "30885182c981ab175d4d034db0f6f469898070ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/46cd95797e9df938fdd2b03693b5fca5e64b01ce",
-                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/30885182c981ab175d4d034db0f6f469898070ab",
+                "reference": "30885182c981ab175d4d034db0f6f469898070ab",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
+            },
+            "provide": {
+                "ext-ctype": "*"
             },
             "suggest": {
                 "ext-ctype": "For best performance"
@@ -5528,7 +5531,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5544,7 +5547,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-19T12:13:01+00:00"
+            "time": "2021-10-20T20:35:02+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -5664,5 +5667,5 @@
         "php": "^7.3 || ^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

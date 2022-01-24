@@ -26,7 +26,7 @@
         "locomotivemtl/charcoal-app": "^0.9",
         "locomotivemtl/charcoal-attachment": "^0.10",
         "locomotivemtl/charcoal-cms": "^0.9",
-        "mustache/mustache": "^2.13"
+        "mustache/mustache": "^2.14"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",
