@@ -45,6 +45,9 @@
                     }
                 },
                 "bind": {
+                    "*": [
+                        ":translateDirectoriesOnAnyCommand"
+                    ],
                     "upload.pre mkdir.pre mkfile.pre rename.pre archive.pre ls.pre": [
                         "Plugin.Normalizer.cmdPreprocess",
                         "Plugin.Sanitizer.cmdPreprocess"
