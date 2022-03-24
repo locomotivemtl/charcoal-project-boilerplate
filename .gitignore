@@ -9,6 +9,12 @@
 /www/uploads
 /var/
 
+# Locomotive Front-end Boilerplate
+# -------
+
+loconfig.*.json
+!loconfig.example.json
+
 # Package Managers
 # -------
 
