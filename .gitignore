@@ -1,10 +1,10 @@
 # Charcoal
 # -------
 
-/config/admin.*.*
-!/config/admin.sample.*
-/config/config.*.*
-!/config/config.sample.*
+/config/admin/admin.*.*
+!/config/admin/admin.sample.*
+/config/common/config.*.*
+!/config/common/config.sample.*
 /uploads/
 /www/uploads
 /var/
