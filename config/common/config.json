@@ -1,6 +1,7 @@
 {
     "project_name": "Acme",
     "timezone": "America/Montreal",
+    "admin_path": "admin",
     "admin_config": "config/admin.php",
     "apis": {
         "google": {

@@ -1,0 +1,10 @@
+{
+    "middlewares": {
+        "charcoal/translator/middleware/language": {
+            "active": true
+        },
+        "charcoal/cache/middleware/cache": {
+            "active": true
+        }
+    }
+}
