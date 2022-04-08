@@ -5,7 +5,7 @@
             "disallowed": [],
             "allowed": [],
             "error_message": "Not allowed",
-            "fail_on_invalid_ip": true,
+            "fail_on_invalid_ip": true
         }
     }
 }
