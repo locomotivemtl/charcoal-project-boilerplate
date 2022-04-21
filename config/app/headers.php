@@ -13,3 +13,4 @@ header("Content-Security-Policy-Report-Only: "
     ."upgrade-insecure-requests; "
     ."block-all-mixed-content; "
     ."report-uri /csp.php");
+
