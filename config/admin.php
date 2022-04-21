@@ -17,7 +17,3 @@ $this->addFile(__DIR__ . '/admin/headers.php');
 /** Import `charcoal-attachment` routes */
 $this->addFile(dirname(__DIR__) . '/vendor/locomotivemtl/charcoal-attachment/config/admin.json');
 
-
-
-
-
