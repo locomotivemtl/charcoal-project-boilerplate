@@ -153,9 +153,9 @@ By default, the project is named "Acme" and namespaced under `App` and is autolo
 There are a few occurrences of "Acme" in the boilerplate:
 
 - [config/admin.json](config/admin.json): See `admin.title`.
-- [config/config.json](config/config.json): See `project_name`.
+- [config/config.json](config/config.json): See `project_name` and `cache.prefix`.
 
-You should also change the name of the Composer package:
+You should also change the information of the Composer package:
 
 - [composer.json](composer.json): See `name`.
 

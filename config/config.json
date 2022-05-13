@@ -15,7 +15,7 @@
     "cache": {
         "active": true,
         "types": [ "apc", "memcache", "redis" ],
-        "prefix": "app"
+        "prefix": "acme"
     },
     "email": {
         "default_from": {
