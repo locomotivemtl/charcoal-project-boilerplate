@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.1",
-        "locomotivemtl/charcoal-admin": "^0.29",
+        "locomotivemtl/charcoal-admin": "^0.30",
         "locomotivemtl/charcoal-app": "^0.9",
         "locomotivemtl/charcoal-attachment": "^0.10",
         "locomotivemtl/charcoal-cms": "^0.10",
@@ -36,6 +36,7 @@
         "vimeo/psalm": "^4.23"
     },
     "config": {
+        "allow-plugins": {},
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
