@@ -30,9 +30,18 @@ composer.phar
 error_log
 /logs/
 
+# Testing
+# -------
+
+phpcs.xml
+phpstan.neon
+phpunit.xml
+psalm.xml
+
 # Caches
 # -------
 
+/.phpunit.result.cache
 /cache/
 /tmp/
-/.phpunit.result.cache
+/test-reports
