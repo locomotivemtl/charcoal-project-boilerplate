@@ -15,3 +15,6 @@ trim_trailing_whitespace = false
 
 [*.{ms,mustache}]
 insert_final_newline = false
+
+[*.{yml,yaml}]
+indent_size = 2

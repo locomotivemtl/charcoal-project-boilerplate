@@ -24,6 +24,7 @@ before_script:
     - mkdir -p build/logs\
 
 script:
+    - composer lint
     - composer test
 
 after_script:
