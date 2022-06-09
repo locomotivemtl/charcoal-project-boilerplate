@@ -1,10 +1,9 @@
 language: php
 
 php:
-    - 7.3
     - 7.4
     - 8.0
-    - nightly
+    - 8.1
 
 env:
     global:
@@ -13,7 +12,7 @@ env:
 
 matrix:
     allow_failures:
-        - php: nightly
+        - php: 8.1
 
 before_script:
     ## Init composer
