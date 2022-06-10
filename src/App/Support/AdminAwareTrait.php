@@ -80,7 +80,11 @@ trait AdminAwareTrait
             if (is_callable([ $this, 'macroable' ])) {
                 $properties = $this->macroable();
 
-                $date = function ($time) {
+                /**
+                 * @param  DateTimeInterface $time
+                 * @return ?array<string, string>
+                 */
+                $date = function (DateTimeInterface $time): ?array {
                     if ($time instanceof DateTimeInterface) {
                         return [
                             'atom'     => $time->format(DateTimeInterface::ATOM),

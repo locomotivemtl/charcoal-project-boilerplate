@@ -65,7 +65,7 @@ abstract class AbstractAction extends CharcoalAction
      *
      * @param  string|null $key     Optional data key to retrieve from the configset.
      * @param  mixed|null  $default The default value to return if data key does not exist.
-     * @return mixed|AppConfig|SettingsInterface
+     * @return mixed|AppConfig
      */
     public function getAppConfig(string $key = null, $default = null)
     {

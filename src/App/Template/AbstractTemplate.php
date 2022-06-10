@@ -161,6 +161,7 @@ abstract class AbstractTemplate extends AbstractWebTemplate
             echo file_get_contents($filePath);
             return ob_get_clean();
         }
+
         return '';
     }
 }

@@ -13,7 +13,7 @@ use Pimple\ServiceProviderInterface;
 class AppServiceProvider implements ServiceProviderInterface
 {
     /**
-     * @param  Container $container Pimple DI Container.
+     * @param  Container $container A service container.
      * @return void
      */
     public function register(Container $container)
@@ -21,8 +21,7 @@ class AppServiceProvider implements ServiceProviderInterface
         $container->register(new EmailServiceProvider());
         $container->register(new ModelServiceProvider());
 
-        $container->extend('view/mustache/helpers', function (array $helpers, Container $container): array {
-            unset($container);
+        $container->extend('view/mustache/helpers', function (array $helpers): array {
             $helper = [
                 /**
                  * Retrieve the current date/time.
@@ -33,6 +32,7 @@ class AppServiceProvider implements ServiceProviderInterface
                     'year' => date('Y'),
                 ],
             ];
+
             return array_merge($helpers, $helper);
         });
     }
