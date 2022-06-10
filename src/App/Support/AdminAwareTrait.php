@@ -2,7 +2,7 @@
 
 namespace App\Support;
 
-use DateTime;
+use App\Support\Temporal;
 use DateTimeInterface;
 use Charcoal\Cms\TemplateableInterface as Templateable;
 use Charcoal\Object\PublishableInterface as Publishable;
@@ -83,10 +83,10 @@ trait AdminAwareTrait
                 $date = function ($time) {
                     if ($time instanceof DateTimeInterface) {
                         return [
-                            'atom'     => $time->format(DateTime::ATOM),
-                            'dateTime' => $time->format(SQL_DATETIME_FORMAT),
-                            'date'     => $time->format(SQL_DATE_FORMAT),
-                            'time'     => $time->format(SQL_TIME_FORMAT),
+                            'atom'     => $time->format(DateTimeInterface::ATOM),
+                            'dateTime' => $time->format(Temporal::SQL_DATETIME_FORMAT),
+                            'date'     => $time->format(Temporal::SQL_DATE_FORMAT),
+                            'time'     => $time->format(Temporal::SQL_TIME_FORMAT),
                         ];
                     } else {
                         return null;
