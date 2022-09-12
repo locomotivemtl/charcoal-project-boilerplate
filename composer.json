@@ -56,26 +56,26 @@
     "prefer-stable": true,
     "scripts": {
         "fix": [
-            "@fix-phpcbf",
-            "@fix-psalter"
+            "@fix:phpcbf",
+            "@fix:psalter"
         ],
         "lint": [
-            "@lint-json",
-            "@lint-php",
-            "@lint-phpcs",
-            "@lint-phpstan",
-            "@lint-psalm"
+            "@lint:json",
+            "@lint:php",
+            "@lint:phpcs",
+            "@lint:phpstan",
+            "@lint:psalm"
         ],
         "test": [
-            "@test-phpunit"
+            "@test:phpunit"
         ],
-        "fix-phpcbf": "phpcbf -ps --colors src/",
-        "fix-psalter": "psalter",
-        "lint-json": "find {config,metadata} -type f -iname '*.json' -print0 2> /dev/null | xargs -0 jsonlint -q",
-        "lint-php": "find {src,tests} -type f -iname '*.php' -print0 2> /dev/null | xargs -0 -n1 -P8 php -l 2> /dev/null | grep -v '^No syntax errors detected'; test $? -eq 1",
-        "lint-phpcs": "phpcs -ps --colors src/",
-        "lint-phpstan": "phpstan analyse",
-        "lint-psalm": "psalm",
-        "test-phpunit": "phpunit --coverage-text"
+        "fix:phpcbf": "phpcbf -ps --colors src/",
+        "fix:psalter": "psalter",
+        "lint:json": "find {config,metadata} -type f -iname '*.json' -print0 2> /dev/null | xargs -0 jsonlint -q",
+        "lint:php": "find {src,tests} -type f -iname '*.php' -print0 2> /dev/null | xargs -0 -n1 -P8 php -l 2> /dev/null | grep -v '^No syntax errors detected'; test $? -eq 1",
+        "lint:phpcs": "phpcs -ps --colors src/",
+        "lint:phpstan": "phpstan analyse",
+        "lint:psalm": "psalm",
+        "test:phpunit": "phpunit --coverage-text"
     }
 }
