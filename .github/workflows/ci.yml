@@ -1,0 +1,116 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    name: PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - '7.4'
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: json, mbstring, pdo
+          coverage: xdebug
+          tools: composer, phpcs, phpstan, phpunit, psalm
+
+      - name: Validate Composer manifest
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        id: composer-install
+        run: composer install --prefer-dist --no-progress --optimize-autoloader
+
+      - name: Lint (JSON)
+        id: lint-json
+        if: ${{ always() && steps.composer-install.conclusion == 'success' }}
+        # Depending on the runner/shell, output is piped differently
+        # between commands resulting in false-positive edge cases.
+        #
+        # The following script swallows the error raised when there
+        # are no JSON files in the repository to lint.
+        run: |
+          # composer lint:json
+          RESULTS=$( \
+            find {config,metadata} -type f -iname '*.json' -print0 2> /dev/null | \
+            xargs -0 ./vendor/bin/jsonlint -q 2>&1 > /dev/null \
+          ) || true
+
+          if [[ -n "$RESULTS" && $RESULTS != 'No file name or json input given' ]]; then
+            echo $RESULTS >&2
+            false
+          fi
+
+      - name: Lint (PHP)
+        id: lint-php
+        if: ${{ always() && steps.composer-install.conclusion == 'success' }}
+        # Depending on the runner/shell, output is piped differently
+        # between commands resulting in false-positive edge cases.
+        #
+        # The following script aggregates the output of all PHP file
+        # linting done in parallel.
+        run: |
+          # composer lint:php
+          RESULTS=$( \
+            find {src,tests} -type f -iname '*.php' -print0 2> /dev/null | \
+            xargs -0 -n1 -P8 php -l 2> /dev/null | \
+            grep -v '^No syntax errors detected' \
+          ) || true
+
+          if [[ -n "$RESULTS" ]]; then
+            echo $RESULTS >&2
+            false
+          fi
+
+      - name: Lint (PHPCS)
+        id: lint-phpcs
+        if: ${{ always() && steps.lint-php.conclusion == 'success' }}
+        run: phpcs -ps --colors --report-full src/
+
+      - name: Lint (PHPStan)
+        id: lint-phpstan
+        if: ${{ always() && steps.lint-php.conclusion == 'success' }}
+        run: phpstan analyse --no-progress --error-format=github
+
+      - name: Lint (Psalm)
+        id: lint-psalm
+        if: ${{ always() && steps.lint-php.conclusion == 'success' }}
+        run: psalm --no-progress --output-format=github
+
+      - name: Test (PHPUnit)
+        id: test-phpunit
+        if: ${{ always() && steps.lint-php.conclusion == 'success' }}
+        run: vendor/bin/phpunit --coverage-clover "build/logs/clover.xml" --coverage-text
+
+      - name: Upload coverage results to Coveralls
+        id: coverage-coveralls
+        if: ${{ steps.test-phpunit.conclusion == 'success' }}
+        env:
+            COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+            composer global require php-coveralls/php-coveralls
+            php-coveralls --coverage_clover=build/logs/clover.xml -v

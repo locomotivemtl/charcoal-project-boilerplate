@@ -1,0 +1,102 @@
+image: php:7.4
+
+definitions:
+  steps:
+    - step: &setup-composer
+        name: Setup (PHP & Composer)
+        script:
+          - apt-get update && apt-get install -qy git unzip
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+          - composer validate --strict
+          - composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader
+          - composer require --no-interaction php-coveralls/php-coveralls
+        caches:
+          - composer
+        artifacts:
+          - vendor/**
+    - step: &lint-json
+        name: Lint (JSON)
+        script:
+          # - composer lint:json
+          - |
+            RESULTS=$( \
+              find {config,metadata} -type f -iname '*.json' -print0 2> /dev/null | \
+              xargs -0 ./vendor/bin/jsonlint -q 2>&1 > /dev/null \
+            ) || true
+
+            if [[ -n "$RESULTS" && $RESULTS != 'No file name or json input given' ]]; then
+              echo $RESULTS >&2
+              false
+            fi
+    - step: &lint-php
+        name: Lint (PHP)
+        script:
+          # - composer lint:php
+          - |
+            RESULTS=$( \
+              find {src,tests} -type f -iname '*.php' -print0 2> /dev/null | \
+              xargs -0 -n1 -P8 php -l 2> /dev/null | \
+              grep -v '^No syntax errors detected' \
+            ) || true
+
+            if [[ -n "$RESULTS" ]]; then
+              echo $RESULTS >&2
+              false
+            fi
+    - step: &lint-phpcs
+        name: Lint (PHPCS)
+        script:
+          - mkdir ./test-reports
+          - ./vendor/bin/phpcs -ps --colors --report-full --report-junit="./test-reports/phpcs.junit.xml" src/
+    - step: &lint-phpstan
+        name: Lint (PHPStan)
+        script:
+          - mkdir ./test-reports
+          - ./vendor/bin/phpstan analyse -l1 --error-format=junit > ./test-reports/phpstan.junit.xml 2> /dev/null || true
+          - ./vendor/bin/phpstan analyse -l1 --no-progress --error-format=table
+    - step: &lint-psalm
+        name: Lint (Psalm)
+        script:
+          - mkdir ./test-reports
+          - ./vendor/bin/psalm --no-progress --output-format=junit src/ > ./test-reports/psalm.junit.xml 2> /dev/null || true
+          - ./vendor/bin/psalm --no-progress --output-format=github
+    - step: &test-phpunit
+        name: Test (PHPUnit)
+        script:
+          - mkdir ./test-reports
+          - yes | pecl install xdebug
+          - docker-php-ext-enable xdebug
+          - XDEBUG_MODE=coverage ./vendor/bin/phpunit --no-coverage --coverage-text --coverage-clover="./test-reports/phpunit.clover.xml" --log-junit="./test-reports/phpunit.junit.xml"
+        artifacts:
+          - test-reports/**
+    - step: &coverage-coveralls
+        name: Upload coverage
+        script:
+          - apt-get update && apt-get install -qy git
+          - ./vendor/bin/php-coveralls --coverage_clover="./test-reports/phpunit.clover.xml" --json_path="./test-reports/coveralls-upload.json" -v
+
+pipelines:
+  branches:
+    '{main,master,staging,develop}':
+      - step: *setup-composer
+      - parallel:
+          - step: *lint-json
+          - step: *lint-php
+      - parallel:
+          - step: *lint-phpcs
+          - step: *lint-phpstan
+          - step: *lint-psalm
+          - step: *test-phpunit
+      - step: *coverage-coveralls
+  pull-requests:
+    '**':
+      - step: *setup-composer
+      - parallel:
+          - step: *lint-json
+          - step: *lint-php
+      - parallel:
+          - step: *lint-phpcs
+          - step: *lint-phpstan
+          - step: *lint-psalm
+          - step: *test-phpunit
+      - step: *coverage-coveralls
