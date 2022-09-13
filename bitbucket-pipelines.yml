@@ -87,7 +87,7 @@ pipelines:
           - step: *lint-phpstan
           - step: *lint-psalm
           - step: *test-phpunit
-      - step: *coverage-coveralls
+      # - step: *coverage-coveralls
   pull-requests:
     '**':
       - step: *setup-composer
@@ -99,4 +99,4 @@ pipelines:
           - step: *lint-phpstan
           - step: *lint-psalm
           - step: *test-phpunit
-      - step: *coverage-coveralls
+      # - step: *coverage-coveralls

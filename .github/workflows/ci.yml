@@ -110,11 +110,11 @@ jobs:
         if: ${{ always() && steps.lint-php.conclusion == 'success' }}
         run: vendor/bin/phpunit --coverage-clover "build/logs/clover.xml" --coverage-text
 
-      - name: Upload coverage results to Coveralls
-        id: coverage-coveralls
-        if: ${{ steps.test-phpunit.conclusion == 'success' }}
-        env:
-            COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-            composer global require php-coveralls/php-coveralls
-            php-coveralls --coverage_clover=build/logs/clover.xml -v
+      # - name: Upload coverage results to Coveralls
+      #   id: coverage-coveralls
+      #   if: ${{ steps.test-phpunit.conclusion == 'success' }}
+      #   env:
+      #       COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #       composer global require php-coveralls/php-coveralls
+      #       php-coveralls --coverage_clover=build/logs/clover.xml -v
