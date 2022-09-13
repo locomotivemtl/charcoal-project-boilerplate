@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+<files psalm-version="4.27.0@faf106e717c37b8c81721845dba9de3d8deed8ff">
     <file src="src/App/ServiceProvider/AppServiceProvider.php">
         <ParamNameMismatch occurrences="1">
             <code>$container</code>
         </ParamNameMismatch>
-    </file>
-    <file src="src/App/Template/AbstractTemplate.php">
-        <UndefinedDocblockClass occurrences="5">
-            <code>$this-&gt;appConfig('apis.google')</code>
-            <code>$this-&gt;appConfig('apis.typekit')</code>
-            <code>$this-&gt;appConfig('project_name')</code>
-            <code>$this-&gt;appConfig('project_name')</code>
-            <code>$this-&gt;appConfig()</code>
-        </UndefinedDocblockClass>
     </file>
 </files>

@@ -16,7 +16,7 @@ class ErrorTemplate extends AbstractTemplate
     /**
      * Retrieve the application debug mode.
      *
-     * @return boolean
+     * @return bool
      */
     public function debug()
     {
@@ -29,45 +29,55 @@ class ErrorTemplate extends AbstractTemplate
 
     /**
      * Get the error code.
-     *
-     * @return integer
      */
-    public function errorCode()
+    public function errorCode(): ?int
     {
-        return $this->appHandler()->getCode();
+        $handler = $this->appHandler();
+        if ($handler instanceof AbstractError) {
+            return $handler->getCode();
+        }
+
+        return null;
     }
 
     /**
      * Get the error message.
-     *
-     * @return string
      */
-    public function errorMessage()
+    public function errorMessage(): ?string
     {
-        return $this->appHandler()->getMessage();
+        $handler = $this->appHandler();
+        if ($handler instanceof AbstractError) {
+            return $handler->getMessage();
+        }
+
+        return null;
     }
 
     /**
      * Get the error title.
-     *
-     * @return string
      */
-    public function errorTitle()
+    public function errorTitle(): ?string
     {
-        return $this->appHandler()->getSummary();
+        $handler = $this->appHandler();
+        if ($handler instanceof AbstractError) {
+            return $handler->getSummary();
+        }
+
+        return null;
     }
 
     /**
      * Get the error details as HTML.
-     *
-     * @return string|null
      */
-    final public function htmlErrorDetails()
+    public function htmlErrorDetails(): ?string
     {
         if ($this->debug()) {
-            return $this->appHandler()->renderHtmlErrorDetails();
-        } else {
-            return null;
+            $handler = $this->appHandler();
+            if ($handler instanceof AbstractError) {
+                return $handler->renderHtmlErrorDetails();
+            }
         }
+
+        return null;
     }
 }

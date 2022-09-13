@@ -14,7 +14,7 @@ abstract class AbstractTemplate extends AbstractWebTemplate
      *
      * @var string
      */
-    const ASSETS_VERSION = '1.0';
+    public const ASSETS_VERSION = '1.0.0';
 
 
 
@@ -155,7 +155,7 @@ abstract class AbstractTemplate extends AbstractWebTemplate
      */
     public function criticalCss()
     {
-        $filePath = $this->appConfig()->publicPath().'assets/styles/critical.css';
+        $filePath = $this->appConfig()->publicPath() . 'assets/styles/critical.css';
         if (file_exists($filePath)) {
             ob_start();
             echo file_get_contents($filePath);

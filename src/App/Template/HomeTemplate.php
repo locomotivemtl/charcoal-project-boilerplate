@@ -14,6 +14,6 @@ class HomeTemplate extends AbstractTemplate
      */
     public function getTest(): string
     {
-        return 'TEST '.rand(0, 100);
+        return 'TEST ' . rand(0, 100);
     }
 }

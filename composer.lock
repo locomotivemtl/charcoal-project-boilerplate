@@ -1244,16 +1244,16 @@
         },
         {
             "name": "locomotivemtl/charcoal-cms",
-            "version": "0.10.0.1",
+            "version": "0.10.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/locomotivemtl/charcoal-cms.git",
-                "reference": "1f126668d8815fb8c50728d6ec86edc650b5c049"
+                "reference": "9490ca3ad1725555565a535b76e873d2bb34ac57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/locomotivemtl/charcoal-cms/zipball/1f126668d8815fb8c50728d6ec86edc650b5c049",
-                "reference": "1f126668d8815fb8c50728d6ec86edc650b5c049",
+                "url": "https://api.github.com/repos/locomotivemtl/charcoal-cms/zipball/9490ca3ad1725555565a535b76e873d2bb34ac57",
+                "reference": "9490ca3ad1725555565a535b76e873d2bb34ac57",
                 "shasum": ""
             },
             "require": {
@@ -1311,9 +1311,9 @@
             ],
             "support": {
                 "issues": "https://github.com/locomotivemtl/charcoal-cms/issues",
-                "source": "https://github.com/locomotivemtl/charcoal-cms/tree/0.10.0.1"
+                "source": "https://github.com/locomotivemtl/charcoal-cms/tree/0.10.0.2"
             },
-            "time": "2022-07-06T14:00:36+00:00"
+            "time": "2022-09-13T15:51:28+00:00"
         },
         {
             "name": "locomotivemtl/charcoal-config",
