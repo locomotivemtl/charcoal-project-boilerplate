@@ -19,16 +19,17 @@ loconfig.*.json
 # -------
 
 composer.phar
+node_modules/
+bower_components/
 /vendor/
-/node_modules/
-/bower_components/
 
 # Logging
 # -------
 
 *.log
 error_log
-/logs/
+logs/
+reports/
 
 # Testing
 # -------
@@ -41,7 +42,7 @@ psalm.xml
 # Caches
 # -------
 
-/.phpunit.result.cache
-/cache/
-/test-reports/
-/tmp/
+.phpunit.result.cache
+cache/
+test-reports/
+tmp/
