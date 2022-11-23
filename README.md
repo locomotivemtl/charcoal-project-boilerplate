@@ -1,6 +1,8 @@
 Charcoal Project Boilerplate
 ============================
 
+> ⚠️ This skeleton is built for [`locomotivemtl/charcoal-*`](https://packagist.org/packages/locomotivemtl/) and is deprecated in favour of [`charcoal/boilerplate`](https://github.com/charcoalphp/boilerplate).
+
 The goal of this project is to provide a fully working "boilerplate" (empty _skeleton_ project) using the Charcoal framework.
 
 It can also optionally set up the [Locomotive Boilerplate](https://github.com/locomotivemtl/locomotive-boilerplate) for the frontend.
